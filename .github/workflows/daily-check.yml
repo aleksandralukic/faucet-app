@@ -9,9 +9,6 @@ on:
   push:
     branches: [main]
 
-permissions:
-  contents: write
-
 concurrency:
   group: faucet-check
   cancel-in-progress: false
@@ -19,6 +16,8 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -40,3 +39,32 @@ jobs:
             git commit -m "chore: daily faucet status $(date -u +%Y-%m-%d)"
             git push
           fi
+
+  # Publishing lives in the same workflow, not a separate one triggered by the
+  # commit above. Commits pushed with GITHUB_TOKEN deliberately do not trigger
+  # other workflows, so a standalone deploy workflow would never see the daily
+  # status update and the site would go stale.
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Re-checkout so we pick up the status.json the check job just pushed.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
