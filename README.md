@@ -1,11 +1,16 @@
 # 🚰 Faucet App
 
-A dynamic list of blockchain testnet faucets for QA engineers, with an automated
-daily health check.
+**[→ Live site](https://aleksandralukic.github.io/faucet-app/)**
+
+A live status dashboard for blockchain testnet faucets. 36 faucets across 30+
+networks, health-checked every day, so you find out a faucet is dead here
+rather than halfway through a test run.
 
 - **Static site** — vanilla HTML/CSS/JS, no build step, no dependencies.
 - **Daily cron** — a GitHub Actions job checks every faucet and commits the results.
 - **Status history** — each faucet keeps its last 30 check results, rendered as a sparkline.
+
+Built by a QA engineer who got tired of discovering broken faucets the hard way.
 
 ## Layout
 
@@ -28,6 +33,17 @@ The page needs to be served over HTTP — opening `index.html` via `file://` wil
 fail because `fetch` can't read local files under that scheme.
 
 ## Adding a faucet
+
+**Contributions are very welcome** — especially replacements for faucets the
+dashboard shows as dead. Fork, edit `data/faucets.json`, open a PR. There's no
+build step and no test suite to run; if the JSON parses, CI will check the new
+entry on the next run and the result shows up on the site automatically.
+
+Equally useful without writing any code: if you spot a faucet marked `down`
+that actually works in a browser (or one marked `up` that's quietly dry),
+[open an issue](https://github.com/aleksandralukic/faucet-app/issues) — the
+checker can't attempt a real claim, so human reports are the only way to catch
+that class of failure.
 
 Append an object to `data/faucets.json`:
 
