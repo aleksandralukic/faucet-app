@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faucet App — Testnet Faucet Status</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚰</text></svg>">
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <h1>🚰 Faucet App</h1>
+      <p class="tagline">Testnet faucets for blockchain QA — checked daily.</p>
+      <div id="summary" class="summary" aria-live="polite"></div>
+      <p id="generated" class="generated"></p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search currency, network, faucet name…" aria-label="Search faucets">
+      <div class="filters" id="statusFilters" role="group" aria-label="Filter by status"></div>
+      <label class="toggle">
+        <input type="checkbox" id="hideCaptcha"> Hide captcha-gated
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="hideWallet"> Hide wallet-required
+      </label>
+    </div>
+
+    <p id="count" class="count"></p>
+    <div id="list" class="list"></div>
+    <p id="empty" class="empty" hidden>No faucets match those filters.</p>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Status is a best-effort HTTP + page-content check, not a real claim attempt. A green light means the page responded — it can't prove the faucet still has funds.</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

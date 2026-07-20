@@ -1,0 +1,353 @@
+[
+  {
+    "id": "aave-staging",
+    "currency": "AAVE",
+    "name": "AAVE Staging Faucet",
+    "url": "https://staging.aave.com/faucet/",
+    "network": "Ethereum Goerli",
+    "requiresWallet": true,
+    "requiresCaptcha": false,
+    "notes": "Import token 0x8153A21dFeB1F67024aA6C6e611432900FF3dcb9 in Metamask, connect to staging.aave.com, click Faucet for 100 AAVE. Uses ETH address."
+  },
+  {
+    "id": "polypore-atom",
+    "currency": "ATOM",
+    "name": "Polypore Faucet",
+    "url": "https://faucet-2.polypore.xyz/",
+    "network": "Cosmos provider testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "notes": "No captcha. Switched from theta to provider testnet."
+  },
+  {
+    "id": "cardano-preprod",
+    "currency": "ADA",
+    "name": "Cardano Preprod Faucet",
+    "url": "https://docs.cardano.org/cardano-testnet/tools/faucet",
+    "network": "Cardano Preprod",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "Select Preprod Testnet from dropdown. Explorer: https://preprod.cardanoscan.io/transaction/"
+  },
+  {
+    "id": "bnb-smart-chain",
+    "currency": "BNB",
+    "name": "BNB Smart Chain Faucet",
+    "url": "https://testnet.bnbchain.org/faucet-smart",
+    "network": "BNB Smart Chain Testnet",
+    "requiresWallet": true,
+    "requiresCaptcha": false,
+    "notes": "Only Smart Chain (0x...) addresses accepted. Forward to Beacon Chain (tbnb...) via Binance Wallet if needed."
+  },
+  {
+    "id": "googol-bch",
+    "currency": "BCH",
+    "name": "Googol BCH Faucet",
+    "url": "https://tbch.googol.cash/",
+    "network": "Bitcoin Cash Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true
+  },
+  {
+    "id": "bitcoinfaucet-uo1",
+    "currency": "BTC",
+    "name": "BitcoinFaucet UO1",
+    "url": "https://bitcoinfaucet.uo1.net/",
+    "network": "Bitcoin Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "Does not work with SegWit addresses."
+  },
+  {
+    "id": "coinfaucet-btc",
+    "currency": "BTC",
+    "name": "CoinFaucet BTC Testnet",
+    "url": "https://coinfaucet.eu/en/btc-testnet/",
+    "network": "Bitcoin Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "Alternative when bitcoinfaucet.uo1.net fails. Does not work with SegWit."
+  },
+  {
+    "id": "agoric-devnet",
+    "currency": "BLD",
+    "name": "Agoric Devnet Faucet",
+    "url": "https://devnet.faucet.agoric.net/",
+    "network": "Agoric Devnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false
+  },
+  {
+    "id": "westend-matrix",
+    "currency": "DOT",
+    "name": "Westend Matrix Faucet",
+    "url": "https://app.element.io/",
+    "network": "Polkadot Westend",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "notes": "Join #westend_faucet:matrix.org and send '!drip <your-dot-address>'.",
+    "check": { "mode": "manual", "reason": "Faucet is a Matrix chat room; the URL is just the Element client." }
+  },
+  {
+    "id": "sepolia-faucet",
+    "currency": "ETH",
+    "name": "Sepolia Faucet",
+    "url": "https://www.sepoliafaucet.io/",
+    "network": "Ethereum Sepolia",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "Use Metamask on Sepolia."
+  },
+  {
+    "id": "solfaucet",
+    "currency": "SOL",
+    "name": "SolFaucet",
+    "url": "https://solfaucet.com/",
+    "network": "Solana Devnet/Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "Click Testnet tab. Alternatives: Triangle, QuickNode airdrop."
+  },
+  {
+    "id": "xrpl-tx-sender",
+    "currency": "XRP",
+    "name": "XRPL Tx Sender",
+    "url": "https://xrpl.org/tx-sender.html",
+    "network": "XRP Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "notes": "Historically unreliable."
+  },
+  {
+    "id": "algoexplorer-dispenser",
+    "currency": "ALGO",
+    "name": "AlgoExplorer Dispenser",
+    "url": "https://testnet.algoexplorer.io/dispenser",
+    "network": "Algorand Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "Alternative: AlgoKit lora."
+  },
+  {
+    "id": "shibe-technology",
+    "currency": "DOGE",
+    "name": "Shibe Technology",
+    "url": "https://shibe.technology/",
+    "network": "Dogecoin Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true
+  },
+  {
+    "id": "stellar-friendbot",
+    "currency": "XLM",
+    "name": "Stellar Friendbot",
+    "url": "https://friendbot.stellar.org/",
+    "network": "Stellar Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "notes": "Append ?addr=<address> to fund. Alternatives: Freighter wallet built-in faucet, Triangle, Demo Wallet (10,000 XLM).",
+    "check": { "okStatus": [200, 400], "skipContentScan": true, "reason": "Bare GET returns 400 JSON asking for addr — that means the service is healthy." }
+  },
+  {
+    "id": "circle-faucet",
+    "currency": "USDC/EURC",
+    "name": "Circle Faucet",
+    "url": "https://faucet.circle.com/",
+    "network": "Multi-chain (XLM, ETH, etc.)",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "10 USDC/EURC every 24h. If XLM daily limit exceeded, swap XLM->USDC via Freighter on Testnet."
+  },
+  {
+    "id": "covalent-avax",
+    "currency": "AVAX-C",
+    "name": "Covalent Faucet",
+    "url": "https://www.covalenthq.com/faucet/",
+    "network": "Avalanche Fuji C-Chain",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "2 AVAX on C-Chain. Also dispenses USDC."
+  },
+  {
+    "id": "flow-testnet",
+    "currency": "FLOW",
+    "name": "Flow Testnet Faucet",
+    "url": "https://faucet.flow.com/",
+    "network": "Flow Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "1000 FLOW per request. Moved here from testnet-faucet.onflow.org."
+  },
+  {
+    "id": "flare-faucet",
+    "currency": "FLARE",
+    "name": "Flare Faucet",
+    "url": "https://faucet.flare.network/",
+    "network": "Flare Coston",
+    "requiresWallet": false,
+    "requiresCaptcha": true
+  },
+  {
+    "id": "polygon-faucet-matic",
+    "currency": "MATIC",
+    "name": "Polygon Faucet",
+    "url": "https://faucet.polygon.technology/",
+    "network": "Polygon Amoy",
+    "requiresWallet": true,
+    "requiresCaptcha": false,
+    "notes": "Requires Discord connection."
+  },
+  {
+    "id": "fantom-faucet",
+    "currency": "FTM",
+    "name": "Fantom Faucet",
+    "url": "https://faucet.fantom.network/",
+    "network": "Fantom Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true
+  },
+  {
+    "id": "bithomp-faucet",
+    "currency": "XRP/SOLO",
+    "name": "Bithomp Faucet",
+    "url": "https://test.bithomp.com/faucet/",
+    "network": "XRP Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true
+  },
+  {
+    "id": "core-testnet",
+    "currency": "CORE",
+    "name": "Core Testnet Faucet",
+    "url": "https://scan.test2.btcs.network/faucet",
+    "network": "Core test2",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "Mainnet swap CORE<->USDT-CORE at https://app.corex.network/"
+  },
+  {
+    "id": "sui-faucet-docs",
+    "currency": "SUI",
+    "name": "Sui Faucet Docs",
+    "url": "https://docs.sui.io/getting-started/onboarding/get-coins",
+    "network": "Sui Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "notes": "Docs page, not a direct faucet UI. Also obtainable via Discord."
+  },
+  {
+    "id": "hedera-portal",
+    "currency": "HBAR",
+    "name": "Hedera Portal",
+    "url": "https://portal.hedera.com/",
+    "network": "Hedera Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "notes": "Requires Hedera Portal account."
+  },
+  {
+    "id": "dash-crowdnode",
+    "currency": "DASH",
+    "name": "Dash CrowdNode Faucet",
+    "url": "http://faucet.test.dash.crowdnode.io/",
+    "network": "Dash Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "HTTP only (no TLS)."
+  },
+  {
+    "id": "hiro-stacks-api",
+    "currency": "STX",
+    "name": "Hiro Stacks Faucet API",
+    "url": "https://api.testnet.hiro.so/extended/v1/faucets/stx",
+    "network": "Stacks Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "notes": "curl -L -X POST 'https://api.testnet.hiro.so/extended/v1/faucets/stx?address=<ADDR>&stacking=true|false'. stacking=true: 1 req / 2 days. false: 1 req / 2 min.",
+    "check": { "okStatus": [200, 400, 403, 404, 405], "skipContentScan": true, "reason": "POST-only API endpoint; a GET response of any kind proves the API is reachable." }
+  },
+  {
+    "id": "faucy-vfy",
+    "currency": "VFY",
+    "name": "Faucy",
+    "url": "https://faucy.app/",
+    "network": "VFY Testnet",
+    "requiresWallet": true,
+    "requiresCaptcha": true,
+    "notes": "Connect supported wallet (e.g. Subwallet). 0.5 tVFY per claim."
+  },
+  {
+    "id": "polygon-faucet-pol",
+    "currency": "POL",
+    "name": "Polygon Amoy Faucet",
+    "url": "https://faucet.polygon.technology/",
+    "network": "Polygon Amoy",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "notes": "Paste address, click CLAIM. 0.01 POL per claim. Same site as the MATIC entry."
+  },
+  {
+    "id": "aptos-testnet",
+    "currency": "APT",
+    "name": "Aptos Testnet Faucet",
+    "url": "https://aptos.dev/network/faucet",
+    "network": "Aptos Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "Requires Google account."
+  },
+  {
+    "id": "multiversx-devnet",
+    "currency": "EGLD",
+    "name": "MultiversX dApp Template",
+    "url": "https://devnet-wallet.multiversx.com/",
+    "network": "MultiversX Devnet",
+    "requiresWallet": true,
+    "requiresCaptcha": false
+  },
+  {
+    "id": "beryx-filecoin",
+    "currency": "FIL",
+    "name": "Beryx Filecoin Faucet",
+    "url": "https://beryx.zondax.ch/faucet",
+    "network": "Filecoin Calibration",
+    "requiresWallet": false,
+    "requiresCaptcha": true
+  },
+  {
+    "id": "near-faucet",
+    "currency": "NEAR",
+    "name": "NEAR Faucet",
+    "url": "https://docs.near.org/faucet",
+    "network": "NEAR Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false
+  },
+  {
+    "id": "zilliqa-faucet",
+    "currency": "ZIL",
+    "name": "Zilliqa Faucet",
+    "url": "https://dev-wallet.zilliqa.com/faucet",
+    "network": "Zilliqa Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true
+  },
+  {
+    "id": "sei-atlantic",
+    "currency": "SEI",
+    "name": "Sei Atlantic Faucet",
+    "url": "https://atlantic-2.app.sei.io/faucet/",
+    "network": "Sei Atlantic-2",
+    "requiresWallet": true,
+    "requiresCaptcha": false
+  },
+  {
+    "id": "provenance-explorer",
+    "currency": "HASH",
+    "name": "Provenance Explorer",
+    "url": "https://explorer.test.provenance.io/",
+    "network": "Provenance Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false
+  }
+]
