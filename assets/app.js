@@ -1,4 +1,5 @@
-const STATUS_ORDER = ["down", "degraded", "manual", "up", "unknown"];
+// Drives sort order, summary pill order, and filter button order.
+const STATUS_ORDER = ["up", "degraded", "down", "manual", "unknown"];
 const STATUS_LABEL = {
   up: "Up",
   degraded: "Degraded",
