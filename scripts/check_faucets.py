@@ -151,8 +151,8 @@ FAILURE_KINDS = {
         "permanent": False,
     },
     "tls_error": {
-        "label": "TLS handshake failed",
-        "advice": "The server's TLS configuration is broken or too old to negotiate. Often unmaintained infrastructure.",
+        "label": "TLS handshake failed (checker limitation)",
+        "advice": "Our automated client could not negotiate TLS with this host. This is often a client-side limitation rather than an outage — the faucet may work fine in a browser. Verify by hand.",
         "permanent": False,
     },
     "connection": {
@@ -237,6 +237,13 @@ def classify_failure(result):
     result["failureLabel"] = FAILURE_KINDS[kind]["label"]
     result["failureAdvice"] = FAILURE_KINDS[kind]["advice"]
     result["failurePermanent"] = FAILURE_KINDS[kind]["permanent"]
+
+    # A TLS negotiation failure from our stdlib client is usually a client-side
+    # limitation, not a real outage (the site often works in a browser). Don't
+    # brand it a hard "down" — downgrade to degraded so it reads as "verify".
+    if kind == "tls_error" and result["status"] == "down":
+        result["status"] = "degraded"
+
     return result
 
 
