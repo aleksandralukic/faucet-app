@@ -175,6 +175,11 @@ FAILURE_KINDS = {
         "advice": "The server refused an automated request. This usually means bot protection, and the faucet often works fine in a real browser.",
         "permanent": False,
     },
+    "http_429": {
+        "label": "Rate limited (429)",
+        "advice": "The server is rate-limiting our automated check. This is temporary and usually means the faucet works fine in a browser — try again later.",
+        "permanent": False,
+    },
     "http_5xx": {
         "label": "Server error",
         "advice": "The faucet's own backend is erroring. Typically temporary — worth retrying later.",
@@ -222,6 +227,8 @@ def classify_failure(result):
         kind = "http_404"
     elif code == 403:
         kind = "http_403"
+    elif code == 429:
+        kind = "http_429"
     elif code is not None and 500 <= code < 600:
         kind = "http_5xx"
     elif code is not None:
@@ -276,6 +283,10 @@ def check_url(url, cfg):
         if code == 403:
             result["status"] = "degraded"
             result["reason"] = "HTTP 403 — likely bot protection, verify by hand"
+        # 429 is rate limiting — temporary, and usually fine in a browser.
+        elif code == 429:
+            result["status"] = "degraded"
+            result["reason"] = "HTTP 429 — rate limited, verify by hand"
         return result
 
     if cfg.get("skipContentScan"):
