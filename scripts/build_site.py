@@ -28,7 +28,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 
 # Change this one value when moving to a custom domain (no trailing slash).
-SITE_URL = os.environ.get("SITE_URL", "https://aleksandralukic.github.io/faucet-app").rstrip("/")
+SITE_URL = os.environ.get("SITE_URL", "https://testnetfaucets.dev").rstrip("/")
 SITE_NAME = "Faucet App"
 
 STATUS_LABEL = {

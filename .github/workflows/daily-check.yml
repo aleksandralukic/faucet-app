@@ -44,7 +44,7 @@ jobs:
 
       - name: Build static site
         env:
-          SITE_URL: https://aleksandralukic.github.io/faucet-app
+          SITE_URL: https://testnetfaucets.dev
         run: python3 scripts/build_site.py
 
       - name: Commit status and generated pages
