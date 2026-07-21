@@ -1,12 +1,15 @@
 // Drives sort order, summary pill order, and filter button order.
 const STATUS_ORDER = ["up", "degraded", "down", "manual", "unknown"];
 const STATUS_LABEL = {
-  up: "Up",
+  up: "Working",
   degraded: "Degraded",
   down: "Down",
-  manual: "Manual",
+  manual: "Manual check",
   unknown: "Unknown",
 };
+
+// Turn "AAVE" / "USDC/EURC" into the per-currency page slug the builder uses.
+const currencySlug = (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
 const state = {
   faucets: [],
@@ -139,8 +142,15 @@ function card(f) {
   const tags = [];
   if (f.requiresCaptcha) tags.push("captcha");
   if (f.requiresWallet) tags.push("wallet connect");
+  if (st?.uptimePct != null) tags.push(`${st.uptimePct}% uptime`);
   if (st?.responseMs != null) tags.push(`${st.responseMs} ms`);
   if (st?.httpStatus != null) tags.push(`HTTP ${st.httpStatus}`);
+
+  const failLine = st?.failureLabel
+    ? `<p class="reason">${esc(st.failureLabel)} — ${esc(st.failureAdvice || "")}</p>`
+    : st?.reason
+    ? `<p class="reason">${esc(st.reason)}</p>`
+    : "";
 
   return `
     <article class="card ${s}">
@@ -155,8 +165,9 @@ function card(f) {
       ${f.notes ? `<p class="notes">${esc(f.notes)}</p>` : ""}
       <div class="meta">
         ${tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}
+        <a class="tag" href="${currencySlug(f.currency)}-testnet-faucet/">${esc(f.currency)} faucet status →</a>
       </div>
-      ${st?.reason ? `<p class="reason">${esc(st.reason)}</p>` : ""}
+      ${failLine}
       ${st?.redirectedTo ? `<p class="reason">Redirects to ${esc(st.redirectedTo)} — consider updating the URL.</p>` : ""}
     </article>`;
 }

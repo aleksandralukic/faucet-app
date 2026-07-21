@@ -3,17 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Faucet App — Testnet Faucet Status</title>
+  <title>Testnet Faucet Status — Are They Down? Checked Daily | Faucet App</title>
+  <meta name="description" content="Live status of blockchain testnet faucets — Sepolia, BTC, SOL, and 30+ more networks. Find out which testnet faucets are down before you waste a test run. Checked daily.">
+  <link rel="canonical" href="https://aleksandralukic.github.io/faucet-app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Testnet Faucet Status — Are They Down?">
+  <meta property="og:description" content="Live status of 36 blockchain testnet faucets across 30+ networks, checked daily. Find out which are down before you waste a test run.">
+  <meta property="og:url" content="https://aleksandralukic.github.io/faucet-app/">
+  <meta property="og:site_name" content="Faucet App">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Testnet Faucet Status — Are They Down?">
+  <meta name="twitter:description" content="Live status of 36 blockchain testnet faucets, checked daily.">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚰</text></svg>">
+  <!-- Populated by scripts/build_site.py at deploy time. -->
+  <script type="application/ld+json" id="ld-home">{}</script>
 </head>
 <body>
   <header class="masthead">
     <div class="wrap">
-      <h1>🚰 Faucet App</h1>
-      <p class="tagline">Testnet faucets for blockchain QA — checked daily.</p>
+      <h1>🚰 Testnet Faucet Status</h1>
+      <p class="tagline">A live status dashboard for blockchain testnet faucets — checked daily, so you find out a faucet is dead here rather than halfway through a test run.</p>
+      <p id="seo-summary" class="seo-summary">Loading the latest faucet status…</p>
       <div id="summary" class="summary" aria-live="polite"></div>
       <p id="generated" class="generated"></p>
+      <p class="quicklinks"><a href="down/">Faucets down right now →</a></p>
     </div>
   </header>
 
@@ -30,12 +44,19 @@
     </div>
 
     <p id="count" class="count"></p>
-    <div id="list" class="list"></div>
+    <!-- Server-rendered cards below are for crawlers and no-JS visitors; app.js
+         replaces them with the interactive, filterable list on load. build_site.py
+         injects them between these markers at deploy time. -->
+    <div id="list" class="list">
+      <!-- FAUCET_LIST:START -->
+      <!-- FAUCET_LIST:END -->
+    </div>
     <p id="empty" class="empty" hidden>No faucets match those filters.</p>
   </main>
 
   <footer class="wrap footer">
     <p>Status is a best-effort HTTP + page-content check, not a real claim attempt. A green light means the page responded — it can't prove the faucet still has funds.</p>
+    <p><a href="https://github.com/aleksandralukic/faucet-app">Source &amp; how to add a faucet on GitHub</a>.</p>
   </footer>
 
   <script src="assets/app.js"></script>

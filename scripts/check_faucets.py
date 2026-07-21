@@ -135,6 +135,111 @@ def fetch(url):
     return code, body, error, final
 
 
+# Why a faucet failed, as structured data rather than a prose string.
+# `label` is shown to humans; `advice` explains what it means for the reader,
+# because "DNS failure" tells a QA engineer nothing about whether to wait or
+# go find a different faucet.
+FAILURE_KINDS = {
+    "dns": {
+        "label": "Domain no longer exists",
+        "advice": "The hostname does not resolve at all. This faucet is gone for good — find a replacement.",
+        "permanent": True,
+    },
+    "tls_expired": {
+        "label": "Expired TLS certificate",
+        "advice": "The site is up but its certificate expired, so browsers show a security warning. Usually means it is unmaintained.",
+        "permanent": False,
+    },
+    "tls_error": {
+        "label": "TLS handshake failed",
+        "advice": "The server's TLS configuration is broken or too old to negotiate. Often unmaintained infrastructure.",
+        "permanent": False,
+    },
+    "connection": {
+        "label": "Connection refused",
+        "advice": "The host resolves but nothing is listening. The server is down rather than the domain being gone.",
+        "permanent": False,
+    },
+    "timeout": {
+        "label": "Timed out",
+        "advice": "No response within the timeout. Could be an overloaded faucet or a slow network — may recover on its own.",
+        "permanent": False,
+    },
+    "http_404": {
+        "label": "Page not found (404)",
+        "advice": "The site is alive but this URL is gone. The faucet has probably moved — check the project's docs for a new link.",
+        "permanent": False,
+    },
+    "http_403": {
+        "label": "Blocked (403)",
+        "advice": "The server refused an automated request. This usually means bot protection, and the faucet often works fine in a real browser.",
+        "permanent": False,
+    },
+    "http_5xx": {
+        "label": "Server error",
+        "advice": "The faucet's own backend is erroring. Typically temporary — worth retrying later.",
+        "permanent": False,
+    },
+    "http_other": {
+        "label": "Unexpected response",
+        "advice": "The server answered with a status we do not treat as healthy for this faucet.",
+        "permanent": False,
+    },
+    "content": {
+        "label": "Faucet reports a problem",
+        "advice": "The page loaded, but its own text says it is empty, disabled, or under maintenance.",
+        "permanent": False,
+    },
+}
+
+
+def classify_failure(result):
+    """Attach a machine-readable cause to a non-healthy result.
+
+    Kept in the checker rather than the site builder so the cause lands in
+    status.json and is available to anyone consuming the JSON as an API.
+    """
+    if result["status"] in ("up", "manual"):
+        result["failureKind"] = None
+        return result
+
+    err = (result.get("error") or "").lower()
+    code = result.get("httpStatus")
+
+    if "does not resolve" in err:
+        kind = "dns"
+    elif "certificate has expired" in err or "certificate_verify_failed" in err:
+        kind = "tls_expired"
+    elif "ssl" in err or "tls" in err:
+        kind = "tls_error"
+    elif "timed out" in err:
+        kind = "timeout"
+    elif "refused" in err or "reset" in err:
+        kind = "connection"
+    elif result.get("signals") and not err:
+        kind = "content"
+    elif code == 404:
+        kind = "http_404"
+    elif code == 403:
+        kind = "http_403"
+    elif code is not None and 500 <= code < 600:
+        kind = "http_5xx"
+    elif code is not None:
+        kind = "http_other"
+    else:
+        kind = "http_other"
+
+    # A content signal beats a status-code guess when both are present.
+    if result.get("signals") and kind == "http_other":
+        kind = "content"
+
+    result["failureKind"] = kind
+    result["failureLabel"] = FAILURE_KINDS[kind]["label"]
+    result["failureAdvice"] = FAILURE_KINDS[kind]["advice"]
+    result["failurePermanent"] = FAILURE_KINDS[kind]["permanent"]
+    return result
+
+
 def check_url(url, cfg):
     """Run one HTTP check and classify the result."""
     cfg = cfg or {}
@@ -214,7 +319,6 @@ def main():
 
     # Several faucets share a URL (e.g. the MATIC and POL Polygon entries).
     # Fetch each distinct URL once so we don't hit operators twice per run.
-    manual = [f for f in faucets if (f.get("check") or {}).get("mode") == "manual"]
     checkable = [f for f in faucets if (f.get("check") or {}).get("mode") != "manual"]
 
     unique = {}
@@ -245,9 +349,15 @@ def main():
         else:
             res = dict(by_url[f["url"]])
 
+        classify_failure(res)
+
         prev = previous.get(f["id"], {})
         history = list(prev.get("history", []))[-(HISTORY_LEN - 1):]
         history.append(res["status"])
+
+        # Uptime over the retained window — more useful than a single dot,
+        # and it is the stat that makes this site worth citing.
+        uptime = round(100 * history.count("up") / len(history)) if history else None
 
         # Track when the status last flipped, so a long-broken faucet is obvious.
         if prev.get("status") == res["status"]:
@@ -260,6 +370,7 @@ def main():
             "checkedAt": now,
             "statusSince": since,
             "history": history,
+            "uptimePct": uptime,
             **res,
         })
         print(f"  {res['status']:<9} {f['currency']:<10} {f['name']} — {res['reason']}")

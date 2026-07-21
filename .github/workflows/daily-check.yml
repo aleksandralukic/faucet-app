@@ -60,6 +60,20 @@ jobs:
         with:
           ref: main
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Render static HTML (homepage cards, per-currency pages, /down/, sitemap)
+      # from the fresh status.json. Generated here rather than committed so the
+      # repo stays clean — the pages carry a daily timestamp and would otherwise
+      # churn every run. SITE_URL is baked into canonical/sitemap URLs; change it
+      # in one place when moving to a custom domain.
+      - name: Build static site
+        env:
+          SITE_URL: https://aleksandralukic.github.io/faucet-app
+        run: python3 scripts/build_site.py
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
