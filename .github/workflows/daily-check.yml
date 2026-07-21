@@ -8,16 +8,30 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    # Don't re-run when the only change is this job's own generated output,
+    # otherwise the commit below would trigger an endless rebuild loop.
+    paths-ignore:
+      - "data/status.json"
+      - "index.html"
+      - "sitemap.xml"
+      - "robots.txt"
+      - "*-testnet-faucet/**"
+      - "down/**"
+
+permissions:
+  contents: write
 
 concurrency:
   group: faucet-check
   cancel-in-progress: false
 
+# Pages "Source" is set to "Deploy from a branch" (main), so GitHub's built-in
+# builder publishes whatever is committed here. This job therefore CHECKS the
+# faucets, BUILDS the static HTML, and COMMITS the result — no separate deploy
+# job, which would race the branch builder and sometimes lose.
 jobs:
-  check:
+  check-and-build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -28,57 +42,19 @@ jobs:
       - name: Check faucets
         run: python3 scripts/check_faucets.py
 
-      - name: Commit status
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/status.json
-          if git diff --staged --quiet; then
-            echo "No status change."
-          else
-            git commit -m "chore: daily faucet status $(date -u +%Y-%m-%d)"
-            git push
-          fi
-
-  # Publishing lives in the same workflow, not a separate one triggered by the
-  # commit above. Commits pushed with GITHUB_TOKEN deliberately do not trigger
-  # other workflows, so a standalone deploy workflow would never see the daily
-  # status update and the site would go stale.
-  deploy:
-    needs: check
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-      contents: read
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      # Re-checkout so we pick up the status.json the check job just pushed.
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      # Render static HTML (homepage cards, per-currency pages, /down/, sitemap)
-      # from the fresh status.json. Generated here rather than committed so the
-      # repo stays clean — the pages carry a daily timestamp and would otherwise
-      # churn every run. SITE_URL is baked into canonical/sitemap URLs; change it
-      # in one place when moving to a custom domain.
       - name: Build static site
         env:
           SITE_URL: https://aleksandralukic.github.io/faucet-app
         run: python3 scripts/build_site.py
 
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit status and generated pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "chore: faucet status + rebuild $(date -u +%Y-%m-%d)"
+            git push
+          fi

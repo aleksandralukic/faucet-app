@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aleksandralukic.github.io/faucet-app/sitemap.xml
