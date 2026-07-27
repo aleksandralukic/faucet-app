@@ -187,19 +187,27 @@ def build_home(faucets, status_by_id, generated_at, summary):
         flags=re.S,
     )
 
+    # One ListItem per currency, pointing at our own currency pages (internal
+    # linking + keeps the schema promoting us, not the external faucets).
+    seen_cur, unique_currencies = set(), []
+    for f in ordered:
+        if f["currency"] not in seen_cur:
+            seen_cur.add(f["currency"])
+            unique_currencies.append(f["currency"])
+
     itemlist = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "Blockchain testnet faucets",
-        "numberOfItems": len(ordered),
+        "name": "Blockchain testnet faucets by network",
+        "numberOfItems": len(unique_currencies),
         "itemListElement": [
             {
                 "@type": "ListItem",
                 "position": i + 1,
-                "name": f"{f['currency']} — {f['name']}",
-                "url": f["url"],
+                "name": f"{cur} testnet faucet",
+                "url": f"{SITE_URL}/{slug(cur)}-testnet-faucet/",
             }
-            for i, f in enumerate(ordered)
+            for i, cur in enumerate(unique_currencies)
         ],
     }
     shell = re.sub(
@@ -253,14 +261,17 @@ def build_currency_pages(faucets, status_by_id, generated_at):
             if len(items) > 1
             else STATUS_LABEL.get(statuses[0], statuses[0])
         )
-        title = f"{lead}{also} Testnet Faucet — Is It Down? Live Status | {SITE_NAME}"
-        # Pack the distinct phrasings a searcher uses into the meta description.
-        phrases = ", ".join(dict.fromkeys([lead] + kw))
+        # Titles/descriptions are framed around GETTING tokens (searcher intent
+        # is "get test X now"), with "checked daily" as the trust signal. The
+        # earlier "Is It Down?" framing ranked on page 1 but got ~0% CTR because
+        # it read as a monitoring tool rather than a place to get tokens.
+        n = len(items)
+        faucet_phrase = f"{n} {currency} faucets" if n > 1 else f"the {currency} faucet"
+        title = f"{lead}{also} Testnet Faucet — Get Test {currency}, Checked Daily | {SITE_NAME}"
         desc = (
-            f"Is the {lead} testnet faucet down? Live status for "
-            f"{len(items)} {currency} faucet{'s' if len(items) > 1 else ''} on "
-            f"{', '.join(networks)}, checked daily — {phrases} testnet faucet "
-            f"working or not. Last checked {freshness(generated_at)}."
+            f"Where to get free test {currency} on {', '.join(networks)} — {faucet_phrase}, "
+            f"health-checked daily with amounts, cooldowns, and requirements so you know "
+            f"which one works right now. Last checked {freshness(generated_at)}."
         )
 
         sections = []
@@ -332,11 +343,11 @@ def build_currency_pages(faucets, status_by_id, generated_at):
             "mainEntity": faqs,
         })
 
-        h1 = f"{lead}{also} Testnet Faucet Status" if also else f"{currency} Testnet Faucet Status"
+        h1 = f"{lead}{also} Testnet Faucet — Get Test {currency}"
         body = f"""<header class="masthead"><div class="wrap">
   <p class="crumb"><a href="../">← All testnet faucets</a></p>
   <h1>{e(h1)}</h1>
-  <p class="tagline">Is the {e(lead)} testnet faucet down? Live status for {len(items)} {e(currency)} faucet{"s" if len(items) > 1 else ""} on {e(", ".join(networks))}, re-checked every day.</p>
+  <p class="tagline">Where to get free test {e(currency)} on {e(", ".join(networks))} — {e(faucet_phrase)}, health-checked every day so you know which one works right now.</p>
   <p class="generated">Last checked {e(freshness(generated_at))}.</p>
 </div></header>
 <main class="wrap">
