@@ -206,6 +206,7 @@ h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
   white-space: nowrap;
 }
 .tier.onchain { border-color: var(--up); color: var(--up); }
+.bal { color: var(--up); font-weight: 700; font-size: 1.05em; }
 
 .callout {
   border: 1px solid var(--degraded);

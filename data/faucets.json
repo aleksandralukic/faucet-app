@@ -3,11 +3,11 @@
     "id": "aave-staging",
     "currency": "AAVE",
     "name": "AAVE Staging Faucet",
-    "url": "https://staging.aave.com/faucet/",
-    "network": "Ethereum Goerli",
+    "url": "https://app.aave.com/faucet/",
+    "network": "Ethereum Sepolia",
     "requiresWallet": true,
     "requiresCaptcha": false,
-    "notes": "Import token 0x8153A21dFeB1F67024aA6C6e611432900FF3dcb9 in Metamask, connect to staging.aave.com, click Faucet for 100 AAVE. Uses ETH address.",
+    "notes": "Connect a wallet on app.aave.com, switch to a testnet (Sepolia), and use the Faucet section to mint test AAVE and other assets. Replaces the retired staging.aave.com faucet. (The site is behind bot protection, so our HTTP check may show degraded even though it works in a browser.)",
     "amount": "100 AAVE"
   },
   {
@@ -24,7 +24,7 @@
     "id": "cardano-preprod",
     "currency": "ADA",
     "name": "Cardano Preprod Faucet",
-    "url": "https://docs.cardano.org/cardano-testnet/tools/faucet",
+    "url": "https://docs.cardano.org/cardano-testnet/tools/faucet/",
     "network": "Cardano Preprod",
     "requiresWallet": false,
     "requiresCaptcha": true,
@@ -34,7 +34,7 @@
     "id": "bnb-smart-chain",
     "currency": "BNB",
     "name": "BNB Smart Chain Faucet",
-    "url": "https://testnet.bnbchain.org/faucet-smart",
+    "url": "https://www.bnbchain.org/en/testnet-faucet",
     "network": "BNB Smart Chain Testnet",
     "requiresWallet": true,
     "requiresCaptcha": false,
@@ -141,7 +141,7 @@
     "id": "xrpl-tx-sender",
     "currency": "XRP",
     "name": "XRPL Tx Sender",
-    "url": "https://xrpl.org/tx-sender.html",
+    "url": "https://xrpl.org/resources/dev-tools/tx-sender",
     "network": "XRP Testnet",
     "requiresWallet": false,
     "requiresCaptcha": false,
@@ -217,7 +217,7 @@
     "id": "flow-testnet",
     "currency": "FLOW",
     "name": "Flow Testnet Faucet",
-    "url": "https://faucet.flow.com/",
+    "url": "https://faucet.flow.com/fund-account",
     "network": "Flow Testnet",
     "requiresWallet": false,
     "requiresCaptcha": true,
@@ -256,7 +256,7 @@
     "id": "bithomp-faucet",
     "currency": "XRP/SOLO",
     "name": "Bithomp Faucet",
-    "url": "https://test.bithomp.com/faucet/",
+    "url": "https://test.bithomp.com/faucet",
     "network": "XRP Testnet",
     "requiresWallet": false,
     "requiresCaptcha": true
@@ -365,7 +365,11 @@
     "url": "https://beryx.zondax.ch/faucet",
     "network": "Filecoin Calibration",
     "requiresWallet": false,
-    "requiresCaptcha": true
+    "requiresCaptcha": true,
+    "onchain": {
+      "chain": "filecoin-calibration",
+      "wallet": "t1laee6wd4pznv424xu7lgnrlmqa77hueeav4jgxi"
+    }
   },
   {
     "id": "near-faucet",
@@ -429,26 +433,6 @@
     "requiresWallet": false,
     "requiresCaptcha": false,
     "notes": "Sourced from faucet-list.com; not yet claim-tested by us. Site blocks some automated clients, so status may show degraded even when it works in a browser."
-  },
-  {
-    "id": "salmen-ltc",
-    "currency": "LTC",
-    "name": "Salmen Litecoin Testnet Faucet",
-    "url": "https://litecointf.salmen.website/",
-    "network": "Litecoin Testnet",
-    "requiresWallet": false,
-    "requiresCaptcha": true,
-    "notes": "Sourced from faucet-list.com; not yet claim-tested by us."
-  },
-  {
-    "id": "salmen-doge",
-    "currency": "DOGE",
-    "name": "Salmen Dogecoin Testnet Faucet",
-    "url": "https://dogecointf.salmen.website/",
-    "network": "Dogecoin Testnet",
-    "requiresWallet": false,
-    "requiresCaptcha": true,
-    "notes": "Alternative when shibe.technology is dry. Sourced from faucet-list.com; not yet claim-tested by us."
   },
   {
     "id": "kaia-kairos",

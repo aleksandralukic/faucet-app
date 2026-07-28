@@ -50,9 +50,9 @@ CHAIN_PROFILES = {
         "symbol": "C2FLR", "decimals": 18, "kind": "evm",
     },
     "filecoin-calibration": {
-        "rpc": "https://api.calibration.node.glif.io/rpc/v1",
-        "explorer": "https://filfox.info/api/v1",  # bespoke; handled separately if used
-        "symbol": "tFIL", "decimals": 18, "kind": "evm",
+        # Native Filecoin (f1/t1) addresses aren't EVM — use the Filfox indexer.
+        "explorer": "https://calibration.filfox.info/api/v1",
+        "symbol": "tFIL", "decimals": 18, "kind": "filfox",
     },
     "core-test2": {
         "rpc": "https://rpc.test2.btcs.network",
@@ -98,6 +98,24 @@ def evm_balance_and_nonce(profile, address):
     return wei / (10 ** profile["decimals"]), nonce
 
 
+def filfox_balance_activity(profile, address, now_ts):
+    """(balance_tFIL, message_count, idle_days) via the Filfox indexer (Filecoin)."""
+    base = profile["explorer"]
+    d = _get_json(f"{base}/address/{address}")
+    balance = int(d.get("balance", 0)) / (10 ** profile["decimals"])
+    count = d.get("messageCount", 0)
+    idle = None
+    try:
+        md = _get_json(f"{base}/address/{address}/messages?pageSize=25")
+        for m in md.get("messages", []):
+            if m.get("from") == address:
+                idle = round((now_ts - m["timestamp"]) / 86400, 1)
+                break
+    except Exception:
+        pass
+    return balance, count, idle
+
+
 def blockscout_last_outbound_days(explorer, address, now_ts):
     """Days since the wallet's most recent OUTBOUND tx, or None if unavailable."""
     url = (
@@ -135,21 +153,27 @@ def check(cfg, now_ts=None):
     if not profile:
         return {"ok": False, "error": f"unknown chain '{chain}'"}
 
+    kind = profile.get("kind", "evm")
     try:
-        balance, nonce = evm_balance_and_nonce(profile, address)
+        if kind == "filfox":
+            balance, count, idle_days = filfox_balance_activity(profile, address, now_ts)
+            count_label = "on-chain messages"
+        else:
+            balance, count = evm_balance_and_nonce(profile, address)
+            count_label = "payouts sent"
+            idle_days = (
+                blockscout_last_outbound_days(profile["explorer"], address, now_ts)
+                if profile.get("explorer") else None
+            )
     except Exception as e:
         return {"ok": False, "error": f"{type(e).__name__}: {e}"}
-
-    idle_days = None
-    if profile.get("explorer"):
-        idle_days = blockscout_last_outbound_days(profile["explorer"], address, now_ts)
 
     min_balance = cfg.get("minBalance", 0)
     max_idle = cfg.get("maxIdleDays", 45)
     symbol = profile["symbol"]
 
     # Verdict: funded, has sent payouts, and (if we can tell) sent recently.
-    ok = balance > min_balance and nonce > 0
+    ok = balance > min_balance and count > 0
     if idle_days is not None and idle_days > max_idle:
         ok = False
 
@@ -159,7 +183,8 @@ def check(cfg, now_ts=None):
         bal_str = f"{balance:,.2f}".rstrip("0").rstrip(".")
     else:
         bal_str = f"{balance:.4g}"
-    parts = [f"holds {bal_str} {symbol}", f"{nonce:,} payouts sent"]
+    balance_str = f"{bal_str} {symbol}"
+    parts = [f"holds {balance_str}", f"{count:,} {count_label}"]
     if idle_days is not None:
         parts.append(f"last dispensed {idle_days:g}d ago")
     evidence = " · ".join(parts)
@@ -169,7 +194,8 @@ def check(cfg, now_ts=None):
         "chain": chain,
         "symbol": symbol,
         "balance": round(balance, 6),
-        "payoutsSent": nonce,
+        "balanceStr": balance_str,
+        "payoutsSent": count,
         "lastDispenseDays": idle_days,
         "evidence": evidence,
     }

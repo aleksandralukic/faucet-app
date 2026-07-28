@@ -147,7 +147,10 @@ def render_card(f, st):
         badge = '<span class="tier onchain" title="Verified by on-chain wallet activity">⛓ on-chain</span>'
     evidence = ""
     if oc.get("evidence"):
-        evidence = f'<p class="reason">On-chain: {e(oc["evidence"])}</p>'
+        ev = e(oc["evidence"])
+        if oc.get("balanceStr"):  # make the wallet balance the visual anchor
+            ev = ev.replace(e(oc["balanceStr"]), f'<strong class="bal">{e(oc["balanceStr"])}</strong>', 1)
+        evidence = f'<p class="reason">On-chain: {ev}</p>'
     fail = ""
     if st.get("failureLabel"):
         fail = f'<p class="reason">{e(st["failureLabel"])} — {e(st.get("failureAdvice", ""))}</p>'
@@ -308,8 +311,11 @@ def build_currency_pages(faucets, status_by_id, generated_at):
             ]
             oc = st.get("onchain") or {}
             if oc.get("evidence"):
+                ev = e(oc["evidence"])
+                if oc.get("balanceStr"):
+                    ev = ev.replace(e(oc["balanceStr"]), f'<strong class="bal">{e(oc["balanceStr"])}</strong>', 1)
                 detail.append(
-                    f'<p><strong>On-chain liveness:</strong> {e(oc["evidence"])} '
+                    f'<p><strong>On-chain liveness:</strong> {ev} '
                     f'<span class="tier onchain">verified on-chain</span> '
                     f'<span class="muted">— read directly from the faucet\'s dispensing '
                     f'wallet, so this holds even when the site is behind bot protection.</span></p>'
@@ -388,13 +394,18 @@ def build_currency_pages(faucets, status_by_id, generated_at):
             st = status_by_id.get(f["id"], {})
             s = st.get("status", "unknown")
             up = st.get("uptimePct")
+            oc = st.get("onchain") or {}
+            oc_cell = (
+                f' <span class="tier onchain">⛓ {e(oc["balanceStr"])} in wallet</span>'
+                if oc.get("balanceStr") else ""
+            )
             trows += (
                 f'<tr><td><a href="{e(f["url"])}" target="_blank" rel="noopener">{e(f["name"])}</a></td>'
                 f'<td>{e(f.get("amount") or "—")}</td>'
                 f'<td>{e(f.get("cooldown") or "—")}</td>'
                 f'<td>{e(reqs_cell(f))}</td>'
                 f'<td><span class="dot {e(s)}"></span> {e(STATUS_LABEL.get(s, s))}'
-                f'{f" · {up}%" if up is not None else ""}</td></tr>'
+                f'{f" · {up}%" if up is not None else ""}{oc_cell}</td></tr>'
             )
         compare = (
             f'<div class="table-scroll"><table><thead><tr><th>Faucet</th>'

@@ -150,7 +150,12 @@ function card(f) {
   const tierBadge = st?.verificationTier === "onchain"
     ? `<span class="tier onchain" title="Verified by on-chain wallet activity">⛓ on-chain</span>`
     : "";
-  const ocLine = oc.evidence ? `<p class="reason">On-chain: ${esc(oc.evidence)}</p>` : "";
+  let ocLine = "";
+  if (oc.evidence) {
+    let ev = esc(oc.evidence);
+    if (oc.balanceStr) ev = ev.replace(esc(oc.balanceStr), `<strong class="bal">${esc(oc.balanceStr)}</strong>`);
+    ocLine = `<p class="reason">On-chain: ${ev}</p>`;
+  }
 
   const failLine = st?.failureLabel
     ? `<p class="reason">${esc(st.failureLabel)} — ${esc(st.failureAdvice || "")}</p>`
