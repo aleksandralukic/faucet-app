@@ -51,8 +51,16 @@ transaction. That's the dispenser; validate it with `scripts/onchain.py`.
 
 ## Not covered yet
 
-- **Litecoin, Dogecoin** (`bitaps-ltc`, `shibe-technology`) — UTXO chains; the
-  EVM/Filfox paths don't apply. Would need a Blockstream/BlockCypher-style API.
+- **Litecoin** (`cypherfaucet-ltc`) — UTXO API is ready (litecoinspace.org), but
+  the wallet shown on CypherFaucet's page is its *return* address (received
+  ~1,203 tLTC, sent only ~52), not the dispenser. Need the real dispensing
+  address — the `from` on a payout you *receive* — to wire it on-chain.
+- **Bitcoin Cash** (`googol-bch`, `mainnetcash-bch`) — no **keyless** testnet
+  balance API exists (loping.net is a UI; Blockchair IP-blacklists without a
+  key). HTTP-only unless a free BCH testnet indexer turns up.
+- **Dogecoin** (`shibe-technology`) — the faucet hangs (30s timeout); no live
+  public replacement found in the last search. UTXO path would work if a
+  faucet + explorer surface.
 - **Fantom testnet** (`fantom-faucet`) — chain deprecated after the Sonic
   rebrand; RPC/explorer are dead. Candidate for removal.
 

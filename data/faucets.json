@@ -50,6 +50,17 @@
     "requiresCaptcha": true
   },
   {
+    "id": "mainnetcash-bch",
+    "currency": "BCH",
+    "name": "mainnet.cash BCH Faucet",
+    "url": "https://rest-unstable.mainnet.cash/faucet.html",
+    "network": "Bitcoin Cash Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "notes": "Keyless, no captcha or login: POST your bchtest: address to /faucet/get_testnet_bch. Up to 10,000 sats (0.0001 tBCH) per call; won't top up if you already hold >=10k sats. Part of the actively-maintained mainnet.cash project.",
+    "amount": "0.0001 tBCH"
+  },
+  {
     "id": "bitcoinfaucet-uo1",
     "currency": "BTC",
     "name": "BitcoinFaucet UO1",
@@ -437,16 +448,6 @@
     }
   },
   {
-    "id": "bitaps-ltc",
-    "currency": "LTC",
-    "name": "Bitaps LTC Testnet Faucet",
-    "url": "https://tltc.bitaps.com/",
-    "network": "Litecoin Testnet",
-    "requiresWallet": false,
-    "requiresCaptcha": false,
-    "notes": "Sourced from faucet-list.com; not yet claim-tested by us. Site blocks some automated clients, so status may show degraded even when it works in a browser."
-  },
-  {
     "id": "kaia-kairos",
     "currency": "USDT",
     "name": "Kaia Kairos Faucet",
@@ -457,5 +458,17 @@
     "notes": "50 KAIA or 10 test USDT per claim, 24h cooldown. Paste an address — no wallet connect needed. Also lists a Nodit-powered alternative for bulk requests.",
     "amount": "50 KAIA / 10 USDT",
     "cooldown": "24h"
+  },
+  {
+    "id": "cypherfaucet-ltc",
+    "currency": "LTC",
+    "name": "CypherFaucet Litecoin Testnet",
+    "url": "https://cypherfaucet.com/ltc-testnet",
+    "network": "Litecoin Testnet",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "0.01 tLTC per claim, once per hour (per address and per IP). Also has a keyless API (POST /api/v1/claim). Established 2025, live balance shown on-page. Replaces the bot-blocked bitaps faucet.",
+    "amount": "0.01 tLTC",
+    "cooldown": "1h"
   }
 ]
