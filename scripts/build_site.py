@@ -31,6 +31,11 @@ DATA = os.path.join(ROOT, "data")
 SITE_URL = os.environ.get("SITE_URL", "https://testnetfaucets.dev").rstrip("/")
 SITE_NAME = "Faucet App"
 
+# Cache-buster for CSS/JS. GitHub Pages serves assets with a 4h cache, so without
+# this a UI change wouldn't reach visitors until their cache expired. Set from the
+# check's timestamp in main(), so every deploy ships a fresh asset URL.
+BUILD_VERSION = "0"
+
 STATUS_LABEL = {
     "up": "Working",
     "degraded": "Degraded",
@@ -72,7 +77,7 @@ def page(title, description, canonical, body, depth=0, extra_head=""):
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(description)}">
 <meta name="twitter:image" content="{SITE_URL}/og-image.png">
-<link rel="stylesheet" href="{up}assets/style.css">
+<link rel="stylesheet" href="{up}assets/style.css?v={BUILD_VERSION}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -113,27 +118,31 @@ def network_keywords(networks):
     return out
 
 
+def _dispensed_str(days):
+    if days is None:
+        return None
+    if days < 1:
+        return "today"
+    return f"{days:g} day{'s' if days >= 2 else ''} ago"
+
+
 def onchain_panel(oc):
-    """A prominent, scannable panel of the on-chain evidence (balance is the
-    anchor). Shown high on cards and faucet sections, not buried as fine print."""
+    """A labeled table of the on-chain evidence (wallet balance is the anchor),
+    shown on cards and faucet sections instead of buried as fine print."""
     if not (oc and oc.get("balanceStr")):
         return ""
-    stats = [
-        f'<span class="oc-stat oc-bal"><b>{e(oc["balanceStr"])}</b><small>in wallet</small></span>',
-    ]
+    rows = [("Wallet balance", f'<span class="oc-bal">{e(oc["balanceStr"])}</span>')]
     if oc.get("payoutsSent") is not None:
-        stats.append(
-            f'<span class="oc-stat"><b>{oc["payoutsSent"]:,}</b>'
-            f'<small>{e(oc.get("countLabel", "payouts"))}</small></span>'
-        )
-    if oc.get("lastDispenseDays") is not None:
-        stats.append(
-            f'<span class="oc-stat"><b>{oc["lastDispenseDays"]:g}d ago</b>'
-            f'<small>last dispensed</small></span>'
-        )
+        rows.append((oc.get("countLabel", "payouts").capitalize(), f'{oc["payoutsSent"]:,}'))
+    disp = _dispensed_str(oc.get("lastDispenseDays"))
+    if disp:
+        rows.append(("Last dispensed", disp))
+    body = "".join(f"<tr><th>{e(k)}</th><td>{v}</td></tr>" for k, v in rows)
     return (
-        '<div class="onchain-panel"><span class="oc-tag">⛓ Verified on-chain</span>'
-        + "".join(stats) + "</div>"
+        '<div class="onchain-panel">'
+        '<div class="oc-tag">⛓ Verified on-chain</div>'
+        f'<table class="oc-table">{body}</table>'
+        '</div>'
     )
 
 
@@ -194,6 +203,12 @@ def build_home(faucets, status_by_id, generated_at, summary):
     path = os.path.join(ROOT, "index.html")
     with open(path, encoding="utf-8") as fh:
         shell = fh.read()
+
+    # Cache-bust the homepage's own CSS/JS (idempotent — replaces any prior ?v=).
+    shell = re.sub(
+        r'(assets/(?:style\.css|app\.js))(\?v=[^"\']*)?',
+        rf"\1?v={BUILD_VERSION}", shell,
+    )
 
     order = ["up", "degraded", "down", "manual", "unknown"]
     ordered = sorted(
@@ -638,6 +653,9 @@ def main():
     status_by_id = {r["id"]: r for r in status.get("results", [])}
     generated_at = status.get("generatedAt")
     summary = status.get("summary", {})
+
+    global BUILD_VERSION
+    BUILD_VERSION = (re.sub(r"\D", "", generated_at or "")[:14]) or "0"
 
     if not build_home(faucets, status_by_id, generated_at, summary):
         return 1

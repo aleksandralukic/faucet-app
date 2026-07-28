@@ -152,14 +152,15 @@ function card(f) {
     : "";
   let ocPanel = "";
   if (oc.balanceStr) {
-    const stats = [
-      `<span class="oc-stat oc-bal"><b>${esc(oc.balanceStr)}</b><small>in wallet</small></span>`,
-    ];
-    if (oc.payoutsSent != null)
-      stats.push(`<span class="oc-stat"><b>${oc.payoutsSent.toLocaleString()}</b><small>${esc(oc.countLabel || "payouts")}</small></span>`);
-    if (oc.lastDispenseDays != null)
-      stats.push(`<span class="oc-stat"><b>${oc.lastDispenseDays}d ago</b><small>last dispensed</small></span>`);
-    ocPanel = `<div class="onchain-panel"><span class="oc-tag">⛓ Verified on-chain</span>${stats.join("")}</div>`;
+    const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+    const disp = oc.lastDispenseDays == null ? null
+      : oc.lastDispenseDays < 1 ? "today"
+      : `${oc.lastDispenseDays} day${oc.lastDispenseDays >= 2 ? "s" : ""} ago`;
+    const rows = [["Wallet balance", `<span class="oc-bal">${esc(oc.balanceStr)}</span>`]];
+    if (oc.payoutsSent != null) rows.push([cap(oc.countLabel || "payouts"), oc.payoutsSent.toLocaleString()]);
+    if (disp) rows.push(["Last dispensed", disp]);
+    const body = rows.map(([k, v]) => `<tr><th>${esc(k)}</th><td>${v}</td></tr>`).join("");
+    ocPanel = `<div class="onchain-panel"><div class="oc-tag">⛓ Verified on-chain</div><table class="oc-table">${body}</table></div>`;
   }
 
   const failLine = st?.failureLabel

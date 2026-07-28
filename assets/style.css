@@ -208,14 +208,10 @@ h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
 .tier.onchain { border-color: var(--up); color: var(--up); }
 .bal { color: var(--up); font-weight: 700; font-size: 1.05em; }
 
-/* Prominent on-chain evidence panel */
+/* On-chain evidence panel — a labeled table, wallet balance as the anchor */
 .onchain-panel {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px;
   margin: 12px 0 4px;
-  padding: 12px 14px;
+  padding: 10px 12px;
   border: 1px solid var(--up);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--up) 10%, transparent);
@@ -224,12 +220,18 @@ h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
   font-size: 12px;
   font-weight: 650;
   color: var(--up);
+  margin-bottom: 6px;
+}
+.oc-table { width: auto; border-collapse: collapse; font-size: 13.5px; }
+.oc-table th, .oc-table td { border: none; padding: 3px 0; text-align: left; }
+.oc-table th {
+  color: var(--muted);
+  font-weight: 500;
+  padding-right: 18px;
   white-space: nowrap;
 }
-.oc-stat { display: flex; flex-direction: column; line-height: 1.15; }
-.oc-stat b { font-size: 17px; font-variant-numeric: tabular-nums; color: var(--text); }
-.oc-stat small { font-size: 11px; color: var(--muted); }
-.oc-bal b { color: var(--up); font-size: 20px; }
+.oc-table td { font-variant-numeric: tabular-nums; color: var(--text); }
+.oc-bal { color: var(--up); font-weight: 700; font-size: 1.15em; }
 .oc-explain { margin: 6px 0 0; font-size: 12.5px; }
 
 .callout {
