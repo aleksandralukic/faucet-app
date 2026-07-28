@@ -154,8 +154,9 @@ function card(f) {
   if (oc.balanceStr) {
     const stats = [
       `<span class="oc-stat oc-bal"><b>${esc(oc.balanceStr)}</b><small>in wallet</small></span>`,
-      `<span class="oc-stat"><b>${(oc.payoutsSent || 0).toLocaleString()}</b><small>${esc(oc.countLabel || "payouts")}</small></span>`,
     ];
+    if (oc.payoutsSent != null)
+      stats.push(`<span class="oc-stat"><b>${oc.payoutsSent.toLocaleString()}</b><small>${esc(oc.countLabel || "payouts")}</small></span>`);
     if (oc.lastDispenseDays != null)
       stats.push(`<span class="oc-stat"><b>${oc.lastDispenseDays}d ago</b><small>last dispensed</small></span>`);
     ocPanel = `<div class="onchain-panel"><span class="oc-tag">⛓ Verified on-chain</span>${stats.join("")}</div>`;

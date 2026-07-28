@@ -22,7 +22,7 @@ a payout history (and, where we can tell, dispensed recently). That verdict
 **overrides** the HTTP check — so a faucet behind Cloudflare that the HTTP check
 would call "degraded" is correctly "up".
 
-## Verified — live at the on-chain tier (5)
+## Verified — live at the on-chain tier (8)
 
 | Chain | Faucet (id) | Dispenser wallet | Evidence (at time of writing) |
 | --- | --- | --- | --- |
@@ -31,6 +31,9 @@ would call "degraded" is correctly "up".
 | Ethereum Sepolia | `pk910-sepolia` | `0x6Cc9397c3B38739daCbfaA68EaD5F5D77Ba5F455` | 9,614 ETH · 5.4M payouts · 0d |
 | Filecoin Calibration | `beryx-filecoin` | `t1laee6wd4pznv424xu7lgnrlmqa77hueeav4jgxi` | 106,586 tFIL · 45,874 msgs · 0d |
 | Core test2 | `core-testnet` | `0x0ce88ad9a045596a39b2cd7943117d01b21ffd84` | 991,656 tCORE2 · 8,343 payouts |
+| Flare Coston2 | `flare-faucet` | `0xbeF319864be0345649315b782fA60D7FEF145106` | 28.9M C2FLR · 145,905 payouts · 0d |
+| Stellar testnet | `stellar-friendbot` | `GAIH3ULL…GK3QJZNSR` (Friendbot) | 19.5B XLM · 0d. **Rotates on testnet reset** — if the check errors, re-source the account. |
+| Bitcoin testnet | `coinfaucet-btc` | `tb1qerzrlxcfu24davlur5sqmgzzgsal6wusda40er` | Currently **dry** (0 tBTC) though active — shows the tier catching an out-of-funds faucet. |
 
 ## Pending — need the dispenser address
 
@@ -65,5 +68,19 @@ transaction. That's the dispenser; validate it with `scripts/onchain.py`.
 
 ## Chains supported in `CHAIN_PROFILES`
 
-`sepolia` (+Blockscout recency), `amoy`, `fuji`, `bsc-testnet`, `flare-coston2`,
-`core-test2`, `sei-atlantic`, `filecoin-calibration` (Filfox).
+- **EVM** (RPC balance + nonce; Blockscout recency where available): `sepolia`,
+  `amoy`, `fuji`, `bsc-testnet`, `flare-coston2`, `core-test2`, `sei-atlantic`.
+- **Filecoin** (Filfox indexer, native `t1`/`f1` addresses): `filecoin-calibration`.
+- **Stellar** (Horizon, `G…` accounts; balance + recency, no payout count):
+  `stellar-testnet`.
+- **UTXO** (Blockstream/mempool-style API — the same shape works for any such
+  chain): `bitcoin-testnet` (blockstream.info), `litecoin-testnet`
+  (litecoinspace.org). Adding DOGE/BCH/DASH just needs a keyless explorer of the
+  same shape plus the dispenser address.
+
+## What I still need from you (manual)
+
+- **Dispenser addresses** for chains where the wallet isn't findable:
+  **BNB** (mainnet-balance gated, can't claim), **Polygon Amoy** (GitHub-auth
+  404), **Litecoin/Dogecoin/BCH/Dash**. For each: claim the faucet, read the
+  payout's sender address, paste it here. UTXO support is ready for LTC now.

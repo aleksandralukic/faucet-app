@@ -120,9 +120,12 @@ def onchain_panel(oc):
         return ""
     stats = [
         f'<span class="oc-stat oc-bal"><b>{e(oc["balanceStr"])}</b><small>in wallet</small></span>',
-        f'<span class="oc-stat"><b>{oc.get("payoutsSent", 0):,}</b>'
-        f'<small>{e(oc.get("countLabel", "payouts"))}</small></span>',
     ]
+    if oc.get("payoutsSent") is not None:
+        stats.append(
+            f'<span class="oc-stat"><b>{oc["payoutsSent"]:,}</b>'
+            f'<small>{e(oc.get("countLabel", "payouts"))}</small></span>'
+        )
     if oc.get("lastDispenseDays") is not None:
         stats.append(
             f'<span class="oc-stat"><b>{oc["lastDispenseDays"]:g}d ago</b>'

@@ -64,6 +64,19 @@ CHAIN_PROFILES = {
         "explorer": None,
         "symbol": "SEI", "decimals": 18, "kind": "evm",
     },
+    # Non-EVM chains, each with a keyless indexer of a different shape.
+    "stellar-testnet": {
+        "explorer": "https://horizon-testnet.stellar.org",
+        "symbol": "XLM", "kind": "horizon",
+    },
+    "bitcoin-testnet": {
+        "explorer": "https://blockstream.info/testnet/api",
+        "symbol": "tBTC", "decimals": 8, "kind": "utxo",
+    },
+    "litecoin-testnet": {
+        "explorer": "https://litecoinspace.org/testnet/api",
+        "symbol": "tLTC", "decimals": 8, "kind": "utxo",
+    },
 }
 
 HEADERS = {"Content-Type": "application/json", "User-Agent": "testnetfaucets.dev-onchain/1.0"}
@@ -116,6 +129,52 @@ def filfox_balance_activity(profile, address, now_ts):
     return balance, count, idle
 
 
+def _iso_to_days(iso, now_ts):
+    from datetime import datetime
+    ts = datetime.fromisoformat(iso.replace("Z", "+00:00")).timestamp()
+    return round((now_ts - ts) / 86400, 1)
+
+
+def horizon_check(profile, address, now_ts):
+    """(balance_XLM, None, idle_days) via Stellar Horizon. No clean payout count,
+    so recency + balance carry the verdict."""
+    base = profile["explorer"]
+    d = _get_json(f"{base}/accounts/{address}")
+    native = next((b for b in d.get("balances", []) if b.get("asset_type") == "native"), {})
+    balance = float(native.get("balance", 0))
+    idle = None
+    try:
+        td = _get_json(f"{base}/accounts/{address}/transactions?order=desc&limit=1")
+        recs = td.get("_embedded", {}).get("records", [])
+        if recs:
+            idle = _iso_to_days(recs[0]["created_at"], now_ts)
+    except Exception:
+        pass
+    return balance, None, idle
+
+
+def utxo_check(profile, address, now_ts):
+    """(balance, tx_count, idle_days) via a Blockstream/mempool-style API
+    (blockstream.info, litecoinspace.org). Same shape for every such chain."""
+    base = profile["explorer"]
+    d = _get_json(f"{base}/address/{address}")
+    cs = d.get("chain_stats", {})
+    sats = int(cs.get("funded_txo_sum", 0)) - int(cs.get("spent_txo_sum", 0))
+    balance = sats / (10 ** profile["decimals"])
+    tx_count = cs.get("tx_count", 0)
+    idle = None
+    try:
+        txs = _get_json(f"{base}/address/{address}/txs")
+        for tx in txs:
+            st = tx.get("status", {})
+            if st.get("confirmed") and st.get("block_time"):
+                idle = round((now_ts - st["block_time"]) / 86400, 1)
+                break
+    except Exception:
+        pass
+    return balance, tx_count, idle
+
+
 def blockscout_last_outbound_days(explorer, address, now_ts):
     """Days since the wallet's most recent OUTBOUND tx, or None if unavailable."""
     url = (
@@ -158,6 +217,12 @@ def check(cfg, now_ts=None):
         if kind == "filfox":
             balance, count, idle_days = filfox_balance_activity(profile, address, now_ts)
             count_label = "on-chain messages"
+        elif kind == "horizon":
+            balance, count, idle_days = horizon_check(profile, address, now_ts)
+            count_label = "transactions"
+        elif kind == "utxo":
+            balance, count, idle_days = utxo_check(profile, address, now_ts)
+            count_label = "transactions"
         else:
             balance, count = evm_balance_and_nonce(profile, address)
             count_label = "payouts sent"
@@ -172,19 +237,23 @@ def check(cfg, now_ts=None):
     max_idle = cfg.get("maxIdleDays", 45)
     symbol = profile["symbol"]
 
-    # Verdict: funded, has sent payouts, and (if we can tell) sent recently.
-    ok = balance > min_balance and count > 0
+    # Verdict: funded, active (where a count exists), and recent (where we can tell).
+    ok = balance > min_balance and (count is None or count > 0)
     if idle_days is not None and idle_days > max_idle:
         ok = False
 
-    if balance >= 1000:
+    if balance >= 1e9:
+        bal_str = f"{balance / 1e9:.1f}B"
+    elif balance >= 1000:
         bal_str = f"{balance:,.0f}"
     elif balance >= 1:
         bal_str = f"{balance:,.2f}".rstrip("0").rstrip(".")
     else:
         bal_str = f"{balance:.4g}"
     balance_str = f"{bal_str} {symbol}"
-    parts = [f"holds {balance_str}", f"{count:,} {count_label}"]
+    parts = [f"holds {balance_str}"]
+    if count is not None:
+        parts.append(f"{count:,} {count_label}")
     if idle_days is not None:
         parts.append(f"last dispensed {idle_days:g}d ago")
     evidence = " · ".join(parts)

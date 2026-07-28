@@ -67,7 +67,11 @@
     "network": "Bitcoin Testnet",
     "requiresWallet": false,
     "requiresCaptcha": true,
-    "notes": "Alternative when bitcoinfaucet.uo1.net fails. Does not work with SegWit."
+    "notes": "Alternative when bitcoinfaucet.uo1.net fails. Does not work with SegWit.",
+    "onchain": {
+      "chain": "bitcoin-testnet",
+      "wallet": "tb1qerzrlxcfu24davlur5sqmgzzgsal6wusda40er"
+    }
   },
   {
     "id": "devwork-btc",
@@ -183,7 +187,11 @@
       "skipContentScan": true,
       "reason": "Bare GET returns 400 JSON asking for addr — that means the service is healthy."
     },
-    "amount": "10,000 XLM"
+    "amount": "10,000 XLM",
+    "onchain": {
+      "chain": "stellar-testnet",
+      "wallet": "GAIH3ULLFQ4DGSECF2AR555KZ4KNDGEKN4AFI4SU2M7B43MGK3QJZNSR"
+    }
   },
   {
     "id": "circle-faucet",
@@ -229,9 +237,13 @@
     "currency": "FLARE",
     "name": "Flare Faucet",
     "url": "https://faucet.flare.network/",
-    "network": "Flare Coston",
+    "network": "Flare Coston2",
     "requiresWallet": false,
-    "requiresCaptcha": true
+    "requiresCaptcha": true,
+    "onchain": {
+      "chain": "flare-coston2",
+      "wallet": "0xbeF319864be0345649315b782fA60D7FEF145106"
+    }
   },
   {
     "id": "polygon-faucet-matic",
