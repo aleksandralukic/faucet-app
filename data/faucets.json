@@ -7,7 +7,8 @@
     "network": "Ethereum Goerli",
     "requiresWallet": true,
     "requiresCaptcha": false,
-    "notes": "Import token 0x8153A21dFeB1F67024aA6C6e611432900FF3dcb9 in Metamask, connect to staging.aave.com, click Faucet for 100 AAVE. Uses ETH address."
+    "notes": "Import token 0x8153A21dFeB1F67024aA6C6e611432900FF3dcb9 in Metamask, connect to staging.aave.com, click Faucet for 100 AAVE. Uses ETH address.",
+    "amount": "100 AAVE"
   },
   {
     "id": "polypore-atom",
@@ -95,7 +96,9 @@
     "network": "Polkadot Westend",
     "requiresWallet": false,
     "requiresCaptcha": true,
-    "notes": "Web faucet: paste your Westend address, solve the captcha, Submit. 100 WND per request, once per 24h. Add ?parachain=1000 to fund an Asset Hub address. The old #westend_faucet Matrix room is dead — ignore it."
+    "notes": "Web faucet: paste your Westend address, solve the captcha, Submit. 100 WND per request, once per 24h. Add ?parachain=1000 to fund an Asset Hub address. The old #westend_faucet Matrix room is dead — ignore it.",
+    "amount": "100 WND",
+    "cooldown": "24h"
   },
   {
     "id": "sepolia-faucet",
@@ -105,7 +108,9 @@
     "network": "Ethereum Sepolia",
     "requiresWallet": false,
     "requiresCaptcha": false,
-    "notes": "Lowest-friction Sepolia faucet: no mainnet-balance requirement. Sign in with any Google account, paste your 0x address, claim (~0.05 ETH/day). Replaces the retired sepoliafaucet.io. Backup with no login: pk910 PoW faucet at https://sepolia-faucet.pk910.de/ (mine in-browser, hCaptcha). Avoid Alchemy's faucet — it now requires mainnet ETH + activity."
+    "notes": "Lowest-friction Sepolia faucet: no mainnet-balance requirement. Sign in with any Google account, paste your 0x address, claim (~0.05 ETH/day). Replaces the retired sepoliafaucet.io. Backup with no login: pk910 PoW faucet at https://sepolia-faucet.pk910.de/ (mine in-browser, hCaptcha). Avoid Alchemy's faucet — it now requires mainnet ETH + activity.",
+    "amount": "~0.05 ETH",
+    "cooldown": "24h"
   },
   {
     "id": "solfaucet",
@@ -162,7 +167,8 @@
       ],
       "skipContentScan": true,
       "reason": "Bare GET returns 400 JSON asking for addr — that means the service is healthy."
-    }
+    },
+    "amount": "10,000 XLM"
   },
   {
     "id": "circle-faucet",
@@ -172,7 +178,9 @@
     "network": "Multi-chain (XLM, ETH, etc.)",
     "requiresWallet": false,
     "requiresCaptcha": true,
-    "notes": "10 USDC/EURC every 24h. If XLM daily limit exceeded, swap XLM->USDC via Freighter on Testnet."
+    "notes": "10 USDC/EURC every 24h. If XLM daily limit exceeded, swap XLM->USDC via Freighter on Testnet.",
+    "amount": "10 USDC/EURC",
+    "cooldown": "24h"
   },
   {
     "id": "covalent-avax",
@@ -182,7 +190,9 @@
     "network": "Avalanche Fuji C-Chain",
     "requiresWallet": false,
     "requiresCaptcha": false,
-    "notes": "Up to 2 AVAX per claim, 24h cooldown. Replaces the dead Covalent faucet. Gated: the address must hold >0 AVAX on Avalanche mainnet. Empty wallet? Get a coupon from https://guild.xyz/avalanche or the Avalanche Discord and enter it on the faucet. faucet.avax.network redirects here."
+    "notes": "Up to 2 AVAX per claim, 24h cooldown. Replaces the dead Covalent faucet. Gated: the address must hold >0 AVAX on Avalanche mainnet. Empty wallet? Get a coupon from https://guild.xyz/avalanche or the Avalanche Discord and enter it on the faucet. faucet.avax.network redirects here.",
+    "amount": "2 AVAX",
+    "cooldown": "24h"
   },
   {
     "id": "flow-testnet",
@@ -192,7 +202,8 @@
     "network": "Flow Testnet",
     "requiresWallet": false,
     "requiresCaptcha": true,
-    "notes": "1000 FLOW per request. Moved here from testnet-faucet.onflow.org."
+    "notes": "1000 FLOW per request. Moved here from testnet-faucet.onflow.org.",
+    "amount": "1000 FLOW"
   },
   {
     "id": "flare-faucet",
@@ -211,7 +222,7 @@
     "network": "Polygon Amoy",
     "requiresWallet": true,
     "requiresCaptcha": false,
-    "notes": "Requires Discord connection."
+    "notes": "Polygon Amoy faucet. MATIC is the legacy token name — Amoy now runs on POL, so most testing uses the POL claim flow instead. This higher-drip path requires connecting Discord. See also the POL faucet entry for the no-Discord claim."
   },
   {
     "id": "fantom-faucet",
@@ -239,7 +250,8 @@
     "network": "Core test2",
     "requiresWallet": false,
     "requiresCaptcha": true,
-    "notes": "Mainnet swap CORE<->USDT-CORE at https://app.corex.network/"
+    "notes": "Mainnet swap CORE<->USDT-CORE at https://app.corex.network/",
+    "cooldown": "24h"
   },
   {
     "id": "sui-faucet-docs",
@@ -279,7 +291,8 @@
     "network": "Stacks Testnet",
     "requiresWallet": true,
     "requiresCaptcha": false,
-    "notes": "Connect a Stacks wallet (Leather or Xverse), confirm the network toggle is on Testnet, open the Faucet tab, and click Request STX (500 tSTX). The old api.testnet.hiro.so endpoint is dead — the API host moved to api.hiro.so."
+    "notes": "Connect a Stacks wallet (Leather or Xverse), confirm the network toggle is on Testnet, open the Faucet tab, and click Request STX (500 tSTX). The old api.testnet.hiro.so endpoint is dead — the API host moved to api.hiro.so.",
+    "amount": "500 STX"
   },
   {
     "id": "faucy-vfy",
@@ -289,7 +302,8 @@
     "network": "VFY Testnet",
     "requiresWallet": true,
     "requiresCaptcha": true,
-    "notes": "Connect supported wallet (e.g. Subwallet). 0.5 tVFY per claim."
+    "notes": "Connect supported wallet (e.g. Subwallet). 0.5 tVFY per claim.",
+    "amount": "0.5 tVFY"
   },
   {
     "id": "polygon-faucet-pol",
@@ -299,7 +313,8 @@
     "network": "Polygon Amoy",
     "requiresWallet": false,
     "requiresCaptcha": false,
-    "notes": "Paste address, click CLAIM. 0.01 POL per claim. Same site as the MATIC entry."
+    "notes": "Polygon Amoy faucet, POL claim flow: paste your address and click CLAIM — 0.01 POL per claim, no Discord needed (unlike the legacy MATIC path). POL is the current Polygon token that replaced MATIC.",
+    "amount": "0.01 POL"
   },
   {
     "id": "aptos-testnet",
@@ -416,6 +431,8 @@
     "network": "Kaia Kairos Testnet",
     "requiresWallet": false,
     "requiresCaptcha": false,
-    "notes": "50 KAIA or 10 test USDT per claim, 24h cooldown. Paste an address — no wallet connect needed. Also lists a Nodit-powered alternative for bulk requests."
+    "notes": "50 KAIA or 10 test USDT per claim, 24h cooldown. Paste an address — no wallet connect needed. Also lists a Nodit-powered alternative for bulk requests.",
+    "amount": "50 KAIA / 10 USDT",
+    "cooldown": "24h"
   }
 ]

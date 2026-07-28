@@ -193,6 +193,8 @@ h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
 .quicklinks a:hover, .crumb a:hover { text-decoration: underline; }
 .crumb { margin: 0 0 12px; font-size: 13px; }
 .muted { color: var(--muted); }
+.intro { font-size: 15.5px; line-height: 1.6; margin: 0 0 20px; }
+.intro strong { color: var(--text); }
 
 .callout {
   border: 1px solid var(--degraded);

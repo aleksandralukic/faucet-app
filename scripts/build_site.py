@@ -65,11 +65,17 @@ def page(title, description, canonical, body, depth=0, extra_head=""):
 <meta property="og:description" content="{e(description)}">
 <meta property="og:url" content="{e(canonical)}">
 <meta property="og:site_name" content="{e(SITE_NAME)}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{SITE_URL}/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(description)}">
+<meta name="twitter:image" content="{SITE_URL}/og-image.png">
 <link rel="stylesheet" href="{up}assets/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚰</text></svg>">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 {extra_head}
 </head>
 <body>
@@ -285,6 +291,13 @@ def build_currency_pages(faucets, status_by_id, generated_at):
                 f'<p><strong>Status:</strong> <span class="dot {e(s)}"></span> {e(STATUS_LABEL.get(s, s))}'
                 f' — <span class="muted">{e(st.get("reason", "not yet checked"))}</span></p>'
             ]
+            amt_bits = []
+            if f.get("amount"):
+                amt_bits.append(f"Dispenses {e(f['amount'])}")
+            if f.get("cooldown"):
+                amt_bits.append(f"cooldown {e(f['cooldown'])}")
+            if amt_bits:
+                detail.append(f"<p><strong>Amount:</strong> {', '.join(amt_bits)}.</p>")
             if st.get("uptimePct") is not None:
                 detail.append(
                     f'<p><strong>Uptime:</strong> {st["uptimePct"]}% across the last '
@@ -337,6 +350,72 @@ def build_currency_pages(faucets, status_by_id, generated_at):
                 '<a href="https://github.com/aleksandralukic/faucet-app/issues">report a working one</a>.</p>'
             )
 
+        # Comparison table — scannable "best faucet" view, the content that
+        # matches "best <X> faucet" intent and beats single-faucet pages.
+        def reqs_cell(f):
+            r = []
+            if f.get("requiresWallet"):
+                r.append("wallet")
+            if f.get("requiresCaptcha"):
+                r.append("captcha")
+            return ", ".join(r) if r else "none"
+
+        trows = ""
+        for f in items:
+            st = status_by_id.get(f["id"], {})
+            s = st.get("status", "unknown")
+            up = st.get("uptimePct")
+            trows += (
+                f'<tr><td><a href="{e(f["url"])}" target="_blank" rel="noopener">{e(f["name"])}</a></td>'
+                f'<td>{e(f.get("amount") or "—")}</td>'
+                f'<td>{e(f.get("cooldown") or "—")}</td>'
+                f'<td>{e(reqs_cell(f))}</td>'
+                f'<td><span class="dot {e(s)}"></span> {e(STATUS_LABEL.get(s, s))}'
+                f'{f" · {up}%" if up is not None else ""}</td></tr>'
+            )
+        compare = (
+            f'<div class="table-scroll"><table><thead><tr><th>Faucet</th>'
+            f'<th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead>'
+            f'<tbody>{trows}</tbody></table></div>'
+        )
+
+        # Data-driven intro — unique per page (counts + best pick), so pages
+        # aren't near-duplicate boilerplate that Google collapses.
+        nc = sum(1 for f in items if f.get("requiresCaptcha"))
+        nw = sum(1 for f in items if f.get("requiresWallet"))
+        req_bits = []
+        if nc:
+            req_bits.append(f"{nc} need{'s' if nc == 1 else ''} a captcha")
+        if nw:
+            req_bits.append(f"{nw} require{'s' if nw == 1 else ''} a wallet connection")
+        req_sentence = (
+            "Of these, " + " and ".join(req_bits) + "."
+            if req_bits else "None of them require a wallet or captcha."
+        )
+        working = sorted(
+            ((f, status_by_id.get(f["id"], {})) for f in items
+             if status_of(f["id"], status_by_id) == "up"),
+            key=lambda pr: -(pr[1].get("uptimePct") or 0),
+        )
+        if working:
+            bf, bst = working[0]
+            up = bst.get("uptimePct")
+            best_sentence = (
+                f"The most reliable right now is <strong>{e(bf['name'])}</strong>"
+                + (f" ({up}% uptime over the last {len(bst.get('history', []))} daily checks)." if up is not None else ".")
+            )
+        else:
+            best_sentence = (
+                "Every listed faucet is failing our automated check right now — check the "
+                "notes above and try again later, or report a working one on GitHub."
+            )
+        verb = "is" if len(items) == 1 else "are"
+        plural = "" if len(items) == 1 else "s"
+        intro = (
+            f"There {verb} {len(items)} {e(currency)} testnet faucet{plural} in this list, "
+            f"on {e(', '.join(networks))}. {req_sentence} {best_sentence}"
+        )
+
         faq_ld = json.dumps({
             "@context": "https://schema.org",
             "@type": "FAQPage",
@@ -352,14 +431,15 @@ def build_currency_pages(faucets, status_by_id, generated_at):
 </div></header>
 <main class="wrap">
   {alternatives}
+  <p class="intro">{intro}</p>
+  {compare}
   {"".join(sections)}
   <section>
-    <h2>Why {e(currency)} testnet faucets stop working</h2>
+    <h2>Getting test {e(currency)} on {e(lead)}</h2>
     <p>Testnet faucets are run on a best-effort basis and break constantly: domains
     lapse, TLS certificates expire, rate limits tighten, and faucet wallets run dry.
-    This page re-checks every {e(currency)} faucet daily and records the cause of
-    failure, so you can tell a dead domain from a temporary outage before you waste
-    time on it.</p>
+    We re-check every {e(currency)} faucet daily and record the cause of failure, so
+    you can tell a dead faucet from a temporary blip before you waste time on it.</p>
     <p class="muted">A "working" result means the faucet's page responded normally.
     It cannot prove the faucet still holds funds — only a real claim does that.</p>
   </section>
