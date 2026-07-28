@@ -59,6 +59,11 @@ CHAIN_PROFILES = {
         "explorer": None,  # explorer API requires login → balance/nonce only
         "symbol": "tCORE2", "decimals": 18, "kind": "evm",
     },
+    "sei-atlantic": {
+        "rpc": "https://evm-rpc-testnet.sei-apis.com",
+        "explorer": None,
+        "symbol": "SEI", "decimals": 18, "kind": "evm",
+    },
 }
 
 HEADERS = {"Content-Type": "application/json", "User-Agent": "testnetfaucets.dev-onchain/1.0"}

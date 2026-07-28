@@ -113,6 +113,21 @@
     "cooldown": "24h"
   },
   {
+    "id": "pk910-sepolia",
+    "currency": "ETH",
+    "name": "pk910 Sepolia PoW Faucet",
+    "url": "https://sepolia-faucet.pk910.de/",
+    "network": "Ethereum Sepolia",
+    "requiresWallet": false,
+    "requiresCaptcha": true,
+    "notes": "Proof-of-work faucet: no login and no mainnet balance needed. Mine in-browser (hCaptcha), then claim to your address — the longer you mine, the more ETH. A solid backup to the Google Cloud faucet.",
+    "amount": "variable (PoW)",
+    "onchain": {
+      "chain": "sepolia",
+      "wallet": "0x6Cc9397c3B38739daCbfaA68EaD5F5D77Ba5F455"
+    }
+  },
+  {
     "id": "solfaucet",
     "currency": "SOL",
     "name": "SolFaucet",
@@ -385,6 +400,10 @@
       ],
       "skipContentScan": true,
       "reason": "SPA returns 404 to a plain request but works in a browser (verified manually)."
+    },
+    "onchain": {
+      "chain": "sei-atlantic",
+      "wallet": "0x9452fe1f7cdffcb2819c052656746be795598055"
     }
   },
   {
