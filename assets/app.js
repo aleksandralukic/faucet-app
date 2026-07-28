@@ -17,9 +17,12 @@ const state = {
   generatedAt: null,
   query: "",
   active: new Set(),
+  onchainOnly: false,
   hideCaptcha: false,
   hideWallet: false,
 };
+
+const tierOf = (f) => state.status[f.id]?.verificationTier;
 
 const $ = (id) => document.getElementById(id);
 
@@ -86,17 +89,30 @@ function renderSummary() {
 
 function renderFilters() {
   const present = STATUS_ORDER.filter((s) => state.faucets.some((f) => statusOf(f) === s));
-  $("statusFilters").innerHTML = present
+  const onchainCount = state.faucets.filter((f) => tierOf(f) === "onchain").length;
+
+  // A "Verified on-chain" chip is the strongest filter we offer — it jumps a
+  // user straight to the faucets whose funds we can actually prove.
+  const onchainBtn = onchainCount
+    ? `<button class="filter tier-filter" data-tier="onchain" aria-pressed="false">⛓ Verified on-chain (${onchainCount})</button>`
+    : "";
+
+  $("statusFilters").innerHTML = onchainBtn + present
     .map((s) => `<button class="filter" data-status="${s}" aria-pressed="false"><span class="dot ${s}"></span> ${esc(STATUS_LABEL[s])}</button>`)
     .join("");
 
   $("statusFilters").addEventListener("click", (e) => {
     const btn = e.target.closest(".filter");
     if (!btn) return;
-    const s = btn.dataset.status;
-    if (state.active.has(s)) state.active.delete(s);
-    else state.active.add(s);
-    btn.setAttribute("aria-pressed", String(state.active.has(s)));
+    if (btn.dataset.tier === "onchain") {
+      state.onchainOnly = !state.onchainOnly;
+      btn.setAttribute("aria-pressed", String(state.onchainOnly));
+    } else {
+      const s = btn.dataset.status;
+      if (state.active.has(s)) state.active.delete(s);
+      else state.active.add(s);
+      btn.setAttribute("aria-pressed", String(state.active.has(s)));
+    }
     render();
   });
 }
@@ -118,6 +134,7 @@ function wireControls() {
 
 function matches(f) {
   const s = statusOf(f);
+  if (state.onchainOnly && tierOf(f) !== "onchain") return false;
   if (state.active.size && !state.active.has(s)) return false;
   if (state.hideCaptcha && f.requiresCaptcha) return false;
   if (state.hideWallet && f.requiresWallet) return false;
@@ -127,12 +144,35 @@ function matches(f) {
   return haystack.includes(state.query);
 }
 
+// Rank for the list: best status first, then verified-on-chain (highest
+// confidence), then fewest barriers (no captcha/wallet = easiest to claim),
+// then currency as a stable tiebreak. Deliberately NOT alphabetical.
+function rankKey(f) {
+  return [
+    STATUS_ORDER.indexOf(statusOf(f)),
+    tierOf(f) === "onchain" ? 0 : 1,
+    (f.requiresCaptcha ? 1 : 0) + (f.requiresWallet ? 1 : 0),
+    f.currency,
+  ];
+}
+
+function byRank(a, b) {
+  const ka = rankKey(a), kb = rankKey(b);
+  for (let i = 0; i < ka.length; i++) {
+    if (ka[i] < kb[i]) return -1;
+    if (ka[i] > kb[i]) return 1;
+  }
+  return 0;
+}
+
+// A sparkline that's uniformly green isn't a signal — only show history once it
+// actually varies (a status flipped at some point).
 function sparkline(history) {
-  if (!history?.length) return "";
+  if (!history?.length || new Set(history).size < 2) return "";
   const bars = history.slice(-14)
     .map((h) => `<i class="${esc(h)}" title="${esc(STATUS_LABEL[h] || h)}"></i>`)
     .join("");
-  return `<span class="spark" title="Last ${Math.min(history.length, 14)} checks">${bars}</span>`;
+  return `<span class="spark" title="Status changed over the last ${Math.min(history.length, 14)} checks">${bars}</span>`;
 }
 
 function card(f) {
@@ -156,10 +196,13 @@ function card(f) {
     const disp = oc.lastDispenseDays == null ? null
       : oc.lastDispenseDays < 1 ? "today"
       : `${oc.lastDispenseDays} day${oc.lastDispenseDays >= 2 ? "s" : ""} ago`;
-    const rows = [["Wallet balance", `<span class="oc-bal">${esc(oc.balanceStr)}</span>`]];
-    if (oc.payoutsSent != null) rows.push([cap(oc.countLabel || "payouts"), oc.payoutsSent.toLocaleString()]);
-    if (disp) rows.push(["Last dispensed", disp]);
-    const body = rows.map(([k, v]) => `<tr><th>${esc(k)}</th><td>${v}</td></tr>`).join("");
+    const rows = [["Wallet balance", `<span class="oc-bal">${esc(oc.balanceStr)}</span>`,
+      "Test tokens the faucet's dispensing wallet holds right now"]];
+    if (oc.payoutsSent != null) rows.push([cap(oc.countLabel || "payouts"), oc.payoutsSent.toLocaleString(),
+      "Total transactions this wallet has sent — a high count means a real, active faucet"]);
+    if (disp) rows.push(["Last dispensed", disp,
+      "Time since the wallet's most recent outbound payment"]);
+    const body = rows.map(([k, v, t]) => `<tr><th title="${esc(t || "")}">${esc(k)}</th><td>${v}</td></tr>`).join("");
     ocPanel = `<div class="onchain-panel"><div class="oc-tag">⛓ Verified on-chain</div><table class="oc-table">${body}</table></div>`;
   }
 
@@ -191,12 +234,7 @@ function card(f) {
 }
 
 function render() {
-  const visible = state.faucets
-    .filter(matches)
-    .sort((a, b) => {
-      const d = STATUS_ORDER.indexOf(statusOf(a)) - STATUS_ORDER.indexOf(statusOf(b));
-      return d !== 0 ? d : a.currency.localeCompare(b.currency);
-    });
+  const visible = state.faucets.filter(matches).sort(byRank);
 
   $("list").innerHTML = visible.map(card).join("");
   $("empty").hidden = visible.length > 0;

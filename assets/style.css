@@ -105,6 +105,8 @@ h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
 }
 .filter:hover { background: var(--panel-hover); }
 .filter[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
+.filter.tier-filter { border-color: var(--up); color: var(--up); font-weight: 600; }
+.filter.tier-filter[aria-pressed="true"] { background: color-mix(in srgb, var(--up) 16%, transparent); color: var(--up); }
 
 .toggle {
   display: inline-flex;

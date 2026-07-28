@@ -131,13 +131,18 @@ def onchain_panel(oc):
     shown on cards and faucet sections instead of buried as fine print."""
     if not (oc and oc.get("balanceStr")):
         return ""
-    rows = [("Wallet balance", f'<span class="oc-bal">{e(oc["balanceStr"])}</span>')]
+    rows = [("Wallet balance", f'<span class="oc-bal">{e(oc["balanceStr"])}</span>',
+             "Test tokens the faucet's dispensing wallet holds right now")]
     if oc.get("payoutsSent") is not None:
-        rows.append((oc.get("countLabel", "payouts").capitalize(), f'{oc["payoutsSent"]:,}'))
+        rows.append((oc.get("countLabel", "payouts").capitalize(), f'{oc["payoutsSent"]:,}',
+                     "Total transactions this wallet has sent — a high count means a real, active faucet"))
     disp = _dispensed_str(oc.get("lastDispenseDays"))
     if disp:
-        rows.append(("Last dispensed", disp))
-    body = "".join(f"<tr><th>{e(k)}</th><td>{v}</td></tr>" for k, v in rows)
+        rows.append(("Last dispensed", disp,
+                     "Time since the wallet's most recent outbound payment"))
+    body = "".join(
+        f'<tr><th title="{e(t)}">{e(k)}</th><td>{v}</td></tr>' for k, v, t in rows
+    )
     return (
         '<div class="onchain-panel">'
         '<div class="oc-tag">⛓ Verified on-chain</div>'
@@ -210,11 +215,20 @@ def build_home(faucets, status_by_id, generated_at, summary):
         rf"\1?v={BUILD_VERSION}", shell,
     )
 
+    # Order by usefulness, not alphabet: best status → verified on-chain →
+    # fewest barriers (no captcha/wallet) → currency. Mirrors app.js byRank.
     order = ["up", "degraded", "down", "manual", "unknown"]
-    ordered = sorted(
-        faucets,
-        key=lambda f: (order.index(status_of(f["id"], status_by_id)), f["currency"]),
-    )
+
+    def rank(f):
+        st = status_by_id.get(f["id"], {})
+        return (
+            order.index(status_of(f["id"], status_by_id)),
+            0 if st.get("verificationTier") == "onchain" else 1,
+            (1 if f.get("requiresCaptcha") else 0) + (1 if f.get("requiresWallet") else 0),
+            f["currency"],
+        )
+
+    ordered = sorted(faucets, key=rank)
     cards = "\n".join(render_card(f, status_by_id.get(f["id"], {})) for f in ordered)
 
     start, end = "<!-- FAUCET_LIST:START -->", "<!-- FAUCET_LIST:END -->"
@@ -225,26 +239,6 @@ def build_home(faucets, status_by_id, generated_at, summary):
     pre, rest = shell.split(start, 1)
     _, post = rest.split(end, 1)
     shell = f"{pre}{start}\n{cards}\n{end}{post}"
-
-    # Keep the crawler-visible summary sentence in sync with the real numbers.
-    onchain_n = sum(
-        1 for f in faucets
-        if status_by_id.get(f["id"], {}).get("verificationTier") == "onchain"
-    )
-    tier_bit = (
-        f"{onchain_n} verified on-chain (live wallet balance and payout history). "
-        if onchain_n else ""
-    )
-    line = (
-        f"{summary.get('up', 0)} of {len(faucets)} testnet faucets working, "
-        f"{summary.get('down', 0)} down. {tier_bit}Last checked {freshness(generated_at)}."
-    )
-    shell = re.sub(
-        r'(<p id="seo-summary"[^>]*>).*?(</p>)',
-        lambda m: m.group(1) + html.escape(line) + m.group(2),
-        shell,
-        flags=re.S,
-    )
 
     # One ListItem per currency, pointing at our own currency pages (internal
     # linking + keeps the schema promoting us, not the external faucets).
