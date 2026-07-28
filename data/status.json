@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-27T14:07:08+00:00",
+  "generatedAt": "2026-07-28T08:50:18+00:00",
   "totalFaucets": 41,
   "summary": {
     "up": 26,
@@ -10,9 +10,10 @@
   "results": [
     {
       "id": "aave-staging",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -32,7 +33,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 209,
+      "responseMs": 212,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -44,9 +45,10 @@
     },
     {
       "id": "polypore-atom",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "down",
         "down",
         "down",
         "down",
@@ -66,7 +68,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 169,
+      "responseMs": 27,
       "error": "Domain does not resolve (DNS failure)",
       "signals": [],
       "redirectedTo": null,
@@ -79,9 +81,10 @@
     },
     {
       "id": "cardano-preprod",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -101,7 +104,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 27765,
+      "responseMs": 381,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -113,9 +116,10 @@
     },
     {
       "id": "bnb-smart-chain",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -135,7 +139,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 1720,
+      "responseMs": 2036,
       "error": null,
       "signals": [],
       "redirectedTo": "https://www.bnbchain.org:443/en/testnet-faucet",
@@ -145,9 +149,10 @@
     },
     {
       "id": "googol-bch",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -167,7 +172,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 871,
+      "responseMs": 500,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -177,7 +182,7 @@
     },
     {
       "id": "bitcoinfaucet-uo1",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-27T10:08:22+00:00",
       "history": [
         "up",
@@ -195,11 +200,12 @@
         "degraded",
         "degraded",
         "up",
+        "up",
         "up"
       ],
-      "uptimePct": 81,
+      "uptimePct": 82,
       "httpStatus": 200,
-      "responseMs": 455,
+      "responseMs": 335,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -209,9 +215,10 @@
     },
     {
       "id": "coinfaucet-btc",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -231,7 +238,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 637,
+      "responseMs": 140,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -241,14 +248,15 @@
     },
     {
       "id": "devwork-btc",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-27T14:07:08+00:00",
       "history": [
+        "degraded",
         "degraded"
       ],
       "uptimePct": 0,
       "httpStatus": 403,
-      "responseMs": 60,
+      "responseMs": 73,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -261,9 +269,10 @@
     },
     {
       "id": "agoric-devnet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -283,7 +292,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 1049,
+      "responseMs": 769,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -293,7 +302,7 @@
     },
     {
       "id": "westend-matrix",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-21T12:01:04+00:00",
       "history": [
         "manual",
@@ -311,11 +320,12 @@
         "up",
         "up",
         "up",
+        "up",
         "up"
       ],
-      "uptimePct": 56,
+      "uptimePct": 59,
       "httpStatus": 200,
-      "responseMs": 440,
+      "responseMs": 223,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -327,9 +337,10 @@
     },
     {
       "id": "sepolia-faucet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -349,7 +360,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 141,
+      "responseMs": 326,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -359,9 +370,10 @@
     },
     {
       "id": "solfaucet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -381,7 +393,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 2339,
+      "responseMs": 1717,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -391,9 +403,10 @@
     },
     {
       "id": "xrpl-tx-sender",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -413,7 +426,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 1335,
+      "responseMs": 380,
       "error": null,
       "signals": [],
       "redirectedTo": "https://xrpl.org/resources/dev-tools/tx-sender",
@@ -423,9 +436,10 @@
     },
     {
       "id": "algoexplorer-dispenser",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "down",
         "down",
         "down",
         "down",
@@ -445,7 +459,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 134,
+      "responseMs": 175,
       "error": "Domain does not resolve (DNS failure)",
       "signals": [],
       "redirectedTo": null,
@@ -458,9 +472,10 @@
     },
     {
       "id": "shibe-technology",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "down",
         "down",
         "down",
         "down",
@@ -480,7 +495,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 52441,
+      "responseMs": 52266,
       "error": "Timed out after 25s",
       "signals": [],
       "redirectedTo": null,
@@ -493,9 +508,10 @@
     },
     {
       "id": "stellar-friendbot",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -515,7 +531,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 400,
-      "responseMs": 390,
+      "responseMs": 214,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -525,9 +541,10 @@
     },
     {
       "id": "circle-faucet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -547,7 +564,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 321,
+      "responseMs": 333,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -557,9 +574,10 @@
     },
     {
       "id": "covalent-avax",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -579,7 +597,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 4195,
+      "responseMs": 428,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -589,9 +607,10 @@
     },
     {
       "id": "flow-testnet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -611,7 +630,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 204,
+      "responseMs": 163,
       "error": null,
       "signals": [],
       "redirectedTo": "https://faucet.flow.com/fund-account",
@@ -621,9 +640,10 @@
     },
     {
       "id": "flare-faucet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -643,7 +663,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 243,
+      "responseMs": 137,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -653,9 +673,10 @@
     },
     {
       "id": "polygon-faucet-matic",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "degraded",
         "degraded",
         "degraded",
         "degraded",
@@ -675,7 +696,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": 403,
-      "responseMs": 151,
+      "responseMs": 22,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -688,9 +709,10 @@
     },
     {
       "id": "fantom-faucet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "down",
         "down",
         "down",
         "down",
@@ -710,7 +732,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 52204,
+      "responseMs": 52234,
       "error": "Timed out after 25s",
       "signals": [],
       "redirectedTo": null,
@@ -723,9 +745,10 @@
     },
     {
       "id": "bithomp-faucet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -745,7 +768,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 1793,
+      "responseMs": 598,
       "error": null,
       "signals": [],
       "redirectedTo": "https://test.bithomp.com/faucet",
@@ -755,9 +778,10 @@
     },
     {
       "id": "core-testnet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -777,7 +801,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 591,
+      "responseMs": 197,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -789,9 +813,10 @@
     },
     {
       "id": "sui-faucet-docs",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -811,7 +836,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 253,
+      "responseMs": 231,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -821,9 +846,10 @@
     },
     {
       "id": "hedera-portal",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -843,7 +869,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 211,
+      "responseMs": 156,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -855,9 +881,10 @@
     },
     {
       "id": "dash-crowdnode",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "down",
         "down",
         "down",
         "down",
@@ -877,7 +904,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 52274,
+      "responseMs": 52349,
       "error": "Timed out after 25s",
       "signals": [],
       "redirectedTo": null,
@@ -890,9 +917,10 @@
     },
     {
       "id": "hiro-stacks-api",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -912,7 +940,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 353,
+      "responseMs": 290,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -922,7 +950,7 @@
     },
     {
       "id": "faucy-vfy",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-24T08:41:55+00:00",
       "history": [
         "down",
@@ -940,11 +968,12 @@
         "up",
         "up",
         "up",
+        "up",
         "up"
       ],
-      "uptimePct": 31,
+      "uptimePct": 35,
       "httpStatus": 200,
-      "responseMs": 1210,
+      "responseMs": 911,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -954,9 +983,10 @@
     },
     {
       "id": "polygon-faucet-pol",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "degraded",
         "degraded",
         "degraded",
         "degraded",
@@ -976,7 +1006,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": 403,
-      "responseMs": 151,
+      "responseMs": 22,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -989,9 +1019,10 @@
     },
     {
       "id": "aptos-testnet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -1011,7 +1042,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 353,
+      "responseMs": 188,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1021,9 +1052,10 @@
     },
     {
       "id": "multiversx-devnet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "up",
         "up",
         "up",
         "up",
@@ -1043,7 +1075,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 780,
+      "responseMs": 561,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -1055,7 +1087,7 @@
     },
     {
       "id": "beryx-filecoin",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-21T12:04:16+00:00",
       "history": [
         "down",
@@ -1073,11 +1105,12 @@
         "degraded",
         "degraded",
         "degraded",
+        "degraded",
         "degraded"
       ],
       "uptimePct": 0,
       "httpStatus": 429,
-      "responseMs": 361,
+      "responseMs": 163,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1090,9 +1123,10 @@
     },
     {
       "id": "near-faucet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "down",
         "down",
         "down",
         "down",
@@ -1112,7 +1146,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": 404,
-      "responseMs": 1388,
+      "responseMs": 497,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1125,9 +1159,10 @@
     },
     {
       "id": "zilliqa-faucet",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "history": [
+        "down",
         "down",
         "down",
         "down",
@@ -1147,7 +1182,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 19,
+      "responseMs": 39,
       "error": "Domain does not resolve (DNS failure)",
       "signals": [],
       "redirectedTo": null,
@@ -1160,7 +1195,7 @@
     },
     {
       "id": "sei-atlantic",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-21T11:59:25+00:00",
       "history": [
         "down",
@@ -1169,6 +1204,7 @@
         "down",
         "down",
         "down",
+        "up",
         "up",
         "up",
         "up",
@@ -1180,9 +1216,9 @@
         "up",
         "up"
       ],
-      "uptimePct": 62,
+      "uptimePct": 65,
       "httpStatus": 404,
-      "responseMs": 284,
+      "responseMs": 541,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1192,7 +1228,7 @@
     },
     {
       "id": "provenance-explorer",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-21T11:59:25+00:00",
       "history": [
         "up",
@@ -1210,9 +1246,10 @@
         "manual",
         "manual",
         "manual",
+        "manual",
         "manual"
       ],
-      "uptimePct": 38,
+      "uptimePct": 35,
       "status": "manual",
       "httpStatus": null,
       "responseMs": null,
@@ -1224,14 +1261,15 @@
     },
     {
       "id": "bitaps-ltc",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-27T14:07:08+00:00",
       "history": [
+        "degraded",
         "degraded"
       ],
       "uptimePct": 0,
       "httpStatus": 403,
-      "responseMs": 74,
+      "responseMs": 22,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1244,14 +1282,15 @@
     },
     {
       "id": "salmen-ltc",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-27T14:07:08+00:00",
       "history": [
+        "degraded",
         "degraded"
       ],
       "uptimePct": 0,
       "httpStatus": 403,
-      "responseMs": 364,
+      "responseMs": 418,
       "error": null,
       "signals": [],
       "redirectedTo": "https://litecointf.salmen.website/cgi-sys/suspendedpage.cgi",
@@ -1264,14 +1303,15 @@
     },
     {
       "id": "salmen-doge",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-27T14:07:08+00:00",
       "history": [
+        "degraded",
         "degraded"
       ],
       "uptimePct": 0,
       "httpStatus": 403,
-      "responseMs": 469,
+      "responseMs": 411,
       "error": null,
       "signals": [],
       "redirectedTo": "https://dogecointf.salmen.website/cgi-sys/suspendedpage.cgi",
@@ -1284,14 +1324,15 @@
     },
     {
       "id": "kaia-kairos",
-      "checkedAt": "2026-07-27T14:07:08+00:00",
+      "checkedAt": "2026-07-28T08:50:18+00:00",
       "statusSince": "2026-07-27T14:07:08+00:00",
       "history": [
+        "up",
         "up"
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 257,
+      "responseMs": 322,
       "error": null,
       "signals": [],
       "redirectedTo": null,
