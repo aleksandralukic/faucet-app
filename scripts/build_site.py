@@ -141,6 +141,13 @@ def render_card(f, st):
         bits.append(f"{st['uptimePct']}% uptime")
 
     cur_slug = slug(f["currency"])
+    badge = ""
+    oc = st.get("onchain") or {}
+    if st.get("verificationTier") == "onchain":
+        badge = '<span class="tier onchain" title="Verified by on-chain wallet activity">⛓ on-chain</span>'
+    evidence = ""
+    if oc.get("evidence"):
+        evidence = f'<p class="reason">On-chain: {e(oc["evidence"])}</p>'
     fail = ""
     if st.get("failureLabel"):
         fail = f'<p class="reason">{e(st["failureLabel"])} — {e(st.get("failureAdvice", ""))}</p>'
@@ -150,13 +157,13 @@ def render_card(f, st):
     <span class="ticker">{e(f["currency"])}</span>
     <a href="{e(f["url"])}" target="_blank" rel="noopener">{e(f["name"])}</a>
     <span class="network">{e(f["network"])}</span>
-    <span class="status-line"><span class="dot {e(s)}"></span>{e(STATUS_LABEL.get(s, s))}</span>
+    <span class="status-line"><span class="dot {e(s)}"></span>{e(STATUS_LABEL.get(s, s))}{badge}</span>
   </div>
   {f'<p class="notes">{e(f["notes"])}</p>' if f.get("notes") else ""}
   <div class="meta">{"".join(f'<span class="tag">{e(b)}</span>' for b in bits)}
     <a class="tag" href="{cur_slug}-testnet-faucet/">{e(f["currency"])} faucet status →</a>
   </div>
-  {fail}
+  {evidence}{fail}
 </article>"""
 
 
@@ -182,9 +189,17 @@ def build_home(faucets, status_by_id, generated_at, summary):
     shell = f"{pre}{start}\n{cards}\n{end}{post}"
 
     # Keep the crawler-visible summary sentence in sync with the real numbers.
+    onchain_n = sum(
+        1 for f in faucets
+        if status_by_id.get(f["id"], {}).get("verificationTier") == "onchain"
+    )
+    tier_bit = (
+        f"{onchain_n} verified on-chain (live wallet balance and payout history). "
+        if onchain_n else ""
+    )
     line = (
         f"{summary.get('up', 0)} of {len(faucets)} testnet faucets working, "
-        f"{summary.get('down', 0)} down. Last checked {freshness(generated_at)}."
+        f"{summary.get('down', 0)} down. {tier_bit}Last checked {freshness(generated_at)}."
     )
     shell = re.sub(
         r'(<p id="seo-summary"[^>]*>).*?(</p>)',
@@ -291,6 +306,14 @@ def build_currency_pages(faucets, status_by_id, generated_at):
                 f'<p><strong>Status:</strong> <span class="dot {e(s)}"></span> {e(STATUS_LABEL.get(s, s))}'
                 f' — <span class="muted">{e(st.get("reason", "not yet checked"))}</span></p>'
             ]
+            oc = st.get("onchain") or {}
+            if oc.get("evidence"):
+                detail.append(
+                    f'<p><strong>On-chain liveness:</strong> {e(oc["evidence"])} '
+                    f'<span class="tier onchain">verified on-chain</span> '
+                    f'<span class="muted">— read directly from the faucet\'s dispensing '
+                    f'wallet, so this holds even when the site is behind bot protection.</span></p>'
+                )
             amt_bits = []
             if f.get("amount"):
                 amt_bits.append(f"Dispenses {e(f['amount'])}")

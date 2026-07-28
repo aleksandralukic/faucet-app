@@ -146,9 +146,15 @@ function card(f) {
   if (st?.responseMs != null) tags.push(`${st.responseMs} ms`);
   if (st?.httpStatus != null) tags.push(`HTTP ${st.httpStatus}`);
 
+  const oc = st?.onchain || {};
+  const tierBadge = st?.verificationTier === "onchain"
+    ? `<span class="tier onchain" title="Verified by on-chain wallet activity">⛓ on-chain</span>`
+    : "";
+  const ocLine = oc.evidence ? `<p class="reason">On-chain: ${esc(oc.evidence)}</p>` : "";
+
   const failLine = st?.failureLabel
     ? `<p class="reason">${esc(st.failureLabel)} — ${esc(st.failureAdvice || "")}</p>`
-    : st?.reason
+    : !oc.evidence && st?.reason
     ? `<p class="reason">${esc(st.reason)}</p>`
     : "";
 
@@ -159,7 +165,7 @@ function card(f) {
         <a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.name)}</a>
         <span class="network">${esc(f.network)}</span>
         <span class="status-line">
-          <span class="dot ${s}"></span>${esc(STATUS_LABEL[s] || s)}${sparkline(st?.history)}
+          <span class="dot ${s}"></span>${esc(STATUS_LABEL[s] || s)}${tierBadge}${sparkline(st?.history)}
         </span>
       </div>
       ${f.notes ? `<p class="notes">${esc(f.notes)}</p>` : ""}
@@ -167,7 +173,7 @@ function card(f) {
         ${tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}
         <a class="tag" href="${currencySlug(f.currency)}-testnet-faucet/">${esc(f.currency)} faucet status →</a>
       </div>
-      ${failLine}
+      ${ocLine}${failLine}
       ${st?.redirectedTo ? `<p class="reason">Redirects to ${esc(st.redirectedTo)} — consider updating the URL.</p>` : ""}
     </article>`;
 }

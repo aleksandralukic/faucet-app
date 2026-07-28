@@ -92,9 +92,34 @@ Already used by:
 | `manual` | Can't be checked automatically. |
 | `unknown` | No check has run for this entry yet. |
 
-**A green light does not mean the faucet has funds.** The checker makes a single
-`GET` request — it never attempts a claim. It can tell you a faucet's site is
-gone; it can't tell you the tap is dry behind a working page.
+## Confidence tiers
+
+Not every "up" is equally trustworthy. Each faucet records the strongest
+verification we could achieve, in `verificationTier`:
+
+| Tier | What it means | How |
+| --- | --- | --- |
+| `onchain` | The faucet's dispensing wallet holds funds and has a payout history — read directly from the chain, so it holds even when the site is behind Cloudflare. | Keyless JSON-RPC (balance + nonce) and, where available, a Blockscout explorer for last-dispense recency. See [`scripts/onchain.py`](scripts/onchain.py). |
+| `http` | The faucet's page responded. Weakest signal — proves the site is up, not that the tap has funds. | HTTP GET + content heuristics. |
+| `manual` | Can't be checked automatically (e.g. Discord-only). | — |
+
+On-chain is the strongest keyless signal and **overrides the HTTP verdict**: a
+faucet that a bot wall makes look `degraded (403)` is reported `up` when its
+wallet proves it's alive. To enable it for a faucet, add its dispensing address:
+
+```json
+"onchain": { "chain": "fuji", "wallet": "0x2352d20f…" }
+```
+
+Supported chains live in `CHAIN_PROFILES` in `scripts/onchain.py`. The catch is
+sourcing each faucet's dispensing wallet — some are documented, others need one
+claim to read the payout's `from` address; UTXO chains (LTC/DOGE) and non-EVM
+chains aren't covered yet.
+
+**A green light (at the `http` tier) does not mean the faucet has funds.** That
+check makes a single `GET` request — it never attempts a claim. It can tell you
+a faucet's site is gone; it can't tell you the tap is dry behind a working page.
+The `onchain` tier is what closes that gap.
 
 Two known limits of the content heuristics:
 

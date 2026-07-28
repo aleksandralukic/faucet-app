@@ -195,6 +195,17 @@ h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
 .muted { color: var(--muted); }
 .intro { font-size: 15.5px; line-height: 1.6; margin: 0 0 20px; }
 .intro strong { color: var(--text); }
+.tier {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  margin-left: 8px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.tier.onchain { border-color: var(--up); color: var(--up); }
 
 .callout {
   border: 1px solid var(--degraded);

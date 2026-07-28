@@ -192,7 +192,11 @@
     "requiresCaptcha": false,
     "notes": "Up to 2 AVAX per claim, 24h cooldown. Replaces the dead Covalent faucet. Gated: the address must hold >0 AVAX on Avalanche mainnet. Empty wallet? Get a coupon from https://guild.xyz/avalanche or the Avalanche Discord and enter it on the faucet. faucet.avax.network redirects here.",
     "amount": "2 AVAX",
-    "cooldown": "24h"
+    "cooldown": "24h",
+    "onchain": {
+      "chain": "fuji",
+      "wallet": "0x2352d20fc81225c8ecd8f6faa1b37f24fed450c9"
+    }
   },
   {
     "id": "flow-testnet",
@@ -251,7 +255,11 @@
     "requiresWallet": false,
     "requiresCaptcha": true,
     "notes": "Mainnet swap CORE<->USDT-CORE at https://app.corex.network/",
-    "cooldown": "24h"
+    "cooldown": "24h",
+    "onchain": {
+      "chain": "core-test2",
+      "wallet": "0x0ce88ad9a045596a39b2cd7943117d01b21ffd84"
+    }
   },
   {
     "id": "sui-faucet-docs",

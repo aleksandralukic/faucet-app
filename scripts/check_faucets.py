@@ -13,6 +13,8 @@ import os
 import re
 import socket
 import sys
+
+import onchain
 import time
 import urllib.error
 import urllib.request
@@ -369,6 +371,28 @@ def main():
 
         classify_failure(res)
 
+        # Confidence tier: on-chain liveness is the strongest keyless signal we
+        # have. If the faucet's dispensing wallet is known, its balance + payout
+        # activity overrides the HTTP verdict — this is what rescues faucets that
+        # a Cloudflare wall turns into a false "degraded/down".
+        tier = "manual" if res["status"] == "manual" else "http"
+        if f.get("onchain"):
+            oc = onchain.check(f["onchain"])
+            res["onchain"] = oc
+            if oc.get("ok"):
+                res["status"] = "up"
+                res["reason"] = "On-chain: " + oc["evidence"]
+                for k in ("failureKind", "failureLabel", "failureAdvice", "failurePermanent"):
+                    res[k] = None
+                tier = "onchain"
+            elif "error" not in oc:
+                # Wallet readable but drained or idle — real evidence it's dry.
+                res["status"] = "degraded"
+                res["reason"] = "On-chain looks dry: " + oc["evidence"]
+                tier = "onchain"
+            # else: wallet unreadable this run → keep the HTTP verdict + tier.
+        res["verificationTier"] = tier
+
         prev = previous.get(f["id"], {})
         history = list(prev.get("history", []))[-(HISTORY_LEN - 1):]
         history.append(res["status"])
@@ -394,13 +418,16 @@ def main():
         print(f"  {res['status']:<9} {f['currency']:<10} {f['name']} — {res['reason']}")
 
     summary = {}
+    tiers = {}
     for r in results:
         summary[r["status"]] = summary.get(r["status"], 0) + 1
+        tiers[r["verificationTier"]] = tiers.get(r["verificationTier"], 0) + 1
 
     payload = {
         "generatedAt": now,
         "totalFaucets": len(faucets),
         "summary": summary,
+        "tiers": tiers,
         "results": results,
     }
 
