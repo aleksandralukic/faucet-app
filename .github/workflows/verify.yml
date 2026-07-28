@@ -1,0 +1,65 @@
+name: Verify claims
+
+# Independently checks that the LIVE site is telling the truth: data isn't stale,
+# on-chain balances still match the chain, and the page renders correctly.
+# Runs on a schedule (separate from the daily check that PRODUCES the data), so a
+# broken deploy or a stopped job gets caught even if nothing was pushed.
+
+on:
+  schedule:
+    - cron: "20 */6 * * *" # every 6 hours, off the hour
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/verify.py"
+      - "scripts/onchain.py"
+      - "tests/**"
+      - "playwright.config.js"
+      - ".github/workflows/verify.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  data-verify:
+    name: Data & on-chain truth
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify live claims
+        run: python3 scripts/verify.py
+      - name: Push notification on failure
+        if: failure()
+        run: |
+          if [ -n "${{ vars.NTFY_TOPIC }}" ]; then
+            curl -s -H "Title: ⚠️ testnetfaucets.dev is lying or stale" \
+                 -H "Priority: high" -H "Tags: rotating_light" \
+                 -d "Data/on-chain verification FAILED. $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+                 "ntfy.sh/${{ vars.NTFY_TOPIC }}" || true
+          fi
+
+  e2e:
+    name: Playwright E2E
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Run E2E tests
+        run: npx playwright test
+      - name: Push notification on failure
+        if: failure()
+        run: |
+          if [ -n "${{ vars.NTFY_TOPIC }}" ]; then
+            curl -s -H "Title: ⚠️ testnetfaucets.dev E2E failed" \
+                 -H "Priority: high" -H "Tags: rotating_light" \
+                 -d "Playwright E2E FAILED. $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+                 "ntfy.sh/${{ vars.NTFY_TOPIC }}" || true
+          fi

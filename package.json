@@ -1,0 +1,11 @@
+{
+  "name": "faucet-app-tests",
+  "private": true,
+  "description": "E2E verification tests for testnetfaucets.dev (not part of the site build)",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}
