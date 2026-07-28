@@ -196,6 +196,7 @@ def check(cfg, now_ts=None):
         "balance": round(balance, 6),
         "balanceStr": balance_str,
         "payoutsSent": count,
+        "countLabel": count_label,
         "lastDispenseDays": idle_days,
         "evidence": evidence,
     }

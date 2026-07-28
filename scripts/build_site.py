@@ -113,6 +113,27 @@ def network_keywords(networks):
     return out
 
 
+def onchain_panel(oc):
+    """A prominent, scannable panel of the on-chain evidence (balance is the
+    anchor). Shown high on cards and faucet sections, not buried as fine print."""
+    if not (oc and oc.get("balanceStr")):
+        return ""
+    stats = [
+        f'<span class="oc-stat oc-bal"><b>{e(oc["balanceStr"])}</b><small>in wallet</small></span>',
+        f'<span class="oc-stat"><b>{oc.get("payoutsSent", 0):,}</b>'
+        f'<small>{e(oc.get("countLabel", "payouts"))}</small></span>',
+    ]
+    if oc.get("lastDispenseDays") is not None:
+        stats.append(
+            f'<span class="oc-stat"><b>{oc["lastDispenseDays"]:g}d ago</b>'
+            f'<small>last dispensed</small></span>'
+        )
+    return (
+        '<div class="onchain-panel"><span class="oc-tag">⛓ Verified on-chain</span>'
+        + "".join(stats) + "</div>"
+    )
+
+
 def status_of(fid, status_by_id):
     return status_by_id.get(fid, {}).get("status", "unknown")
 
@@ -145,12 +166,7 @@ def render_card(f, st):
     oc = st.get("onchain") or {}
     if st.get("verificationTier") == "onchain":
         badge = '<span class="tier onchain" title="Verified by on-chain wallet activity">⛓ on-chain</span>'
-    evidence = ""
-    if oc.get("evidence"):
-        ev = e(oc["evidence"])
-        if oc.get("balanceStr"):  # make the wallet balance the visual anchor
-            ev = ev.replace(e(oc["balanceStr"]), f'<strong class="bal">{e(oc["balanceStr"])}</strong>', 1)
-        evidence = f'<p class="reason">On-chain: {ev}</p>'
+    panel = onchain_panel(oc)
     fail = ""
     if st.get("failureLabel"):
         fail = f'<p class="reason">{e(st["failureLabel"])} — {e(st.get("failureAdvice", ""))}</p>'
@@ -162,11 +178,12 @@ def render_card(f, st):
     <span class="network">{e(f["network"])}</span>
     <span class="status-line"><span class="dot {e(s)}"></span>{e(STATUS_LABEL.get(s, s))}{badge}</span>
   </div>
+  {panel}
   {f'<p class="notes">{e(f["notes"])}</p>' if f.get("notes") else ""}
   <div class="meta">{"".join(f'<span class="tag">{e(b)}</span>' for b in bits)}
     <a class="tag" href="{cur_slug}-testnet-faucet/">{e(f["currency"])} faucet status →</a>
   </div>
-  {evidence}{fail}
+  {fail}
 </article>"""
 
 
@@ -310,15 +327,12 @@ def build_currency_pages(faucets, status_by_id, generated_at):
                 f' — <span class="muted">{e(st.get("reason", "not yet checked"))}</span></p>'
             ]
             oc = st.get("onchain") or {}
-            if oc.get("evidence"):
-                ev = e(oc["evidence"])
-                if oc.get("balanceStr"):
-                    ev = ev.replace(e(oc["balanceStr"]), f'<strong class="bal">{e(oc["balanceStr"])}</strong>', 1)
+            oc_panel = onchain_panel(oc)
+            if oc_panel:
                 detail.append(
-                    f'<p><strong>On-chain liveness:</strong> {ev} '
-                    f'<span class="tier onchain">verified on-chain</span> '
-                    f'<span class="muted">— read directly from the faucet\'s dispensing '
-                    f'wallet, so this holds even when the site is behind bot protection.</span></p>'
+                    '<p class="muted oc-explain">Read directly from the faucet\'s '
+                    "dispensing wallet, so it holds even when the site is behind bot "
+                    "protection.</p>"
                 )
             amt_bits = []
             if f.get("amount"):
@@ -350,6 +364,7 @@ def build_currency_pages(faucets, status_by_id, generated_at):
 
             sections.append(f"""<section class="card {e(s)}">
   <h2>Is the {e(f["name"])} down right now?</h2>
+  {oc_panel}
   {"".join(detail)}
   <p><a href="{e(f["url"])}" target="_blank" rel="noopener">Open {e(f["name"])} ↗</a>
      <span class="muted">({e(f["network"])})</span></p>

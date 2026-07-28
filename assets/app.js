@@ -150,11 +150,15 @@ function card(f) {
   const tierBadge = st?.verificationTier === "onchain"
     ? `<span class="tier onchain" title="Verified by on-chain wallet activity">⛓ on-chain</span>`
     : "";
-  let ocLine = "";
-  if (oc.evidence) {
-    let ev = esc(oc.evidence);
-    if (oc.balanceStr) ev = ev.replace(esc(oc.balanceStr), `<strong class="bal">${esc(oc.balanceStr)}</strong>`);
-    ocLine = `<p class="reason">On-chain: ${ev}</p>`;
+  let ocPanel = "";
+  if (oc.balanceStr) {
+    const stats = [
+      `<span class="oc-stat oc-bal"><b>${esc(oc.balanceStr)}</b><small>in wallet</small></span>`,
+      `<span class="oc-stat"><b>${(oc.payoutsSent || 0).toLocaleString()}</b><small>${esc(oc.countLabel || "payouts")}</small></span>`,
+    ];
+    if (oc.lastDispenseDays != null)
+      stats.push(`<span class="oc-stat"><b>${oc.lastDispenseDays}d ago</b><small>last dispensed</small></span>`);
+    ocPanel = `<div class="onchain-panel"><span class="oc-tag">⛓ Verified on-chain</span>${stats.join("")}</div>`;
   }
 
   const failLine = st?.failureLabel
@@ -173,12 +177,13 @@ function card(f) {
           <span class="dot ${s}"></span>${esc(STATUS_LABEL[s] || s)}${tierBadge}${sparkline(st?.history)}
         </span>
       </div>
+      ${ocPanel}
       ${f.notes ? `<p class="notes">${esc(f.notes)}</p>` : ""}
       <div class="meta">
         ${tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}
         <a class="tag" href="${currencySlug(f.currency)}-testnet-faucet/">${esc(f.currency)} faucet status →</a>
       </div>
-      ${ocLine}${failLine}
+      ${failLine}
       ${st?.redirectedTo ? `<p class="reason">Redirects to ${esc(st.redirectedTo)} — consider updating the URL.</p>` : ""}
     </article>`;
 }
