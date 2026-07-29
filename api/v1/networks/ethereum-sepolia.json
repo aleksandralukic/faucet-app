@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-29T13:22:00+00:00",
-  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "generated_at": "2026-07-29T13:39:31+00:00",
+  "next_update_expected_at": "2026-07-30T13:39:31+00:00",
   "network_id": "ethereum-sepolia",
   "faucets": [
     {
@@ -12,7 +12,7 @@
       "currency": "AAVE",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-07-29T13:22:00+00:00",
+      "checked_at": "2026-07-29T13:39:31+00:00",
       "amount": "100 AAVE",
       "cooldown": null,
       "friction": [
@@ -37,7 +37,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-07-29T13:22:00+00:00",
+      "checked_at": "2026-07-29T13:39:31+00:00",
       "amount": "~0.05 ETH",
       "cooldown": "24h",
       "friction": [
@@ -62,7 +62,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-07-29T13:22:00+00:00",
+      "checked_at": "2026-07-29T13:39:31+00:00",
       "amount": "variable (PoW)",
       "cooldown": null,
       "friction": [
@@ -73,10 +73,10 @@
       "notes": "Proof-of-work faucet: no login and no mainnet balance needed. Mine in-browser (hCaptcha), then claim to your address — the longer you mine, the more ETH. A solid backup to the Google Cloud faucet.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "14805.77793",
+        "wallet_balance": "14741.755619",
         "wallet_balance_unit": "ETH",
-        "payouts_sent": 5438899,
-        "last_dispensed_at": "2026-07-29T13:22:00+00:00"
+        "payouts_sent": 5438935,
+        "last_dispensed_at": "2026-07-29T13:39:31+00:00"
       }
     }
   ]

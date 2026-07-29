@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-29T13:22:00+00:00",
-  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "generated_at": "2026-07-29T13:39:31+00:00",
+  "next_update_expected_at": "2026-07-30T13:39:31+00:00",
   "network_id": "polygon-amoy",
   "faucets": [
     {
@@ -12,7 +12,7 @@
       "currency": "MATIC",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-07-29T13:22:00+00:00",
+      "checked_at": "2026-07-29T13:39:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -38,7 +38,7 @@
       "currency": "POL",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-07-29T13:22:00+00:00",
+      "checked_at": "2026-07-29T13:39:31+00:00",
       "amount": "0.01 POL",
       "cooldown": null,
       "friction": [

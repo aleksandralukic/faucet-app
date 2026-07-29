@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-29T13:22:00+00:00",
-  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "generated_at": "2026-07-29T13:39:31+00:00",
+  "next_update_expected_at": "2026-07-30T13:39:31+00:00",
   "network_id": "filecoin-calibration",
   "faucets": [
     {
@@ -12,7 +12,7 @@
       "currency": "FIL",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-07-29T13:22:00+00:00",
+      "checked_at": "2026-07-29T13:39:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -26,7 +26,7 @@
         "wallet_balance": "106585.904091",
         "wallet_balance_unit": "tFIL",
         "payouts_sent": 45874,
-        "last_dispensed_at": "2026-07-28T10:58:00+00:00"
+        "last_dispensed_at": "2026-07-28T11:15:31+00:00"
       }
     }
   ]
