@@ -8,7 +8,15 @@
     "requiresWallet": true,
     "requiresCaptcha": false,
     "notes": "Connect a wallet on app.aave.com, switch to a testnet (Sepolia), and use the Faucet section to mint test AAVE and other assets. Replaces the retired staging.aave.com faucet. (The site is behind bot protection, so our HTTP check may show degraded even though it works in a browser.)",
-    "amount": "100 AAVE"
+    "amount": "100 AAVE",
+    "check": {
+      "okStatus": [
+        200,
+        403
+      ],
+      "skipContentScan": true,
+      "reason": "Cloudflare bot protection returns 403 to our automated check; verified working in a browser."
+    }
   },
   {
     "id": "polypore-atom",
@@ -92,8 +100,16 @@
     "url": "https://testnet-faucet.devwork.tech/",
     "network": "Bitcoin Testnet",
     "requiresWallet": false,
-    "requiresCaptcha": false,
-    "notes": "Third BTC option when the other two are dry or rate-limited. Sourced from faucet-list.com (community rating 24 up / 1 down); not yet claim-tested by us."
+    "requiresCaptcha": true,
+    "notes": "Third BTC option when the other two are dry or rate-limited. Has a browser verification step (Cloudflare/captcha-style). Sourced from faucet-list.com.",
+    "check": {
+      "okStatus": [
+        200,
+        403
+      ],
+      "skipContentScan": true,
+      "reason": "Behind a browser verification step that 403s our automated check; verified working in a browser."
+    }
   },
   {
     "id": "agoric-devnet",
