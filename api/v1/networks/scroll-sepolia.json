@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "scroll-sepolia",
+  "faucets": [
+    {
+      "id": "scroll-sepolia-l2faucet",
+      "network_id": "scroll-sepolia",
+      "name": "L2Faucet Scroll Sepolia",
+      "url": "https://www.l2faucet.com/scroll",
+      "currency": "SCROLL",
+      "status": "degraded",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "ETH (rate-limited)",
+      "cooldown": "24h",
+      "friction": [],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Ungated device attestation (passkey) — no login/wallet/mainnet. Dispenses ETH on Scroll Sepolia. Official alternative: the Scroll Telegram faucet bot ('/drop <address>', see docs.scroll.io), or bridge Sepolia ETH via the Scroll bridge.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

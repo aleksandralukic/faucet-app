@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "celo-alfajores",
+  "faucets": [
+    {
+      "id": "celo-alfajores",
+      "network_id": "celo-alfajores",
+      "name": "Celo Alfajores Faucet",
+      "url": "https://faucet.celo.org/",
+      "currency": "CELO",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "1 CELO + stables",
+      "cooldown": "24h",
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Captcha only — no login or mainnet balance, the least-gated of these six. Optional GitHub login gives ~10x more (up to ~5 CELO). Also drips cUSD/cEUR/cREAL.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "stacks-testnet",
+  "faucets": [
+    {
+      "id": "hiro-stacks-api",
+      "network_id": "stacks-testnet",
+      "name": "Hiro Stacks Sandbox Faucet",
+      "url": "https://explorer.hiro.so/sandbox/faucet?chain=testnet",
+      "currency": "STX",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "500 STX",
+      "cooldown": null,
+      "friction": [
+        "wallet"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Connect a Stacks wallet (Leather or Xverse), confirm the network toggle is on Testnet, open the Faucet tab, and click Request STX (500 tSTX). The old api.testnet.hiro.so endpoint is dead — the API host moved to api.hiro.so.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

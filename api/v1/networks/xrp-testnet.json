@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "xrp-testnet",
+  "faucets": [
+    {
+      "id": "xrpl-tx-sender",
+      "network_id": "xrp-testnet",
+      "name": "XRPL Tx Sender",
+      "url": "https://xrpl.org/resources/dev-tools/tx-sender",
+      "currency": "XRP",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [],
+      "automatable": false,
+      "claim_api": null,
+      "notes": null,
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    },
+    {
+      "id": "bithomp-faucet",
+      "network_id": "xrp-testnet",
+      "name": "Bithomp Faucet",
+      "url": "https://test.bithomp.com/faucet",
+      "currency": "XRP/SOLO",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": null,
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

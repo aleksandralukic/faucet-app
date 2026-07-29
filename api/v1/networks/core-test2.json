@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "core-test2",
+  "faucets": [
+    {
+      "id": "core-testnet",
+      "network_id": "core-test2",
+      "name": "Core Testnet Faucet",
+      "url": "https://scan.test2.btcs.network/faucet",
+      "currency": "CORE",
+      "status": "working",
+      "verification": "onchain",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": "24h",
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Mainnet swap CORE<->USDT-CORE at https://app.corex.network/",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": "991655.743903",
+        "wallet_balance_unit": "tCORE2",
+        "payouts_sent": 8343,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

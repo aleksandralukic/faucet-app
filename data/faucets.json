@@ -67,7 +67,16 @@
     "requiresWallet": false,
     "requiresCaptcha": false,
     "notes": "Keyless, no captcha or login: POST your bchtest: address to /faucet/get_testnet_bch. Up to 10,000 sats (0.0001 tBCH) per call; won't top up if you already hold >=10k sats. Part of the actively-maintained mainnet.cash project.",
-    "amount": "0.0001 tBCH"
+    "amount": "0.0001 tBCH",
+    "automatable": true,
+    "claim_api": {
+      "method": "POST",
+      "endpoint": "https://rest-unstable.mainnet.cash/faucet/get_testnet_bch",
+      "body": {
+        "cashaddr": "bchtest:... address"
+      },
+      "dispenses": "up to 10,000 sats"
+    }
   },
   {
     "id": "bitcoinfaucet-uo1",
@@ -225,6 +234,15 @@
     "onchain": {
       "chain": "stellar-testnet",
       "wallet": "GAIH3ULLFQ4DGSECF2AR555KZ4KNDGEKN4AFI4SU2M7B43MGK3QJZNSR"
+    },
+    "automatable": true,
+    "claim_api": {
+      "method": "GET",
+      "endpoint": "https://friendbot.stellar.org/",
+      "params": {
+        "addr": "your Stellar G-address (query string)"
+      },
+      "dispenses": "~10,000 XLM"
     }
   },
   {
@@ -504,7 +522,17 @@
     "requiresCaptcha": true,
     "notes": "0.01 tLTC per claim, once per hour (per address and per IP). Also has a keyless API (POST /api/v1/claim). Established 2025, live balance shown on-page. Replaces the bot-blocked bitaps faucet.",
     "amount": "0.01 tLTC",
-    "cooldown": "1h"
+    "cooldown": "1h",
+    "automatable": true,
+    "claim_api": {
+      "method": "POST",
+      "endpoint": "https://cypherfaucet.com/api/v1/claim",
+      "body": {
+        "network": "ltc-testnet",
+        "address": "tltc1... address"
+      },
+      "dispenses": "0.01 tLTC / hour"
+    }
   },
   {
     "id": "base-sepolia-cdp",

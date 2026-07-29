@@ -47,6 +47,9 @@ jobs:
           SITE_URL: https://testnetfaucets.dev
         run: python3 scripts/build_site.py
 
+      - name: Build JSON API
+        run: python3 scripts/build_api.py
+
       - name: Commit status and generated pages
         run: |
           git config user.name "github-actions[bot]"

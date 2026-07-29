@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "sui-testnet",
+  "faucets": [
+    {
+      "id": "sui-faucet-docs",
+      "network_id": "sui-testnet",
+      "name": "Sui Testnet Faucet",
+      "url": "https://faucet.sui.io/",
+      "currency": "SUI",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Official web faucet — pick Testnet from the network dropdown, paste your address, and request. Also obtainable via the Sui Discord.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

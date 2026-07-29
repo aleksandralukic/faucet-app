@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "kaia-kairos-testnet",
+  "faucets": [
+    {
+      "id": "kaia-kairos",
+      "network_id": "kaia-kairos-testnet",
+      "name": "Kaia Kairos Faucet",
+      "url": "https://www.kaia.io/faucet",
+      "currency": "USDT",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "50 KAIA / 10 USDT",
+      "cooldown": "24h",
+      "friction": [],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "50 KAIA or 10 test USDT per claim, 24h cooldown. Paste an address — no wallet connect needed. Also lists a Nodit-powered alternative for bulk requests.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

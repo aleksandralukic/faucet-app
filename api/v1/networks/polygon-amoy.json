@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "polygon-amoy",
+  "faucets": [
+    {
+      "id": "polygon-faucet-matic",
+      "network_id": "polygon-amoy",
+      "name": "Polygon Faucet",
+      "url": "https://faucet.polygon.technology/",
+      "currency": "MATIC",
+      "status": "degraded",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "login:GitHub",
+        "wallet"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Polygon Amoy faucet. MATIC is the legacy token name — Amoy now runs on POL, so most testing uses the POL claim flow instead. This higher-drip path requires connecting Discord. See also the POL faucet entry for the no-Discord claim.",
+      "evidence": {
+        "http_status": 403,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    },
+    {
+      "id": "polygon-faucet-pol",
+      "network_id": "polygon-amoy",
+      "name": "Polygon Amoy Faucet",
+      "url": "https://faucet.polygon.technology/",
+      "currency": "POL",
+      "status": "degraded",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "0.01 POL",
+      "cooldown": null,
+      "friction": [
+        "login:GitHub"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Polygon Amoy faucet, POL claim flow: paste your address and click CLAIM — 0.01 POL per claim, no Discord needed (unlike the legacy MATIC path). POL is the current Polygon token that replaced MATIC.",
+      "evidence": {
+        "http_status": 403,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

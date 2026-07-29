@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "bitcoin-cash-testnet",
+  "faucets": [
+    {
+      "id": "googol-bch",
+      "network_id": "bitcoin-cash-testnet",
+      "name": "Googol BCH Faucet",
+      "url": "https://tbch.googol.cash/",
+      "currency": "BCH",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": null,
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    },
+    {
+      "id": "mainnetcash-bch",
+      "network_id": "bitcoin-cash-testnet",
+      "name": "mainnet.cash BCH Faucet",
+      "url": "https://rest-unstable.mainnet.cash/faucet.html",
+      "currency": "BCH",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "0.0001 tBCH",
+      "cooldown": null,
+      "friction": [],
+      "automatable": true,
+      "claim_api": {
+        "method": "POST",
+        "endpoint": "https://rest-unstable.mainnet.cash/faucet/get_testnet_bch",
+        "body": {
+          "cashaddr": "bchtest:... address"
+        },
+        "dispenses": "up to 10,000 sats"
+      },
+      "notes": "Keyless, no captcha or login: POST your bchtest: address to /faucet/get_testnet_bch. Up to 10,000 sats (0.0001 tBCH) per call; won't top up if you already hold >=10k sats. Part of the actively-maintained mainnet.cash project.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

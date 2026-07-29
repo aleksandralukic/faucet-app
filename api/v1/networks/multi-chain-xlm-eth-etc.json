@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "multi-chain-xlm-eth-etc",
+  "faucets": [
+    {
+      "id": "circle-faucet",
+      "network_id": "multi-chain-xlm-eth-etc",
+      "name": "Circle Faucet",
+      "url": "https://faucet.circle.com/",
+      "currency": "USDC/EURC",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "10 USDC/EURC",
+      "cooldown": "24h",
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "10 USDC/EURC every 24h. If XLM daily limit exceeded, swap XLM->USDC via Freighter on Testnet.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

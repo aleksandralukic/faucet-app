@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "avalanche-fuji-c-chain",
+  "faucets": [
+    {
+      "id": "covalent-avax",
+      "network_id": "avalanche-fuji-c-chain",
+      "name": "Core Avalanche Fuji Faucet",
+      "url": "https://core.app/tools/testnet-faucet?subnet=c&token=c",
+      "currency": "AVAX-C",
+      "status": "working",
+      "verification": "onchain",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "2 AVAX",
+      "cooldown": "24h",
+      "friction": [
+        "mainnet-balance"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Up to 2 AVAX per claim, 24h cooldown. Replaces the dead Covalent faucet. Gated: the address must hold >0 AVAX on Avalanche mainnet. Empty wallet? Get a coupon from https://guild.xyz/avalanche or the Avalanche Discord and enter it on the faucet. faucet.avax.network redirects here.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": "6217.254016",
+        "wallet_balance_unit": "AVAX",
+        "payouts_sent": 2691941,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

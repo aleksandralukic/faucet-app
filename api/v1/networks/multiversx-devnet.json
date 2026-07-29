@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "multiversx-devnet",
+  "faucets": [
+    {
+      "id": "multiversx-devnet",
+      "network_id": "multiversx-devnet",
+      "name": "MultiversX dApp Template",
+      "url": "https://devnet-wallet.multiversx.com/",
+      "currency": "EGLD",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "wallet"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": null,
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

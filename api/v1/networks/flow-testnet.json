@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "flow-testnet",
+  "faucets": [
+    {
+      "id": "flow-testnet",
+      "network_id": "flow-testnet",
+      "name": "Flow Testnet Faucet",
+      "url": "https://faucet.flow.com/fund-account",
+      "currency": "FLOW",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "1000 FLOW",
+      "cooldown": null,
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "1000 FLOW per request. Moved here from testnet-faucet.onflow.org.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "base-sepolia",
+  "faucets": [
+    {
+      "id": "base-sepolia-cdp",
+      "network_id": "base-sepolia",
+      "name": "Coinbase Base Sepolia Faucet",
+      "url": "https://portal.cdp.coinbase.com/products/faucet",
+      "currency": "BASE",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "0.1 ETH",
+      "cooldown": "24h",
+      "friction": [
+        "login:a Coinbase (CDP) account"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Free Coinbase Developer Platform account, but no mainnet balance needed — the least-gated Base option. Also drips test USDC/EURC/cbBTC. Alchemy/QuickNode Base faucets instead require ~0.001 ETH on Ethereum mainnet.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

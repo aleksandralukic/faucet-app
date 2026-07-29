@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "bnb-smart-chain-testnet",
+  "faucets": [
+    {
+      "id": "bnb-smart-chain",
+      "network_id": "bnb-smart-chain-testnet",
+      "name": "BNB Smart Chain Faucet",
+      "url": "https://www.bnbchain.org/en/testnet-faucet",
+      "currency": "BNB",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "mainnet-balance",
+        "wallet"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Heads up — this faucet is gated: your address must already hold >= 0.002 BNB on BNB Smart Chain MAINNET to claim (anti-abuse check), so a fresh empty wallet can't use it. Only Smart Chain (0x...) addresses are accepted; forward to Beacon Chain (tbnb...) via Binance Wallet if needed.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "optimism-sepolia",
+  "faucets": [
+    {
+      "id": "optimism-sepolia-superchain",
+      "network_id": "optimism-sepolia",
+      "name": "Optimism Superchain Faucet",
+      "url": "https://console.optimism.io/faucet",
+      "currency": "OP",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "0.05–1 ETH",
+      "cooldown": "24h",
+      "friction": [
+        "login:GitHub"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "GitHub login + on-chain reputation (Optimist NFT / Gitcoin Passport / World ID raise the drip up to 1 ETH). Covers Base/OP/Zora Sepolia. Least-gated backup: L2Faucet (l2faucet.com/optimism, device attestation, no login).",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "linea-sepolia",
+  "faucets": [
+    {
+      "id": "linea-sepolia",
+      "network_id": "linea-sepolia",
+      "name": "thirdweb Linea Sepolia Faucet",
+      "url": "https://thirdweb.com/linea-sepolia",
+      "currency": "LINEA",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "ETH (varies)",
+      "cooldown": "24h",
+      "friction": [
+        "wallet"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "The official faucet.linea.build is currently offline (DNS dead). This thirdweb faucet works with a connected wallet. Alternatives: HackQuest (hackquest.io/faucets/59141), ETHGlobal's Linea faucet (login, no mainnet balance), or bridge Sepolia ETH via the Linea bridge.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "dogecoin-testnet",
+  "faucets": [
+    {
+      "id": "shibe-technology",
+      "network_id": "dogecoin-testnet",
+      "name": "Shibe Technology",
+      "url": "https://shibe.technology/",
+      "currency": "DOGE",
+      "status": "down",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": null,
+      "evidence": {
+        "http_status": null,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

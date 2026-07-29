@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "flare-coston2",
+  "faucets": [
+    {
+      "id": "flare-faucet",
+      "network_id": "flare-coston2",
+      "name": "Flare Faucet",
+      "url": "https://faucet.flare.network/",
+      "currency": "FLARE",
+      "status": "working",
+      "verification": "onchain",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": null,
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": "28860971.481463",
+        "wallet_balance_unit": "C2FLR",
+        "payouts_sent": 146235,
+        "last_dispensed_at": "2026-07-29T13:22:00+00:00"
+      }
+    }
+  ]
+}

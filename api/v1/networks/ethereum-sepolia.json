@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "ethereum-sepolia",
+  "faucets": [
+    {
+      "id": "aave-staging",
+      "network_id": "ethereum-sepolia",
+      "name": "AAVE Staging Faucet",
+      "url": "https://app.aave.com/faucet/",
+      "currency": "AAVE",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "100 AAVE",
+      "cooldown": null,
+      "friction": [
+        "wallet"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Connect a wallet on app.aave.com, switch to a testnet (Sepolia), and use the Faucet section to mint test AAVE and other assets. Replaces the retired staging.aave.com faucet. (The site is behind bot protection, so our HTTP check may show degraded even though it works in a browser.)",
+      "evidence": {
+        "http_status": 403,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    },
+    {
+      "id": "sepolia-faucet",
+      "network_id": "ethereum-sepolia",
+      "name": "Google Cloud Sepolia Faucet",
+      "url": "https://cloud.google.com/application/web3/faucet/ethereum/sepolia",
+      "currency": "ETH",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "~0.05 ETH",
+      "cooldown": "24h",
+      "friction": [
+        "login:Google"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Lowest-friction Sepolia faucet: no mainnet-balance requirement. Sign in with any Google account, paste your 0x address, claim (~0.05 ETH/day). Replaces the retired sepoliafaucet.io. Backup with no login: pk910 PoW faucet at https://sepolia-faucet.pk910.de/ (mine in-browser, hCaptcha). Avoid Alchemy's faucet — it now requires mainnet ETH + activity.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    },
+    {
+      "id": "pk910-sepolia",
+      "network_id": "ethereum-sepolia",
+      "name": "pk910 Sepolia PoW Faucet",
+      "url": "https://sepolia-faucet.pk910.de/",
+      "currency": "ETH",
+      "status": "working",
+      "verification": "onchain",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "variable (PoW)",
+      "cooldown": null,
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Proof-of-work faucet: no login and no mainnet balance needed. Mine in-browser (hCaptcha), then claim to your address — the longer you mine, the more ETH. A solid backup to the Google Cloud faucet.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": "14805.77793",
+        "wallet_balance_unit": "ETH",
+        "payouts_sent": 5438899,
+        "last_dispensed_at": "2026-07-29T13:22:00+00:00"
+      }
+    }
+  ]
+}

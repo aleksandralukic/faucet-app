@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "sei-atlantic-2",
+  "faucets": [
+    {
+      "id": "sei-atlantic",
+      "network_id": "sei-atlantic-2",
+      "name": "Sei Atlantic Faucet",
+      "url": "https://atlantic-2.app.sei.io/faucet/",
+      "currency": "SEI",
+      "status": "working",
+      "verification": "onchain",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "wallet"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": null,
+      "evidence": {
+        "http_status": 404,
+        "wallet_balance": "73740.772188",
+        "wallet_balance_unit": "SEI",
+        "payouts_sent": 1218964,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

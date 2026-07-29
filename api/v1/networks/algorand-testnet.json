@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "algorand-testnet",
+  "faucets": [
+    {
+      "id": "algoexplorer-dispenser",
+      "network_id": "algorand-testnet",
+      "name": "Lora Algorand Testnet Faucet",
+      "url": "https://lora.algokit.io/testnet/fund",
+      "currency": "ALGO",
+      "status": "working",
+      "verification": "onchain",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": "up to 10 ALGO",
+      "cooldown": null,
+      "friction": [
+        "login:email"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Quick email registration (just email validation). Request ALGO from the Fund page. Replaces the dead AlgoExplorer dispenser.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": "12277.600325",
+        "wallet_balance_unit": "ALGO",
+        "payouts_sent": null,
+        "last_dispensed_at": "2026-07-29T13:22:00+00:00"
+      }
+    }
+  ]
+}

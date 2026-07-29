@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "bitcoin-testnet",
+  "faucets": [
+    {
+      "id": "bitcoinfaucet-uo1",
+      "network_id": "bitcoin-testnet",
+      "name": "BitcoinFaucet UO1",
+      "url": "https://bitcoinfaucet.uo1.net/",
+      "currency": "BTC",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Does not work with SegWit addresses.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    },
+    {
+      "id": "coinfaucet-btc",
+      "network_id": "bitcoin-testnet",
+      "name": "CoinFaucet BTC Testnet",
+      "url": "https://coinfaucet.eu/en/btc-testnet/",
+      "currency": "BTC",
+      "status": "working",
+      "verification": "onchain",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Alternative when bitcoinfaucet.uo1.net fails. Does not work with SegWit.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": "0.003156",
+        "wallet_balance_unit": "tBTC",
+        "payouts_sent": 9137,
+        "last_dispensed_at": "2026-07-29T13:22:00+00:00"
+      }
+    },
+    {
+      "id": "devwork-btc",
+      "network_id": "bitcoin-testnet",
+      "name": "DevWork BTC Testnet Faucet",
+      "url": "https://testnet-faucet.devwork.tech/",
+      "currency": "BTC",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [
+        "captcha"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Third BTC option when the other two are dry or rate-limited. Has a browser verification step (Cloudflare/captcha-style). Sourced from faucet-list.com.",
+      "evidence": {
+        "http_status": 403,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}

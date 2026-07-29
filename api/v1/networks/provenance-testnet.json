@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T13:22:00+00:00",
+  "next_update_expected_at": "2026-07-30T13:22:00+00:00",
+  "network_id": "provenance-testnet",
+  "faucets": [
+    {
+      "id": "provenance-explorer",
+      "network_id": "provenance-testnet",
+      "name": "Provenance Testnet (via Discord)",
+      "url": "https://developer.provenance.io/",
+      "currency": "HASH",
+      "status": "manual",
+      "verification": "manual",
+      "checked_at": "2026-07-29T13:22:00+00:00",
+      "amount": null,
+      "cooldown": null,
+      "friction": [],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "No confirmed public web faucet. The old explorer.test.provenance.io has reached end of life; the new explorer is Zonescan (https://zonescan.io). Request testnet HASH via the Provenance Discord — see the developer portal for the current channel.",
+      "evidence": {
+        "http_status": null,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    }
+  ]
+}
