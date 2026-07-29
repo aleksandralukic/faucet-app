@@ -7,9 +7,10 @@ regenerated on each daily check; assert freshness against `next_update_expected_
 
 | URL | Contents |
 | --- | --- |
-| `https://testnetfaucets.dev/api/v1/all.json` | Everything |
+| `https://testnetfaucets.dev/api/v1/all.json` | Everything (networks + faucets) |
 | `https://testnetfaucets.dev/api/v1/faucets.json` | The faucet array |
-| `https://testnetfaucets.dev/api/v1/networks/<network-id>.json` | One network's faucets |
+| `https://testnetfaucets.dev/api/v1/networks.json` | The network array |
+| `https://testnetfaucets.dev/api/v1/networks/<network-id>.json` | One network + its faucets |
 
 Query-param filtering (`?network=…`) does **not** work on static hosting — either
 filter client-side (the payload is tiny) or fetch the per-network file.
@@ -74,14 +75,44 @@ needing to know our schedule.
   a `0` balance on a `degraded` faucet means it's dry. `last_dispensed_at` is
   approximate to the day.
 
+## Network object
+
+```json
+{
+  "id": "ethereum-sepolia",
+  "chain_id": 11155111,
+  "name": "Ethereum Sepolia",
+  "family": "evm",
+  "lifecycle": {
+    "status": "active",
+    "sunset_date": null,
+    "successor_network_id": null,
+    "announcement_url": null,
+    "last_reviewed": "2026-07-29"
+  },
+  "liveness": {
+    "checked_at": "2026-07-29T13:39:31+00:00",
+    "rpc_responding": true,
+    "chain_advancing": true,
+    "latest_block": 8123456,
+    "block_age_seconds": 12
+  },
+  "faucet_ids": ["aave-staging", "sepolia-faucet", "pk910-sepolia"]
+}
+```
+
+- **`lifecycle.status`** — `active | deprecated | sunset | dead`. **Discipline:
+  no network carries a non-`active` status without an `announcement_url` and a
+  dated `last_reviewed`** — a wrong deprecation breaks someone's pipeline, so it
+  must be auditable, not our opinion. `last_reviewed` is refreshed on a schedule.
+- **`liveness.chain_advancing`** — the assertion that matters: a *halted* chain
+  answers RPC perfectly, so this is derived from the latest block's age, not mere
+  reachability. `true` = block is fresh, `false` = readable but stale (halted),
+  `null` = we couldn't read it this run (don't treat as down). Currently measured
+  for EVM networks; `null` for other families.
+
 ## Coming next (not in v1 yet)
 
-- **`networks.json`** with per-network `lifecycle` (`active | deprecated | sunset
-  | dead`, `successor_network_id`, `announcement_url`, `last_reviewed`) and
-  `liveness` (`rpc_responding`, `chain_advancing`, `latest_block`,
-  `block_age_seconds`). Lifecycle discipline: **no network gets a non-`active`
-  status without an `announcement_url` and a dated `last_reviewed`** — a wrong
-  deprecation breaks someone's pipeline.
 - **`testnet-preflight`** CLI — fails a CI job before it runs if a network is
   deprecated/halted, printing the successor + announcement; and warns when a
   test wallet's balance drops below a threshold, printing the automatable faucet.

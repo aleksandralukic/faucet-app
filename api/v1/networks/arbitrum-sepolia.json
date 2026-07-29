@@ -2,7 +2,29 @@
   "schema_version": "1.0",
   "generated_at": "2026-07-29T13:39:31+00:00",
   "next_update_expected_at": "2026-07-30T13:39:31+00:00",
-  "network_id": "arbitrum-sepolia",
+  "network": {
+    "id": "arbitrum-sepolia",
+    "chain_id": 421614,
+    "name": "Arbitrum Sepolia",
+    "family": "evm",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    },
+    "liveness": {
+      "checked_at": "2026-07-29T13:39:31+00:00",
+      "rpc_responding": null,
+      "chain_advancing": null,
+      "latest_block": null,
+      "block_age_seconds": null
+    },
+    "faucet_ids": [
+      "arbitrum-sepolia-l2faucet"
+    ]
+  },
   "faucets": [
     {
       "id": "arbitrum-sepolia-l2faucet",

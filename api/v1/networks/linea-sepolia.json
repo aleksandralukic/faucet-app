@@ -2,7 +2,29 @@
   "schema_version": "1.0",
   "generated_at": "2026-07-29T13:39:31+00:00",
   "next_update_expected_at": "2026-07-30T13:39:31+00:00",
-  "network_id": "linea-sepolia",
+  "network": {
+    "id": "linea-sepolia",
+    "chain_id": 59141,
+    "name": "Linea Sepolia",
+    "family": "evm",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    },
+    "liveness": {
+      "checked_at": "2026-07-29T13:39:31+00:00",
+      "rpc_responding": true,
+      "chain_advancing": true,
+      "latest_block": 31187255,
+      "block_age_seconds": 0
+    },
+    "faucet_ids": [
+      "linea-sepolia"
+    ]
+  },
   "faucets": [
     {
       "id": "linea-sepolia",

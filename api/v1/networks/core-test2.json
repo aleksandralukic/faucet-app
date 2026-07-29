@@ -2,7 +2,29 @@
   "schema_version": "1.0",
   "generated_at": "2026-07-29T13:39:31+00:00",
   "next_update_expected_at": "2026-07-30T13:39:31+00:00",
-  "network_id": "core-test2",
+  "network": {
+    "id": "core-test2",
+    "chain_id": 1114,
+    "name": "Core test2",
+    "family": "evm",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    },
+    "liveness": {
+      "checked_at": "2026-07-29T13:39:31+00:00",
+      "rpc_responding": null,
+      "chain_advancing": null,
+      "latest_block": null,
+      "block_age_seconds": null
+    },
+    "faucet_ids": [
+      "core-testnet"
+    ]
+  },
   "faucets": [
     {
       "id": "core-testnet",

@@ -2,6 +2,935 @@
   "schema_version": "1.0",
   "generated_at": "2026-07-29T13:39:31+00:00",
   "next_update_expected_at": "2026-07-30T13:39:31+00:00",
+  "networks": [
+    {
+      "id": "agoric-devnet",
+      "chain_id": null,
+      "name": "Agoric Devnet",
+      "family": "cosmos",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "agoric-devnet"
+      ]
+    },
+    {
+      "id": "algorand-testnet",
+      "chain_id": null,
+      "name": "Algorand Testnet",
+      "family": "algorand",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "algoexplorer-dispenser"
+      ]
+    },
+    {
+      "id": "aptos-testnet",
+      "chain_id": null,
+      "name": "Aptos Testnet",
+      "family": "move",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "aptos-testnet"
+      ]
+    },
+    {
+      "id": "arbitrum-sepolia",
+      "chain_id": 421614,
+      "name": "Arbitrum Sepolia",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "arbitrum-sepolia-l2faucet"
+      ]
+    },
+    {
+      "id": "avalanche-fuji-c-chain",
+      "chain_id": 43113,
+      "name": "Avalanche Fuji C-Chain",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": true,
+        "chain_advancing": true,
+        "latest_block": 57427844,
+        "block_age_seconds": 0
+      },
+      "faucet_ids": [
+        "covalent-avax"
+      ]
+    },
+    {
+      "id": "base-sepolia",
+      "chain_id": 84532,
+      "name": "Base Sepolia",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "base-sepolia-cdp"
+      ]
+    },
+    {
+      "id": "bitcoin-cash-testnet",
+      "chain_id": null,
+      "name": "Bitcoin Cash Testnet",
+      "family": "utxo",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "googol-bch",
+        "mainnetcash-bch"
+      ]
+    },
+    {
+      "id": "bitcoin-testnet",
+      "chain_id": null,
+      "name": "Bitcoin Testnet",
+      "family": "utxo",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "bitcoinfaucet-uo1",
+        "coinfaucet-btc",
+        "devwork-btc"
+      ]
+    },
+    {
+      "id": "bnb-smart-chain-testnet",
+      "chain_id": 97,
+      "name": "BNB Smart Chain Testnet",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "bnb-smart-chain"
+      ]
+    },
+    {
+      "id": "cardano-preprod",
+      "chain_id": null,
+      "name": "Cardano Preprod",
+      "family": "cardano",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "cardano-preprod"
+      ]
+    },
+    {
+      "id": "celo-alfajores",
+      "chain_id": 44787,
+      "name": "Celo Alfajores",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "celo-alfajores"
+      ]
+    },
+    {
+      "id": "core-test2",
+      "chain_id": 1114,
+      "name": "Core test2",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "core-testnet"
+      ]
+    },
+    {
+      "id": "cosmos-provider-testnet",
+      "chain_id": null,
+      "name": "Cosmos provider testnet",
+      "family": "cosmos",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "polypore-atom"
+      ]
+    },
+    {
+      "id": "dash-testnet",
+      "chain_id": null,
+      "name": "Dash Testnet",
+      "family": "utxo",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "dash-crowdnode"
+      ]
+    },
+    {
+      "id": "dogecoin-testnet",
+      "chain_id": null,
+      "name": "Dogecoin Testnet",
+      "family": "utxo",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "shibe-technology"
+      ]
+    },
+    {
+      "id": "ethereum-sepolia",
+      "chain_id": 11155111,
+      "name": "Ethereum Sepolia",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "aave-staging",
+        "sepolia-faucet",
+        "pk910-sepolia"
+      ]
+    },
+    {
+      "id": "fantom-testnet",
+      "chain_id": 4002,
+      "name": "Fantom Testnet",
+      "family": "evm",
+      "lifecycle": {
+        "status": "deprecated",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": "https://docs.soniclabs.com/",
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "fantom-faucet"
+      ]
+    },
+    {
+      "id": "filecoin-calibration",
+      "chain_id": 314159,
+      "name": "Filecoin Calibration",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": true,
+        "chain_advancing": true,
+        "latest_block": 3933552,
+        "block_age_seconds": 0
+      },
+      "faucet_ids": [
+        "beryx-filecoin"
+      ]
+    },
+    {
+      "id": "flare-coston2",
+      "chain_id": 114,
+      "name": "Flare Coston2",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": true,
+        "chain_advancing": true,
+        "latest_block": 33402006,
+        "block_age_seconds": 0
+      },
+      "faucet_ids": [
+        "flare-faucet"
+      ]
+    },
+    {
+      "id": "flow-testnet",
+      "chain_id": null,
+      "name": "Flow Testnet",
+      "family": "flow",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "flow-testnet"
+      ]
+    },
+    {
+      "id": "hedera-testnet",
+      "chain_id": null,
+      "name": "Hedera Testnet",
+      "family": "hedera",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "hedera-portal"
+      ]
+    },
+    {
+      "id": "kaia-kairos-testnet",
+      "chain_id": 1001,
+      "name": "Kaia Kairos Testnet",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": true,
+        "chain_advancing": true,
+        "latest_block": 223689786,
+        "block_age_seconds": 0
+      },
+      "faucet_ids": [
+        "kaia-kairos"
+      ]
+    },
+    {
+      "id": "linea-sepolia",
+      "chain_id": 59141,
+      "name": "Linea Sepolia",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": true,
+        "chain_advancing": true,
+        "latest_block": 31187255,
+        "block_age_seconds": 0
+      },
+      "faucet_ids": [
+        "linea-sepolia"
+      ]
+    },
+    {
+      "id": "litecoin-testnet",
+      "chain_id": null,
+      "name": "Litecoin Testnet",
+      "family": "utxo",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "cypherfaucet-ltc"
+      ]
+    },
+    {
+      "id": "multi-chain-xlm-eth-etc",
+      "chain_id": null,
+      "name": "Multi-chain (XLM, ETH, etc.)",
+      "family": "multi",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "circle-faucet"
+      ]
+    },
+    {
+      "id": "multiversx-devnet",
+      "chain_id": null,
+      "name": "MultiversX Devnet",
+      "family": "multiversx",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "multiversx-devnet"
+      ]
+    },
+    {
+      "id": "near-testnet",
+      "chain_id": null,
+      "name": "NEAR Testnet",
+      "family": "near",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "near-faucet"
+      ]
+    },
+    {
+      "id": "optimism-sepolia",
+      "chain_id": 11155420,
+      "name": "Optimism Sepolia",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": true,
+        "chain_advancing": true,
+        "latest_block": 46765224,
+        "block_age_seconds": 0
+      },
+      "faucet_ids": [
+        "optimism-sepolia-superchain"
+      ]
+    },
+    {
+      "id": "polkadot-westend",
+      "chain_id": null,
+      "name": "Polkadot Westend",
+      "family": "substrate",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "westend-matrix"
+      ]
+    },
+    {
+      "id": "polygon-amoy",
+      "chain_id": 80002,
+      "name": "Polygon Amoy",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "polygon-faucet-matic",
+        "polygon-faucet-pol"
+      ]
+    },
+    {
+      "id": "provenance-testnet",
+      "chain_id": null,
+      "name": "Provenance Testnet",
+      "family": "cosmos",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "provenance-explorer"
+      ]
+    },
+    {
+      "id": "scroll-sepolia",
+      "chain_id": 534351,
+      "name": "Scroll Sepolia",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "scroll-sepolia-l2faucet"
+      ]
+    },
+    {
+      "id": "sei-atlantic-2",
+      "chain_id": 1328,
+      "name": "Sei Atlantic-2",
+      "family": "evm",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": true,
+        "chain_advancing": true,
+        "latest_block": 262409042,
+        "block_age_seconds": 0
+      },
+      "faucet_ids": [
+        "sei-atlantic"
+      ]
+    },
+    {
+      "id": "solana-devnet-testnet",
+      "chain_id": null,
+      "name": "Solana Devnet/Testnet",
+      "family": "solana",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "solfaucet"
+      ]
+    },
+    {
+      "id": "stacks-testnet",
+      "chain_id": null,
+      "name": "Stacks Testnet",
+      "family": "stacks",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "hiro-stacks-api"
+      ]
+    },
+    {
+      "id": "stellar-testnet",
+      "chain_id": null,
+      "name": "Stellar Testnet",
+      "family": "stellar",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "stellar-friendbot"
+      ]
+    },
+    {
+      "id": "sui-testnet",
+      "chain_id": null,
+      "name": "Sui Testnet",
+      "family": "move",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "sui-faucet-docs"
+      ]
+    },
+    {
+      "id": "vfy-testnet",
+      "chain_id": null,
+      "name": "VFY Testnet",
+      "family": "other",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "faucy-vfy"
+      ]
+    },
+    {
+      "id": "xrp-testnet",
+      "chain_id": null,
+      "name": "XRP Testnet",
+      "family": "xrpl",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "xrpl-tx-sender",
+        "bithomp-faucet"
+      ]
+    },
+    {
+      "id": "zilliqa-testnet",
+      "chain_id": null,
+      "name": "Zilliqa Testnet",
+      "family": "zilliqa",
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-07-29"
+      },
+      "liveness": {
+        "checked_at": "2026-07-29T13:39:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "zilliqa-faucet"
+      ]
+    }
+  ],
   "faucets": [
     {
       "id": "aave-staging",

@@ -2,7 +2,29 @@
   "schema_version": "1.0",
   "generated_at": "2026-07-29T13:39:31+00:00",
   "next_update_expected_at": "2026-07-30T13:39:31+00:00",
-  "network_id": "fantom-testnet",
+  "network": {
+    "id": "fantom-testnet",
+    "chain_id": 4002,
+    "name": "Fantom Testnet",
+    "family": "evm",
+    "lifecycle": {
+      "status": "deprecated",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": "https://docs.soniclabs.com/",
+      "last_reviewed": "2026-07-29"
+    },
+    "liveness": {
+      "checked_at": "2026-07-29T13:39:31+00:00",
+      "rpc_responding": null,
+      "chain_advancing": null,
+      "latest_block": null,
+      "block_age_seconds": null
+    },
+    "faucet_ids": [
+      "fantom-faucet"
+    ]
+  },
   "faucets": [
     {
       "id": "fantom-faucet",

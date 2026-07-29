@@ -1,0 +1,473 @@
+{
+  "agoric-devnet": {
+    "name": "Agoric Devnet",
+    "family": "cosmos",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "algorand-testnet": {
+    "name": "Algorand Testnet",
+    "family": "algorand",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "aptos-testnet": {
+    "name": "Aptos Testnet",
+    "family": "move",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "arbitrum-sepolia": {
+    "name": "Arbitrum Sepolia",
+    "family": "evm",
+    "chain_id": 421614,
+    "rpc": "https://sepolia-rollup.arbitrum.io/rpc",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "avalanche-fuji-c-chain": {
+    "name": "Avalanche Fuji C-Chain",
+    "family": "evm",
+    "chain_id": 43113,
+    "rpc": "https://api.avax-test.network/ext/bc/C/rpc",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "base-sepolia": {
+    "name": "Base Sepolia",
+    "family": "evm",
+    "chain_id": 84532,
+    "rpc": "https://sepolia.base.org",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "bitcoin-cash-testnet": {
+    "name": "Bitcoin Cash Testnet",
+    "family": "utxo",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "bitcoin-testnet": {
+    "name": "Bitcoin Testnet",
+    "family": "utxo",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "bnb-smart-chain-testnet": {
+    "name": "BNB Smart Chain Testnet",
+    "family": "evm",
+    "chain_id": 97,
+    "rpc": "https://bsc-testnet-rpc.publicnode.com",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "cardano-preprod": {
+    "name": "Cardano Preprod",
+    "family": "cardano",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "celo-alfajores": {
+    "name": "Celo Alfajores",
+    "family": "evm",
+    "chain_id": 44787,
+    "rpc": "https://alfajores-forno.celo-testnet.org",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "core-test2": {
+    "name": "Core test2",
+    "family": "evm",
+    "chain_id": 1114,
+    "rpc": "https://rpc.test2.btcs.network",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "cosmos-provider-testnet": {
+    "name": "Cosmos provider testnet",
+    "family": "cosmos",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "dash-testnet": {
+    "name": "Dash Testnet",
+    "family": "utxo",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "dogecoin-testnet": {
+    "name": "Dogecoin Testnet",
+    "family": "utxo",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "ethereum-sepolia": {
+    "name": "Ethereum Sepolia",
+    "family": "evm",
+    "chain_id": 11155111,
+    "rpc": "https://ethereum-sepolia-rpc.publicnode.com",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "fantom-testnet": {
+    "name": "Fantom Testnet",
+    "family": "evm",
+    "chain_id": 4002,
+    "lifecycle": {
+      "status": "deprecated",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": "https://docs.soniclabs.com/",
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "filecoin-calibration": {
+    "name": "Filecoin Calibration",
+    "family": "evm",
+    "chain_id": 314159,
+    "rpc": "https://api.calibration.node.glif.io/rpc/v1",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "flare-coston2": {
+    "name": "Flare Coston2",
+    "family": "evm",
+    "chain_id": 114,
+    "rpc": "https://coston2-api.flare.network/ext/C/rpc",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "flow-testnet": {
+    "name": "Flow Testnet",
+    "family": "flow",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "hedera-testnet": {
+    "name": "Hedera Testnet",
+    "family": "hedera",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "kaia-kairos-testnet": {
+    "name": "Kaia Kairos Testnet",
+    "family": "evm",
+    "chain_id": 1001,
+    "rpc": "https://public-en-kairos.node.kaia.io",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "linea-sepolia": {
+    "name": "Linea Sepolia",
+    "family": "evm",
+    "chain_id": 59141,
+    "rpc": "https://rpc.sepolia.linea.build",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "litecoin-testnet": {
+    "name": "Litecoin Testnet",
+    "family": "utxo",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "multi-chain-xlm-eth-etc": {
+    "name": "Multi-chain (XLM, ETH, etc.)",
+    "family": "multi",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "multiversx-devnet": {
+    "name": "MultiversX Devnet",
+    "family": "multiversx",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "near-testnet": {
+    "name": "NEAR Testnet",
+    "family": "near",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "optimism-sepolia": {
+    "name": "Optimism Sepolia",
+    "family": "evm",
+    "chain_id": 11155420,
+    "rpc": "https://sepolia.optimism.io",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "polkadot-westend": {
+    "name": "Polkadot Westend",
+    "family": "substrate",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "polygon-amoy": {
+    "name": "Polygon Amoy",
+    "family": "evm",
+    "chain_id": 80002,
+    "rpc": "https://polygon-amoy-bor-rpc.publicnode.com",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "provenance-testnet": {
+    "name": "Provenance Testnet",
+    "family": "cosmos",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "scroll-sepolia": {
+    "name": "Scroll Sepolia",
+    "family": "evm",
+    "chain_id": 534351,
+    "rpc": "https://sepolia-rpc.scroll.io",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "sei-atlantic-2": {
+    "name": "Sei Atlantic-2",
+    "family": "evm",
+    "chain_id": 1328,
+    "rpc": "https://evm-rpc-testnet.sei-apis.com",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "solana-devnet-testnet": {
+    "name": "Solana Devnet/Testnet",
+    "family": "solana",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "stacks-testnet": {
+    "name": "Stacks Testnet",
+    "family": "stacks",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "stellar-testnet": {
+    "name": "Stellar Testnet",
+    "family": "stellar",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "sui-testnet": {
+    "name": "Sui Testnet",
+    "family": "move",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "vfy-testnet": {
+    "name": "VFY Testnet",
+    "family": "other",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "xrp-testnet": {
+    "name": "XRP Testnet",
+    "family": "xrpl",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "zilliqa-testnet": {
+    "name": "Zilliqa Testnet",
+    "family": "zilliqa",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  }
+}

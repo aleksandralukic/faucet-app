@@ -19,7 +19,13 @@ Stdlib only. Run after check_faucets.py + build_site.py.
 import json
 import os
 import re
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
+
+# A block older than this means the chain is (probably) halted, not just slow.
+# Generous enough for any testnet's block time; a genuine halt blows past it.
+CHAIN_STALL_SECONDS = 600
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 API_DIR = os.path.join(ROOT, "api", "v1")
@@ -84,6 +90,45 @@ def faucet_object(f, st, now_dt):
     }
 
 
+def evm_liveness(rpc, now_ts):
+    """The assertion that matters: is the chain advancing? A halted chain answers
+    RPC perfectly, so we check the latest block's age, not just reachability."""
+    # Default is "couldn't check" (null), NOT "down" (false) — a client/network
+    # failure on our side must not be published as the chain being unreachable.
+    # chain_advancing is only ever true/false when we actually read a block:
+    #   readable + fresh -> true, readable + stale -> false (halted), else null.
+    out = {"rpc_responding": None, "chain_advancing": None,
+           "latest_block": None, "block_age_seconds": None}
+    try:
+        req = urllib.request.Request(
+            rpc,
+            data=json.dumps({"jsonrpc": "2.0", "method": "eth_getBlockByNumber",
+                             "params": ["latest", False], "id": 1}).encode(),
+            headers={"Content-Type": "application/json"}, method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=10) as r:
+            block = json.loads(r.read().decode())["result"]
+        num = int(block["number"], 16)
+        age = max(0, now_ts - int(block["timestamp"], 16))
+        out.update(rpc_responding=True, latest_block=num, block_age_seconds=age,
+                   chain_advancing=age < CHAIN_STALL_SECONDS)
+    except Exception:
+        pass
+    return out
+
+
+def network_object(nid, meta, faucet_ids, now_iso, liveness):
+    return {
+        "id": nid,
+        "chain_id": meta.get("chain_id"),
+        "name": meta.get("name", nid),
+        "family": meta.get("family", "other"),
+        "lifecycle": meta.get("lifecycle"),
+        "liveness": {"checked_at": now_iso, **liveness},
+        "faucet_ids": faucet_ids,
+    }
+
+
 def write(path, payload):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as fh:
@@ -113,19 +158,55 @@ def main():
         base.update(extra)
         return base
 
-    write(os.path.join(API_DIR, "faucets.json"), envelope(faucets=objs))
-    write(os.path.join(API_DIR, "all.json"), envelope(faucets=objs))
-
-    # One file per network so consumers can fetch a single network on static
-    # hosting (no query-param filtering possible).
+    # Group faucets by network.
     by_net = {}
     for o in objs:
         by_net.setdefault(o["network_id"], []).append(o)
-    for nid, group in by_net.items():
-        write(os.path.join(API_DIR, "networks", f"{nid}.json"), envelope(network_id=nid, faucets=group))
 
-    print(f"API: {len(objs)} faucets, {len(by_net)} networks -> /api/v1/")
-    print(f"  automatable: {sum(1 for o in objs if o['automatable'])}")
+    # Network registry + liveness (EVM checked live in parallel; others null).
+    registry = {}
+    reg_path = os.path.join(ROOT, "data", "networks.json")
+    if os.path.exists(reg_path):
+        with open(reg_path, encoding="utf-8") as fh:
+            registry = json.load(fh)
+    now_ts = int(now_dt.timestamp())
+    null_live = {"rpc_responding": None, "chain_advancing": None,
+                 "latest_block": None, "block_age_seconds": None}
+
+    def live_for(nid):
+        meta = registry.get(nid, {})
+        if meta.get("family") == "evm" and meta.get("rpc"):
+            return nid, evm_liveness(meta["rpc"], now_ts)
+        return nid, dict(null_live)
+
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        liveness = dict(pool.map(live_for, by_net.keys()))
+
+    networks = []
+    for nid in sorted(by_net):
+        meta = registry.get(nid, {"name": nid, "family": "other",
+                                  "lifecycle": {"status": "active", "sunset_date": None,
+                                                "successor_network_id": None,
+                                                "announcement_url": None, "last_reviewed": None}})
+        networks.append(network_object(
+            nid, meta, [o["id"] for o in by_net[nid]], generated_at, liveness[nid]))
+    net_by_id = {n["id"]: n for n in networks}
+
+    write(os.path.join(API_DIR, "faucets.json"), envelope(faucets=objs))
+    write(os.path.join(API_DIR, "networks.json"), envelope(networks=networks))
+    write(os.path.join(API_DIR, "all.json"), envelope(networks=networks, faucets=objs))
+
+    # One file per network so consumers can fetch a single network on static
+    # hosting (no query-param filtering possible).
+    for nid, group in by_net.items():
+        write(os.path.join(API_DIR, "networks", f"{nid}.json"),
+              envelope(network=net_by_id.get(nid), faucets=group))
+
+    advancing = sum(1 for n in networks if n["liveness"]["chain_advancing"])
+    deprecated = [n["id"] for n in networks if n["lifecycle"]["status"] != "active"]
+    print(f"API: {len(objs)} faucets, {len(networks)} networks -> /api/v1/")
+    print(f"  automatable: {sum(1 for o in objs if o['automatable'])} | "
+          f"chain_advancing: {advancing} | deprecated: {deprecated}")
     return 0
 
 
