@@ -46,6 +46,12 @@
       <label class="toggle">
         <input type="checkbox" id="hideWallet"> Hide wallet-required
       </label>
+      <label class="toggle">
+        <input type="checkbox" id="hideLogin"> Hide login-required
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="hideMainnet"> Hide mainnet-gated
+      </label>
     </div>
 
     <p id="count" class="count"></p>
@@ -63,7 +69,7 @@
   </div>
   <div class="onchain-panel"><div class="oc-tag">⛓ Verified on-chain</div><table class="oc-table"><tr><th title="Test tokens the faucet&#x27;s dispensing wallet holds right now">Wallet balance</th><td><span class="oc-bal">6,219 AVAX</span></td></tr><tr><th title="Total transactions this wallet has sent — a high count means a real, active faucet">Payouts sent</th><td>2,691,940</td></tr></table></div>
   <p class="notes">Up to 2 AVAX per claim, 24h cooldown. Replaces the dead Covalent faucet. Gated: the address must hold &gt;0 AVAX on Avalanche mainnet. Empty wallet? Get a coupon from https://guild.xyz/avalanche or the Avalanche Discord and enter it on the faucet. faucet.avax.network redirects here.</p>
-  <div class="meta"><span class="tag">100% uptime</span>
+  <div class="meta"><span class="tag">⚠ needs mainnet balance</span><span class="tag">100% uptime</span>
     <a class="tag" href="avax-c-testnet-faucet/">AVAX-C faucet status →</a>
   </div>
   
@@ -189,7 +195,7 @@
   </div>
   
   <p class="notes">Lowest-friction Sepolia faucet: no mainnet-balance requirement. Sign in with any Google account, paste your 0x address, claim (~0.05 ETH/day). Replaces the retired sepoliafaucet.io. Backup with no login: pk910 PoW faucet at https://sepolia-faucet.pk910.de/ (mine in-browser, hCaptcha). Avoid Alchemy&#x27;s faucet — it now requires mainnet ETH + activity.</p>
-  <div class="meta"><span class="tag">100% uptime</span>
+  <div class="meta"><span class="tag">🔑 Google login</span><span class="tag">100% uptime</span>
     <a class="tag" href="eth-testnet-faucet/">ETH faucet status →</a>
   </div>
   
@@ -203,7 +209,7 @@
   </div>
   
   <p class="notes">Requires Hedera Portal account.</p>
-  <div class="meta"><span class="tag">100% uptime</span>
+  <div class="meta"><span class="tag">🔑 an account login</span><span class="tag">100% uptime</span>
     <a class="tag" href="hbar-testnet-faucet/">HBAR faucet status →</a>
   </div>
   
@@ -273,7 +279,7 @@
   </div>
   
   <p class="notes">Requires Google account.</p>
-  <div class="meta"><span class="tag">captcha</span><span class="tag">100% uptime</span>
+  <div class="meta"><span class="tag">🔑 Google login</span><span class="tag">captcha</span><span class="tag">100% uptime</span>
     <a class="tag" href="apt-testnet-faucet/">APT faucet status →</a>
   </div>
   
@@ -301,7 +307,7 @@
   </div>
   
   <p class="notes">Heads up — this faucet is gated: your address must already hold &gt;= 0.002 BNB on BNB Smart Chain MAINNET to claim (anti-abuse check), so a fresh empty wallet can&#x27;t use it. Only Smart Chain (0x...) addresses are accepted; forward to Beacon Chain (tbnb...) via Binance Wallet if needed.</p>
-  <div class="meta"><span class="tag">wallet connect</span><span class="tag">100% uptime</span>
+  <div class="meta"><span class="tag">⚠ needs mainnet balance</span><span class="tag">wallet connect</span><span class="tag">100% uptime</span>
     <a class="tag" href="bnb-testnet-faucet/">BNB faucet status →</a>
   </div>
   
@@ -469,7 +475,7 @@
   </div>
   
   <p class="notes">Polygon Amoy faucet, POL claim flow: paste your address and click CLAIM — 0.01 POL per claim, no Discord needed (unlike the legacy MATIC path). POL is the current Polygon token that replaced MATIC.</p>
-  <div class="meta"><span class="tag">0% uptime</span>
+  <div class="meta"><span class="tag">🔑 GitHub login</span><span class="tag">0% uptime</span>
     <a class="tag" href="pol-testnet-faucet/">POL faucet status →</a>
   </div>
   <p class="reason">Blocked (403) — The server refused an automated request. This usually means bot protection, and the faucet often works fine in a real browser.</p>
@@ -497,7 +503,7 @@
   </div>
   
   <p class="notes">Polygon Amoy faucet. MATIC is the legacy token name — Amoy now runs on POL, so most testing uses the POL claim flow instead. This higher-drip path requires connecting Discord. See also the POL faucet entry for the no-Discord claim.</p>
-  <div class="meta"><span class="tag">wallet connect</span><span class="tag">0% uptime</span>
+  <div class="meta"><span class="tag">🔑 GitHub login</span><span class="tag">wallet connect</span><span class="tag">0% uptime</span>
     <a class="tag" href="matic-testnet-faucet/">MATIC faucet status →</a>
   </div>
   <p class="reason">Blocked (403) — The server refused an automated request. This usually means bot protection, and the faucet often works fine in a real browser.</p>

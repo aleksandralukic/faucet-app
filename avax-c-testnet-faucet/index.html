@@ -34,14 +34,34 @@
 <main class="wrap">
   
   <p class="intro">There is 1 AVAX-C testnet faucet in this list, on Avalanche Fuji C-Chain. None of them require a wallet or captcha. The most reliable right now is <strong>Core Avalanche Fuji Faucet</strong> (100% uptime over the last 30 daily checks).</p>
-  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://core.app/tools/testnet-faucet?subnet=c&amp;token=c" target="_blank" rel="noopener">Core Avalanche Fuji Faucet</a></td><td>2 AVAX</td><td>24h</td><td>none</td><td><span class="dot up"></span> Working · 100% <span class="tier onchain">⛓ 6,219 AVAX in wallet</span></td></tr></tbody></table></div>
+  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://core.app/tools/testnet-faucet?subnet=c&amp;token=c" target="_blank" rel="noopener">Core Avalanche Fuji Faucet</a></td><td>2 AVAX</td><td>24h</td><td>mainnet balance</td><td><span class="dot up"></span> Working · 100% <span class="tier onchain">⛓ 6,219 AVAX in wallet</span></td></tr></tbody></table></div>
   <section class="card up">
   <h2>Is the Core Avalanche Fuji Faucet down right now?</h2>
   <div class="onchain-panel"><div class="oc-tag">⛓ Verified on-chain</div><table class="oc-table"><tr><th title="Test tokens the faucet&#x27;s dispensing wallet holds right now">Wallet balance</th><td><span class="oc-bal">6,219 AVAX</span></td></tr><tr><th title="Total transactions this wallet has sent — a high count means a real, active faucet">Payouts sent</th><td>2,691,940</td></tr></table></div>
-  <p><strong>Status:</strong> <span class="dot up"></span> Working — <span class="muted">On-chain: holds 6,219 AVAX · 2,691,940 payouts sent</span></p><p class="muted oc-explain">Read directly from the faucet's dispensing wallet, so it holds even when the site is behind bot protection.</p><p><strong>Amount:</strong> Dispenses 2 AVAX, cooldown 24h.</p><p><strong>Uptime:</strong> 100% across the last 30 daily checks.</p><p><strong>How to use it:</strong> Up to 2 AVAX per claim, 24h cooldown. Replaces the dead Covalent faucet. Gated: the address must hold &gt;0 AVAX on Avalanche mainnet. Empty wallet? Get a coupon from https://guild.xyz/avalanche or the Avalanche Discord and enter it on the faucet. faucet.avax.network redirects here.</p>
+  <p><strong>Status:</strong> <span class="dot up"></span> Working — <span class="muted">On-chain: holds 6,219 AVAX · 2,691,940 payouts sent</span></p><p class="muted oc-explain">Read directly from the faucet's dispensing wallet, so it holds even when the site is behind bot protection.</p><p><strong>Amount:</strong> Dispenses 2 AVAX, cooldown 24h.</p><p><strong>Uptime:</strong> 100% across the last 30 daily checks.</p><p><strong>How to use it:</strong> Up to 2 AVAX per claim, 24h cooldown. Replaces the dead Covalent faucet. Gated: the address must hold &gt;0 AVAX on Avalanche mainnet. Empty wallet? Get a coupon from https://guild.xyz/avalanche or the Avalanche Discord and enter it on the faucet. faucet.avax.network redirects here.</p><p><strong>Requires:</strong> a pre-existing mainnet balance (empty wallets can't claim).</p>
   <p><a href="https://core.app/tools/testnet-faucet?subnet=c&amp;token=c" target="_blank" rel="noopener">Open Core Avalanche Fuji Faucet ↗</a>
      <span class="muted">(Avalanche Fuji C-Chain)</span></p>
 </section>
+  <section class="wallet-config">
+  <h2>Add Avalanche Fuji C-Chain to your wallet</h2>
+  <p class="muted">Configure MetaMask (Networks → Add network → Add manually), or one-click below.</p>
+  <div class="table-scroll"><table class="kv">
+    <tr><th>Network name</th><td>Avalanche Fuji C-Chain</td></tr>
+    <tr><th>New RPC URL</th><td><code>https://api.avax-test.network/ext/bc/C/rpc</code></td></tr>
+    <tr><th>Chain ID</th><td>43113</td></tr>
+    <tr><th>Currency symbol</th><td>AVAX</td></tr>
+    <tr><th>Block explorer</th><td><a href="https://testnet.snowtrace.io" target="_blank" rel="noopener">https://testnet.snowtrace.io</a></td></tr>
+  </table></div>
+  <button class="addchain" data-chain='{&quot;chainId&quot;: &quot;0xa869&quot;, &quot;chainName&quot;: &quot;Avalanche Fuji C-Chain&quot;, &quot;rpcUrls&quot;: [&quot;https://api.avax-test.network/ext/bc/C/rpc&quot;], &quot;nativeCurrency&quot;: {&quot;name&quot;: &quot;AVAX&quot;, &quot;symbol&quot;: &quot;AVAX&quot;, &quot;decimals&quot;: 18}, &quot;blockExplorerUrls&quot;: [&quot;https://testnet.snowtrace.io&quot;]}'>Add to MetaMask</button>
+</section><script>
+document.querySelectorAll('.addchain').forEach(function(b){
+  b.addEventListener('click', async function(){
+    if(!window.ethereum){ alert('No EVM wallet detected — install MetaMask, then reload.'); return; }
+    try { await window.ethereum.request({method:'wallet_addEthereumChain', params:[JSON.parse(b.dataset.chain)]}); }
+    catch(err){ console.error(err); }
+  });
+});
+</script>
   <section>
     <h2>Getting test AVAX-C on Fuji</h2>
     <p>Testnet faucets are run on a best-effort basis and break constantly: domains

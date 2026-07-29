@@ -34,11 +34,11 @@
 <main class="wrap">
   
   <p class="intro">There are 2 ETH testnet faucets in this list, on Ethereum Sepolia. Of these, 1 needs a captcha. The most reliable right now is <strong>Google Cloud Sepolia Faucet</strong> (100% uptime over the last 30 daily checks).</p>
-  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia" target="_blank" rel="noopener">Google Cloud Sepolia Faucet</a></td><td>~0.05 ETH</td><td>24h</td><td>none</td><td><span class="dot up"></span> Working · 100%</td></tr><tr><td><a href="https://sepolia-faucet.pk910.de/" target="_blank" rel="noopener">pk910 Sepolia PoW Faucet</a></td><td>variable (PoW)</td><td>—</td><td>captcha</td><td><span class="dot up"></span> Working · 100% <span class="tier onchain">⛓ 14,981 ETH in wallet</span></td></tr></tbody></table></div>
+  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia" target="_blank" rel="noopener">Google Cloud Sepolia Faucet</a></td><td>~0.05 ETH</td><td>24h</td><td>Google login</td><td><span class="dot up"></span> Working · 100%</td></tr><tr><td><a href="https://sepolia-faucet.pk910.de/" target="_blank" rel="noopener">pk910 Sepolia PoW Faucet</a></td><td>variable (PoW)</td><td>—</td><td>captcha</td><td><span class="dot up"></span> Working · 100% <span class="tier onchain">⛓ 14,981 ETH in wallet</span></td></tr></tbody></table></div>
   <section class="card up">
   <h2>Is the Google Cloud Sepolia Faucet down right now?</h2>
   
-  <p><strong>Status:</strong> <span class="dot up"></span> Working — <span class="muted">HTTP 200</span></p><p><strong>Amount:</strong> Dispenses ~0.05 ETH, cooldown 24h.</p><p><strong>Uptime:</strong> 100% across the last 30 daily checks.</p><p><strong>How to use it:</strong> Lowest-friction Sepolia faucet: no mainnet-balance requirement. Sign in with any Google account, paste your 0x address, claim (~0.05 ETH/day). Replaces the retired sepoliafaucet.io. Backup with no login: pk910 PoW faucet at https://sepolia-faucet.pk910.de/ (mine in-browser, hCaptcha). Avoid Alchemy&#x27;s faucet — it now requires mainnet ETH + activity.</p>
+  <p><strong>Status:</strong> <span class="dot up"></span> Working — <span class="muted">HTTP 200</span></p><p><strong>Amount:</strong> Dispenses ~0.05 ETH, cooldown 24h.</p><p><strong>Uptime:</strong> 100% across the last 30 daily checks.</p><p><strong>How to use it:</strong> Lowest-friction Sepolia faucet: no mainnet-balance requirement. Sign in with any Google account, paste your 0x address, claim (~0.05 ETH/day). Replaces the retired sepoliafaucet.io. Backup with no login: pk910 PoW faucet at https://sepolia-faucet.pk910.de/ (mine in-browser, hCaptcha). Avoid Alchemy&#x27;s faucet — it now requires mainnet ETH + activity.</p><p><strong>Requires:</strong> signing in with Google.</p>
   <p><a href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia" target="_blank" rel="noopener">Open Google Cloud Sepolia Faucet ↗</a>
      <span class="muted">(Ethereum Sepolia)</span></p>
 </section><section class="card up">
@@ -48,6 +48,26 @@
   <p><a href="https://sepolia-faucet.pk910.de/" target="_blank" rel="noopener">Open pk910 Sepolia PoW Faucet ↗</a>
      <span class="muted">(Ethereum Sepolia)</span></p>
 </section>
+  <section class="wallet-config">
+  <h2>Add Ethereum Sepolia to your wallet</h2>
+  <p class="muted">Configure MetaMask (Networks → Add network → Add manually), or one-click below.</p>
+  <div class="table-scroll"><table class="kv">
+    <tr><th>Network name</th><td>Ethereum Sepolia</td></tr>
+    <tr><th>New RPC URL</th><td><code>https://ethereum-sepolia-rpc.publicnode.com</code></td></tr>
+    <tr><th>Chain ID</th><td>11155111</td></tr>
+    <tr><th>Currency symbol</th><td>ETH</td></tr>
+    <tr><th>Block explorer</th><td><a href="https://sepolia.etherscan.io" target="_blank" rel="noopener">https://sepolia.etherscan.io</a></td></tr>
+  </table></div>
+  <button class="addchain" data-chain='{&quot;chainId&quot;: &quot;0xaa36a7&quot;, &quot;chainName&quot;: &quot;Ethereum Sepolia&quot;, &quot;rpcUrls&quot;: [&quot;https://ethereum-sepolia-rpc.publicnode.com&quot;], &quot;nativeCurrency&quot;: {&quot;name&quot;: &quot;ETH&quot;, &quot;symbol&quot;: &quot;ETH&quot;, &quot;decimals&quot;: 18}, &quot;blockExplorerUrls&quot;: [&quot;https://sepolia.etherscan.io&quot;]}'>Add to MetaMask</button>
+</section><script>
+document.querySelectorAll('.addchain').forEach(function(b){
+  b.addEventListener('click', async function(){
+    if(!window.ethereum){ alert('No EVM wallet detected — install MetaMask, then reload.'); return; }
+    try { await window.ethereum.request({method:'wallet_addEthereumChain', params:[JSON.parse(b.dataset.chain)]}); }
+    catch(err){ console.error(err); }
+  });
+});
+</script>
   <section>
     <h2>Getting test ETH on Sepolia</h2>
     <p>Testnet faucets are run on a best-effort basis and break constantly: domains

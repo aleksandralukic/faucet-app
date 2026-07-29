@@ -38,7 +38,8 @@
     "network": "BNB Smart Chain Testnet",
     "requiresWallet": true,
     "requiresCaptcha": false,
-    "notes": "Heads up — this faucet is gated: your address must already hold >= 0.002 BNB on BNB Smart Chain MAINNET to claim (anti-abuse check), so a fresh empty wallet can't use it. Only Smart Chain (0x...) addresses are accepted; forward to Beacon Chain (tbnb...) via Binance Wallet if needed."
+    "notes": "Heads up — this faucet is gated: your address must already hold >= 0.002 BNB on BNB Smart Chain MAINNET to claim (anti-abuse check), so a fresh empty wallet can't use it. Only Smart Chain (0x...) addresses are accepted; forward to Beacon Chain (tbnb...) via Binance Wallet if needed.",
+    "requiresMainnetBalance": true
   },
   {
     "id": "googol-bch",
@@ -125,7 +126,8 @@
     "requiresCaptcha": false,
     "notes": "Lowest-friction Sepolia faucet: no mainnet-balance requirement. Sign in with any Google account, paste your 0x address, claim (~0.05 ETH/day). Replaces the retired sepoliafaucet.io. Backup with no login: pk910 PoW faucet at https://sepolia-faucet.pk910.de/ (mine in-browser, hCaptcha). Avoid Alchemy's faucet — it now requires mainnet ETH + activity.",
     "amount": "~0.05 ETH",
-    "cooldown": "24h"
+    "cooldown": "24h",
+    "requiresLogin": "Google"
   },
   {
     "id": "pk910-sepolia",
@@ -230,7 +232,8 @@
     "onchain": {
       "chain": "fuji",
       "wallet": "0x2352d20fc81225c8ecd8f6faa1b37f24fed450c9"
-    }
+    },
+    "requiresMainnetBalance": true
   },
   {
     "id": "flow-testnet",
@@ -264,7 +267,8 @@
     "network": "Polygon Amoy",
     "requiresWallet": true,
     "requiresCaptcha": false,
-    "notes": "Polygon Amoy faucet. MATIC is the legacy token name — Amoy now runs on POL, so most testing uses the POL claim flow instead. This higher-drip path requires connecting Discord. See also the POL faucet entry for the no-Discord claim."
+    "notes": "Polygon Amoy faucet. MATIC is the legacy token name — Amoy now runs on POL, so most testing uses the POL claim flow instead. This higher-drip path requires connecting Discord. See also the POL faucet entry for the no-Discord claim.",
+    "requiresLogin": "GitHub"
   },
   {
     "id": "fantom-faucet",
@@ -318,7 +322,8 @@
     "network": "Hedera Testnet",
     "requiresWallet": false,
     "requiresCaptcha": false,
-    "notes": "Requires Hedera Portal account."
+    "notes": "Requires Hedera Portal account.",
+    "requiresLogin": "an account"
   },
   {
     "id": "dash-crowdnode",
@@ -361,7 +366,8 @@
     "requiresWallet": false,
     "requiresCaptcha": false,
     "notes": "Polygon Amoy faucet, POL claim flow: paste your address and click CLAIM — 0.01 POL per claim, no Discord needed (unlike the legacy MATIC path). POL is the current Polygon token that replaced MATIC.",
-    "amount": "0.01 POL"
+    "amount": "0.01 POL",
+    "requiresLogin": "GitHub"
   },
   {
     "id": "aptos-testnet",
@@ -371,7 +377,8 @@
     "network": "Aptos Testnet",
     "requiresWallet": false,
     "requiresCaptcha": true,
-    "notes": "Requires Google account."
+    "notes": "Requires Google account.",
+    "requiresLogin": "Google"
   },
   {
     "id": "multiversx-devnet",

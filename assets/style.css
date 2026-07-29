@@ -236,6 +236,24 @@ h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
 .oc-bal { color: var(--up); font-weight: 700; font-size: 1.15em; }
 .oc-explain { margin: 6px 0 0; font-size: 12.5px; }
 
+/* Add-to-wallet config block */
+.wallet-config table.kv { width: auto; }
+.wallet-config .kv th { color: var(--muted); font-weight: 500; padding-right: 18px; white-space: nowrap; vertical-align: top; }
+.wallet-config .kv td { font-variant-numeric: tabular-nums; }
+.wallet-config code { font-size: 12.5px; background: var(--panel-hover); padding: 1px 6px; border-radius: 4px; word-break: break-all; }
+.addchain {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.addchain:hover { filter: brightness(1.08); }
+
 .callout {
   border: 1px solid var(--degraded);
   background: color-mix(in srgb, var(--degraded) 12%, transparent);

@@ -42,6 +42,26 @@
   <p><a href="https://scan.test2.btcs.network/faucet" target="_blank" rel="noopener">Open Core Testnet Faucet ↗</a>
      <span class="muted">(Core test2)</span></p>
 </section>
+  <section class="wallet-config">
+  <h2>Add Core Blockchain Testnet2 to your wallet</h2>
+  <p class="muted">Configure MetaMask (Networks → Add network → Add manually), or one-click below.</p>
+  <div class="table-scroll"><table class="kv">
+    <tr><th>Network name</th><td>Core Blockchain Testnet2</td></tr>
+    <tr><th>New RPC URL</th><td><code>https://rpc.test2.btcs.network</code></td></tr>
+    <tr><th>Chain ID</th><td>1114</td></tr>
+    <tr><th>Currency symbol</th><td>tCORE2</td></tr>
+    <tr><th>Block explorer</th><td><a href="https://scan.test2.btcs.network" target="_blank" rel="noopener">https://scan.test2.btcs.network</a></td></tr>
+  </table></div>
+  <button class="addchain" data-chain='{&quot;chainId&quot;: &quot;0x45a&quot;, &quot;chainName&quot;: &quot;Core Blockchain Testnet2&quot;, &quot;rpcUrls&quot;: [&quot;https://rpc.test2.btcs.network&quot;], &quot;nativeCurrency&quot;: {&quot;name&quot;: &quot;tCORE2&quot;, &quot;symbol&quot;: &quot;tCORE2&quot;, &quot;decimals&quot;: 18}, &quot;blockExplorerUrls&quot;: [&quot;https://scan.test2.btcs.network&quot;]}'>Add to MetaMask</button>
+</section><script>
+document.querySelectorAll('.addchain').forEach(function(b){
+  b.addEventListener('click', async function(){
+    if(!window.ethereum){ alert('No EVM wallet detected — install MetaMask, then reload.'); return; }
+    try { await window.ethereum.request({method:'wallet_addEthereumChain', params:[JSON.parse(b.dataset.chain)]}); }
+    catch(err){ console.error(err); }
+  });
+});
+</script>
   <section>
     <h2>Getting test CORE on CORE</h2>
     <p>Testnet faucets are run on a best-effort basis and break constantly: domains

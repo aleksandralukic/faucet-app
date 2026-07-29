@@ -42,6 +42,26 @@
   <p><a href="https://atlantic-2.app.sei.io/faucet/" target="_blank" rel="noopener">Open Sei Atlantic Faucet ↗</a>
      <span class="muted">(Sei Atlantic-2)</span></p>
 </section>
+  <section class="wallet-config">
+  <h2>Add Sei Atlantic-2 to your wallet</h2>
+  <p class="muted">Configure MetaMask (Networks → Add network → Add manually), or one-click below.</p>
+  <div class="table-scroll"><table class="kv">
+    <tr><th>Network name</th><td>Sei Atlantic-2</td></tr>
+    <tr><th>New RPC URL</th><td><code>https://evm-rpc-testnet.sei-apis.com</code></td></tr>
+    <tr><th>Chain ID</th><td>1328</td></tr>
+    <tr><th>Currency symbol</th><td>SEI</td></tr>
+    <tr><th>Block explorer</th><td><a href="https://seitrace.com" target="_blank" rel="noopener">https://seitrace.com</a></td></tr>
+  </table></div>
+  <button class="addchain" data-chain='{&quot;chainId&quot;: &quot;0x530&quot;, &quot;chainName&quot;: &quot;Sei Atlantic-2&quot;, &quot;rpcUrls&quot;: [&quot;https://evm-rpc-testnet.sei-apis.com&quot;], &quot;nativeCurrency&quot;: {&quot;name&quot;: &quot;SEI&quot;, &quot;symbol&quot;: &quot;SEI&quot;, &quot;decimals&quot;: 18}, &quot;blockExplorerUrls&quot;: [&quot;https://seitrace.com&quot;]}'>Add to MetaMask</button>
+</section><script>
+document.querySelectorAll('.addchain').forEach(function(b){
+  b.addEventListener('click', async function(){
+    if(!window.ethereum){ alert('No EVM wallet detected — install MetaMask, then reload.'); return; }
+    try { await window.ethereum.request({method:'wallet_addEthereumChain', params:[JSON.parse(b.dataset.chain)]}); }
+    catch(err){ console.error(err); }
+  });
+});
+</script>
   <section>
     <h2>Getting test SEI on SEI</h2>
     <p>Testnet faucets are run on a best-effort basis and break constantly: domains

@@ -34,14 +34,34 @@
 <main class="wrap">
   <p class="callout">Every listed POL faucet is currently failing. Check the <a href="../">full faucet list</a> for other networks, or <a href="https://github.com/aleksandralukic/faucet-app/issues">report a working one</a>.</p>
   <p class="intro">There is 1 POL testnet faucet in this list, on Polygon Amoy. None of them require a wallet or captcha. Every listed faucet is failing our automated check right now — check the notes above and try again later, or report a working one on GitHub.</p>
-  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://faucet.polygon.technology/" target="_blank" rel="noopener">Polygon Amoy Faucet</a></td><td>0.01 POL</td><td>—</td><td>none</td><td><span class="dot degraded"></span> Degraded · 0%</td></tr></tbody></table></div>
+  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://faucet.polygon.technology/" target="_blank" rel="noopener">Polygon Amoy Faucet</a></td><td>0.01 POL</td><td>—</td><td>GitHub login</td><td><span class="dot degraded"></span> Degraded · 0%</td></tr></tbody></table></div>
   <section class="card degraded">
   <h2>Is the Polygon Amoy Faucet down right now?</h2>
   
-  <p><strong>Status:</strong> <span class="dot degraded"></span> Degraded — <span class="muted">HTTP 403 — likely bot protection, verify by hand</span></p><p><strong>Amount:</strong> Dispenses 0.01 POL.</p><p><strong>Uptime:</strong> 0% across the last 30 daily checks.</p><p><strong>Why it is failing:</strong> Blocked (403). The server refused an automated request. This usually means bot protection, and the faucet often works fine in a real browser.</p><p><strong>How to use it:</strong> Polygon Amoy faucet, POL claim flow: paste your address and click CLAIM — 0.01 POL per claim, no Discord needed (unlike the legacy MATIC path). POL is the current Polygon token that replaced MATIC.</p>
+  <p><strong>Status:</strong> <span class="dot degraded"></span> Degraded — <span class="muted">HTTP 403 — likely bot protection, verify by hand</span></p><p><strong>Amount:</strong> Dispenses 0.01 POL.</p><p><strong>Uptime:</strong> 0% across the last 30 daily checks.</p><p><strong>Why it is failing:</strong> Blocked (403). The server refused an automated request. This usually means bot protection, and the faucet often works fine in a real browser.</p><p><strong>How to use it:</strong> Polygon Amoy faucet, POL claim flow: paste your address and click CLAIM — 0.01 POL per claim, no Discord needed (unlike the legacy MATIC path). POL is the current Polygon token that replaced MATIC.</p><p><strong>Requires:</strong> signing in with GitHub.</p>
   <p><a href="https://faucet.polygon.technology/" target="_blank" rel="noopener">Open Polygon Amoy Faucet ↗</a>
      <span class="muted">(Polygon Amoy)</span></p>
 </section>
+  <section class="wallet-config">
+  <h2>Add Polygon Amoy to your wallet</h2>
+  <p class="muted">Configure MetaMask (Networks → Add network → Add manually), or one-click below.</p>
+  <div class="table-scroll"><table class="kv">
+    <tr><th>Network name</th><td>Polygon Amoy</td></tr>
+    <tr><th>New RPC URL</th><td><code>https://polygon-amoy-bor-rpc.publicnode.com</code></td></tr>
+    <tr><th>Chain ID</th><td>80002</td></tr>
+    <tr><th>Currency symbol</th><td>POL</td></tr>
+    <tr><th>Block explorer</th><td><a href="https://amoy.polygonscan.com" target="_blank" rel="noopener">https://amoy.polygonscan.com</a></td></tr>
+  </table></div>
+  <button class="addchain" data-chain='{&quot;chainId&quot;: &quot;0x13882&quot;, &quot;chainName&quot;: &quot;Polygon Amoy&quot;, &quot;rpcUrls&quot;: [&quot;https://polygon-amoy-bor-rpc.publicnode.com&quot;], &quot;nativeCurrency&quot;: {&quot;name&quot;: &quot;POL&quot;, &quot;symbol&quot;: &quot;POL&quot;, &quot;decimals&quot;: 18}, &quot;blockExplorerUrls&quot;: [&quot;https://amoy.polygonscan.com&quot;]}'>Add to MetaMask</button>
+</section><script>
+document.querySelectorAll('.addchain').forEach(function(b){
+  b.addEventListener('click', async function(){
+    if(!window.ethereum){ alert('No EVM wallet detected — install MetaMask, then reload.'); return; }
+    try { await window.ethereum.request({method:'wallet_addEthereumChain', params:[JSON.parse(b.dataset.chain)]}); }
+    catch(err){ console.error(err); }
+  });
+});
+</script>
   <section>
     <h2>Getting test POL on Amoy</h2>
     <p>Testnet faucets are run on a best-effort basis and break constantly: domains

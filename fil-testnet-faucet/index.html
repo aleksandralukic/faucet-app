@@ -42,6 +42,26 @@
   <p><a href="https://beryx.zondax.ch/faucet" target="_blank" rel="noopener">Open Beryx Filecoin Faucet ↗</a>
      <span class="muted">(Filecoin Calibration)</span></p>
 </section>
+  <section class="wallet-config">
+  <h2>Add Filecoin Calibration to your wallet</h2>
+  <p class="muted">Configure MetaMask (Networks → Add network → Add manually), or one-click below.</p>
+  <div class="table-scroll"><table class="kv">
+    <tr><th>Network name</th><td>Filecoin Calibration</td></tr>
+    <tr><th>New RPC URL</th><td><code>https://api.calibration.node.glif.io/rpc/v1</code></td></tr>
+    <tr><th>Chain ID</th><td>314159</td></tr>
+    <tr><th>Currency symbol</th><td>tFIL</td></tr>
+    <tr><th>Block explorer</th><td><a href="https://calibration.filscan.io" target="_blank" rel="noopener">https://calibration.filscan.io</a></td></tr>
+  </table></div>
+  <button class="addchain" data-chain='{&quot;chainId&quot;: &quot;0x4cb2f&quot;, &quot;chainName&quot;: &quot;Filecoin Calibration&quot;, &quot;rpcUrls&quot;: [&quot;https://api.calibration.node.glif.io/rpc/v1&quot;], &quot;nativeCurrency&quot;: {&quot;name&quot;: &quot;tFIL&quot;, &quot;symbol&quot;: &quot;tFIL&quot;, &quot;decimals&quot;: 18}, &quot;blockExplorerUrls&quot;: [&quot;https://calibration.filscan.io&quot;]}'>Add to MetaMask</button>
+</section><script>
+document.querySelectorAll('.addchain').forEach(function(b){
+  b.addEventListener('click', async function(){
+    if(!window.ethereum){ alert('No EVM wallet detected — install MetaMask, then reload.'); return; }
+    try { await window.ethereum.request({method:'wallet_addEthereumChain', params:[JSON.parse(b.dataset.chain)]}); }
+    catch(err){ console.error(err); }
+  });
+});
+</script>
   <section>
     <h2>Getting test FIL on Filecoin</h2>
     <p>Testnet faucets are run on a best-effort basis and break constantly: domains

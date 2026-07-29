@@ -20,6 +20,8 @@ const state = {
   onchainOnly: false,
   hideCaptcha: false,
   hideWallet: false,
+  hideLogin: false,
+  hideMainnet: false,
 };
 
 const tierOf = (f) => state.status[f.id]?.verificationTier;
@@ -130,6 +132,14 @@ function wireControls() {
     state.hideWallet = e.target.checked;
     render();
   });
+  $("hideLogin").addEventListener("change", (e) => {
+    state.hideLogin = e.target.checked;
+    render();
+  });
+  $("hideMainnet").addEventListener("change", (e) => {
+    state.hideMainnet = e.target.checked;
+    render();
+  });
 }
 
 function matches(f) {
@@ -138,6 +148,8 @@ function matches(f) {
   if (state.active.size && !state.active.has(s)) return false;
   if (state.hideCaptcha && f.requiresCaptcha) return false;
   if (state.hideWallet && f.requiresWallet) return false;
+  if (state.hideLogin && f.requiresLogin) return false;
+  if (state.hideMainnet && f.requiresMainnetBalance) return false;
   if (!state.query) return true;
 
   const haystack = [f.currency, f.name, f.network, f.notes].join(" ").toLowerCase();
@@ -180,6 +192,8 @@ function card(f) {
   const s = statusOf(f);
 
   const tags = [];
+  if (f.requiresLogin) tags.push(`🔑 ${f.requiresLogin} login`);
+  if (f.requiresMainnetBalance) tags.push("⚠ needs mainnet balance");
   if (f.requiresCaptcha) tags.push("captcha");
   if (f.requiresWallet) tags.push("wallet connect");
   if (st?.uptimePct != null) tags.push(`${st.uptimePct}% uptime`);

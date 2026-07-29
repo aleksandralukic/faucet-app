@@ -151,6 +151,60 @@ def onchain_panel(oc):
     )
 
 
+# EVM testnet parameters for "Add to your wallet", keyed by the faucet's
+# `network` string. Non-EVM networks are omitted (no wallet_addEthereumChain).
+NETWORKS = {
+    "Ethereum Sepolia": {"chainId": 11155111, "rpc": "https://ethereum-sepolia-rpc.publicnode.com", "symbol": "ETH", "explorer": "https://sepolia.etherscan.io", "name": "Ethereum Sepolia"},
+    "Polygon Amoy": {"chainId": 80002, "rpc": "https://polygon-amoy-bor-rpc.publicnode.com", "symbol": "POL", "explorer": "https://amoy.polygonscan.com", "name": "Polygon Amoy"},
+    "Avalanche Fuji C-Chain": {"chainId": 43113, "rpc": "https://api.avax-test.network/ext/bc/C/rpc", "symbol": "AVAX", "explorer": "https://testnet.snowtrace.io", "name": "Avalanche Fuji C-Chain"},
+    "BNB Smart Chain Testnet": {"chainId": 97, "rpc": "https://bsc-testnet-rpc.publicnode.com", "symbol": "tBNB", "explorer": "https://testnet.bscscan.com", "name": "BNB Smart Chain Testnet"},
+    "Flare Coston2": {"chainId": 114, "rpc": "https://coston2-api.flare.network/ext/C/rpc", "symbol": "C2FLR", "explorer": "https://coston2-explorer.flare.network", "name": "Flare Coston2"},
+    "Core test2": {"chainId": 1114, "rpc": "https://rpc.test2.btcs.network", "symbol": "tCORE2", "explorer": "https://scan.test2.btcs.network", "name": "Core Blockchain Testnet2"},
+    "Sei Atlantic-2": {"chainId": 1328, "rpc": "https://evm-rpc-testnet.sei-apis.com", "symbol": "SEI", "explorer": "https://seitrace.com", "name": "Sei Atlantic-2"},
+    "Filecoin Calibration": {"chainId": 314159, "rpc": "https://api.calibration.node.glif.io/rpc/v1", "symbol": "tFIL", "explorer": "https://calibration.filscan.io", "name": "Filecoin Calibration"},
+}
+
+WALLET_SCRIPT = """<script>
+document.querySelectorAll('.addchain').forEach(function(b){
+  b.addEventListener('click', async function(){
+    if(!window.ethereum){ alert('No EVM wallet detected — install MetaMask, then reload.'); return; }
+    try { await window.ethereum.request({method:'wallet_addEthereumChain', params:[JSON.parse(b.dataset.chain)]}); }
+    catch(err){ console.error(err); }
+  });
+});
+</script>"""
+
+
+def wallet_config_section(networks):
+    """'Add <network> to your wallet' — the step a user needs right after tokens.
+    EVM only; also good SEO for '<network> rpc / chainid' queries."""
+    blocks = []
+    for net in networks:
+        c = NETWORKS.get(net)
+        if not c:
+            continue
+        params = json.dumps({
+            "chainId": hex(c["chainId"]),
+            "chainName": c["name"],
+            "rpcUrls": [c["rpc"]],
+            "nativeCurrency": {"name": c["symbol"], "symbol": c["symbol"], "decimals": 18},
+            "blockExplorerUrls": [c["explorer"]],
+        })
+        blocks.append(f"""<section class="wallet-config">
+  <h2>Add {e(c["name"])} to your wallet</h2>
+  <p class="muted">Configure MetaMask (Networks → Add network → Add manually), or one-click below.</p>
+  <div class="table-scroll"><table class="kv">
+    <tr><th>Network name</th><td>{e(c["name"])}</td></tr>
+    <tr><th>New RPC URL</th><td><code>{e(c["rpc"])}</code></td></tr>
+    <tr><th>Chain ID</th><td>{c["chainId"]}</td></tr>
+    <tr><th>Currency symbol</th><td>{e(c["symbol"])}</td></tr>
+    <tr><th>Block explorer</th><td><a href="{e(c["explorer"])}" target="_blank" rel="noopener">{e(c["explorer"])}</a></td></tr>
+  </table></div>
+  <button class="addchain" data-chain='{e(params)}'>Add to MetaMask</button>
+</section>""")
+    return ("".join(blocks) + WALLET_SCRIPT) if blocks else ""
+
+
 def status_of(fid, status_by_id):
     return status_by_id.get(fid, {}).get("status", "unknown")
 
@@ -171,6 +225,10 @@ def render_card(f, st):
     """Server-rendered equivalent of the card the JS builds."""
     s = st.get("status", "unknown")
     bits = []
+    if f.get("requiresLogin"):
+        bits.append(f"🔑 {f['requiresLogin']} login")
+    if f.get("requiresMainnetBalance"):
+        bits.append("⚠ needs mainnet balance")
     if f.get("requiresCaptcha"):
         bits.append("captcha")
     if f.get("requiresWallet"):
@@ -367,12 +425,16 @@ def build_currency_pages(faucets, status_by_id, generated_at):
                 detail.append(f'<p><strong>How to use it:</strong> {e(f["notes"])}</p>')
 
             reqs = []
+            if f.get("requiresLogin"):
+                reqs.append(f"signing in with {e(f['requiresLogin'])}")
+            if f.get("requiresMainnetBalance"):
+                reqs.append("a pre-existing mainnet balance (empty wallets can't claim)")
             if f.get("requiresCaptcha"):
                 reqs.append("solving a captcha")
             if f.get("requiresWallet"):
                 reqs.append("connecting a wallet")
             if reqs:
-                detail.append(f"<p><strong>Requires:</strong> {e(' and '.join(reqs))}.</p>")
+                detail.append(f"<p><strong>Requires:</strong> {', '.join(reqs)}.</p>")
 
             sections.append(f"""<section class="card {e(s)}">
   <h2>Is the {e(f["name"])} down right now?</h2>
@@ -410,6 +472,10 @@ def build_currency_pages(faucets, status_by_id, generated_at):
         # matches "best <X> faucet" intent and beats single-faucet pages.
         def reqs_cell(f):
             r = []
+            if f.get("requiresLogin"):
+                r.append(f"{e(f['requiresLogin'])} login")
+            if f.get("requiresMainnetBalance"):
+                r.append("mainnet balance")
             if f.get("requiresWallet"):
                 r.append("wallet")
             if f.get("requiresCaptcha"):
@@ -484,6 +550,7 @@ def build_currency_pages(faucets, status_by_id, generated_at):
         })
 
         h1 = f"{lead}{also} Testnet Faucet — Get Test {currency}"
+        wallet_cfg = wallet_config_section(networks)
         body = f"""<header class="masthead"><div class="wrap">
   <p class="crumb"><a href="../">← All testnet faucets</a></p>
   <h1>{e(h1)}</h1>
@@ -495,6 +562,7 @@ def build_currency_pages(faucets, status_by_id, generated_at):
   <p class="intro">{intro}</p>
   {compare}
   {"".join(sections)}
+  {wallet_cfg}
   <section>
     <h2>Getting test {e(currency)} on {e(lead)}</h2>
     <p>Testnet faucets are run on a best-effort basis and break constantly: domains
