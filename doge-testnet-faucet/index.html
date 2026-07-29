@@ -34,11 +34,11 @@
 <main class="wrap">
   <p class="callout">Every listed DOGE faucet is currently failing. Check the <a href="../">full faucet list</a> for other networks, or <a href="https://github.com/aleksandralukic/faucet-app/issues">report a working one</a>.</p>
   <p class="intro">There is 1 DOGE testnet faucet in this list, on Dogecoin Testnet. Of these, 1 needs a captcha. Every listed faucet is failing our automated check right now — check the notes above and try again later, or report a working one on GitHub.</p>
-  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://shibe.technology/" target="_blank" rel="noopener">Shibe Technology</a></td><td>—</td><td>—</td><td>captcha</td><td><span class="dot down"></span> Down · 0%</td></tr></tbody></table></div>
+  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://shibe.technology/" target="_blank" rel="noopener">Shibe Technology</a></td><td>—</td><td>—</td><td>captcha</td><td><span class="dot down"></span> Down · 0% HTTP</td></tr></tbody></table></div>
   <section class="card down">
   <h2>Is the Shibe Technology down right now?</h2>
   
-  <p><strong>Status:</strong> <span class="dot down"></span> Down — <span class="muted">Timed out after 25s</span></p><p><strong>Uptime:</strong> 0% across the last 30 daily checks.</p><p><strong>Why it is failing:</strong> Timed out. No response within the timeout. Could be an overloaded faucet or a slow network — may recover on its own.</p><p><strong>Requires:</strong> solving a captcha.</p>
+  <p><strong>Status:</strong> <span class="dot down"></span> Down — <span class="muted">Timed out after 25s</span></p><p><strong>HTTP uptime:</strong> 0% across the last 30 daily checks <span class="muted">(page reachability, not funds)</span>.</p><p><strong>Why it is failing:</strong> Timed out. No response within the timeout. Could be an overloaded faucet or a slow network — may recover on its own.</p><p><strong>Requires:</strong> solving a captcha.</p>
   <p><a href="https://shibe.technology/" target="_blank" rel="noopener">Open Shibe Technology ↗</a>
      <span class="muted">(Dogecoin Testnet)</span></p>
 </section>
@@ -49,8 +49,9 @@
     lapse, TLS certificates expire, rate limits tighten, and faucet wallets run dry.
     We re-check every DOGE faucet daily and record the cause of failure, so
     you can tell a dead faucet from a temporary blip before you waste time on it.</p>
-    <p class="muted">A "working" result means the faucet's page responded normally.
-    It cannot prove the faucet still holds funds — only a real claim does that.</p>
+    <p class="muted">Faucets we can verify on-chain show the dispensing wallet's live
+    balance and last payout — proof they're funded, not just reachable. For the rest,
+    a "working" result means the faucet's page responded; it can't prove the tap has funds.</p>
   </section>
 </main>
 <footer class="wrap footer"><p><a href="../">Faucet App</a> — testnet faucet status, checked daily.

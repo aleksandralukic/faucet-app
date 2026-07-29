@@ -196,7 +196,8 @@ function card(f) {
   if (f.requiresMainnetBalance) tags.push("💰 needs mainnet balance");
   if (f.requiresCaptcha) tags.push("captcha");
   if (f.requiresWallet) tags.push("wallet connect");
-  if (st?.uptimePct != null) tags.push(`${st.uptimePct}% uptime`);
+  // On-chain "dispensed today" supersedes HTTP uptime — don't let a low % compete.
+  if (st?.uptimePct != null && st?.verificationTier !== "onchain") tags.push(`${st.uptimePct}% HTTP uptime`);
   if (st?.responseMs != null) tags.push(`${st.responseMs} ms`);
   if (st?.httpStatus != null) tags.push(`HTTP ${st.httpStatus}`);
 

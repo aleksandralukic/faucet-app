@@ -239,8 +239,10 @@ def render_card(f, st):
         bits.append("captcha")
     if f.get("requiresWallet"):
         bits.append("wallet connect")
-    if st.get("uptimePct") is not None:
-        bits.append(f"{st['uptimePct']}% uptime")
+    # On-chain verification supersedes HTTP uptime — showing "10% uptime" next to
+    # "dispensed today" reads as a contradiction (the weaker signal winning).
+    if st.get("uptimePct") is not None and st.get("verificationTier") != "onchain":
+        bits.append(f"{st['uptimePct']}% HTTP uptime")
 
     cur_slug = slug(f["currency"])
     badge = ""
@@ -424,10 +426,11 @@ def build_currency_pages(faucets, status_by_id, generated_at):
                 amt_bits.append(f"cooldown {e(f['cooldown'])}")
             if amt_bits:
                 detail.append(f"<p><strong>Amount:</strong> {', '.join(amt_bits)}.</p>")
-            if st.get("uptimePct") is not None:
+            if st.get("uptimePct") is not None and st.get("verificationTier") != "onchain":
                 detail.append(
-                    f'<p><strong>Uptime:</strong> {st["uptimePct"]}% across the last '
-                    f'{len(hist)} daily check{"s" if len(hist) != 1 else ""}.</p>'
+                    f'<p><strong>HTTP uptime:</strong> {st["uptimePct"]}% across the last '
+                    f'{len(hist)} daily check{"s" if len(hist) != 1 else ""} '
+                    f'<span class="muted">(page reachability, not funds)</span>.</p>'
                 )
             if st.get("failureLabel"):
                 detail.append(
@@ -511,7 +514,7 @@ def build_currency_pages(faucets, status_by_id, generated_at):
                 f'<td>{e(f.get("cooldown") or "—")}</td>'
                 f'<td>{e(reqs_cell(f))}</td>'
                 f'<td><span class="dot {e(s)}"></span> {e(STATUS_LABEL.get(s, s))}'
-                f'{f" · {up}%" if up is not None else ""}{oc_cell}</td></tr>'
+                f'{f" · {up}% HTTP" if up is not None and not oc.get("balanceStr") else ""}{oc_cell}</td></tr>'
             )
         compare = (
             f'<div class="table-scroll"><table><thead><tr><th>Faucet</th>'
@@ -582,8 +585,9 @@ def build_currency_pages(faucets, status_by_id, generated_at):
     lapse, TLS certificates expire, rate limits tighten, and faucet wallets run dry.
     We re-check every {e(currency)} faucet daily and record the cause of failure, so
     you can tell a dead faucet from a temporary blip before you waste time on it.</p>
-    <p class="muted">A "working" result means the faucet's page responded normally.
-    It cannot prove the faucet still holds funds — only a real claim does that.</p>
+    <p class="muted">Faucets we can verify on-chain show the dispensing wallet's live
+    balance and last payout — proof they're funded, not just reachable. For the rest,
+    a "working" result means the faucet's page responded; it can't prove the tap has funds.</p>
   </section>
 </main>
 <footer class="wrap footer"><p><a href="../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.

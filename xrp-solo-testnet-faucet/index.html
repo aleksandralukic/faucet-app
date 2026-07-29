@@ -34,11 +34,11 @@
 <main class="wrap">
   
   <p class="intro">There is 1 XRP/SOLO testnet faucet in this list, on XRP Testnet. Of these, 1 needs a captcha. The most reliable right now is <strong>Bithomp Faucet</strong> (100% uptime over the last 30 daily checks).</p>
-  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://test.bithomp.com/faucet" target="_blank" rel="noopener">Bithomp Faucet</a></td><td>—</td><td>—</td><td>captcha</td><td><span class="dot up"></span> Working · 100%</td></tr></tbody></table></div>
+  <div class="table-scroll"><table><thead><tr><th>Faucet</th><th>Dispenses</th><th>Cooldown</th><th>Requires</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://test.bithomp.com/faucet" target="_blank" rel="noopener">Bithomp Faucet</a></td><td>—</td><td>—</td><td>captcha</td><td><span class="dot up"></span> Working · 100% HTTP</td></tr></tbody></table></div>
   <section class="card up">
   <h2>Is the Bithomp Faucet down right now?</h2>
   
-  <p><strong>Status:</strong> <span class="dot up"></span> Working — <span class="muted">HTTP 200</span></p><p><strong>Uptime:</strong> 100% across the last 30 daily checks.</p><p><strong>Requires:</strong> solving a captcha.</p>
+  <p><strong>Status:</strong> <span class="dot up"></span> Working — <span class="muted">HTTP 200</span></p><p><strong>HTTP uptime:</strong> 100% across the last 30 daily checks <span class="muted">(page reachability, not funds)</span>.</p><p><strong>Requires:</strong> solving a captcha.</p>
   <p><a href="https://test.bithomp.com/faucet" target="_blank" rel="noopener">Open Bithomp Faucet ↗</a>
      <span class="muted">(XRP Testnet)</span></p>
 </section>
@@ -49,8 +49,9 @@
     lapse, TLS certificates expire, rate limits tighten, and faucet wallets run dry.
     We re-check every XRP/SOLO faucet daily and record the cause of failure, so
     you can tell a dead faucet from a temporary blip before you waste time on it.</p>
-    <p class="muted">A "working" result means the faucet's page responded normally.
-    It cannot prove the faucet still holds funds — only a real claim does that.</p>
+    <p class="muted">Faucets we can verify on-chain show the dispensing wallet's live
+    balance and last payout — proof they're funded, not just reachable. For the rest,
+    a "working" result means the faucet's page responded; it can't prove the tap has funds.</p>
   </section>
 </main>
 <footer class="wrap footer"><p><a href="../">Faucet App</a> — testnet faucet status, checked daily.
