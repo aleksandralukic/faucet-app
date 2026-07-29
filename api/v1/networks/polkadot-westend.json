@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-29T14:07:59+00:00",
-  "next_update_expected_at": "2026-07-30T14:07:59+00:00",
+  "generated_at": "2026-07-29T14:09:52+00:00",
+  "next_update_expected_at": "2026-07-30T14:09:52+00:00",
   "network": {
     "id": "polkadot-westend",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-07-29T14:07:59+00:00",
+      "checked_at": "2026-07-29T14:09:52+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -33,9 +33,9 @@
       "name": "Polkadot Westend Faucet",
       "url": "https://faucet.polkadot.io/westend",
       "currency": "DOT",
-      "status": "degraded",
+      "status": "working",
       "verification": "http",
-      "checked_at": "2026-07-29T14:07:59+00:00",
+      "checked_at": "2026-07-29T14:09:52+00:00",
       "amount": "100 WND",
       "cooldown": "24h",
       "friction": [
@@ -45,7 +45,7 @@
       "claim_api": null,
       "notes": "Web faucet: paste your Westend address, solve the captcha, Submit. 100 WND per request, once per 24h. Add ?parachain=1000 to fund an Asset Hub address. The old #westend_faucet Matrix room is dead — ignore it.",
       "evidence": {
-        "http_status": null,
+        "http_status": 200,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
