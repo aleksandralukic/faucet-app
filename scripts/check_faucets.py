@@ -394,15 +394,20 @@ def main():
         res["verificationTier"] = tier
 
         prev = previous.get(f["id"], {})
-        history = list(prev.get("history", []))[-(HISTORY_LEN - 1):]
-        history.append(res["status"])
+
+        # If the faucet's URL changed, it's effectively a NEW faucet — a
+        # replacement for a dead one. Reset its history so the old faucet's
+        # downtime doesn't drag down the new one's uptime/sparkline.
+        url_changed = prev.get("url") and prev.get("url") != f["url"]
+        prior = [] if url_changed else list(prev.get("history", []))[-(HISTORY_LEN - 1):]
+        history = prior + [res["status"]]
 
         # Uptime over the retained window — more useful than a single dot,
         # and it is the stat that makes this site worth citing.
         uptime = round(100 * history.count("up") / len(history)) if history else None
 
         # Track when the status last flipped, so a long-broken faucet is obvious.
-        if prev.get("status") == res["status"]:
+        if not url_changed and prev.get("status") == res["status"]:
             since = prev.get("statusSince", now)
         else:
             since = now
@@ -411,6 +416,7 @@ def main():
             "id": f["id"],
             "checkedAt": now,
             "statusSince": since,
+            "url": f["url"],  # stored so the next run can detect a replacement
             "history": history,
             "uptimePct": uptime,
             **res,
