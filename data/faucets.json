@@ -38,7 +38,7 @@
     "network": "BNB Smart Chain Testnet",
     "requiresWallet": true,
     "requiresCaptcha": false,
-    "notes": "Only Smart Chain (0x...) addresses accepted. Forward to Beacon Chain (tbnb...) via Binance Wallet if needed."
+    "notes": "Heads up — this faucet is gated: your address must already hold >= 0.002 BNB on BNB Smart Chain MAINNET to claim (anti-abuse check), so a fresh empty wallet can't use it. Only Smart Chain (0x...) addresses are accepted; forward to Beacon Chain (tbnb...) via Binance Wallet if needed."
   },
   {
     "id": "googol-bch",
@@ -273,7 +273,8 @@
     "url": "https://faucet.fantom.network/",
     "network": "Fantom Testnet",
     "requiresWallet": false,
-    "requiresCaptcha": true
+    "requiresCaptcha": true,
+    "notes": "Fantom's testnet is deprecated — the network rebranded to Sonic, and faucet.fantom.network no longer dispenses. There is no working public Fantom testnet faucet right now (thirdweb's requires real mainnet funds). If you need tokens for the successor network, look for a Sonic Labs testnet faucet."
   },
   {
     "id": "bithomp-faucet",
