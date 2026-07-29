@@ -162,6 +162,12 @@ NETWORKS = {
     "Core test2": {"chainId": 1114, "rpc": "https://rpc.test2.btcs.network", "symbol": "tCORE2", "explorer": "https://scan.test2.btcs.network", "name": "Core Blockchain Testnet2"},
     "Sei Atlantic-2": {"chainId": 1328, "rpc": "https://evm-rpc-testnet.sei-apis.com", "symbol": "SEI", "explorer": "https://seitrace.com", "name": "Sei Atlantic-2"},
     "Filecoin Calibration": {"chainId": 314159, "rpc": "https://api.calibration.node.glif.io/rpc/v1", "symbol": "tFIL", "explorer": "https://calibration.filscan.io", "name": "Filecoin Calibration"},
+    "Base Sepolia": {"chainId": 84532, "rpc": "https://sepolia.base.org", "symbol": "ETH", "explorer": "https://sepolia.basescan.org", "name": "Base Sepolia"},
+    "Arbitrum Sepolia": {"chainId": 421614, "rpc": "https://sepolia-rollup.arbitrum.io/rpc", "symbol": "ETH", "explorer": "https://sepolia.arbiscan.io", "name": "Arbitrum Sepolia"},
+    "Optimism Sepolia": {"chainId": 11155420, "rpc": "https://sepolia.optimism.io", "symbol": "ETH", "explorer": "https://sepolia-optimism.etherscan.io", "name": "OP Sepolia"},
+    "Scroll Sepolia": {"chainId": 534351, "rpc": "https://sepolia-rpc.scroll.io", "symbol": "ETH", "explorer": "https://sepolia.scrollscan.com", "name": "Scroll Sepolia"},
+    "Linea Sepolia": {"chainId": 59141, "rpc": "https://rpc.sepolia.linea.build", "symbol": "ETH", "explorer": "https://sepolia.lineascan.build", "name": "Linea Sepolia"},
+    "Celo Alfajores": {"chainId": 44787, "rpc": "https://alfajores-forno.celo-testnet.org", "symbol": "CELO", "explorer": "https://alfajores.celoscan.io", "name": "Celo Alfajores"},
 }
 
 WALLET_SCRIPT = """<script>
@@ -366,6 +372,13 @@ def build_currency_pages(faucets, status_by_id, generated_at):
         lead = clean[-1] if clean else currency
         kw = [k for k in keywords if k.lower() != lead.lower()][:2]
         also = f" ({currency})" if lead.lower() != currency.lower() else ""
+
+        # Explicit lead override — for L2s ("Base Sepolia") where the auto-logic
+        # would wrongly pick the shared "Sepolia" suffix over the network brand.
+        explicit_lead = next((f["lead"] for f in items if f.get("lead")), None)
+        if explicit_lead:
+            lead = explicit_lead
+            also = "" if currency.lower() in lead.lower() else f" ({currency})"
 
         headline = (
             f"{working} of {len(items)} working"
