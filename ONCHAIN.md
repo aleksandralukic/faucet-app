@@ -22,7 +22,7 @@ a payout history (and, where we can tell, dispensed recently). That verdict
 **overrides** the HTTP check — so a faucet behind Cloudflare that the HTTP check
 would call "degraded" is correctly "up".
 
-## Verified — live at the on-chain tier (9)
+## Verified — live at the on-chain tier (10)
 
 | Chain | Faucet (id) | Dispenser wallet | Evidence (at time of writing) |
 | --- | --- | --- | --- |
@@ -35,6 +35,7 @@ would call "degraded" is correctly "up".
 | Stellar testnet | `stellar-friendbot` | `GAIH3ULL…GK3QJZNSR` (Friendbot) | 19.5B XLM · 0d. **Rotates on testnet reset** — if the check errors, re-source the account. |
 | Bitcoin testnet | `coinfaucet-btc` | `tb1qerzrlxcfu24davlur5sqmgzzgsal6wusda40er` | Currently **dry** (0 tBTC) though active — shows the tier catching an out-of-funds faucet. |
 | NEAR testnet | `near-faucet` | `v2d.faucet.nonofficial.testnet` (contract) | 37,905 NEAR · 0d. Via NEAR RPC (`view_account`) + nearblocks recency. |
+| Algorand testnet | `algoexplorer-dispenser` | `Z5GPJQCHVU54C2I4FLYNE2XHRQRL5OV2GPJQKXJFMW34CRIN2KRQFXF7DI` | 12,298 ALGO · 0d. Via Algonode algod (balance) + indexer (recency). |
 
 ## Pending — need the dispenser address
 
@@ -84,6 +85,7 @@ transaction. That's the dispenser; validate it with `scripts/onchain.py`.
   `stellar-testnet`.
 - **NEAR** (NEAR RPC `view_account` for balance + nearblocks for recency;
   faucet is a contract account): `near-testnet`.
+- **Algorand** (Algonode algod for balance + indexer for recency): `algorand-testnet`.
 - **UTXO** (Blockstream/mempool-style API — the same shape works for any such
   chain): `bitcoin-testnet` (blockstream.info), `litecoin-testnet`
   (litecoinspace.org). Adding DOGE/BCH/DASH just needs a keyless explorer of the

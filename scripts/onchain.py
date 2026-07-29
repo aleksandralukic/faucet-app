@@ -82,6 +82,11 @@ CHAIN_PROFILES = {
         "explorer": "https://api-testnet.nearblocks.io/v1",
         "symbol": "NEAR", "kind": "near",
     },
+    "algorand-testnet": {
+        "rpc": "https://testnet-api.algonode.cloud",       # algod: balance
+        "explorer": "https://testnet-idx.algonode.cloud",  # indexer: recency
+        "symbol": "ALGO", "kind": "algorand",
+    },
 }
 
 HEADERS = {"Content-Type": "application/json", "User-Agent": "testnetfaucets.dev-onchain/1.0"}
@@ -182,6 +187,23 @@ def near_check(profile, address, now_ts):
     return balance, None, idle
 
 
+def algorand_check(profile, address, now_ts):
+    """(balance_ALGO, None, idle_days) via Algonode algod (balance) + indexer
+    (recency of the last payout the faucet sent)."""
+    acct = _get_json(f"{profile['rpc']}/v2/accounts/{address}")
+    balance = int(acct.get("amount", 0)) / 1e6  # microAlgos -> ALGO
+    idle = None
+    try:
+        d = _get_json(f"{profile['explorer']}/v2/accounts/{address}/transactions?limit=5")
+        for t in d.get("transactions", []):
+            if t.get("sender") == address and t.get("round-time"):
+                idle = round((now_ts - int(t["round-time"])) / 86400, 1)
+                break
+    except Exception:
+        pass
+    return balance, None, idle
+
+
 def utxo_check(profile, address, now_ts):
     """(balance, tx_count, idle_days) via a Blockstream/mempool-style API
     (blockstream.info, litecoinspace.org). Same shape for every such chain."""
@@ -251,6 +273,9 @@ def check(cfg, now_ts=None):
             count_label = "transactions"
         elif kind == "near":
             balance, count, idle_days = near_check(profile, address, now_ts)
+            count_label = "transactions"
+        elif kind == "algorand":
+            balance, count, idle_days = algorand_check(profile, address, now_ts)
             count_label = "transactions"
         elif kind == "utxo":
             balance, count, idle_days = utxo_check(profile, address, now_ts)

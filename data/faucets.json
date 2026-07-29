@@ -166,12 +166,18 @@
   {
     "id": "algoexplorer-dispenser",
     "currency": "ALGO",
-    "name": "AlgoExplorer Dispenser",
-    "url": "https://testnet.algoexplorer.io/dispenser",
+    "name": "Lora Algorand Testnet Faucet",
+    "url": "https://lora.algokit.io/testnet/fund",
     "network": "Algorand Testnet",
     "requiresWallet": false,
-    "requiresCaptcha": true,
-    "notes": "Alternative: AlgoKit lora."
+    "requiresCaptcha": false,
+    "notes": "Quick email registration (just email validation). Request ALGO from the Fund page. Replaces the dead AlgoExplorer dispenser.",
+    "requiresLogin": "email",
+    "amount": "up to 10 ALGO",
+    "onchain": {
+      "chain": "algorand-testnet",
+      "wallet": "Z5GPJQCHVU54C2I4FLYNE2XHRQRL5OV2GPJQKXJFMW34CRIN2KRQFXF7DI"
+    }
   },
   {
     "id": "shibe-technology",
