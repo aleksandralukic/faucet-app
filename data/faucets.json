@@ -317,7 +317,20 @@
     "network": "Fantom Testnet",
     "requiresWallet": false,
     "requiresCaptcha": true,
-    "notes": "Fantom's testnet is deprecated — the network rebranded to Sonic, and faucet.fantom.network no longer dispenses. There is no working public Fantom testnet faucet right now (thirdweb's requires real mainnet funds). If you need tokens for the successor network, look for a Sonic Labs testnet faucet."
+    "notes": "Fantom's testnet is deprecated — the network rebranded to Sonic (see the Sonic Testnet entry). There is no working public Fantom testnet faucet; for the successor network get test S at testnet.soniclabs.com, docs at docs.soniclabs.com."
+  },
+  {
+    "id": "sonic-testnet",
+    "currency": "SONIC",
+    "name": "Sonic Testnet Faucet",
+    "lead": "Sonic",
+    "url": "https://testnet.soniclabs.com/account",
+    "network": "Sonic Testnet",
+    "requiresWallet": true,
+    "requiresCaptcha": true,
+    "amount": "~5 S",
+    "cooldown": "1h",
+    "notes": "The network Fantom rebranded to. Connect a Web3 wallet (add Sonic Testnet, chainId 14601), solve the captcha, and request from the dashboard (~5 S per claim, ~1h cooldown — approximate). Docs: docs.soniclabs.com. Note: the old Sonic 'Blaze' testnet (chainId 57054) is retired — use 14601."
   },
   {
     "id": "bithomp-faucet",

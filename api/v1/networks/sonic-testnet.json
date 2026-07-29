@@ -3,11 +3,11 @@
   "generated_at": "2026-07-29T14:07:59+00:00",
   "next_update_expected_at": "2026-07-30T14:07:59+00:00",
   "network": {
-    "id": "celo-alfajores",
-    "chain_id": 44787,
-    "name": "Celo Alfajores",
+    "id": "sonic-testnet",
+    "chain_id": 14601,
+    "name": "Sonic Testnet",
     "family": "evm",
-    "rpc": "https://alfajores-forno.celo-testnet.org",
+    "rpc": "https://rpc.testnet.soniclabs.com",
     "lifecycle": {
       "status": "active",
       "sunset_date": null,
@@ -17,33 +17,34 @@
     },
     "liveness": {
       "checked_at": "2026-07-29T14:07:59+00:00",
-      "rpc_responding": null,
-      "chain_advancing": null,
-      "latest_block": null,
-      "block_age_seconds": null
+      "rpc_responding": true,
+      "chain_advancing": true,
+      "latest_block": 17161597,
+      "block_age_seconds": 0
     },
     "faucet_ids": [
-      "celo-alfajores"
+      "sonic-testnet"
     ]
   },
   "faucets": [
     {
-      "id": "celo-alfajores",
-      "network_id": "celo-alfajores",
-      "name": "Celo Alfajores Faucet",
-      "url": "https://faucet.celo.org/",
-      "currency": "CELO",
+      "id": "sonic-testnet",
+      "network_id": "sonic-testnet",
+      "name": "Sonic Testnet Faucet",
+      "url": "https://testnet.soniclabs.com/account",
+      "currency": "SONIC",
       "status": "working",
       "verification": "http",
       "checked_at": "2026-07-29T14:07:59+00:00",
-      "amount": "1 CELO + stables",
-      "cooldown": "24h",
+      "amount": "~5 S",
+      "cooldown": "1h",
       "friction": [
-        "captcha"
+        "captcha",
+        "wallet"
       ],
       "automatable": false,
       "claim_api": null,
-      "notes": "Captcha only — no login or mainnet balance, the least-gated of these six. Optional GitHub login gives ~10x more (up to ~5 CELO). Also drips cUSD/cEUR/cREAL.",
+      "notes": "The network Fantom rebranded to. Connect a Web3 wallet (add Sonic Testnet, chainId 14601), solve the captcha, and request from the dashboard (~5 S per claim, ~1h cooldown — approximate). Docs: docs.soniclabs.com. Note: the old Sonic 'Blaze' testnet (chainId 57054) is retired — use 14601.",
       "evidence": {
         "http_status": 200,
         "wallet_balance": null,

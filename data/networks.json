@@ -196,7 +196,7 @@
     "lifecycle": {
       "status": "deprecated",
       "sunset_date": null,
-      "successor_network_id": null,
+      "successor_network_id": "sonic-testnet",
       "announcement_url": "https://docs.soniclabs.com/",
       "last_reviewed": "2026-07-29"
     }
@@ -462,6 +462,19 @@
   "zilliqa-testnet": {
     "name": "Zilliqa Testnet",
     "family": "zilliqa",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-07-29"
+    }
+  },
+  "sonic-testnet": {
+    "name": "Sonic Testnet",
+    "family": "evm",
+    "chain_id": 14601,
+    "rpc": "https://rpc.testnet.soniclabs.com",
     "lifecycle": {
       "status": "active",
       "sunset_date": null,

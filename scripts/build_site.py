@@ -168,6 +168,7 @@ NETWORKS = {
     "Scroll Sepolia": {"chainId": 534351, "rpc": "https://sepolia-rpc.scroll.io", "symbol": "ETH", "explorer": "https://sepolia.scrollscan.com", "name": "Scroll Sepolia"},
     "Linea Sepolia": {"chainId": 59141, "rpc": "https://rpc.sepolia.linea.build", "symbol": "ETH", "explorer": "https://sepolia.lineascan.build", "name": "Linea Sepolia"},
     "Celo Alfajores": {"chainId": 44787, "rpc": "https://alfajores-forno.celo-testnet.org", "symbol": "CELO", "explorer": "https://alfajores.celoscan.io", "name": "Celo Alfajores"},
+    "Sonic Testnet": {"chainId": 14601, "rpc": "https://rpc.testnet.soniclabs.com", "symbol": "S", "explorer": "https://testnet.sonicscan.org", "name": "Sonic Testnet"},
 }
 
 WALLET_SCRIPT = """<script>
