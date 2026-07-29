@@ -7,6 +7,7 @@
     "chain_id": null,
     "name": "Multi-chain (XLM, ETH, etc.)",
     "family": "multi",
+    "rpc": null,
     "lifecycle": {
       "status": "active",
       "sunset_date": null,

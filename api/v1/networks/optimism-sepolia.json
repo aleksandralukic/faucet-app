@@ -7,6 +7,7 @@
     "chain_id": 11155420,
     "name": "Optimism Sepolia",
     "family": "evm",
+    "rpc": "https://sepolia.optimism.io",
     "lifecycle": {
       "status": "active",
       "sunset_date": null,
@@ -18,7 +19,7 @@
       "checked_at": "2026-07-29T13:51:52+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 46765293,
+      "latest_block": 46765320,
       "block_age_seconds": 0
     },
     "faucet_ids": [

@@ -7,6 +7,7 @@
     "chain_id": null,
     "name": "Stellar Testnet",
     "family": "stellar",
+    "rpc": null,
     "lifecycle": {
       "status": "active",
       "sunset_date": null,

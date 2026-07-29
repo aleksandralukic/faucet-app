@@ -591,7 +591,7 @@ def build_currency_pages(faucets, status_by_id, generated_at):
   </section>
 </main>
 <footer class="wrap footer"><p><a href="../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
-<a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+<a href="../api/v1/all.json">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
 
         out = page(
             title, desc, f"{SITE_URL}/{dirname}/", body, depth=1,
@@ -669,7 +669,7 @@ def build_down_page(faucets, status_by_id, generated_at):
   </section>
 </main>
 <footer class="wrap footer"><p><a href="../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
-<a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+<a href="../api/v1/all.json">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
 
     out = page(
         "Testnet Faucets Down Right Now — Live Status | " + SITE_NAME,

@@ -7,6 +7,7 @@
     "chain_id": 534351,
     "name": "Scroll Sepolia",
     "family": "evm",
+    "rpc": "https://sepolia-rpc.scroll.io",
     "lifecycle": {
       "status": "active",
       "sunset_date": null,

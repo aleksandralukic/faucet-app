@@ -7,6 +7,7 @@
     "chain_id": null,
     "name": "Hedera Testnet",
     "family": "hedera",
+    "rpc": null,
     "lifecycle": {
       "status": "active",
       "sunset_date": null,

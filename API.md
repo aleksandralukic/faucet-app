@@ -111,11 +111,24 @@ needing to know our schedule.
   `null` = we couldn't read it this run (don't treat as down). Currently measured
   for EVM networks; `null` for other families.
 
-## Coming next (not in v1 yet)
+## `testnet-preflight` — the CI gate
 
-- **`testnet-preflight`** CLI — fails a CI job before it runs if a network is
-  deprecated/halted, printing the successor + announcement; and warns when a
-  test wallet's balance drops below a threshold, printing the automatable faucet.
+[`scripts/testnet_preflight.py`](scripts/testnet_preflight.py) turns this data
+into a preflight check you run *before* your test suite, so a dead testnet or a
+drained wallet fails with a diagnosis instead of a mid-run mystery. Stdlib only,
+no install — `curl` the script into CI, or vendor it.
+
+```bash
+# Fail the job if a network you depend on is deprecated (default) or halted:
+python3 testnet_preflight.py --networks ethereum-sepolia,polygon-amoy --fail-on halted
+#   ✗ fantom-testnet: DEPRECATED — successor: … — https://docs.soniclabs.com/
+
+# Fail if a test wallet has drained below the threshold your suite needs
+# (EVM networks); prints the automatable faucet when one exists:
+python3 testnet_preflight.py --balance 0xYourAddr:0.1@ethereum-sepolia
+```
+
+Exit `0` = passed, `1` = a check failed (with the reason), `2` = usage/fetch error.
 
 ## Compatibility contract
 

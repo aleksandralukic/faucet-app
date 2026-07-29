@@ -8,6 +8,7 @@
       "chain_id": null,
       "name": "Agoric Devnet",
       "family": "cosmos",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -31,6 +32,7 @@
       "chain_id": null,
       "name": "Algorand Testnet",
       "family": "algorand",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -54,6 +56,7 @@
       "chain_id": null,
       "name": "Aptos Testnet",
       "family": "move",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -77,6 +80,7 @@
       "chain_id": 421614,
       "name": "Arbitrum Sepolia",
       "family": "evm",
+      "rpc": "https://sepolia-rollup.arbitrum.io/rpc",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -100,6 +104,7 @@
       "chain_id": 43113,
       "name": "Avalanche Fuji C-Chain",
       "family": "evm",
+      "rpc": "https://api.avax-test.network/ext/bc/C/rpc",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -111,7 +116,7 @@
         "checked_at": "2026-07-29T13:51:52+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 57427909,
+        "latest_block": 57427941,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -123,6 +128,7 @@
       "chain_id": 84532,
       "name": "Base Sepolia",
       "family": "evm",
+      "rpc": "https://sepolia.base.org",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -146,6 +152,7 @@
       "chain_id": null,
       "name": "Bitcoin Cash Testnet",
       "family": "utxo",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -170,6 +177,7 @@
       "chain_id": null,
       "name": "Bitcoin Testnet",
       "family": "utxo",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -195,6 +203,7 @@
       "chain_id": 97,
       "name": "BNB Smart Chain Testnet",
       "family": "evm",
+      "rpc": "https://bsc-testnet-rpc.publicnode.com",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -218,6 +227,7 @@
       "chain_id": null,
       "name": "Cardano Preprod",
       "family": "cardano",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -241,6 +251,7 @@
       "chain_id": 44787,
       "name": "Celo Alfajores",
       "family": "evm",
+      "rpc": "https://alfajores-forno.celo-testnet.org",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -264,6 +275,7 @@
       "chain_id": 1114,
       "name": "Core test2",
       "family": "evm",
+      "rpc": "https://rpc.test2.btcs.network",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -287,6 +299,7 @@
       "chain_id": null,
       "name": "Cosmos provider testnet",
       "family": "cosmos",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -310,6 +323,7 @@
       "chain_id": null,
       "name": "Dash Testnet",
       "family": "utxo",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -333,6 +347,7 @@
       "chain_id": null,
       "name": "Dogecoin Testnet",
       "family": "utxo",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -356,6 +371,7 @@
       "chain_id": 11155111,
       "name": "Ethereum Sepolia",
       "family": "evm",
+      "rpc": "https://ethereum-sepolia-rpc.publicnode.com",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -381,6 +397,7 @@
       "chain_id": 4002,
       "name": "Fantom Testnet",
       "family": "evm",
+      "rpc": null,
       "lifecycle": {
         "status": "deprecated",
         "sunset_date": null,
@@ -404,6 +421,7 @@
       "chain_id": 314159,
       "name": "Filecoin Calibration",
       "family": "evm",
+      "rpc": "https://api.calibration.node.glif.io/rpc/v1",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -415,8 +433,8 @@
         "checked_at": "2026-07-29T13:51:52+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 3933557,
-        "block_age_seconds": 22
+        "latest_block": 3933559,
+        "block_age_seconds": 0
       },
       "faucet_ids": [
         "beryx-filecoin"
@@ -427,6 +445,7 @@
       "chain_id": 114,
       "name": "Flare Coston2",
       "family": "evm",
+      "rpc": "https://coston2-api.flare.network/ext/C/rpc",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -438,7 +457,7 @@
         "checked_at": "2026-07-29T13:51:52+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 33402056,
+        "latest_block": 33402074,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -450,6 +469,7 @@
       "chain_id": null,
       "name": "Flow Testnet",
       "family": "flow",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -473,6 +493,7 @@
       "chain_id": null,
       "name": "Hedera Testnet",
       "family": "hedera",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -496,6 +517,7 @@
       "chain_id": 1001,
       "name": "Kaia Kairos Testnet",
       "family": "evm",
+      "rpc": "https://public-en-kairos.node.kaia.io",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -507,7 +529,7 @@
         "checked_at": "2026-07-29T13:51:52+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 223689923,
+        "latest_block": 223689977,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -519,6 +541,7 @@
       "chain_id": 59141,
       "name": "Linea Sepolia",
       "family": "evm",
+      "rpc": "https://rpc.sepolia.linea.build",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -530,7 +553,7 @@
         "checked_at": "2026-07-29T13:51:52+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 31187291,
+        "latest_block": 31187305,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -542,6 +565,7 @@
       "chain_id": null,
       "name": "Litecoin Testnet",
       "family": "utxo",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -565,6 +589,7 @@
       "chain_id": null,
       "name": "Multi-chain (XLM, ETH, etc.)",
       "family": "multi",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -588,6 +613,7 @@
       "chain_id": null,
       "name": "MultiversX Devnet",
       "family": "multiversx",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -611,6 +637,7 @@
       "chain_id": null,
       "name": "NEAR Testnet",
       "family": "near",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -634,6 +661,7 @@
       "chain_id": 11155420,
       "name": "Optimism Sepolia",
       "family": "evm",
+      "rpc": "https://sepolia.optimism.io",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -645,7 +673,7 @@
         "checked_at": "2026-07-29T13:51:52+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 46765293,
+        "latest_block": 46765320,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -657,6 +685,7 @@
       "chain_id": null,
       "name": "Polkadot Westend",
       "family": "substrate",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -680,6 +709,7 @@
       "chain_id": 80002,
       "name": "Polygon Amoy",
       "family": "evm",
+      "rpc": "https://polygon-amoy-bor-rpc.publicnode.com",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -704,6 +734,7 @@
       "chain_id": null,
       "name": "Provenance Testnet",
       "family": "cosmos",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -727,6 +758,7 @@
       "chain_id": 534351,
       "name": "Scroll Sepolia",
       "family": "evm",
+      "rpc": "https://sepolia-rpc.scroll.io",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -750,6 +782,7 @@
       "chain_id": 1328,
       "name": "Sei Atlantic-2",
       "family": "evm",
+      "rpc": "https://evm-rpc-testnet.sei-apis.com",
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -761,7 +794,7 @@
         "checked_at": "2026-07-29T13:51:52+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 262409370,
+        "latest_block": 262409493,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -773,6 +806,7 @@
       "chain_id": null,
       "name": "Solana Devnet/Testnet",
       "family": "solana",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -796,6 +830,7 @@
       "chain_id": null,
       "name": "Stacks Testnet",
       "family": "stacks",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -819,6 +854,7 @@
       "chain_id": null,
       "name": "Stellar Testnet",
       "family": "stellar",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -842,6 +878,7 @@
       "chain_id": null,
       "name": "Sui Testnet",
       "family": "move",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -865,6 +902,7 @@
       "chain_id": null,
       "name": "VFY Testnet",
       "family": "other",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -888,6 +926,7 @@
       "chain_id": null,
       "name": "XRP Testnet",
       "family": "xrpl",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,
@@ -912,6 +951,7 @@
       "chain_id": null,
       "name": "Zilliqa Testnet",
       "family": "zilliqa",
+      "rpc": null,
       "lifecycle": {
         "status": "active",
         "sunset_date": null,

@@ -7,6 +7,7 @@
     "chain_id": null,
     "name": "Cardano Preprod",
     "family": "cardano",
+    "rpc": null,
     "lifecycle": {
       "status": "active",
       "sunset_date": null,

@@ -7,6 +7,7 @@
     "chain_id": 1328,
     "name": "Sei Atlantic-2",
     "family": "evm",
+    "rpc": "https://evm-rpc-testnet.sei-apis.com",
     "lifecycle": {
       "status": "active",
       "sunset_date": null,
@@ -18,7 +19,7 @@
       "checked_at": "2026-07-29T13:51:52+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 262409370,
+      "latest_block": 262409493,
       "block_age_seconds": 0
     },
     "faucet_ids": [

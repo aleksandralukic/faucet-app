@@ -123,6 +123,7 @@ def network_object(nid, meta, faucet_ids, now_iso, liveness):
         "chain_id": meta.get("chain_id"),
         "name": meta.get("name", nid),
         "family": meta.get("family", "other"),
+        "rpc": meta.get("rpc"),  # public; lets consumers query the chain themselves
         "lifecycle": meta.get("lifecycle"),
         "liveness": {"checked_at": now_iso, **liveness},
         "faucet_ids": faucet_ids,

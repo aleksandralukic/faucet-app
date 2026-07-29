@@ -7,6 +7,7 @@
     "chain_id": null,
     "name": "XRP Testnet",
     "family": "xrpl",
+    "rpc": null,
     "lifecycle": {
       "status": "active",
       "sunset_date": null,

@@ -7,6 +7,7 @@
     "chain_id": 314159,
     "name": "Filecoin Calibration",
     "family": "evm",
+    "rpc": "https://api.calibration.node.glif.io/rpc/v1",
     "lifecycle": {
       "status": "active",
       "sunset_date": null,
@@ -18,8 +19,8 @@
       "checked_at": "2026-07-29T13:51:52+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 3933557,
-      "block_age_seconds": 22
+      "latest_block": 3933559,
+      "block_age_seconds": 0
     },
     "faucet_ids": [
       "beryx-filecoin"
