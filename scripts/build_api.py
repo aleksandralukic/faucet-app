@@ -104,7 +104,11 @@ def evm_liveness(rpc, now_ts):
             rpc,
             data=json.dumps({"jsonrpc": "2.0", "method": "eth_getBlockByNumber",
                              "params": ["latest", False], "id": 1}).encode(),
-            headers={"Content-Type": "application/json"}, method="POST",
+            # Cloudflare-fronted RPCs (publicnode, base.org…) 403 the default
+            # "Python-urllib" User-Agent, so set a real one.
+            headers={"Content-Type": "application/json",
+                     "User-Agent": "testnetfaucets.dev-liveness/1.0"},
+            method="POST",
         )
         with urllib.request.urlopen(req, timeout=10) as r:
             block = json.loads(r.read().decode())["result"]

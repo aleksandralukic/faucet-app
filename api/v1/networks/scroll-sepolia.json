@@ -16,11 +16,11 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-07-29T13:54:50+00:00",
-      "rpc_responding": null,
-      "chain_advancing": null,
-      "latest_block": null,
-      "block_age_seconds": null
+      "checked_at": "2026-07-29T13:51:52+00:00",
+      "rpc_responding": true,
+      "chain_advancing": false,
+      "latest_block": 19039813,
+      "block_age_seconds": 1147605
     },
     "faucet_ids": [
       "scroll-sepolia-l2faucet"

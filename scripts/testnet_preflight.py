@@ -42,7 +42,10 @@ def rpc_balance(rpc, address):
         rpc,
         data=json.dumps({"jsonrpc": "2.0", "method": "eth_getBalance",
                          "params": [address, "latest"], "id": 1}).encode(),
-        headers={"Content-Type": "application/json"}, method="POST",
+        # Many public RPCs 403 the default "Python-urllib" User-Agent.
+        headers={"Content-Type": "application/json",
+                 "User-Agent": "testnet-preflight/1.0"},
+        method="POST",
     )
     with urllib.request.urlopen(req, timeout=20) as r:
         return int(json.loads(r.read().decode())["result"], 16) / 1e18

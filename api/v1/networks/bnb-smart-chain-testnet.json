@@ -16,11 +16,11 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-07-29T13:54:50+00:00",
-      "rpc_responding": null,
-      "chain_advancing": null,
-      "latest_block": null,
-      "block_age_seconds": null
+      "checked_at": "2026-07-29T13:51:52+00:00",
+      "rpc_responding": true,
+      "chain_advancing": true,
+      "latest_block": 121973565,
+      "block_age_seconds": 0
     },
     "faucet_ids": [
       "bnb-smart-chain"
