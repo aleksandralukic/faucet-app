@@ -77,6 +77,11 @@ CHAIN_PROFILES = {
         "explorer": "https://litecoinspace.org/testnet/api",
         "symbol": "tLTC", "decimals": 8, "kind": "utxo",
     },
+    "near-testnet": {
+        "rpc": "https://rpc.testnet.near.org",
+        "explorer": "https://api-testnet.nearblocks.io/v1",
+        "symbol": "NEAR", "kind": "near",
+    },
 }
 
 HEADERS = {"Content-Type": "application/json", "User-Agent": "testnetfaucets.dev-onchain/1.0"}
@@ -153,6 +158,30 @@ def horizon_check(profile, address, now_ts):
     return balance, None, idle
 
 
+def near_check(profile, address, now_ts):
+    """(balance_NEAR, None, idle_days) via NEAR RPC (balance) + nearblocks (recency).
+    NEAR faucets are contracts (e.g. v2d.faucet.nonofficial.testnet)."""
+    resp = _post_json(profile["rpc"], {
+        "jsonrpc": "2.0", "id": 1, "method": "query",
+        "params": {"request_type": "view_account", "finality": "final", "account_id": address},
+    })
+    if "error" in resp:
+        raise RuntimeError(resp["error"])
+    balance = int(resp["result"]["amount"]) / 1e24  # yoctoNEAR -> NEAR
+    idle = None
+    base = profile.get("explorer")
+    if base:
+        try:
+            d = _get_json(f"{base}/account/{address}/txns-only?per_page=1&order=desc")
+            txs = d.get("txns") or []
+            if txs and txs[0].get("block_timestamp"):
+                ts = int(txs[0]["block_timestamp"]) / 1e9  # ns -> s
+                idle = round((now_ts - ts) / 86400, 1)
+        except Exception:
+            pass
+    return balance, None, idle
+
+
 def utxo_check(profile, address, now_ts):
     """(balance, tx_count, idle_days) via a Blockstream/mempool-style API
     (blockstream.info, litecoinspace.org). Same shape for every such chain."""
@@ -219,6 +248,9 @@ def check(cfg, now_ts=None):
             count_label = "on-chain messages"
         elif kind == "horizon":
             balance, count, idle_days = horizon_check(profile, address, now_ts)
+            count_label = "transactions"
+        elif kind == "near":
+            balance, count, idle_days = near_check(profile, address, now_ts)
             count_label = "transactions"
         elif kind == "utxo":
             balance, count, idle_days = utxo_check(profile, address, now_ts)

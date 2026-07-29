@@ -404,11 +404,17 @@
   {
     "id": "near-faucet",
     "currency": "NEAR",
-    "name": "NEAR Faucet",
-    "url": "https://docs.near.org/faucet",
+    "name": "NEAR Testnet Faucet",
+    "url": "https://near-faucet.io/",
     "network": "NEAR Testnet",
     "requiresWallet": false,
-    "requiresCaptcha": false
+    "requiresCaptcha": false,
+    "notes": "Paste your testnet account/address and request — 2 NEAR per claim, no login or captcha. Community faucet (near-faucet.io).",
+    "amount": "2 NEAR",
+    "onchain": {
+      "chain": "near-testnet",
+      "wallet": "v2d.faucet.nonofficial.testnet"
+    }
   },
   {
     "id": "zilliqa-faucet",
