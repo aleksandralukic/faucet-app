@@ -161,8 +161,7 @@
     "url": "https://xrpl.org/resources/dev-tools/tx-sender",
     "network": "XRP Testnet",
     "requiresWallet": false,
-    "requiresCaptcha": false,
-    "notes": "Historically unreliable."
+    "requiresCaptcha": false
   },
   {
     "id": "algoexplorer-dispenser",
@@ -307,12 +306,12 @@
   {
     "id": "sui-faucet-docs",
     "currency": "SUI",
-    "name": "Sui Faucet Docs",
-    "url": "https://docs.sui.io/getting-started/onboarding/get-coins",
+    "name": "Sui Testnet Faucet",
+    "url": "https://faucet.sui.io/",
     "network": "Sui Testnet",
     "requiresWallet": false,
     "requiresCaptcha": false,
-    "notes": "Docs page, not a direct faucet UI. Also obtainable via Discord."
+    "notes": "Official web faucet — pick Testnet from the network dropdown, paste your address, and request. Also obtainable via the Sui Discord."
   },
   {
     "id": "hedera-portal",

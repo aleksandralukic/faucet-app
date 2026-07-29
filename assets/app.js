@@ -193,7 +193,7 @@ function card(f) {
 
   const tags = [];
   if (f.requiresLogin) tags.push(`🔑 ${f.requiresLogin} login`);
-  if (f.requiresMainnetBalance) tags.push("⚠ needs mainnet balance");
+  if (f.requiresMainnetBalance) tags.push("💰 needs mainnet balance");
   if (f.requiresCaptcha) tags.push("captcha");
   if (f.requiresWallet) tags.push("wallet connect");
   if (st?.uptimePct != null) tags.push(`${st.uptimePct}% uptime`);

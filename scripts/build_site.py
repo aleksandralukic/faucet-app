@@ -234,7 +234,7 @@ def render_card(f, st):
     if f.get("requiresLogin"):
         bits.append(f"🔑 {f['requiresLogin']} login")
     if f.get("requiresMainnetBalance"):
-        bits.append("⚠ needs mainnet balance")
+        bits.append("💰 needs mainnet balance")
     if f.get("requiresCaptcha"):
         bits.append("captcha")
     if f.get("requiresWallet"):
