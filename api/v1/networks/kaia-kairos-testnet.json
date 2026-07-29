@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-29T13:39:31+00:00",
-  "next_update_expected_at": "2026-07-30T13:39:31+00:00",
+  "generated_at": "2026-07-29T13:51:52+00:00",
+  "next_update_expected_at": "2026-07-30T13:51:52+00:00",
   "network": {
     "id": "kaia-kairos-testnet",
     "chain_id": 1001,
@@ -15,10 +15,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-07-29T13:39:31+00:00",
+      "checked_at": "2026-07-29T13:51:52+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 223689786,
+      "latest_block": 223689923,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -34,7 +34,7 @@
       "currency": "USDT",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-07-29T13:39:31+00:00",
+      "checked_at": "2026-07-29T13:51:52+00:00",
       "amount": "50 KAIA / 10 USDT",
       "cooldown": "24h",
       "friction": [],

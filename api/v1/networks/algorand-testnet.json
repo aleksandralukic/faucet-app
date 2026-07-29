@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-29T13:39:31+00:00",
-  "next_update_expected_at": "2026-07-30T13:39:31+00:00",
+  "generated_at": "2026-07-29T13:51:52+00:00",
+  "next_update_expected_at": "2026-07-30T13:51:52+00:00",
   "network": {
     "id": "algorand-testnet",
     "chain_id": null,
@@ -15,7 +15,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-07-29T13:39:31+00:00",
+      "checked_at": "2026-07-29T13:51:52+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -34,7 +34,7 @@
       "currency": "ALGO",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-07-29T13:39:31+00:00",
+      "checked_at": "2026-07-29T13:51:52+00:00",
       "amount": "up to 10 ALGO",
       "cooldown": null,
       "friction": [
@@ -48,7 +48,7 @@
         "wallet_balance": "12277.600325",
         "wallet_balance_unit": "ALGO",
         "payouts_sent": null,
-        "last_dispensed_at": "2026-07-29T13:39:31+00:00"
+        "last_dispensed_at": "2026-07-29T13:51:52+00:00"
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-29T13:39:31+00:00",
-  "next_update_expected_at": "2026-07-30T13:39:31+00:00",
+  "generated_at": "2026-07-29T13:51:52+00:00",
+  "next_update_expected_at": "2026-07-30T13:51:52+00:00",
   "network": {
     "id": "ethereum-sepolia",
     "chain_id": 11155111,
@@ -15,7 +15,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-07-29T13:39:31+00:00",
+      "checked_at": "2026-07-29T13:51:52+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -36,7 +36,7 @@
       "currency": "AAVE",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-07-29T13:39:31+00:00",
+      "checked_at": "2026-07-29T13:51:52+00:00",
       "amount": "100 AAVE",
       "cooldown": null,
       "friction": [
@@ -61,7 +61,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-07-29T13:39:31+00:00",
+      "checked_at": "2026-07-29T13:51:52+00:00",
       "amount": "~0.05 ETH",
       "cooldown": "24h",
       "friction": [
@@ -86,7 +86,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-07-29T13:39:31+00:00",
+      "checked_at": "2026-07-29T13:51:52+00:00",
       "amount": "variable (PoW)",
       "cooldown": null,
       "friction": [
@@ -97,10 +97,10 @@
       "notes": "Proof-of-work faucet: no login and no mainnet balance needed. Mine in-browser (hCaptcha), then claim to your address — the longer you mine, the more ETH. A solid backup to the Google Cloud faucet.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "14741.755619",
+        "wallet_balance": "14709.512471",
         "wallet_balance_unit": "ETH",
-        "payouts_sent": 5438935,
-        "last_dispensed_at": "2026-07-29T13:39:31+00:00"
+        "payouts_sent": 5438953,
+        "last_dispensed_at": "2026-07-29T13:51:52+00:00"
       }
     }
   ]
