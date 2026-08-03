@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-02T08:36:40+00:00",
-  "next_update_expected_at": "2026-08-03T08:36:40+00:00",
+  "generated_at": "2026-08-03T10:05:06+00:00",
+  "next_update_expected_at": "2026-08-04T10:05:06+00:00",
   "network": {
     "id": "linea-sepolia",
     "chain_id": 59141,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-02T08:36:40+00:00",
+      "checked_at": "2026-08-03T10:05:06+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 31271832,
+      "latest_block": 31295503,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -35,7 +35,7 @@
       "currency": "LINEA",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-02T08:36:40+00:00",
+      "checked_at": "2026-08-03T10:05:06+00:00",
       "amount": "ETH (varies)",
       "cooldown": "24h",
       "friction": [
