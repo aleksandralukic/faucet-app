@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-04T08:53:04+00:00",
-  "next_update_expected_at": "2026-08-05T08:53:04+00:00",
+  "generated_at": "2026-08-05T08:51:33+00:00",
+  "next_update_expected_at": "2026-08-06T08:51:33+00:00",
   "network": {
     "id": "polkadot-westend",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-04T08:53:04+00:00",
+      "checked_at": "2026-08-05T08:51:33+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,7 +35,7 @@
       "currency": "DOT",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-04T08:53:04+00:00",
+      "checked_at": "2026-08-05T08:51:33+00:00",
       "amount": "100 WND",
       "cooldown": "24h",
       "friction": [
