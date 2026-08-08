@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-07T07:40:13+00:00",
-  "next_update_expected_at": "2026-08-08T07:40:13+00:00",
+  "generated_at": "2026-08-08T07:13:29+00:00",
+  "next_update_expected_at": "2026-08-09T07:13:29+00:00",
   "network": {
     "id": "zilliqa-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-07T07:40:13+00:00",
+      "checked_at": "2026-08-08T07:13:29+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,7 +35,7 @@
       "currency": "ZIL",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-07T07:40:13+00:00",
+      "checked_at": "2026-08-08T07:13:29+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
