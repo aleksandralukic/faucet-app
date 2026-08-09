@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-08T07:13:29+00:00",
-  "next_update_expected_at": "2026-08-09T07:13:29+00:00",
+  "generated_at": "2026-08-09T07:15:05+00:00",
+  "next_update_expected_at": "2026-08-10T07:15:05+00:00",
   "network": {
     "id": "scroll-sepolia",
     "chain_id": 534351,
@@ -16,11 +16,11 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-08T07:13:29+00:00",
+      "checked_at": "2026-08-09T07:15:05+00:00",
       "rpc_responding": true,
       "chain_advancing": false,
       "latest_block": 19039813,
-      "block_age_seconds": 1987702
+      "block_age_seconds": 2074198
     },
     "faucet_ids": [
       "scroll-sepolia-l2faucet"
@@ -35,7 +35,7 @@
       "currency": "SCROLL",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-08T07:13:29+00:00",
+      "checked_at": "2026-08-09T07:15:05+00:00",
       "amount": "ETH (rate-limited)",
       "cooldown": "24h",
       "friction": [],
