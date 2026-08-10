@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-09T07:15:05+00:00",
-  "next_update_expected_at": "2026-08-10T07:15:05+00:00",
+  "generated_at": "2026-08-10T08:03:25+00:00",
+  "next_update_expected_at": "2026-08-11T08:03:25+00:00",
   "network": {
     "id": "bitcoin-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-09T07:15:05+00:00",
+      "checked_at": "2026-08-10T08:03:25+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,9 +35,9 @@
       "name": "BitcoinFaucet UO1",
       "url": "https://bitcoinfaucet.uo1.net/",
       "currency": "BTC",
-      "status": "degraded",
+      "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-09T07:15:05+00:00",
+      "checked_at": "2026-08-10T08:03:25+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -62,7 +62,7 @@
       "currency": "BTC",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-09T07:15:05+00:00",
+      "checked_at": "2026-08-10T08:03:25+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -73,10 +73,10 @@
       "notes": "Alternative when bitcoinfaucet.uo1.net fails. Does not work with SegWit.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "0.000327",
+        "wallet_balance": "0.000456",
         "wallet_balance_unit": "tBTC",
-        "payouts_sent": 9223,
-        "last_dispensed_at": "2026-08-08T19:15:05+00:00"
+        "payouts_sent": 9253,
+        "last_dispensed_at": "2026-08-10T08:03:25+00:00"
       }
     },
     {
@@ -87,7 +87,7 @@
       "currency": "BTC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-09T07:15:05+00:00",
+      "checked_at": "2026-08-10T08:03:25+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
