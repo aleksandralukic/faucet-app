@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-11T07:35:34+00:00",
-  "next_update_expected_at": "2026-08-12T07:35:34+00:00",
+  "generated_at": "2026-08-12T07:50:44+00:00",
+  "next_update_expected_at": "2026-08-13T07:50:44+00:00",
   "network": {
     "id": "ethereum-sepolia",
     "chain_id": 11155111,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-11T07:35:34+00:00",
+      "checked_at": "2026-08-12T07:50:44+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 11464773,
+      "latest_block": 11471834,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -37,7 +37,7 @@
       "currency": "AAVE",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-11T07:35:34+00:00",
+      "checked_at": "2026-08-12T07:50:44+00:00",
       "amount": "100 AAVE",
       "cooldown": null,
       "friction": [
@@ -62,7 +62,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-11T07:35:34+00:00",
+      "checked_at": "2026-08-12T07:50:44+00:00",
       "amount": "~0.05 ETH",
       "cooldown": "24h",
       "friction": [
@@ -87,7 +87,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-11T07:35:34+00:00",
+      "checked_at": "2026-08-12T07:50:44+00:00",
       "amount": "variable (PoW)",
       "cooldown": null,
       "friction": [
@@ -98,10 +98,10 @@
       "notes": "Proof-of-work faucet: no login and no mainnet balance needed. Mine in-browser (hCaptcha), then claim to your address — the longer you mine, the more ETH. A solid backup to the Google Cloud faucet.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "7766.916684",
+        "wallet_balance": "11459.748665",
         "wallet_balance_unit": "ETH",
-        "payouts_sent": 5467247,
-        "last_dispensed_at": "2026-08-11T07:35:34+00:00"
+        "payouts_sent": 5470303,
+        "last_dispensed_at": "2026-08-12T07:50:44+00:00"
       }
     }
   ]
