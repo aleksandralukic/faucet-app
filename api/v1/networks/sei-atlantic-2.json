@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-12T07:50:44+00:00",
-  "next_update_expected_at": "2026-08-13T07:50:44+00:00",
+  "generated_at": "2026-08-13T07:51:45+00:00",
+  "next_update_expected_at": "2026-08-14T07:51:45+00:00",
   "network": {
     "id": "sei-atlantic-2",
     "chain_id": 1328,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-12T07:50:44+00:00",
+      "checked_at": "2026-08-13T07:51:45+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 264997051,
+      "latest_block": 265178642,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -35,7 +35,7 @@
       "currency": "SEI",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-12T07:50:44+00:00",
+      "checked_at": "2026-08-13T07:51:45+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -46,9 +46,9 @@
       "notes": null,
       "evidence": {
         "http_status": 404,
-        "wallet_balance": "50478.322604",
+        "wallet_balance": "49741.04857",
         "wallet_balance_unit": "SEI",
-        "payouts_sent": 1476828,
+        "payouts_sent": 1494240,
         "last_dispensed_at": null
       }
     }
