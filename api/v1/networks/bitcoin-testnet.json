@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-14T07:48:56+00:00",
-  "next_update_expected_at": "2026-08-15T07:48:56+00:00",
+  "generated_at": "2026-08-15T06:56:40+00:00",
+  "next_update_expected_at": "2026-08-16T06:56:40+00:00",
   "network": {
     "id": "bitcoin-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-14T07:48:56+00:00",
+      "checked_at": "2026-08-15T06:56:40+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,9 +35,9 @@
       "name": "BitcoinFaucet UO1",
       "url": "https://bitcoinfaucet.uo1.net/",
       "currency": "BTC",
-      "status": "degraded",
+      "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-14T07:48:56+00:00",
+      "checked_at": "2026-08-15T06:56:40+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -60,9 +60,9 @@
       "name": "CoinFaucet BTC Testnet",
       "url": "https://coinfaucet.eu/en/btc-testnet/",
       "currency": "BTC",
-      "status": "degraded",
-      "verification": "onchain",
-      "checked_at": "2026-08-14T07:48:56+00:00",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-08-15T06:56:40+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -73,10 +73,10 @@
       "notes": "Alternative when bitcoinfaucet.uo1.net fails. Does not work with SegWit.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "0.0",
-        "wallet_balance_unit": "tBTC",
-        "payouts_sent": 9288,
-        "last_dispensed_at": "2026-08-14T10:12:56+00:00"
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
       }
     },
     {
@@ -87,7 +87,7 @@
       "currency": "BTC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-14T07:48:56+00:00",
+      "checked_at": "2026-08-15T06:56:40+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [

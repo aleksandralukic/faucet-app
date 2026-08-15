@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-14T07:48:56+00:00",
-  "next_update_expected_at": "2026-08-15T07:48:56+00:00",
+  "generated_at": "2026-08-15T06:56:40+00:00",
+  "next_update_expected_at": "2026-08-16T06:56:40+00:00",
   "network": {
     "id": "celo-alfajores",
     "chain_id": 44787,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-14T07:48:56+00:00",
+      "checked_at": "2026-08-15T06:56:40+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,7 +35,7 @@
       "currency": "CELO",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-14T07:48:56+00:00",
+      "checked_at": "2026-08-15T06:56:40+00:00",
       "amount": "1 CELO + stables",
       "cooldown": "24h",
       "friction": [
