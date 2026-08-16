@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-15T06:56:40+00:00",
-  "next_update_expected_at": "2026-08-16T06:56:40+00:00",
+  "generated_at": "2026-08-16T06:58:05+00:00",
+  "next_update_expected_at": "2026-08-17T06:58:05+00:00",
   "network": {
     "id": "filecoin-calibration",
     "chain_id": 314159,
@@ -16,11 +16,11 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-15T06:56:40+00:00",
+      "checked_at": "2026-08-16T06:58:05+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 3981687,
-      "block_age_seconds": 10
+      "latest_block": 3984569,
+      "block_age_seconds": 35
     },
     "faucet_ids": [
       "beryx-filecoin"
@@ -35,7 +35,7 @@
       "currency": "FIL",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-15T06:56:40+00:00",
+      "checked_at": "2026-08-16T06:58:05+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -49,7 +49,7 @@
         "wallet_balance": "106545.904085",
         "wallet_balance_unit": "tFIL",
         "payouts_sent": 45882,
-        "last_dispensed_at": "2026-08-15T02:08:40+00:00"
+        "last_dispensed_at": "2026-08-15T02:10:05+00:00"
       }
     }
   ]
