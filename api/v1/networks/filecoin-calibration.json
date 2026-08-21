@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-20T07:04:54+00:00",
-  "next_update_expected_at": "2026-08-21T07:04:54+00:00",
+  "generated_at": "2026-08-21T07:06:32+00:00",
+  "next_update_expected_at": "2026-08-22T07:06:32+00:00",
   "network": {
     "id": "filecoin-calibration",
     "chain_id": 314159,
@@ -16,11 +16,11 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-20T07:04:54+00:00",
+      "checked_at": "2026-08-21T07:06:32+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 3996103,
-      "block_age_seconds": 24
+      "latest_block": 3998986,
+      "block_age_seconds": 32
     },
     "faucet_ids": [
       "beryx-filecoin"
@@ -35,7 +35,7 @@
       "currency": "FIL",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-20T07:04:54+00:00",
+      "checked_at": "2026-08-21T07:06:32+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
