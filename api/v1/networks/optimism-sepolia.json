@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-21T07:06:32+00:00",
-  "next_update_expected_at": "2026-08-22T07:06:32+00:00",
+  "generated_at": "2026-08-22T06:58:09+00:00",
+  "next_update_expected_at": "2026-08-23T06:58:09+00:00",
   "network": {
     "id": "optimism-sepolia",
     "chain_id": 11155420,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 47746734,
+      "latest_block": 47789682,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -35,7 +35,7 @@
       "currency": "OP",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "0.05–1 ETH",
       "cooldown": "24h",
       "friction": [

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-21T07:06:32+00:00",
-  "next_update_expected_at": "2026-08-22T07:06:32+00:00",
+  "generated_at": "2026-08-22T06:58:09+00:00",
+  "next_update_expected_at": "2026-08-23T06:58:09+00:00",
   "faucets": [
     {
       "id": "aave-staging",
@@ -11,7 +11,7 @@
       "currency": "AAVE",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "100 AAVE",
       "cooldown": null,
       "friction": [
@@ -36,7 +36,7 @@
       "currency": "ATOM",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -59,7 +59,7 @@
       "currency": "ADA",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -84,7 +84,7 @@
       "currency": "BNB",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -110,7 +110,7 @@
       "currency": "BCH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -135,7 +135,7 @@
       "currency": "BCH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "0.0001 tBCH",
       "cooldown": null,
       "friction": [],
@@ -163,9 +163,9 @@
       "name": "BitcoinFaucet UO1",
       "url": "https://bitcoinfaucet.uo1.net/",
       "currency": "BTC",
-      "status": "working",
+      "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -188,9 +188,9 @@
       "name": "CoinFaucet BTC Testnet",
       "url": "https://coinfaucet.eu/en/btc-testnet/",
       "currency": "BTC",
-      "status": "working",
+      "status": "degraded",
       "verification": "onchain",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -201,10 +201,10 @@
       "notes": "Alternative when bitcoinfaucet.uo1.net fails. Does not work with SegWit.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "0.00045",
+        "wallet_balance": "0.0",
         "wallet_balance_unit": "tBTC",
-        "payouts_sent": 9347,
-        "last_dispensed_at": "2026-08-21T07:06:32+00:00"
+        "payouts_sent": 9360,
+        "last_dispensed_at": "2026-08-21T21:22:09+00:00"
       }
     },
     {
@@ -215,7 +215,7 @@
       "currency": "BTC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -240,7 +240,7 @@
       "currency": "BLD",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -263,7 +263,7 @@
       "currency": "DOT",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "100 WND",
       "cooldown": "24h",
       "friction": [
@@ -288,7 +288,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "~0.05 ETH",
       "cooldown": "24h",
       "friction": [
@@ -313,7 +313,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "variable (PoW)",
       "cooldown": null,
       "friction": [
@@ -324,10 +324,10 @@
       "notes": "Proof-of-work faucet: no login and no mainnet balance needed. Mine in-browser (hCaptcha), then claim to your address — the longer you mine, the more ETH. A solid backup to the Google Cloud faucet.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "6031.937466",
+        "wallet_balance": "9668.296226",
         "wallet_balance_unit": "ETH",
-        "payouts_sent": 5496222,
-        "last_dispensed_at": "2026-08-21T07:06:32+00:00"
+        "payouts_sent": 5499177,
+        "last_dispensed_at": "2026-08-22T06:58:09+00:00"
       }
     },
     {
@@ -338,7 +338,7 @@
       "currency": "SOL",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -363,7 +363,7 @@
       "currency": "XRP",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -386,7 +386,7 @@
       "currency": "ALGO",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "up to 10 ALGO",
       "cooldown": null,
       "friction": [
@@ -397,10 +397,10 @@
       "notes": "Quick email registration (just email validation). Request ALGO from the Fund page. Replaces the dead AlgoExplorer dispenser.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "2223.802825",
+        "wallet_balance": "1804.652825",
         "wallet_balance_unit": "ALGO",
         "payouts_sent": null,
-        "last_dispensed_at": "2026-08-21T07:06:32+00:00"
+        "last_dispensed_at": "2026-08-22T06:58:09+00:00"
       }
     },
     {
@@ -411,7 +411,7 @@
       "currency": "DOGE",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -436,7 +436,7 @@
       "currency": "XLM",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "10,000 XLM",
       "cooldown": null,
       "friction": [],
@@ -452,10 +452,10 @@
       "notes": "This is an API, not a web page — opening the bare URL shows a 'Bad Request' JSON response, which is normal. To fund an account, append ?addr=<your-address> to the URL. Alternatives: Freighter wallet built-in faucet, Stellar Lab account funder, Demo Wallet (10,000 XLM).",
       "evidence": {
         "http_status": 400,
-        "wallet_balance": "16797849247.60456",
+        "wallet_balance": "16677729246.104502",
         "wallet_balance_unit": "XLM",
         "payouts_sent": null,
-        "last_dispensed_at": "2026-08-21T07:06:32+00:00"
+        "last_dispensed_at": "2026-08-22T06:58:09+00:00"
       }
     },
     {
@@ -466,7 +466,7 @@
       "currency": "USDC/EURC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "10 USDC/EURC",
       "cooldown": "24h",
       "friction": [
@@ -491,7 +491,7 @@
       "currency": "AVAX-C",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "2 AVAX",
       "cooldown": "24h",
       "friction": [
@@ -502,9 +502,9 @@
       "notes": "Up to 2 AVAX per claim, 24h cooldown. Replaces the dead Covalent faucet. Gated: the address must hold >0 AVAX on Avalanche mainnet. Empty wallet? Get a coupon from https://guild.xyz/avalanche or the Avalanche Discord and enter it on the faucet. faucet.avax.network redirects here.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "4378.928316",
+        "wallet_balance": "4364.925714",
         "wallet_balance_unit": "AVAX",
-        "payouts_sent": 2692918,
+        "payouts_sent": 2692927,
         "last_dispensed_at": null
       }
     },
@@ -516,7 +516,7 @@
       "currency": "FLOW",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "1000 FLOW",
       "cooldown": null,
       "friction": [
@@ -541,7 +541,7 @@
       "currency": "FLARE",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -552,10 +552,10 @@
       "notes": null,
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "28326904.435911",
+        "wallet_balance": "28325202.58666",
         "wallet_balance_unit": "C2FLR",
-        "payouts_sent": 163338,
-        "last_dispensed_at": "2026-08-21T07:06:32+00:00"
+        "payouts_sent": 163383,
+        "last_dispensed_at": "2026-08-22T04:34:09+00:00"
       }
     },
     {
@@ -566,7 +566,7 @@
       "currency": "MATIC",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -592,7 +592,7 @@
       "currency": "FTM",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -617,7 +617,7 @@
       "currency": "SONIC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "~5 S",
       "cooldown": "1h",
       "friction": [
@@ -643,7 +643,7 @@
       "currency": "XRP/SOLO",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -668,7 +668,7 @@
       "currency": "CORE",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": "24h",
       "friction": [
@@ -693,7 +693,7 @@
       "currency": "SUI",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -716,7 +716,7 @@
       "currency": "HBAR",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -741,7 +741,7 @@
       "currency": "DASH",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -766,7 +766,7 @@
       "currency": "STX",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "500 STX",
       "cooldown": null,
       "friction": [
@@ -791,7 +791,7 @@
       "currency": "VFY",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "0.5 tVFY",
       "cooldown": null,
       "friction": [
@@ -817,7 +817,7 @@
       "currency": "POL",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "0.01 POL",
       "cooldown": null,
       "friction": [
@@ -842,7 +842,7 @@
       "currency": "APT",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -868,7 +868,7 @@
       "currency": "EGLD",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -891,9 +891,9 @@
       "name": "Beryx Filecoin Faucet",
       "url": "https://beryx.zondax.ch/faucet",
       "currency": "FIL",
-      "status": "degraded",
-      "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "status": "working",
+      "verification": "onchain",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -904,10 +904,10 @@
       "notes": null,
       "evidence": {
         "http_status": 429,
-        "wallet_balance": null,
-        "wallet_balance_unit": null,
-        "payouts_sent": null,
-        "last_dispensed_at": null
+        "wallet_balance": "106510.904082",
+        "wallet_balance_unit": "tFIL",
+        "payouts_sent": 45889,
+        "last_dispensed_at": "2026-08-19T18:58:09+00:00"
       }
     },
     {
@@ -918,7 +918,7 @@
       "currency": "NEAR",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "2 NEAR",
       "cooldown": null,
       "friction": [],
@@ -927,10 +927,10 @@
       "notes": "Paste your testnet account/address and request — 2 NEAR per claim, no login or captcha. Community faucet (near-faucet.io).",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "37212.134106",
+        "wallet_balance": "37208.134518",
         "wallet_balance_unit": "NEAR",
         "payouts_sent": null,
-        "last_dispensed_at": "2026-08-21T04:42:32+00:00"
+        "last_dispensed_at": "2026-08-22T04:34:09+00:00"
       }
     },
     {
@@ -941,7 +941,7 @@
       "currency": "ZIL",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -966,7 +966,7 @@
       "currency": "SEI",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -977,9 +977,9 @@
       "notes": null,
       "evidence": {
         "http_status": 404,
-        "wallet_balance": "44079.483052",
+        "wallet_balance": "44011.495455",
         "wallet_balance_unit": "SEI",
-        "payouts_sent": 1627951,
+        "payouts_sent": 1629565,
         "last_dispensed_at": null
       }
     },
@@ -991,7 +991,7 @@
       "currency": "HASH",
       "status": "manual",
       "verification": "manual",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -1014,7 +1014,7 @@
       "currency": "USDT",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "50 KAIA / 10 USDT",
       "cooldown": "24h",
       "friction": [],
@@ -1035,9 +1035,9 @@
       "name": "CypherFaucet Litecoin Testnet",
       "url": "https://cypherfaucet.com/ltc-testnet",
       "currency": "LTC",
-      "status": "working",
+      "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "0.01 tLTC",
       "cooldown": "1h",
       "friction": [
@@ -1055,7 +1055,7 @@
       },
       "notes": "0.01 tLTC per claim, once per hour (per address and per IP). Also has a keyless API (POST /api/v1/claim). Established 2025, live balance shown on-page. Replaces the bot-blocked bitaps faucet.",
       "evidence": {
-        "http_status": 200,
+        "http_status": 522,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
@@ -1070,7 +1070,7 @@
       "currency": "BASE",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "0.1 ETH",
       "cooldown": "24h",
       "friction": [
@@ -1095,7 +1095,7 @@
       "currency": "ARB",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "ETH (rate-limited)",
       "cooldown": "24h",
       "friction": [],
@@ -1118,7 +1118,7 @@
       "currency": "OP",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "0.05–1 ETH",
       "cooldown": "24h",
       "friction": [
@@ -1143,7 +1143,7 @@
       "currency": "SCROLL",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "ETH (rate-limited)",
       "cooldown": "24h",
       "friction": [],
@@ -1166,7 +1166,7 @@
       "currency": "LINEA",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "ETH (varies)",
       "cooldown": "24h",
       "friction": [
@@ -1191,7 +1191,7 @@
       "currency": "CELO",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": "1 CELO + stables",
       "cooldown": "24h",
       "friction": [

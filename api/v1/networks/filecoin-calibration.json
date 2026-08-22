@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-21T07:06:32+00:00",
-  "next_update_expected_at": "2026-08-22T07:06:32+00:00",
+  "generated_at": "2026-08-22T06:58:09+00:00",
+  "next_update_expected_at": "2026-08-23T06:58:09+00:00",
   "network": {
     "id": "filecoin-calibration",
     "chain_id": 314159,
@@ -16,11 +16,11 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 3998986,
-      "block_age_seconds": 32
+      "latest_block": 4001849,
+      "block_age_seconds": 39
     },
     "faucet_ids": [
       "beryx-filecoin"
@@ -33,9 +33,9 @@
       "name": "Beryx Filecoin Faucet",
       "url": "https://beryx.zondax.ch/faucet",
       "currency": "FIL",
-      "status": "degraded",
-      "verification": "http",
-      "checked_at": "2026-08-21T07:06:32+00:00",
+      "status": "working",
+      "verification": "onchain",
+      "checked_at": "2026-08-22T06:58:09+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -46,10 +46,10 @@
       "notes": null,
       "evidence": {
         "http_status": 429,
-        "wallet_balance": null,
-        "wallet_balance_unit": null,
-        "payouts_sent": null,
-        "last_dispensed_at": null
+        "wallet_balance": "106510.904082",
+        "wallet_balance_unit": "tFIL",
+        "payouts_sent": 45889,
+        "last_dispensed_at": "2026-08-19T18:58:09+00:00"
       }
     }
   ]
