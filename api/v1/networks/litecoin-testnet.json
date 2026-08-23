@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-22T06:58:09+00:00",
-  "next_update_expected_at": "2026-08-23T06:58:09+00:00",
+  "generated_at": "2026-08-23T06:59:45+00:00",
+  "next_update_expected_at": "2026-08-24T06:59:45+00:00",
   "network": {
     "id": "litecoin-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-22T06:58:09+00:00",
+      "checked_at": "2026-08-23T06:59:45+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,7 +35,7 @@
       "currency": "LTC",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-22T06:58:09+00:00",
+      "checked_at": "2026-08-23T06:59:45+00:00",
       "amount": "0.01 tLTC",
       "cooldown": "1h",
       "friction": [
@@ -53,7 +53,7 @@
       },
       "notes": "0.01 tLTC per claim, once per hour (per address and per IP). Also has a keyless API (POST /api/v1/claim). Established 2025, live balance shown on-page. Replaces the bot-blocked bitaps faucet.",
       "evidence": {
-        "http_status": 522,
+        "http_status": null,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
