@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-23T06:59:45+00:00",
-  "next_update_expected_at": "2026-08-24T06:59:45+00:00",
+  "generated_at": "2026-08-24T07:19:30+00:00",
+  "next_update_expected_at": "2026-08-25T07:19:30+00:00",
   "network": {
     "id": "bitcoin-cash-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-23T06:59:45+00:00",
+      "checked_at": "2026-08-24T07:19:30+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -36,7 +36,7 @@
       "currency": "BCH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-23T06:59:45+00:00",
+      "checked_at": "2026-08-24T07:19:30+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -61,7 +61,7 @@
       "currency": "BCH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-23T06:59:45+00:00",
+      "checked_at": "2026-08-24T07:19:30+00:00",
       "amount": "0.0001 tBCH",
       "cooldown": null,
       "friction": [],
