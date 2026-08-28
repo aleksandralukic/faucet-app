@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-27T17:37:22+00:00",
-  "next_update_expected_at": "2026-08-28T17:37:22+00:00",
+  "generated_at": "2026-08-28T18:39:30+00:00",
+  "next_update_expected_at": "2026-08-29T18:39:30+00:00",
   "network": {
     "id": "vfy-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-27T17:37:22+00:00",
+      "checked_at": "2026-08-28T18:39:30+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,7 +35,7 @@
       "currency": "VFY",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-27T17:37:22+00:00",
+      "checked_at": "2026-08-28T18:39:30+00:00",
       "amount": "0.5 tVFY",
       "cooldown": null,
       "friction": [
