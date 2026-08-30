@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faucet Says You Already Claimed — Cooldowns Explained</title>
+<meta name="description" content="Almost every faucet allows one claim per address (and usually per IP) in a fixed window — 24 hours is the most common. The counter is keyed on both…">
+<link rel="canonical" href="https://testnetfaucets.dev/faucet-errors/already-claimed/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Faucet Says You Already Claimed — Cooldowns Explained">
+<meta property="og:description" content="Almost every faucet allows one claim per address (and usually per IP) in a fixed window — 24 hours is the most common. The counter is keyed on both…">
+<meta property="og:url" content="https://testnetfaucets.dev/faucet-errors/already-claimed/">
+<meta property="og:site_name" content="Faucet App">
+<meta property="og:image" content="https://testnetfaucets.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Faucet Says You Already Claimed — Cooldowns Explained">
+<meta name="twitter:description" content="Almost every faucet allows one claim per address (and usually per IP) in a fixed window — 24 hours is the most common. The counter is keyed on both…">
+<meta name="twitter:image" content="https://testnetfaucets.dev/og-image.png">
+<link rel="stylesheet" href="../../assets/style.css?v=20260829124031">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "You have already claimed from this faucet.", "acceptedAnswer": {"@type": "Answer", "text": "Almost every faucet allows one claim per address (and usually per IP) in a fixed window \u2014 24 hours is the most common. The counter is keyed on both your address and your network location, so a fresh address behind the same IP is often still refused."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Testnet faucets", "item": "https://testnetfaucets.dev/"}, {"@type": "ListItem", "position": 2, "name": "Faucet errors", "item": "https://testnetfaucets.dev/faucet-errors/"}, {"@type": "ListItem", "position": 3, "name": "Already claimed / rate limited", "item": "https://testnetfaucets.dev/faucet-errors/already-claimed/"}]}</script>
+</head>
+<body>
+<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../../">← All testnet faucets</a> ·
+     <a href="../">Faucet errors</a></p>
+  <h1>Faucet error: you have already claimed</h1>
+  <p class="tagline">What this error means, why the faucet returns it, and the
+  fastest way to get your test tokens anyway.</p>
+  <p class="generated">Reviewed 29 August 2026.</p>
+</div></header>
+<main class="wrap">
+  <section>
+    <h2>The error</h2>
+    <p>Faucets word this differently, but these are the same problem:</p>
+    <ul class="quotes"><li><q>You have already claimed from this faucet.</q></li><li><q>Please wait 24 hours before claiming again.</q></li><li><q>Too many requests — rate limit exceeded.</q></li></ul>
+  </section>
+  <section>
+    <h2>Why it happens</h2>
+    <p>Almost every faucet allows one claim per address (and usually per IP) in a fixed window — 24 hours is the most common. The counter is keyed on both your address and your network location, so a fresh address behind the same IP is often still refused.</p>
+  </section>
+  <section>
+    <h2>How to fix it</h2>
+    <ol><li>Check the actual cooldown before assuming it's broken. Our per-token pages list each faucet's cooldown in the comparison table — some are 24h, some are 1h, a few are once per week.</li><li>Use a different faucet for the same token rather than waiting. Cooldowns are tracked per faucet, so a second faucet on the same network will usually still pay out.</li><li>Note that a silent failure is often a rate limit. If the faucet appears to accept the request but nothing arrives, you have probably already claimed inside the window.</li><li>Don't cycle addresses to defeat it. Faucets that detect this typically respond by blocking the IP range entirely, which is worse than waiting.</li></ol>
+    <p><strong>Related tokens:</strong> <a href="../../eth-testnet-faucet/">ETH</a>, <a href="../../pol-testnet-faucet/">POL</a>, <a href="../../sol-testnet-faucet/">SOL</a>.</p>
+  </section>
+  <section class="related">
+    <h2>Other faucet errors</h2>
+    <ul><li><a href="../mainnet-balance-required/">Mainnet balance required</a></li><li><a href="../faucet-not-available/">Faucet is not available</a></li><li><a href="../captcha-blocked/">Captcha won&#x27;t load or pass</a></li><li><a href="../wrong-address-format/">Invalid address format</a></li><li><a href="../faucet-dry/">Faucet out of funds</a></li></ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../../">Faucet App</a> — testnet faucet status, checked daily.
+<a href="../../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>
+</body>
+</html>

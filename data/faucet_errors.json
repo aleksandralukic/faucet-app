@@ -1,0 +1,146 @@
+{
+  "mainnet-balance-required": {
+    "title": "Faucet Needs a Mainnet Balance? How to Claim Anyway",
+    "h1": "Faucet error: a mainnet balance is required",
+    "shortName": "Mainnet balance required",
+    "messages": [
+      "Invalid ETH mainnet balance. Please note, you'll need a small mainnet balance on this wallet in order to use the faucet. This is to prevent abuse.",
+      "Cannot claim drip because user does not exist on mainnet.",
+      "Your address must hold a minimum mainnet balance to claim."
+    ],
+    "cause": "The faucet is checking your address on the network's <em>mainnet</em> before it will send you testnet tokens. A brand-new, never-used wallet has no mainnet history, so the check fails. This is anti-abuse: requiring a small real balance makes it expensive to farm testnet tokens with throwaway addresses.",
+    "fixes": [
+      "Use a faucet that isn't gated this way. This is the reliable fix — several networks have an ungated alternative, and our per-token pages label which faucets need a mainnet balance in the <strong>Requires</strong> column.",
+      "Claim with a wallet you already use on mainnet. The threshold is usually tiny (BNB Smart Chain wants ~0.002 BNB; Avalanche just wants a non-zero balance), so an address with any real history normally passes.",
+      "Get a bypass coupon where the project offers one. Avalanche issues Fuji faucet coupons through <a href=\"https://guild.xyz/avalanche\" target=\"_blank\" rel=\"noopener\">guild.xyz/avalanche</a> and its Discord, which lets an empty wallet claim.",
+      "Check you're on the right chain. On BNB Smart Chain the faucet only accepts Smart Chain (0x…) addresses — a Beacon Chain (tbnb…) address fails this check for a different reason."
+    ],
+    "affected": [
+      "BNB",
+      "AVAX-C"
+    ],
+    "seeAlso": [
+      "ETH",
+      "BASE",
+      "ARB"
+    ]
+  },
+  "faucet-not-available": {
+    "title": "Faucet Is Not Available — Why It Happens and What to Do",
+    "h1": "Faucet error: \"faucet is not available\"",
+    "shortName": "Faucet is not available",
+    "messages": [
+      "Faucet is not available.",
+      "This faucet is temporarily unavailable.",
+      "Service unavailable — please try again later."
+    ],
+    "cause": "The faucet's own backend is refusing to serve requests. It nearly always means one of three things: the dispensing wallet has run dry, the operator has disabled the faucet during maintenance, or the backend is erroring. The page itself still loads, which is why this reads as an application message rather than a browser error.",
+    "fixes": [
+      "Check whether it's the faucet or you. Our daily check records the cause of every failure — the <a href=\"../../down/\">faucets currently down</a> page shows which ones are failing right now and why.",
+      "Look at the dispensing wallet. Where we can verify a faucet on-chain, its page shows the live wallet balance and last payout. An empty wallet means \"not available\" is going to persist; a funded wallet that paid out today means it's worth retrying.",
+      "Try the other faucet for the same token. Several networks have more than one, and they rarely fail together.",
+      "Retry in an hour if the cause was a timeout or a 5xx. Those recover on their own. A dead domain does not."
+    ],
+    "affected": [],
+    "seeAlso": [
+      "ETH",
+      "BNB",
+      "SOL"
+    ]
+  },
+  "already-claimed": {
+    "title": "Faucet Says You Already Claimed — Cooldowns Explained",
+    "h1": "Faucet error: you have already claimed",
+    "shortName": "Already claimed / rate limited",
+    "messages": [
+      "You have already claimed from this faucet.",
+      "Please wait 24 hours before claiming again.",
+      "Too many requests — rate limit exceeded."
+    ],
+    "cause": "Almost every faucet allows one claim per address (and usually per IP) in a fixed window — 24 hours is the most common. The counter is keyed on both your address and your network location, so a fresh address behind the same IP is often still refused.",
+    "fixes": [
+      "Check the actual cooldown before assuming it's broken. Our per-token pages list each faucet's cooldown in the comparison table — some are 24h, some are 1h, a few are once per week.",
+      "Use a different faucet for the same token rather than waiting. Cooldowns are tracked per faucet, so a second faucet on the same network will usually still pay out.",
+      "Note that a silent failure is often a rate limit. If the faucet appears to accept the request but nothing arrives, you have probably already claimed inside the window.",
+      "Don't cycle addresses to defeat it. Faucets that detect this typically respond by blocking the IP range entirely, which is worse than waiting."
+    ],
+    "affected": [],
+    "seeAlso": [
+      "ETH",
+      "POL",
+      "SOL"
+    ]
+  },
+  "captcha-blocked": {
+    "title": "Faucet Captcha Not Loading or Failing — How to Fix It",
+    "h1": "Faucet error: the captcha won't load or won't pass",
+    "shortName": "Captcha won't load or pass",
+    "messages": [
+      "hCaptcha failed to load.",
+      "Please complete the captcha to continue.",
+      "Browser verification failed."
+    ],
+    "cause": "The faucet sits behind hCaptcha, reCAPTCHA, or Cloudflare browser verification. These are blocked or broken by a lot of ordinary setups: content blockers, strict tracking protection, VPN exit nodes with a bad reputation, and privacy browsers all trigger failures the faucet reports as a captcha error.",
+    "fixes": [
+      "Disable your content blocker for the faucet domain. This fixes the majority of \"captcha failed to load\" cases outright.",
+      "Turn the VPN off for the claim. Datacenter and shared-exit IPs are scored as high-risk, and captcha providers fail them regardless of what you do in the widget.",
+      "Try a mainstream browser profile with default settings. Strict anti-fingerprinting settings break hCaptcha's challenge flow.",
+      "Pick a faucet that doesn't use one. Our per-token pages flag captcha-gated faucets, and the homepage has a <strong>Hide captcha-gated</strong> filter."
+    ],
+    "affected": [],
+    "seeAlso": [
+      "ETH",
+      "DOT",
+      "CELO"
+    ]
+  },
+  "wrong-address-format": {
+    "title": "Testnet Faucet Says Invalid Address — Fixes by Network",
+    "h1": "Faucet error: invalid or rejected address",
+    "shortName": "Invalid address format",
+    "messages": [
+      "Invalid address.",
+      "Please enter a valid testnet address.",
+      "Address not recognised for this network."
+    ],
+    "cause": "You've pasted an address the faucet's validator doesn't accept for that network. The common causes are a mainnet address where a testnet one is required, the wrong address type on a chain that has several, or a chain with two address families where the faucet only serves one.",
+    "fixes": [
+      "Bitcoin testnet: several faucets reject SegWit (tb1…) addresses and only accept legacy m…/n… or P2SH 2… addresses. This is the single most common cause of a rejected BTC testnet claim.",
+      "BNB Chain: the faucet accepts Smart Chain (0x…) addresses. A Beacon Chain (tbnb…) address is a different chain — bridge with Binance Wallet if you need it there.",
+      "Cardano, NEAR and Algorand: testnet addresses are distinct from mainnet ones. Generate the address from a wallet explicitly set to testnet/preprod rather than converting a mainnet address.",
+      "Check the network on the per-token page. The comparison table names the exact network each faucet dispenses on — an Amoy address will not work on a Sepolia faucet."
+    ],
+    "affected": [
+      "BTC",
+      "BNB"
+    ],
+    "seeAlso": [
+      "ADA",
+      "NEAR",
+      "ALGO"
+    ]
+  },
+  "faucet-dry": {
+    "title": "Testnet Faucet Out of Funds — How to Tell, and Fixes",
+    "h1": "Faucet error: the faucet is out of funds",
+    "shortName": "Faucet out of funds",
+    "messages": [
+      "Insufficient faucet balance.",
+      "The faucet is currently empty.",
+      "Not enough funds to process your request."
+    ],
+    "cause": "The faucet's dispensing wallet has been drained and nobody has topped it up. The site stays online and the form still submits, which is why this is so often mistaken for a bug on your side. Uptime monitoring that only checks whether the page loads cannot tell the difference.",
+    "fixes": [
+      "Check the dispensing wallet balance. For every faucet we can verify on-chain, the token page shows the live wallet balance and when it last paid out — a zero balance is definitive.",
+      "Prefer an on-chain-verified faucet. A faucet marked <strong>⛓ Verified on-chain</strong> with a recent payout is demonstrably funded, not merely reachable.",
+      "Try a smaller request where the amount is adjustable. A nearly-dry faucet will often still fund a minimal claim.",
+      "Move to the alternative faucet for that token. Dry spells usually end when the operator refills, which can take days."
+    ],
+    "affected": [],
+    "seeAlso": [
+      "ETH",
+      "BNB",
+      "POL"
+    ]
+  }
+}

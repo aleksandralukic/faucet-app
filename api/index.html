@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testnet Faucet API — Free JSON, No Key Required</title>
+<meta name="description" content="Free JSON API for testnet faucet status across 35+ networks. 48 faucets, health-checked daily, with on-chain wallet balances. No key, no rate limit.">
+<link rel="canonical" href="https://testnetfaucets.dev/api/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Testnet Faucet API — Free JSON, No Key Required">
+<meta property="og:description" content="Free JSON API for testnet faucet status across 35+ networks. 48 faucets, health-checked daily, with on-chain wallet balances. No key, no rate limit.">
+<meta property="og:url" content="https://testnetfaucets.dev/api/">
+<meta property="og:site_name" content="Faucet App">
+<meta property="og:image" content="https://testnetfaucets.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Testnet Faucet API — Free JSON, No Key Required">
+<meta name="twitter:description" content="Free JSON API for testnet faucet status across 35+ networks. 48 faucets, health-checked daily, with on-chain wallet balances. No key, no rate limit.">
+<meta name="twitter:image" content="https://testnetfaucets.dev/og-image.png">
+<link rel="stylesheet" href="../assets/style.css?v=20260829124031">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Testnet faucet status and on-chain evidence", "description": "Daily health checks for public blockchain testnet faucets across 35+ networks, including dispensing-wallet balances verified on-chain.", "url": "https://testnetfaucets.dev/api/", "license": "https://creativecommons.org/publicdomain/zero/1.0/", "isAccessibleForFree": true, "creator": {"@id": "https://testnetfaucets.dev/#org"}, "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://testnetfaucets.dev/api/v1/all.json"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Testnet faucets", "item": "https://testnetfaucets.dev/"}, {"@type": "ListItem", "position": 2, "name": "API", "item": "https://testnetfaucets.dev/api/"}]}</script>
+</head>
+<body>
+<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../">← All testnet faucets</a></p>
+  <h1>Testnet Faucet API</h1>
+  <p class="tagline">Free JSON API for testnet faucet status across 35+ networks —
+  no key, no rate limit, no sign-up. Updated on every daily check.</p>
+  <p class="generated">Last generated 29 August 2026.</p>
+</div></header>
+<main class="wrap">
+  <p class="intro">Static JSON served straight from the CDN. It covers
+  48 faucets, and for those we can verify on-chain it carries the
+  dispensing wallet's balance and last payout — so you can tell a funded faucet
+  from one that merely returns HTTP 200.</p>
+
+  <section>
+    <h2>Endpoints</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>URL</th><th>Contents</th></tr></thead>
+      <tbody><tr><td><code>/api/v1/all.json</code></td><td>Everything — every network with its faucets.</td></tr><tr><td><code>/api/v1/faucets.json</code></td><td>The faucet array on its own.</td></tr><tr><td><code>/api/v1/networks.json</code></td><td>The network array on its own.</td></tr><tr><td><code>/api/v1/networks/&lt;network-id&gt;.json</code></td><td>A single network and its faucets, e.g. <code>ethereum-sepolia</code>.</td></tr></tbody>
+    </table></div>
+    <p class="muted">Query-string filtering does not work on static hosting —
+    filter client-side (the payload is small) or fetch the per-network file.
+    A <code>network-id</code> is the network name slugified.</p>
+  </section>
+
+  <section>
+    <h2>Freshness contract</h2>
+    <p>Every response is wrapped in an envelope carrying
+    <code>schema_version</code>, <code>generated_at</code> and
+    <code>next_update_expected_at</code>. If
+    <code>next_update_expected_at</code> is in the past, our job has stopped and
+    the data should be treated as unreliable — you can assert on that without
+    knowing our schedule.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <pre><code>curl -s https://testnetfaucets.dev/api/v1/networks/ethereum-sepolia.json \
+  | jq '.faucets[] | select(.status=="working") | {name, url, amount}'</code></pre>
+  </section>
+
+  <section>
+    <h2>Terms</h2>
+    <p>Public domain data, no attribution required — though a link back is
+    appreciated if it's useful to you. Full field reference is in
+    <a href="https://github.com/aleksandralukic/faucet-app/blob/main/API.md">API.md</a>
+    on GitHub.</p>
+  </section>
+
+  <section class="related">
+    <h2>More</h2>
+    <ul>
+      <li><a href="../networks/">Testnet networks and chain IDs</a></li>
+      <li><a href="../faucet-errors/">Common faucet errors</a></li>
+      <li><a href="../down/">Faucets currently down</a></li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../">Faucet App</a> — testnet faucet status, checked daily.
+<a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>
+</body>
+</html>

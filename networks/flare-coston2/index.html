@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flare Coston2 — Chain ID, RPC URL and Faucets</title>
+<meta name="description" content="Flare Coston2 connection details: chain ID 114, RPC endpoint, block explorer, and the 1 working faucet we health-check daily. Last checked 29 August 2026.">
+<link rel="canonical" href="https://testnetfaucets.dev/networks/flare-coston2/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Flare Coston2 — Chain ID, RPC URL and Faucets">
+<meta property="og:description" content="Flare Coston2 connection details: chain ID 114, RPC endpoint, block explorer, and the 1 working faucet we health-check daily. Last checked 29 August 2026.">
+<meta property="og:url" content="https://testnetfaucets.dev/networks/flare-coston2/">
+<meta property="og:site_name" content="Faucet App">
+<meta property="og:image" content="https://testnetfaucets.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Flare Coston2 — Chain ID, RPC URL and Faucets">
+<meta name="twitter:description" content="Flare Coston2 connection details: chain ID 114, RPC endpoint, block explorer, and the 1 working faucet we health-check daily. Last checked 29 August 2026.">
+<meta name="twitter:image" content="https://testnetfaucets.dev/og-image.png">
+<link rel="stylesheet" href="../../assets/style.css?v=20260829124031">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Testnet faucets", "item": "https://testnetfaucets.dev/"}, {"@type": "ListItem", "position": 2, "name": "Networks", "item": "https://testnetfaucets.dev/networks/"}, {"@type": "ListItem", "position": 3, "name": "Flare Coston2", "item": "https://testnetfaucets.dev/networks/flare-coston2/"}]}</script>
+</head>
+<body>
+<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../../">← All testnet faucets</a> ·
+     <a href="../">Networks</a></p>
+  <h1>Flare Coston2</h1>
+  <p class="tagline">Connection parameters and working faucets for Flare Coston2,
+  health-checked every day.</p>
+  <p class="generated">Last checked 29 August 2026.</p>
+</div></header>
+<main class="wrap">
+  
+  <section>
+    <h2>Network parameters</h2>
+    <div class="table-scroll"><table><tbody><tr><th>Chain ID</th><td><code>114</code></td></tr><tr><th>Currency symbol</th><td>C2FLR</td></tr><tr><th>RPC URL</th><td><code>https://coston2-api.flare.network/ext/C/rpc</code></td></tr><tr><th>Block explorer</th><td><a href="https://coston2-explorer.flare.network" target="_blank" rel="noopener">coston2-explorer.flare.network</a></td></tr><tr><th>Family</th><td>evm</td></tr><tr><th>Lifecycle</th><td>active</td></tr></tbody></table></div>
+  </section>
+  <section class="wallet-config">
+  <h2>Add Flare Coston2 to your wallet</h2>
+  <p class="muted">Configure MetaMask (Networks → Add network → Add manually), or one-click below.</p>
+  <div class="table-scroll"><table class="kv">
+    <tr><th>Network name</th><td>Flare Coston2</td></tr>
+    <tr><th>New RPC URL</th><td><code>https://coston2-api.flare.network/ext/C/rpc</code></td></tr>
+    <tr><th>Chain ID</th><td>114</td></tr>
+    <tr><th>Currency symbol</th><td>C2FLR</td></tr>
+    <tr><th>Block explorer</th><td><a href="https://coston2-explorer.flare.network" target="_blank" rel="noopener">https://coston2-explorer.flare.network</a></td></tr>
+  </table></div>
+  <button class="addchain" data-chain='{&quot;chainId&quot;: &quot;0x72&quot;, &quot;chainName&quot;: &quot;Flare Coston2&quot;, &quot;rpcUrls&quot;: [&quot;https://coston2-api.flare.network/ext/C/rpc&quot;], &quot;nativeCurrency&quot;: {&quot;name&quot;: &quot;C2FLR&quot;, &quot;symbol&quot;: &quot;C2FLR&quot;, &quot;decimals&quot;: 18}, &quot;blockExplorerUrls&quot;: [&quot;https://coston2-explorer.flare.network&quot;]}'>Add to MetaMask</button>
+</section><script>
+document.querySelectorAll('.addchain').forEach(function(b){
+  b.addEventListener('click', async function(){
+    if(!window.ethereum){ alert('No EVM wallet detected — install MetaMask, then reload.'); return; }
+    try { await window.ethereum.request({method:'wallet_addEthereumChain', params:[JSON.parse(b.dataset.chain)]}); }
+    catch(err){ console.error(err); }
+  });
+});
+</script>
+  <section>
+    <h2>Faucets on Flare Coston2</h2>
+    <div class="table-scroll"><table><thead><tr><th>Token</th><th>Faucet</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td><strong>FLARE</strong></td><td><a href="https://faucet.flare.network/" target="_blank" rel="noopener">Flare Faucet</a></td><td><span class="dot up"></span> Working</td><td><a href="../../flare-testnet-faucet/">FLARE faucet page →</a></td></tr></tbody></table></div>
+  </section>
+  <section class="related">
+    <h2>More</h2>
+    <ul>
+      <li><a href="../">All testnet networks</a></li>
+      <li><a href="../../faucet-errors/">Common faucet errors and fixes</a></li>
+      <li><a href="../../down/">Faucets currently down</a></li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../../">Faucet App</a> — testnet faucet status, checked daily.
+<a href="../../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>
+</body>
+</html>

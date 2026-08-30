@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faucet Captcha Not Loading or Failing — How to Fix It</title>
+<meta name="description" content="The faucet sits behind hCaptcha, reCAPTCHA, or Cloudflare browser verification. These are blocked or broken by a lot of ordinary setups: content…">
+<link rel="canonical" href="https://testnetfaucets.dev/faucet-errors/captcha-blocked/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Faucet Captcha Not Loading or Failing — How to Fix It">
+<meta property="og:description" content="The faucet sits behind hCaptcha, reCAPTCHA, or Cloudflare browser verification. These are blocked or broken by a lot of ordinary setups: content…">
+<meta property="og:url" content="https://testnetfaucets.dev/faucet-errors/captcha-blocked/">
+<meta property="og:site_name" content="Faucet App">
+<meta property="og:image" content="https://testnetfaucets.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Faucet Captcha Not Loading or Failing — How to Fix It">
+<meta name="twitter:description" content="The faucet sits behind hCaptcha, reCAPTCHA, or Cloudflare browser verification. These are blocked or broken by a lot of ordinary setups: content…">
+<meta name="twitter:image" content="https://testnetfaucets.dev/og-image.png">
+<link rel="stylesheet" href="../../assets/style.css?v=20260829124031">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "hCaptcha failed to load.", "acceptedAnswer": {"@type": "Answer", "text": "The faucet sits behind hCaptcha, reCAPTCHA, or Cloudflare browser verification. These are blocked or broken by a lot of ordinary setups: content blockers, strict tracking protection, VPN exit nodes with a bad reputation, and privacy browsers all trigger failures the faucet reports as a captcha error."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Testnet faucets", "item": "https://testnetfaucets.dev/"}, {"@type": "ListItem", "position": 2, "name": "Faucet errors", "item": "https://testnetfaucets.dev/faucet-errors/"}, {"@type": "ListItem", "position": 3, "name": "Captcha won't load or pass", "item": "https://testnetfaucets.dev/faucet-errors/captcha-blocked/"}]}</script>
+</head>
+<body>
+<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../../">← All testnet faucets</a> ·
+     <a href="../">Faucet errors</a></p>
+  <h1>Faucet error: the captcha won&#x27;t load or won&#x27;t pass</h1>
+  <p class="tagline">What this error means, why the faucet returns it, and the
+  fastest way to get your test tokens anyway.</p>
+  <p class="generated">Reviewed 29 August 2026.</p>
+</div></header>
+<main class="wrap">
+  <section>
+    <h2>The error</h2>
+    <p>Faucets word this differently, but these are the same problem:</p>
+    <ul class="quotes"><li><q>hCaptcha failed to load.</q></li><li><q>Please complete the captcha to continue.</q></li><li><q>Browser verification failed.</q></li></ul>
+  </section>
+  <section>
+    <h2>Why it happens</h2>
+    <p>The faucet sits behind hCaptcha, reCAPTCHA, or Cloudflare browser verification. These are blocked or broken by a lot of ordinary setups: content blockers, strict tracking protection, VPN exit nodes with a bad reputation, and privacy browsers all trigger failures the faucet reports as a captcha error.</p>
+  </section>
+  <section>
+    <h2>How to fix it</h2>
+    <ol><li>Disable your content blocker for the faucet domain. This fixes the majority of "captcha failed to load" cases outright.</li><li>Turn the VPN off for the claim. Datacenter and shared-exit IPs are scored as high-risk, and captcha providers fail them regardless of what you do in the widget.</li><li>Try a mainstream browser profile with default settings. Strict anti-fingerprinting settings break hCaptcha's challenge flow.</li><li>Pick a faucet that doesn't use one. Our per-token pages flag captcha-gated faucets, and the homepage has a <strong>Hide captcha-gated</strong> filter.</li></ol>
+    <p><strong>Related tokens:</strong> <a href="../../eth-testnet-faucet/">ETH</a>, <a href="../../dot-testnet-faucet/">DOT</a>, <a href="../../celo-testnet-faucet/">CELO</a>.</p>
+  </section>
+  <section class="related">
+    <h2>Other faucet errors</h2>
+    <ul><li><a href="../mainnet-balance-required/">Mainnet balance required</a></li><li><a href="../faucet-not-available/">Faucet is not available</a></li><li><a href="../already-claimed/">Already claimed / rate limited</a></li><li><a href="../wrong-address-format/">Invalid address format</a></li><li><a href="../faucet-dry/">Faucet out of funds</a></li></ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../../">Faucet App</a> — testnet faucet status, checked daily.
+<a href="../../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>
+</body>
+</html>

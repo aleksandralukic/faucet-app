@@ -63,7 +63,7 @@ h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
   font-variant-numeric: tabular-nums;
 }
 
-.dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.dot { display: inline-block; vertical-align: middle; width: 8px; height: 8px; border-radius: 50%; flex: none; }
 .dot.up { background: var(--up); }
 .dot.degraded { background: var(--degraded); }
 .dot.down { background: var(--down); }
@@ -190,7 +190,7 @@ h1 { margin: 0 0 4px; font-size: 26px; letter-spacing: -0.02em; }
 
 /* SEO / static-page elements (homepage summary, per-currency + down pages) */
 .seo-summary { font-size: 15px; margin: 0 0 12px; }
-.quicklinks { margin: 14px 0 0; font-size: 14px; }
+.quicklinks { margin: 14px 0 0; font-size: 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
 .quicklinks a, .crumb a { color: var(--accent); text-decoration: none; }
 .quicklinks a:hover, .crumb a:hover { text-decoration: underline; }
 .crumb { margin: 0 0 12px; font-size: 13px; }
@@ -285,3 +285,40 @@ td a:hover { text-decoration: underline; }
 @media (max-width: 620px) {
   .status-line { margin-left: 0; width: 100%; }
 }
+
+/* Lateral links between sibling faucet/network/error pages. */
+.related ul { list-style: none; padding: 0; margin: 0; }
+.related li {
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  padding: 6px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 13.5px;
+}
+.related li a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.related li a:hover { text-decoration: underline; }
+.related li .muted { font-weight: 400; }
+
+/* Verbatim faucet error strings — quoted so they read as the faucet's words. */
+.quotes { list-style: none; padding: 0; margin: 0 0 4px; }
+.quotes li {
+  border-left: 3px solid var(--border);
+  padding: 6px 0 6px 12px;
+  margin: 8px 0;
+  color: var(--muted);
+  font-style: italic;
+}
+.quotes q { quotes: none; }
+
+.errorlist { list-style: none; padding: 0; margin: 0 0 8px; }
+.errorlist li {
+  padding: 12px 14px;
+  margin: 0 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+.errorlist a { color: var(--accent); text-decoration: none; }
+.errorlist a:hover { text-decoration: underline; }
+.errorlist q { color: var(--muted); quotes: none; font-style: italic; }

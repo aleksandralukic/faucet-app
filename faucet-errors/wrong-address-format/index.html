@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testnet Faucet Says Invalid Address — Fixes by Network</title>
+<meta name="description" content="You&#x27;ve pasted an address the faucet&#x27;s validator doesn&#x27;t accept for that network. The common causes are a mainnet address where a testnet one is…">
+<link rel="canonical" href="https://testnetfaucets.dev/faucet-errors/wrong-address-format/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Testnet Faucet Says Invalid Address — Fixes by Network">
+<meta property="og:description" content="You&#x27;ve pasted an address the faucet&#x27;s validator doesn&#x27;t accept for that network. The common causes are a mainnet address where a testnet one is…">
+<meta property="og:url" content="https://testnetfaucets.dev/faucet-errors/wrong-address-format/">
+<meta property="og:site_name" content="Faucet App">
+<meta property="og:image" content="https://testnetfaucets.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Testnet Faucet Says Invalid Address — Fixes by Network">
+<meta name="twitter:description" content="You&#x27;ve pasted an address the faucet&#x27;s validator doesn&#x27;t accept for that network. The common causes are a mainnet address where a testnet one is…">
+<meta name="twitter:image" content="https://testnetfaucets.dev/og-image.png">
+<link rel="stylesheet" href="../../assets/style.css?v=20260829124031">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Invalid address.", "acceptedAnswer": {"@type": "Answer", "text": "You've pasted an address the faucet's validator doesn't accept for that network. The common causes are a mainnet address where a testnet one is required, the wrong address type on a chain that has several, or a chain with two address families where the faucet only serves one."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Testnet faucets", "item": "https://testnetfaucets.dev/"}, {"@type": "ListItem", "position": 2, "name": "Faucet errors", "item": "https://testnetfaucets.dev/faucet-errors/"}, {"@type": "ListItem", "position": 3, "name": "Invalid address format", "item": "https://testnetfaucets.dev/faucet-errors/wrong-address-format/"}]}</script>
+</head>
+<body>
+<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../../">← All testnet faucets</a> ·
+     <a href="../">Faucet errors</a></p>
+  <h1>Faucet error: invalid or rejected address</h1>
+  <p class="tagline">What this error means, why the faucet returns it, and the
+  fastest way to get your test tokens anyway.</p>
+  <p class="generated">Reviewed 29 August 2026.</p>
+</div></header>
+<main class="wrap">
+  <section>
+    <h2>The error</h2>
+    <p>Faucets word this differently, but these are the same problem:</p>
+    <ul class="quotes"><li><q>Invalid address.</q></li><li><q>Please enter a valid testnet address.</q></li><li><q>Address not recognised for this network.</q></li></ul>
+  </section>
+  <section>
+    <h2>Why it happens</h2>
+    <p>You've pasted an address the faucet's validator doesn't accept for that network. The common causes are a mainnet address where a testnet one is required, the wrong address type on a chain that has several, or a chain with two address families where the faucet only serves one.</p>
+  </section>
+  <section>
+    <h2>How to fix it</h2>
+    <ol><li>Bitcoin testnet: several faucets reject SegWit (tb1…) addresses and only accept legacy m…/n… or P2SH 2… addresses. This is the single most common cause of a rejected BTC testnet claim.</li><li>BNB Chain: the faucet accepts Smart Chain (0x…) addresses. A Beacon Chain (tbnb…) address is a different chain — bridge with Binance Wallet if you need it there.</li><li>Cardano, NEAR and Algorand: testnet addresses are distinct from mainnet ones. Generate the address from a wallet explicitly set to testnet/preprod rather than converting a mainnet address.</li><li>Check the network on the per-token page. The comparison table names the exact network each faucet dispenses on — an Amoy address will not work on a Sepolia faucet.</li></ol>
+    <p><strong>Faucets we track that behave this way:</strong> <a href="../../btc-testnet-faucet/">BTC</a>, <a href="../../bnb-testnet-faucet/">BNB</a>.</p><p><strong>Related tokens:</strong> <a href="../../ada-testnet-faucet/">ADA</a>, <a href="../../near-testnet-faucet/">NEAR</a>, <a href="../../algo-testnet-faucet/">ALGO</a>.</p>
+  </section>
+  <section class="related">
+    <h2>Other faucet errors</h2>
+    <ul><li><a href="../mainnet-balance-required/">Mainnet balance required</a></li><li><a href="../faucet-not-available/">Faucet is not available</a></li><li><a href="../already-claimed/">Already claimed / rate limited</a></li><li><a href="../captcha-blocked/">Captcha won&#x27;t load or pass</a></li><li><a href="../faucet-dry/">Faucet out of funds</a></li></ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../../">Faucet App</a> — testnet faucet status, checked daily.
+<a href="../../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>
+</body>
+</html>

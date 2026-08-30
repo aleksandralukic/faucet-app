@@ -45,6 +45,18 @@ STATUS_LABEL = {
 }
 
 
+# Currency pages that are the SAME page as another one: same network, and in the
+# MATIC/POL case the same faucet URL with two claim flows. Two near-identical
+# pages split their ranking signals and compete with each other, so the alias
+# renders as a canonical stub pointing at the target and its faucets are folded
+# into the target page. The old URL is kept (both are indexed) — only the
+# duplicate CONTENT goes away.
+ALIASES = {
+    "MATIC": "POL",
+    "XRP/SOLO": "XRP",
+}
+
+
 def e(s):
     return html.escape(str(s if s is not None else ""), quote=True)
 
@@ -116,6 +128,69 @@ def network_keywords(networks):
                 seen.add(key)
                 out.append(w)
     return out
+
+
+_NETWORKS_JSON = None
+
+
+def networks_meta():
+    """Lazy-load data/networks.json (network id -> {name, family, lifecycle})."""
+    global _NETWORKS_JSON
+    if _NETWORKS_JSON is None:
+        path = os.path.join(DATA, "networks.json")
+        try:
+            with open(path, encoding="utf-8") as fh:
+                _NETWORKS_JSON = json.load(fh)
+        except (OSError, ValueError):
+            _NETWORKS_JSON = {}
+    return _NETWORKS_JSON
+
+
+def network_family(net):
+    """Group networks that searchers treat as siblings.
+
+    Every Ethereum L2 testnet is a '<brand> Sepolia', and someone who needs Base
+    Sepolia ETH very often needs Arbitrum or OP Sepolia ETH too — that shared
+    codename is a stronger relatedness signal than networks.json's `family`
+    (which would file them all under a generic 'evm'). So Sepolia wins, and
+    networks.json supplies the family for everything else."""
+    if "sepolia" in net.lower():
+        return "sepolia"
+    meta = networks_meta().get(slug(net)) or {}
+    return meta.get("family")
+
+
+def related_links(currency, items, net_index, fam_index, all_currencies):
+    """Lateral links to sibling currency pages: same network first, then same
+    family. Capped at 6 — past that it reads as a link dump rather than a
+    genuine 'you probably also need these' block."""
+    picks, seen = [], {currency}
+
+    def take(names, why):
+        for n in sorted(names):
+            if n in seen or n not in all_currencies or len(picks) >= 6:
+                continue
+            seen.add(n)
+            picks.append((n, why))
+
+    for f in items:
+        take(net_index.get(f["network"], ()), f["network"])
+    for f in items:
+        fam = network_family(f["network"])
+        if fam:
+            take(fam_index.get(fam, ()), "same family")
+
+    if not picks:
+        return ""
+    lis = "".join(
+        f'<li><a href="../{slug(n)}-testnet-faucet/">{e(n)} testnet faucet</a> '
+        f'<span class="muted">({e(why)})</span></li>'
+        for n, why in picks
+    )
+    return (
+        '<section class="related"><h2>Related testnet faucets</h2>'
+        f"<ul>{lis}</ul></section>"
+    )
 
 
 def _dispensed_str(days):
@@ -226,6 +301,43 @@ def freshness(generated_at):
     return dt.strftime("%d %B %Y at %H:%M UTC")
 
 
+def freshness_date(generated_at):
+    """Date only, no clock time. Used in <meta description>: the SERP snippet has
+    ~155 usable characters and 'at 07:07 UTC' spends nine of them on noise, while
+    the date alone carries the whole freshness signal."""
+    if not generated_at:
+        return "not yet checked"
+    try:
+        dt = datetime.fromisoformat(generated_at)
+    except ValueError:
+        return generated_at
+    return dt.strftime("%d %B %Y")
+
+
+def breadcrumb_ld(trail):
+    """BreadcrumbList JSON-LD. `trail` is [(name, absolute_url), ...].
+
+    The only schema the site emitted was FAQPage, which Google restricted to
+    authoritative health/government sources in 2023 — it renders nothing for a
+    site like this, which is why the Search Appearance report is empty.
+    Breadcrumbs still render, and they replace the raw URL in the result."""
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": n, "item": u}
+            for i, (n, u) in enumerate(trail, 1)
+        ],
+    })
+
+
+def ld(*objs):
+    """Wrap JSON-LD payloads as <script> tags, skipping empties."""
+    return "".join(
+        f'<script type="application/ld+json">{o}</script>' for o in objs if o
+    )
+
+
 # ---------------------------------------------------------------- homepage
 
 def render_card(f, st):
@@ -309,30 +421,56 @@ def build_home(faucets, status_by_id, generated_at, summary):
 
     # One ListItem per currency, pointing at our own currency pages (internal
     # linking + keeps the schema promoting us, not the external faucets).
+    # Aliased currencies are resolved to their canonical page, so the schema and
+    # the internal links it carries never point at a canonicalised stub.
     seen_cur, unique_currencies = set(), []
     for f in ordered:
-        if f["currency"] not in seen_cur:
-            seen_cur.add(f["currency"])
-            unique_currencies.append(f["currency"])
+        cur = ALIASES.get(f["currency"], f["currency"])
+        if cur not in seen_cur:
+            seen_cur.add(cur)
+            unique_currencies.append(cur)
 
-    itemlist = {
+    graph = {
         "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Blockchain testnet faucets by network",
-        "numberOfItems": len(unique_currencies),
-        "itemListElement": [
+        "@graph": [
             {
-                "@type": "ListItem",
-                "position": i + 1,
-                "name": f"{cur} testnet faucet",
-                "url": f"{SITE_URL}/{slug(cur)}-testnet-faucet/",
-            }
-            for i, cur in enumerate(unique_currencies)
+                "@type": "WebSite",
+                "@id": f"{SITE_URL}/#website",
+                "url": f"{SITE_URL}/",
+                "name": SITE_NAME,
+                "description": (
+                    "Testnet faucet status for 35+ blockchain networks, "
+                    "health-checked daily and verified on-chain."
+                ),
+                "publisher": {"@id": f"{SITE_URL}/#org"},
+            },
+            {
+                "@type": "Organization",
+                "@id": f"{SITE_URL}/#org",
+                "name": SITE_NAME,
+                "url": f"{SITE_URL}/",
+                "logo": f"{SITE_URL}/apple-touch-icon.png",
+                "sameAs": ["https://github.com/aleksandralukic/faucet-app"],
+            },
+            {
+                "@type": "ItemList",
+                "name": "Blockchain testnet faucets by network",
+                "numberOfItems": len(unique_currencies),
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": i + 1,
+                        "name": f"{cur} testnet faucet",
+                        "url": f"{SITE_URL}/{slug(cur)}-testnet-faucet/",
+                    }
+                    for i, cur in enumerate(unique_currencies)
+                ],
+            },
         ],
     }
     shell = re.sub(
         r'(<script type="application/ld\+json" id="ld-home">).*?(</script>)',
-        lambda m: m.group(1) + json.dumps(itemlist) + m.group(2),
+        lambda m: m.group(1) + json.dumps(graph) + m.group(2),
         shell,
         flags=re.S,
     )
@@ -346,11 +484,26 @@ def build_home(faucets, status_by_id, generated_at, summary):
 
 def build_currency_pages(faucets, status_by_id, generated_at):
     """One page per currency, targeting '<X> testnet faucet' style queries."""
+    # Fold aliased currencies into their target so the target page carries every
+    # faucet for that network and the alias renders as a stub (see ALIASES).
     groups = {}
     for f in faucets:
-        groups.setdefault(f["currency"], []).append(f)
+        groups.setdefault(ALIASES.get(f["currency"], f["currency"]), []).append(f)
+
+    # Network -> the currency pages that cover it, for lateral "related" links.
+    # Before this, a currency page's only internal outlink was the homepage, so
+    # 46 pages sat in a flat hub-and-spoke with no topical clustering at all.
+    net_index = {}
+    fam_index = {}
+    for currency, items in groups.items():
+        for f in items:
+            net_index.setdefault(f["network"], set()).add(currency)
+            fam = network_family(f["network"])
+            if fam:
+                fam_index.setdefault(fam, set()).add(currency)
 
     written = []
+    alias_dirs = []
     for currency, items in sorted(groups.items()):
         cslug = slug(currency)
         dirname = f"{cslug}-testnet-faucet"
@@ -394,11 +547,13 @@ def build_currency_pages(faucets, status_by_id, generated_at):
         # it read as a monitoring tool rather than a place to get tokens.
         n = len(items)
         faucet_phrase = f"{n} {currency} faucets" if n > 1 else f"the {currency} faucet"
-        title = f"{lead}{also} Testnet Faucet — Get Test {currency}, Checked Daily | {SITE_NAME}"
+        # No "| Faucet App" suffix: the brand has no search equity, and it spent
+        # ~13 of the ~60 characters Google renders before truncating.
+        title = f"{lead}{also} Testnet Faucet — Get Test {currency}, Checked Daily"
         desc = (
             f"Where to get free test {currency} on {', '.join(networks)} — {faucet_phrase}, "
             f"health-checked daily with amounts, cooldowns, and requirements so you know "
-            f"which one works right now. Last checked {freshness(generated_at)}."
+            f"which one works right now. Last checked {freshness_date(generated_at)}."
         )
 
         sections = []
@@ -568,6 +723,13 @@ def build_currency_pages(faucets, status_by_id, generated_at):
 
         h1 = f"{lead}{also} Testnet Faucet — Get Test {currency}"
         wallet_cfg = wallet_config_section(networks)
+        # The combined USDC/EURC listing is the landing page for every
+        # chain-qualified stablecoin query, so it carries the cross-chain table.
+        stable = (
+            stablecoin_table(faucets, status_by_id)
+            if currency.upper() in ("USDC/EURC", "USDT") else ""
+        )
+        related = related_links(currency, items, net_index, fam_index, set(groups))
         body = f"""<header class="masthead"><div class="wrap">
   <p class="crumb"><a href="../">← All testnet faucets</a></p>
   <h1>{e(h1)}</h1>
@@ -580,8 +742,10 @@ def build_currency_pages(faucets, status_by_id, generated_at):
   {compare}
   {"".join(sections)}
   {wallet_cfg}
+  {stable}
+  {related}
   <section>
-    <h2>Getting test {e(currency)} on {e(lead)}</h2>
+    <h2>Getting test {e(currency)}{"" if lead.lower() == currency.lower() else f" on {e(lead)}"}</h2>
     <p>Testnet faucets are run on a best-effort basis and break constantly: domains
     lapse, TLS certificates expire, rate limits tighten, and faucet wallets run dry.
     We re-check every {e(currency)} faucet daily and record the cause of failure, so
@@ -592,17 +756,53 @@ def build_currency_pages(faucets, status_by_id, generated_at):
   </section>
 </main>
 <footer class="wrap footer"><p><a href="../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
-<a href="../api/v1/all.json">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+<a href="../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
 
+        crumbs = breadcrumb_ld([
+            ("Testnet faucets", f"{SITE_URL}/"),
+            (f"{currency} testnet faucet", f"{SITE_URL}/{dirname}/"),
+        ])
         out = page(
             title, desc, f"{SITE_URL}/{dirname}/", body, depth=1,
-            extra_head=f'<script type="application/ld+json">{faq_ld}</script>',
+            extra_head=ld(faq_ld, crumbs),
         )
         with open(os.path.join(outdir, "index.html"), "w", encoding="utf-8") as fh:
             fh.write(out)
         written.append(dirname)
 
-    return written
+    # Alias stubs. GitHub Pages can't serve a 301, so the consolidation is done
+    # with rel=canonical (tells Google which page owns the ranking) plus a meta
+    # refresh and a real link (moves humans who land on the old URL). The stub
+    # stays out of the sitemap — a canonicalised page has no business being
+    # advertised for indexing.
+    for src, dst in sorted(ALIASES.items()):
+        if dst not in groups:
+            continue
+        src_dir = f"{slug(src)}-testnet-faucet"
+        dst_dir = f"{slug(dst)}-testnet-faucet"
+        target = f"{SITE_URL}/{dst_dir}/"
+        outdir = os.path.join(ROOT, src_dir)
+        os.makedirs(outdir, exist_ok=True)
+        body = (
+            '<main class="wrap">\n'
+            f"  <h1>{e(src)} testnet faucet</h1>\n"
+            f"  <p>{e(src)} and {e(dst)} are the same testnet. This page has moved to the\n"
+            f'  <a href="../{dst_dir}/">{e(dst)} testnet faucet page</a>, which lists every\n'
+            "  faucet for it with live status.</p>\n"
+            "</main>"
+        )
+        out = page(
+            f"{src} Testnet Faucet — see the {dst} faucet page",
+            f"{src} and {dst} are the same testnet. See the {dst} testnet faucet "
+            f"page for every faucet, with daily health checks.",
+            target, body, depth=1,
+            extra_head=f'<meta http-equiv="refresh" content="0; url=../{dst_dir}/">',
+        )
+        with open(os.path.join(outdir, "index.html"), "w", encoding="utf-8") as fh:
+            fh.write(out)
+        alias_dirs.append(src_dir)
+
+    return written, alias_dirs
 
 
 # ------------------------------------------------------------- /down/ page
@@ -670,10 +870,10 @@ def build_down_page(faucets, status_by_id, generated_at):
   </section>
 </main>
 <footer class="wrap footer"><p><a href="../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
-<a href="../api/v1/all.json">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+<a href="../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
 
     out = page(
-        "Testnet Faucets Down Right Now — Live Status | " + SITE_NAME,
+        "Testnet Faucets Down Right Now — Live Status",
         f"Which testnet faucets are down right now: {len(broken)} of {len(faucets)} "
         f"tracked faucets are failing, with the cause of each failure. Checked daily.",
         f"{SITE_URL}/down/", body, depth=1,
@@ -682,11 +882,538 @@ def build_down_page(faucets, status_by_id, generated_at):
         fh.write(out)
 
 
+# Tokens that are stablecoins for the purposes of the cross-chain table.
+STABLE_TOKENS = {"USDC", "EURC", "USDT", "CUSD", "CEUR", "CREAL"}
+
+
+def stablecoin_table(faucets, status_by_id):
+    """Cross-chain 'which testnet gives me test USDC' table.
+
+    Search Console shows the stablecoin demand is chain-qualified — 'usdc faucet
+    sei', 'fuji usdc', 'linea testnet usdc faucet', 'usdc faucet base' — but all
+    of it landed on one page with no per-chain breakdown. This lists every
+    faucet we track that dispenses a stablecoin, by network, with an anchor per
+    network so a chain-qualified query has something specific to match.
+    """
+    rows = []
+    for f in faucets:
+        toks = [f["currency"]] if f["currency"].upper() in STABLE_TOKENS else []
+        toks += [t for t in (f.get("dripsAlso") or [])
+                 if t.upper() in STABLE_TOKENS]
+        # "USDC/EURC" is a combined listing, not a ticker.
+        if "/" in f["currency"] and not toks:
+            parts = [p for p in f["currency"].split("/") if p.upper() in STABLE_TOKENS]
+            toks = parts + toks
+        if not toks:
+            continue
+        seen, uniq = set(), []
+        for t in toks:
+            if t.upper() not in seen:
+                seen.add(t.upper())
+                uniq.append(t)
+        rows.append((f, uniq))
+
+    if not rows:
+        return ""
+
+    trs = ""
+    for f, toks in sorted(rows, key=lambda r: r[0]["network"]):
+        st = status_by_id.get(f["id"], {})
+        s = st.get("status", "unknown")
+        cur = ALIASES.get(f["currency"], f["currency"])
+        net_link = (
+            f'<a href="../networks/{slug(f["network"])}/">{e(f["network"])}</a>'
+            if not f["network"].lower().startswith("multi-chain")
+            else e(f["network"])
+        )
+        trs += (
+            f'<tr id="{slug(f["network"])}">'
+            f"<td>{net_link}</td>"
+            f'<td>{", ".join(f"<strong>{e(t)}</strong>" for t in toks)}</td>'
+            f'<td><a href="{e(f["url"])}" target="_blank" rel="noopener">{e(f["name"])}</a></td>'
+            f'<td>{e(f.get("amount") or "—")}</td>'
+            f'<td><span class="dot {e(s)}"></span> {e(STATUS_LABEL.get(s, s))}</td>'
+            f'<td><a href="../{slug(cur)}-testnet-faucet/">{e(cur)} page →</a></td>'
+            "</tr>"
+        )
+
+    return f"""<section>
+  <h2>Test stablecoins by network</h2>
+  <p>Which testnet gives you which stablecoin, and from where. Every row is
+  health-checked daily along with the rest of the site.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Network</th><th>Tokens</th><th>Faucet</th><th>Amount</th>
+    <th>Status</th><th>Details</th></tr></thead>
+    <tbody>{trs}</tbody>
+  </table></div>
+  <p class="muted">Chasing a specific chain? Its network page lists the chain ID,
+  RPC URL and explorer you'll need alongside the faucet.</p>
+</section>"""
+
+
+# ------------------------------------------------- /faucet-errors/ pages
+
+def build_error_pages(faucets, status_by_id, generated_at):
+    """Pages for the error messages faucets themselves show.
+
+    Search Console shows people pasting these verbatim ("cannot claim drip
+    because user does not exist on mainnet", "faucet is not available") and
+    finding nothing that explains them. It is the one query cluster on this site
+    that already ranks well without any links, because effectively nobody
+    competes for it. Content comes from data/faucet_errors.json.
+    """
+    path = os.path.join(DATA, "faucet_errors.json")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            errors = json.load(fh)
+    except (OSError, ValueError):
+        return []
+
+    by_currency = {}
+    for f in faucets:
+        by_currency.setdefault(ALIASES.get(f["currency"], f["currency"]), []).append(f)
+
+    def token_links(codes, depth_prefix):
+        live = [c for c in codes if c in by_currency]
+        if not live:
+            return ""
+        return ", ".join(
+            f'<a href="{depth_prefix}{slug(c)}-testnet-faucet/">{e(c)}</a>' for c in live
+        )
+
+    os.makedirs(os.path.join(ROOT, "faucet-errors"), exist_ok=True)
+    hub_rows = []
+    written = []
+    for eslug, spec in errors.items():
+        outdir = os.path.join(ROOT, "faucet-errors", eslug)
+        os.makedirs(outdir, exist_ok=True)
+
+        quotes = "".join(
+            f'<li><q>{e(m)}</q></li>' for m in spec.get("messages", [])
+        )
+        fixes = "".join(f"<li>{fx}</li>" for fx in spec.get("fixes", []))
+
+        affected = token_links(spec.get("affected", []), "../../")
+        see_also = token_links(spec.get("seeAlso", []), "../../")
+        rel = ""
+        if affected:
+            rel += (
+                f'<p><strong>Faucets we track that behave this way:</strong> {affected}.</p>'
+            )
+        if see_also:
+            rel += f'<p><strong>Related tokens:</strong> {see_also}.</p>'
+
+        others = "".join(
+            f'<li><a href="../{s2}/">{e(sp2["shortName"])}</a></li>'
+            for s2, sp2 in errors.items() if s2 != eslug
+        )
+
+        body = f"""<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../../">← All testnet faucets</a> ·
+     <a href="../">Faucet errors</a></p>
+  <h1>{e(spec["h1"])}</h1>
+  <p class="tagline">What this error means, why the faucet returns it, and the
+  fastest way to get your test tokens anyway.</p>
+  <p class="generated">Reviewed {e(freshness_date(generated_at))}.</p>
+</div></header>
+<main class="wrap">
+  <section>
+    <h2>The error</h2>
+    <p>Faucets word this differently, but these are the same problem:</p>
+    <ul class="quotes">{quotes}</ul>
+  </section>
+  <section>
+    <h2>Why it happens</h2>
+    <p>{spec["cause"]}</p>
+  </section>
+  <section>
+    <h2>How to fix it</h2>
+    <ol>{fixes}</ol>
+    {rel}
+  </section>
+  <section class="related">
+    <h2>Other faucet errors</h2>
+    <ul>{others}</ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
+<a href="../../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+
+        faq_ld = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": spec["messages"][0] if spec.get("messages") else spec["shortName"],
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": re.sub(r"<[^>]+>", "", spec["cause"]),
+                },
+            }],
+        })
+        crumbs = breadcrumb_ld([
+            ("Testnet faucets", f"{SITE_URL}/"),
+            ("Faucet errors", f"{SITE_URL}/faucet-errors/"),
+            (spec["shortName"], f"{SITE_URL}/faucet-errors/{eslug}/"),
+        ])
+        out = page(
+            spec["title"],
+            re.sub(r"<[^>]+>", "", spec["cause"])[:150].rsplit(" ", 1)[0] + "…",
+            f"{SITE_URL}/faucet-errors/{eslug}/", body, depth=2,
+            extra_head=ld(faq_ld, crumbs),
+        )
+        with open(os.path.join(outdir, "index.html"), "w", encoding="utf-8") as fh:
+            fh.write(out)
+        written.append(eslug)
+        hub_rows.append(
+            f'<li><a href="{eslug}/"><strong>{e(spec["shortName"])}</strong></a>'
+            f' — <q>{e(spec["messages"][0])}</q></li>'
+            if spec.get("messages") else
+            f'<li><a href="{eslug}/"><strong>{e(spec["shortName"])}</strong></a></li>'
+        )
+
+    hub_body = f"""<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../">← All testnet faucets</a></p>
+  <h1>Testnet Faucet Errors — What They Mean</h1>
+  <p class="tagline">The error messages testnet faucets actually return, what
+  causes each one, and how to get your tokens anyway.</p>
+  <p class="generated">Reviewed {e(freshness_date(generated_at))}.</p>
+</div></header>
+<main class="wrap">
+  <p class="intro">Most testnet faucet failures are not bugs on your side. They are
+  anti-abuse gates, cooldowns, or a dispensing wallet that has run dry — each with
+  a different fix. These are the ones we see most often.</p>
+  <ul class="errorlist">{"".join(hub_rows)}</ul>
+  <section>
+    <h2>Is the faucet itself down?</h2>
+    <p>If the page will not load at all, that is a different problem — see
+    <a href="../down/">testnet faucets currently down</a> for live status and the
+    recorded cause of each failure.</p>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
+<a href="../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+
+    hub_crumbs = breadcrumb_ld([
+        ("Testnet faucets", f"{SITE_URL}/"),
+        ("Faucet errors", f"{SITE_URL}/faucet-errors/"),
+    ])
+    with open(os.path.join(ROOT, "faucet-errors", "index.html"), "w", encoding="utf-8") as fh:
+        fh.write(page(
+            "Testnet Faucet Errors — What Each Message Means",
+            "Testnet faucet not working? What each faucet error message means — "
+            "mainnet balance required, already claimed, captcha failed, faucet "
+            "empty — and how to get your test tokens anyway.",
+            f"{SITE_URL}/faucet-errors/", hub_body, depth=1,
+            extra_head=ld(hub_crumbs),
+        ))
+
+    return written
+
+
+# ----------------------------------------------------- /networks/ pages
+
+def build_network_pages(faucets, status_by_id, generated_at):
+    """One page per testnet with its connection parameters.
+
+    Search Console shows network-configuration intent the faucet pages don't
+    serve — 'polygon rpc url', 'amoy testnet scan', 'fuji c-chain', 'cardano
+    network status'. That is a far less contested query set than '<token>
+    faucet', and the data (chain id, RPC, explorer, lifecycle) is already here.
+    """
+    meta = networks_meta()
+    by_net = {}
+    for f in faucets:
+        # Circle's faucet is listed against a pseudo-network ("Multi-chain …"),
+        # which has no chain id or RPC of its own — nothing to document.
+        if f["network"].lower().startswith("multi-chain"):
+            continue
+        by_net.setdefault(f["network"], []).append(f)
+
+    os.makedirs(os.path.join(ROOT, "networks"), exist_ok=True)
+    written, hub_rows = [], []
+    for net, items in sorted(by_net.items()):
+        nslug = slug(net)
+        outdir = os.path.join(ROOT, "networks", nslug)
+        os.makedirs(outdir, exist_ok=True)
+
+        evm = NETWORKS.get(net) or {}
+        nmeta = meta.get(nslug) or {}
+        life = nmeta.get("lifecycle") or {}
+
+        rows = []
+        if evm.get("chainId"):
+            rows.append(("Chain ID", f'<code>{evm["chainId"]}</code>'))
+            rows.append(("Currency symbol", e(evm.get("symbol", ""))))
+            rows.append(("RPC URL", f'<code>{e(evm["rpc"])}</code>'))
+        if evm.get("explorer"):
+            rows.append((
+                "Block explorer",
+                f'<a href="{e(evm["explorer"])}" target="_blank" rel="noopener">'
+                f'{e(evm["explorer"].replace("https://", ""))}</a>',
+            ))
+        if nmeta.get("family"):
+            rows.append(("Family", e(nmeta["family"])))
+        if life.get("status"):
+            rows.append(("Lifecycle", e(life["status"])))
+        if life.get("sunset_date"):
+            rows.append(("Sunset date", e(life["sunset_date"])))
+        params = (
+            '<div class="table-scroll"><table><tbody>'
+            + "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in rows)
+            + "</tbody></table></div>"
+        ) if rows else ""
+
+        frows = "".join(
+            f'<tr><td><strong>{e(f["currency"])}</strong></td>'
+            f'<td><a href="{e(f["url"])}" target="_blank" rel="noopener">{e(f["name"])}</a></td>'
+            f'<td><span class="dot {e(status_of(f["id"], status_by_id))}"></span> '
+            f'{e(STATUS_LABEL.get(status_of(f["id"], status_by_id), "?"))}</td>'
+            f'<td><a href="../../{slug(ALIASES.get(f["currency"], f["currency"]))}-testnet-faucet/">'
+            f'{e(ALIASES.get(f["currency"], f["currency"]))} faucet page →</a></td></tr>'
+            for f in items
+        )
+        faucet_table = (
+            '<div class="table-scroll"><table><thead><tr><th>Token</th><th>Faucet</th>'
+            f'<th>Status</th><th>Details</th></tr></thead><tbody>{frows}</tbody></table></div>'
+        )
+
+        sunset_note = ""
+        if life.get("status") and life["status"] != "active":
+            succ = life.get("successor_network_id")
+            succ_txt = ""
+            if succ and succ in meta:
+                succ_txt = (
+                    f' Its replacement is <a href="../{e(succ)}/">'
+                    f'{e(meta[succ].get("name", succ))}</a>.'
+                )
+            sunset_note = (
+                f'<p class="callout"><strong>Heads up:</strong> this testnet is marked '
+                f'<em>{e(life["status"])}</em>'
+                + (f" (sunset {e(life['sunset_date'])})" if life.get("sunset_date") else "")
+                + f".{succ_txt}</p>"
+            )
+
+        wallet_cfg = wallet_config_section([net])
+        title = f"{net} — Chain ID, RPC URL and Faucets"
+        desc = (
+            f"{net} connection details: "
+            + (f"chain ID {evm['chainId']}, RPC endpoint, block explorer, " if evm.get("chainId") else "")
+            + f"and the {len(items)} working faucet{'s' if len(items) != 1 else ''} "
+            f"we health-check daily. Last checked {freshness_date(generated_at)}."
+        )
+
+        body = f"""<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../../">← All testnet faucets</a> ·
+     <a href="../">Networks</a></p>
+  <h1>{e(net)}</h1>
+  <p class="tagline">Connection parameters and working faucets for {e(net)},
+  health-checked every day.</p>
+  <p class="generated">Last checked {e(freshness_date(generated_at))}.</p>
+</div></header>
+<main class="wrap">
+  {sunset_note}
+  <section>
+    <h2>Network parameters</h2>
+    {params or "<p>No published RPC parameters for this network.</p>"}
+  </section>
+  {wallet_cfg}
+  <section>
+    <h2>Faucets on {e(net)}</h2>
+    {faucet_table}
+  </section>
+  <section class="related">
+    <h2>More</h2>
+    <ul>
+      <li><a href="../">All testnet networks</a></li>
+      <li><a href="../../faucet-errors/">Common faucet errors and fixes</a></li>
+      <li><a href="../../down/">Faucets currently down</a></li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
+<a href="../../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+
+        crumbs = breadcrumb_ld([
+            ("Testnet faucets", f"{SITE_URL}/"),
+            ("Networks", f"{SITE_URL}/networks/"),
+            (net, f"{SITE_URL}/networks/{nslug}/"),
+        ])
+        with open(os.path.join(outdir, "index.html"), "w", encoding="utf-8") as fh:
+            fh.write(page(title, desc, f"{SITE_URL}/networks/{nslug}/", body,
+                          depth=2, extra_head=ld(crumbs)))
+        written.append(nslug)
+        hub_rows.append(
+            f'<tr><td><a href="{nslug}/">{e(net)}</a></td>'
+            f'<td>{e(str(evm.get("chainId", "—")))}</td>'
+            f'<td>{e(nmeta.get("family", "—"))}</td>'
+            f'<td>{len(items)}</td></tr>'
+        )
+
+    hub_body = f"""<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../">← All testnet faucets</a></p>
+  <h1>Testnet Networks — Chain IDs, RPC URLs and Explorers</h1>
+  <p class="tagline">Connection parameters for every testnet we track, alongside
+  the faucets that fund them.</p>
+  <p class="generated">Last checked {e(freshness_date(generated_at))}.</p>
+</div></header>
+<main class="wrap">
+  <p class="intro">Getting test tokens is half the job — you also need the chain to
+  be configured correctly. Each network page lists its chain ID, a public RPC
+  endpoint, its block explorer, and whether the testnet is still active or has
+  been superseded.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Network</th><th>Chain ID</th><th>Family</th><th>Faucets</th></tr></thead>
+    <tbody>{"".join(hub_rows)}</tbody>
+  </table></div>
+</main>
+<footer class="wrap footer"><p><a href="../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
+<a href="../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+
+    hub_crumbs = breadcrumb_ld([
+        ("Testnet faucets", f"{SITE_URL}/"),
+        ("Networks", f"{SITE_URL}/networks/"),
+    ])
+    with open(os.path.join(ROOT, "networks", "index.html"), "w", encoding="utf-8") as fh:
+        fh.write(page(
+            "Testnet Networks — Chain IDs, RPC URLs and Faucets",
+            "Chain ID, public RPC URL, block explorer and working faucets for every "
+            "testnet we track — Sepolia, Amoy, Fuji, Base Sepolia and more. "
+            "Health-checked daily.",
+            f"{SITE_URL}/networks/", hub_body, depth=1, extra_head=ld(hub_crumbs),
+        ))
+
+    return written
+
+
+# ------------------------------------------------------------ /api/ page
+
+def build_api_page(faucets, generated_at):
+    """Human-readable docs at /api/.
+
+    The endpoints already existed but /api/ itself returned 404, so the one
+    genuinely linkable thing here — a free, keyless testnet faucet dataset with
+    on-chain evidence — had no page anyone could link to or find. Docs pages
+    attract links; raw JSON files do not.
+    """
+    outdir = os.path.join(ROOT, "api")
+    os.makedirs(outdir, exist_ok=True)
+
+    eps = [
+        ("v1/all.json", "Everything — every network with its faucets."),
+        ("v1/faucets.json", "The faucet array on its own."),
+        ("v1/networks.json", "The network array on its own."),
+        ("v1/networks/&lt;network-id&gt;.json",
+         "A single network and its faucets, e.g. <code>ethereum-sepolia</code>."),
+    ]
+    rows = "".join(
+        f'<tr><td><code>/api/{u}</code></td><td>{d}</td></tr>' for u, d in eps
+    )
+
+    body = f"""<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../">← All testnet faucets</a></p>
+  <h1>Testnet Faucet API</h1>
+  <p class="tagline">Free JSON API for testnet faucet status across 35+ networks —
+  no key, no rate limit, no sign-up. Updated on every daily check.</p>
+  <p class="generated">Last generated {e(freshness_date(generated_at))}.</p>
+</div></header>
+<main class="wrap">
+  <p class="intro">Static JSON served straight from the CDN. It covers
+  {len(faucets)} faucets, and for those we can verify on-chain it carries the
+  dispensing wallet's balance and last payout — so you can tell a funded faucet
+  from one that merely returns HTTP 200.</p>
+
+  <section>
+    <h2>Endpoints</h2>
+    <div class="table-scroll"><table>
+      <thead><tr><th>URL</th><th>Contents</th></tr></thead>
+      <tbody>{rows}</tbody>
+    </table></div>
+    <p class="muted">Query-string filtering does not work on static hosting —
+    filter client-side (the payload is small) or fetch the per-network file.
+    A <code>network-id</code> is the network name slugified.</p>
+  </section>
+
+  <section>
+    <h2>Freshness contract</h2>
+    <p>Every response is wrapped in an envelope carrying
+    <code>schema_version</code>, <code>generated_at</code> and
+    <code>next_update_expected_at</code>. If
+    <code>next_update_expected_at</code> is in the past, our job has stopped and
+    the data should be treated as unreliable — you can assert on that without
+    knowing our schedule.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <pre><code>curl -s https://testnetfaucets.dev/api/v1/networks/ethereum-sepolia.json \\
+  | jq '.faucets[] | select(.status=="working") | {{name, url, amount}}'</code></pre>
+  </section>
+
+  <section>
+    <h2>Terms</h2>
+    <p>Public domain data, no attribution required — though a link back is
+    appreciated if it's useful to you. Full field reference is in
+    <a href="https://github.com/aleksandralukic/faucet-app/blob/main/API.md">API.md</a>
+    on GitHub.</p>
+  </section>
+
+  <section class="related">
+    <h2>More</h2>
+    <ul>
+      <li><a href="../networks/">Testnet networks and chain IDs</a></li>
+      <li><a href="../faucet-errors/">Common faucet errors</a></li>
+      <li><a href="../down/">Faucets currently down</a></li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
+<a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+
+    crumbs = breadcrumb_ld([
+        ("Testnet faucets", f"{SITE_URL}/"),
+        ("API", f"{SITE_URL}/api/"),
+    ])
+    api_ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Testnet faucet status and on-chain evidence",
+        "description": (
+            "Daily health checks for public blockchain testnet faucets across 35+ "
+            "networks, including dispensing-wallet balances verified on-chain."
+        ),
+        "url": f"{SITE_URL}/api/",
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "isAccessibleForFree": True,
+        "creator": {"@id": f"{SITE_URL}/#org"},
+        "distribution": [{
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": f"{SITE_URL}/api/v1/all.json",
+        }],
+    })
+    with open(os.path.join(outdir, "index.html"), "w", encoding="utf-8") as fh:
+        fh.write(page(
+            "Testnet Faucet API — Free JSON, No Key Required",
+            f"Free JSON API for testnet faucet status across 35+ networks. "
+            f"{len(faucets)} faucets, health-checked daily, with on-chain wallet "
+            f"balances. No key, no rate limit.",
+            f"{SITE_URL}/api/", body, depth=1, extra_head=ld(api_ld, crumbs),
+        ))
+
+
 # --------------------------------------------------------- sitemap + robots
 
-def build_sitemap(dirs, generated_at):
+def build_sitemap(dirs, error_dirs, network_dirs, generated_at):
     today = (generated_at or datetime.now(timezone.utc).isoformat())[:10]
-    urls = [f"{SITE_URL}/", f"{SITE_URL}/down/"] + [f"{SITE_URL}/{d}/" for d in dirs]
+    # Alias stubs are deliberately absent: they canonicalise elsewhere.
+    urls = (
+        [f"{SITE_URL}/", f"{SITE_URL}/down/", f"{SITE_URL}/faucet-errors/",
+         f"{SITE_URL}/networks/", f"{SITE_URL}/api/"]
+        + [f"{SITE_URL}/{d}/" for d in dirs]
+        + [f"{SITE_URL}/faucet-errors/{d}/" for d in error_dirs]
+        + [f"{SITE_URL}/networks/{d}/" for d in network_dirs]
+    )
     entries = "".join(
         f"<url><loc>{e(u)}</loc><lastmod>{e(today)}</lastmod>"
         f"<changefreq>daily</changefreq></url>\n"
@@ -705,10 +1432,19 @@ def build_sitemap(dirs, generated_at):
     return len(urls)
 
 
-def clean_stale(current_dirs):
-    """Remove pages for currencies that no longer exist in faucets.json."""
+def clean_stale(current_dirs, error_dirs=(), network_dirs=()):
+    """Remove pages whose source rows no longer exist in the data files."""
     keep = set(current_dirs) | {"down"}
     removed = []
+    for parent, live in (("faucet-errors", error_dirs), ("networks", network_dirs)):
+        base = os.path.join(ROOT, parent)
+        if not os.path.isdir(base):
+            continue
+        for name in os.listdir(base):
+            full = os.path.join(base, name)
+            if os.path.isdir(full) and name not in set(live):
+                shutil.rmtree(full)
+                removed.append(f"{parent}/{name}")
     for name in os.listdir(ROOT):
         full = os.path.join(ROOT, name)
         if not os.path.isdir(full) or name.startswith("."):
@@ -740,13 +1476,18 @@ def main():
     if not build_home(faucets, status_by_id, generated_at, summary):
         return 1
 
-    dirs = build_currency_pages(faucets, status_by_id, generated_at)
+    dirs, alias_dirs = build_currency_pages(faucets, status_by_id, generated_at)
     build_down_page(faucets, status_by_id, generated_at)
-    removed = clean_stale(dirs)
-    n = build_sitemap(dirs, generated_at)
+    error_dirs = build_error_pages(faucets, status_by_id, generated_at)
+    network_dirs = build_network_pages(faucets, status_by_id, generated_at)
+    build_api_page(faucets, generated_at)
+    removed = clean_stale(dirs + alias_dirs, error_dirs, network_dirs)
+    n = build_sitemap(dirs, error_dirs, network_dirs, generated_at)
 
     print(f"Homepage rendered with {len(faucets)} faucets")
-    print(f"Currency pages: {len(dirs)}")
+    print(f"Currency pages: {len(dirs)}  (+{len(alias_dirs)} canonical stubs)")
+    print(f"Error pages:    {len(error_dirs)}")
+    print(f"Network pages:  {len(network_dirs)}")
     print(f"Sitemap URLs:   {n}")
     if removed:
         print(f"Removed stale:  {', '.join(removed)}")

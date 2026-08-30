@@ -255,7 +255,11 @@
     "requiresCaptcha": true,
     "notes": "10 USDC/EURC every 24h. If XLM daily limit exceeded, swap XLM->USDC via Freighter on Testnet.",
     "amount": "10 USDC/EURC",
-    "cooldown": "24h"
+    "cooldown": "24h",
+    "dripsAlso": [
+      "USDC",
+      "EURC"
+    ]
   },
   {
     "id": "covalent-avax",
@@ -560,7 +564,12 @@
     "requiresMainnetBalance": false,
     "amount": "0.1 ETH",
     "cooldown": "24h",
-    "notes": "Free Coinbase Developer Platform account, but no mainnet balance needed — the least-gated Base option. Also drips test USDC/EURC/cbBTC. Alchemy/QuickNode Base faucets instead require ~0.001 ETH on Ethereum mainnet."
+    "notes": "Free Coinbase Developer Platform account, but no mainnet balance needed — the least-gated Base option. Also drips test USDC/EURC/cbBTC. Alchemy/QuickNode Base faucets instead require ~0.001 ETH on Ethereum mainnet.",
+    "dripsAlso": [
+      "USDC",
+      "EURC",
+      "cbBTC"
+    ]
   },
   {
     "id": "arbitrum-sepolia-l2faucet",
@@ -630,6 +639,11 @@
     "requiresMainnetBalance": false,
     "amount": "1 CELO + stables",
     "cooldown": "24h",
-    "notes": "Captcha only — no login or mainnet balance, the least-gated of these six. Optional GitHub login gives ~10x more (up to ~5 CELO). Also drips cUSD/cEUR/cREAL."
+    "notes": "Captcha only — no login or mainnet balance, the least-gated of these six. Optional GitHub login gives ~10x more (up to ~5 CELO). Also drips cUSD/cEUR/cREAL.",
+    "dripsAlso": [
+      "cUSD",
+      "cEUR",
+      "cREAL"
+    ]
   }
 ]

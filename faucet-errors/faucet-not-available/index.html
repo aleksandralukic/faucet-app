@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faucet Is Not Available — Why It Happens and What to Do</title>
+<meta name="description" content="The faucet&#x27;s own backend is refusing to serve requests. It nearly always means one of three things: the dispensing wallet has run dry, the operator…">
+<link rel="canonical" href="https://testnetfaucets.dev/faucet-errors/faucet-not-available/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Faucet Is Not Available — Why It Happens and What to Do">
+<meta property="og:description" content="The faucet&#x27;s own backend is refusing to serve requests. It nearly always means one of three things: the dispensing wallet has run dry, the operator…">
+<meta property="og:url" content="https://testnetfaucets.dev/faucet-errors/faucet-not-available/">
+<meta property="og:site_name" content="Faucet App">
+<meta property="og:image" content="https://testnetfaucets.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Faucet Is Not Available — Why It Happens and What to Do">
+<meta name="twitter:description" content="The faucet&#x27;s own backend is refusing to serve requests. It nearly always means one of three things: the dispensing wallet has run dry, the operator…">
+<meta name="twitter:image" content="https://testnetfaucets.dev/og-image.png">
+<link rel="stylesheet" href="../../assets/style.css?v=20260829124031">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Faucet is not available.", "acceptedAnswer": {"@type": "Answer", "text": "The faucet's own backend is refusing to serve requests. It nearly always means one of three things: the dispensing wallet has run dry, the operator has disabled the faucet during maintenance, or the backend is erroring. The page itself still loads, which is why this reads as an application message rather than a browser error."}}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Testnet faucets", "item": "https://testnetfaucets.dev/"}, {"@type": "ListItem", "position": 2, "name": "Faucet errors", "item": "https://testnetfaucets.dev/faucet-errors/"}, {"@type": "ListItem", "position": 3, "name": "Faucet is not available", "item": "https://testnetfaucets.dev/faucet-errors/faucet-not-available/"}]}</script>
+</head>
+<body>
+<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../../">← All testnet faucets</a> ·
+     <a href="../">Faucet errors</a></p>
+  <h1>Faucet error: &quot;faucet is not available&quot;</h1>
+  <p class="tagline">What this error means, why the faucet returns it, and the
+  fastest way to get your test tokens anyway.</p>
+  <p class="generated">Reviewed 29 August 2026.</p>
+</div></header>
+<main class="wrap">
+  <section>
+    <h2>The error</h2>
+    <p>Faucets word this differently, but these are the same problem:</p>
+    <ul class="quotes"><li><q>Faucet is not available.</q></li><li><q>This faucet is temporarily unavailable.</q></li><li><q>Service unavailable — please try again later.</q></li></ul>
+  </section>
+  <section>
+    <h2>Why it happens</h2>
+    <p>The faucet's own backend is refusing to serve requests. It nearly always means one of three things: the dispensing wallet has run dry, the operator has disabled the faucet during maintenance, or the backend is erroring. The page itself still loads, which is why this reads as an application message rather than a browser error.</p>
+  </section>
+  <section>
+    <h2>How to fix it</h2>
+    <ol><li>Check whether it's the faucet or you. Our daily check records the cause of every failure — the <a href="../../down/">faucets currently down</a> page shows which ones are failing right now and why.</li><li>Look at the dispensing wallet. Where we can verify a faucet on-chain, its page shows the live wallet balance and last payout. An empty wallet means "not available" is going to persist; a funded wallet that paid out today means it's worth retrying.</li><li>Try the other faucet for the same token. Several networks have more than one, and they rarely fail together.</li><li>Retry in an hour if the cause was a timeout or a 5xx. Those recover on their own. A dead domain does not.</li></ol>
+    <p><strong>Related tokens:</strong> <a href="../../eth-testnet-faucet/">ETH</a>, <a href="../../bnb-testnet-faucet/">BNB</a>, <a href="../../sol-testnet-faucet/">SOL</a>.</p>
+  </section>
+  <section class="related">
+    <h2>Other faucet errors</h2>
+    <ul><li><a href="../mainnet-balance-required/">Mainnet balance required</a></li><li><a href="../already-claimed/">Already claimed / rate limited</a></li><li><a href="../captcha-blocked/">Captcha won&#x27;t load or pass</a></li><li><a href="../wrong-address-format/">Invalid address format</a></li><li><a href="../faucet-dry/">Faucet out of funds</a></li></ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../../">Faucet App</a> — testnet faucet status, checked daily.
+<a href="../../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>
+</body>
+</html>

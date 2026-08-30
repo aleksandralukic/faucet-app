@@ -3,3 +3,12 @@ __pycache__/
 node_modules/
 test-results/
 playwright-report/
+.playwright-mcp/
+
+# local Claude Code context (personal learning notes — do not publish)
+CLAUDE.md
+
+# local K8s/vCluster practice scaffolding (prod is GitHub Pages, not K8s)
+Dockerfile
+.dockerignore
+k8s/
