@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-29T12:40:31+00:00",
-  "next_update_expected_at": "2026-08-30T12:40:31+00:00",
+  "generated_at": "2026-08-30T10:57:24+00:00",
+  "next_update_expected_at": "2026-08-31T10:57:24+00:00",
   "network": {
     "id": "arbitrum-sepolia",
     "chain_id": 421614,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-29T12:40:31+00:00",
+      "checked_at": "2026-08-30T10:57:24+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 303250967,
+      "latest_block": 303573213,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -35,7 +35,7 @@
       "currency": "ARB",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-29T12:40:31+00:00",
+      "checked_at": "2026-08-30T10:57:24+00:00",
       "amount": "ETH (rate-limited)",
       "cooldown": "24h",
       "friction": [],

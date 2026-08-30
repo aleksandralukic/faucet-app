@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-29T12:40:31+00:00",
-  "next_update_expected_at": "2026-08-30T12:40:31+00:00",
+  "generated_at": "2026-08-30T10:57:24+00:00",
+  "next_update_expected_at": "2026-08-31T10:57:24+00:00",
   "network": {
     "id": "flare-coston2",
     "chain_id": 114,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-29T12:40:31+00:00",
+      "checked_at": "2026-08-30T10:57:24+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 34631725,
+      "latest_block": 34666629,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -35,7 +35,7 @@
       "currency": "FLARE",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-29T12:40:31+00:00",
+      "checked_at": "2026-08-30T10:57:24+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -46,10 +46,10 @@
       "notes": null,
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "28309786.250137",
+        "wallet_balance": "28307584.839702",
         "wallet_balance_unit": "C2FLR",
-        "payouts_sent": 163787,
-        "last_dispensed_at": "2026-08-29T12:40:31+00:00"
+        "payouts_sent": 163829,
+        "last_dispensed_at": "2026-08-30T08:33:24+00:00"
       }
     }
   ]
