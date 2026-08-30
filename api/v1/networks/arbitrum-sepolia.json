@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-30T18:04:31+00:00",
-  "next_update_expected_at": "2026-08-31T18:04:31+00:00",
+  "generated_at": "2026-08-30T18:09:25+00:00",
+  "next_update_expected_at": "2026-08-31T18:09:25+00:00",
   "network": {
     "id": "arbitrum-sepolia",
     "chain_id": 421614,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-30T18:04:31+00:00",
+      "checked_at": "2026-08-30T18:09:25+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 303676825,
+      "latest_block": 303677270,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -33,9 +33,9 @@
       "name": "L2Faucet Arbitrum Sepolia",
       "url": "https://www.l2faucet.com/arbitrum",
       "currency": "ARB",
-      "status": "down",
+      "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-30T18:04:31+00:00",
+      "checked_at": "2026-08-30T18:09:25+00:00",
       "amount": "ETH (rate-limited)",
       "cooldown": "24h",
       "friction": [],
@@ -43,7 +43,7 @@
       "claim_api": null,
       "notes": "Ungated: device attestation via a browser passkey (WebAuthn) or the Automata app — no login, wallet, or mainnet balance. Dispenses ETH on Arbitrum Sepolia. Backup: Alchemy (needs 0.001 mainnet ETH) or bridge Sepolia ETH via the Arbitrum bridge.",
       "evidence": {
-        "http_status": null,
+        "http_status": 200,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
