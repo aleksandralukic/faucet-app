@@ -19,7 +19,7 @@
       "checked_at": "2026-08-30T18:09:25+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 34678814,
+      "latest_block": 34678848,
       "block_age_seconds": 0
     },
     "faucet_ids": [

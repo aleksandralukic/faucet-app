@@ -92,7 +92,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 303686546,
+        "latest_block": 303686901,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -116,7 +116,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 58085604,
+        "latest_block": 58085614,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -140,7 +140,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 46173698,
+        "latest_block": 46173742,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -215,7 +215,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 128153743,
+        "latest_block": 128153937,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -287,7 +287,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 18294962,
+        "latest_block": 18294991,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -383,7 +383,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 11600661,
+        "latest_block": 11600667,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -433,7 +433,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 4026309,
+        "latest_block": 4026312,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -457,7 +457,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 34678814,
+        "latest_block": 34678848,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -578,7 +578,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 226472478,
+        "latest_block": 226472565,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -602,7 +602,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 31905649,
+        "latest_block": 31905671,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -722,7 +722,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 48156572,
+        "latest_block": 48156616,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -770,7 +770,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 46297243,
+        "latest_block": 46297331,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -843,7 +843,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 268245391,
+        "latest_block": 268245543,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -891,7 +891,7 @@
         "checked_at": "2026-08-30T18:09:25+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 18137708,
+        "latest_block": 18137735,
         "block_age_seconds": 0
       },
       "faucet_ids": [
