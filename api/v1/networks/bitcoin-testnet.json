@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-30T10:57:24+00:00",
-  "next_update_expected_at": "2026-08-31T10:57:24+00:00",
+  "generated_at": "2026-08-30T11:52:41+00:00",
+  "next_update_expected_at": "2026-08-31T11:52:41+00:00",
   "network": {
     "id": "bitcoin-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T11:52:41+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -37,7 +37,7 @@
       "currency": "BTC",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T11:52:41+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -62,7 +62,7 @@
       "currency": "BTC",
       "status": "degraded",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T11:52:41+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -76,7 +76,7 @@
         "wallet_balance": "0.0",
         "wallet_balance_unit": "tBTC",
         "payouts_sent": 9457,
-        "last_dispensed_at": "2026-08-30T03:45:24+00:00"
+        "last_dispensed_at": "2026-08-30T04:40:41+00:00"
       }
     },
     {
@@ -87,7 +87,7 @@
       "currency": "BTC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T11:52:41+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
