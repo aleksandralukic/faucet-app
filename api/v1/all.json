@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-30T10:57:24+00:00",
-  "next_update_expected_at": "2026-08-31T10:57:24+00:00",
+  "generated_at": "2026-08-30T18:04:31+00:00",
+  "next_update_expected_at": "2026-08-31T18:04:31+00:00",
   "networks": [
     {
       "id": "agoric-devnet",
@@ -17,7 +17,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -41,7 +41,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -65,7 +65,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -89,10 +89,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 303573213,
+        "latest_block": 303676666,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -113,10 +113,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 58080945,
+        "latest_block": 58085168,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -137,10 +137,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 46159584,
+        "latest_block": 46172467,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -161,7 +161,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -186,7 +186,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -212,10 +212,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 128091014,
+        "latest_block": 128148271,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -236,7 +236,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -260,7 +260,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -284,10 +284,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 18285553,
+        "latest_block": 18294142,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -308,7 +308,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -332,7 +332,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -356,7 +356,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -380,10 +380,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 11598368,
+        "latest_block": 11600464,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -406,7 +406,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -430,11 +430,11 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 4025368,
-        "block_age_seconds": 24
+        "latest_block": 4026227,
+        "block_age_seconds": 0
       },
       "faucet_ids": [
         "beryx-filecoin"
@@ -454,10 +454,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 34666629,
+        "latest_block": 34677777,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -478,7 +478,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -502,7 +502,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -510,6 +510,55 @@
       },
       "faucet_ids": [
         "hedera-portal"
+      ]
+    },
+    {
+      "id": "hyperevm-testnet",
+      "chain_id": null,
+      "name": "HyperEVM Testnet",
+      "family": "evm",
+      "rpc": null,
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-08-30"
+      },
+      "liveness": {
+        "checked_at": "2026-08-30T18:04:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "chainstack-hyperevm",
+        "thirdweb-hyperevm"
+      ]
+    },
+    {
+      "id": "hyperliquid-testnet",
+      "chain_id": null,
+      "name": "Hyperliquid Testnet",
+      "family": "other",
+      "rpc": null,
+      "lifecycle": {
+        "status": "active",
+        "sunset_date": null,
+        "successor_network_id": null,
+        "announcement_url": null,
+        "last_reviewed": "2026-08-30"
+      },
+      "liveness": {
+        "checked_at": "2026-08-30T18:04:31+00:00",
+        "rpc_responding": null,
+        "chain_advancing": null,
+        "latest_block": null,
+        "block_age_seconds": null
+      },
+      "faucet_ids": [
+        "hyperliquid-drip"
       ]
     },
     {
@@ -526,10 +575,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 226444250,
+        "latest_block": 226470016,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -550,10 +599,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 31898368,
+        "latest_block": 31905046,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -574,7 +623,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -598,7 +647,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -622,7 +671,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -646,7 +695,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -670,10 +719,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 48142458,
+        "latest_block": 48155341,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -694,7 +743,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -718,10 +767,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 46269014,
+        "latest_block": 46294781,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -743,7 +792,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -767,7 +816,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -791,10 +840,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 268191102,
+        "latest_block": 268240606,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -815,7 +864,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -839,10 +888,10 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": true,
         "chain_advancing": true,
-        "latest_block": 18127508,
+        "latest_block": 18136721,
         "block_age_seconds": 0
       },
       "faucet_ids": [
@@ -863,7 +912,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -887,7 +936,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -911,7 +960,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -935,7 +984,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -959,7 +1008,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -984,7 +1033,7 @@
         "last_reviewed": "2026-07-29"
       },
       "liveness": {
-        "checked_at": "2026-08-30T10:57:24+00:00",
+        "checked_at": "2026-08-30T18:04:31+00:00",
         "rpc_responding": null,
         "chain_advancing": null,
         "latest_block": null,
@@ -1004,7 +1053,7 @@
       "currency": "AAVE",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "100 AAVE",
       "cooldown": null,
       "friction": [
@@ -1029,7 +1078,7 @@
       "currency": "ATOM",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -1052,7 +1101,7 @@
       "currency": "ADA",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1077,7 +1126,7 @@
       "currency": "BNB",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1103,7 +1152,7 @@
       "currency": "BCH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1128,7 +1177,7 @@
       "currency": "BCH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "0.0001 tBCH",
       "cooldown": null,
       "friction": [],
@@ -1156,9 +1205,9 @@
       "name": "BitcoinFaucet UO1",
       "url": "https://bitcoinfaucet.uo1.net/",
       "currency": "BTC",
-      "status": "degraded",
+      "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1181,9 +1230,9 @@
       "name": "CoinFaucet BTC Testnet",
       "url": "https://coinfaucet.eu/en/btc-testnet/",
       "currency": "BTC",
-      "status": "degraded",
+      "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1194,10 +1243,10 @@
       "notes": "Alternative when bitcoinfaucet.uo1.net fails. Does not work with SegWit.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "0.0",
+        "wallet_balance": "0.000133",
         "wallet_balance_unit": "tBTC",
-        "payouts_sent": 9457,
-        "last_dispensed_at": "2026-08-30T03:45:24+00:00"
+        "payouts_sent": 9458,
+        "last_dispensed_at": "2026-08-30T15:40:31+00:00"
       }
     },
     {
@@ -1208,7 +1257,7 @@
       "currency": "BTC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1233,7 +1282,7 @@
       "currency": "BLD",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -1254,9 +1303,9 @@
       "name": "Polkadot Westend Faucet",
       "url": "https://faucet.polkadot.io/westend",
       "currency": "DOT",
-      "status": "working",
+      "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "100 WND",
       "cooldown": "24h",
       "friction": [
@@ -1266,7 +1315,7 @@
       "claim_api": null,
       "notes": "Web faucet: paste your Westend address, solve the captcha, Submit. 100 WND per request, once per 24h. Add ?parachain=1000 to fund an Asset Hub address. The old #westend_faucet Matrix room is dead — ignore it.",
       "evidence": {
-        "http_status": 200,
+        "http_status": null,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
@@ -1281,7 +1330,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "~0.05 ETH",
       "cooldown": "24h",
       "friction": [
@@ -1306,7 +1355,7 @@
       "currency": "ETH",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "variable (PoW)",
       "cooldown": null,
       "friction": [
@@ -1317,10 +1366,10 @@
       "notes": "Proof-of-work faucet: no login and no mainnet balance needed. Mine in-browser (hCaptcha), then claim to your address — the longer you mine, the more ETH. A solid backup to the Google Cloud faucet.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "10753.041936",
+        "wallet_balance": "8513.973597",
         "wallet_balance_unit": "ETH",
-        "payouts_sent": 5527245,
-        "last_dispensed_at": "2026-08-30T10:57:24+00:00"
+        "payouts_sent": 5528419,
+        "last_dispensed_at": "2026-08-30T18:04:31+00:00"
       }
     },
     {
@@ -1331,7 +1380,7 @@
       "currency": "SOL",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1356,7 +1405,7 @@
       "currency": "XRP",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -1379,7 +1428,7 @@
       "currency": "ALGO",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "up to 10 ALGO",
       "cooldown": null,
       "friction": [
@@ -1390,10 +1439,10 @@
       "notes": "Quick email registration (just email validation). Request ALGO from the Fund page. Replaces the dead AlgoExplorer dispenser.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "9250.668826",
+        "wallet_balance": "9150.658826",
         "wallet_balance_unit": "ALGO",
         "payouts_sent": null,
-        "last_dispensed_at": "2026-08-30T10:57:24+00:00"
+        "last_dispensed_at": "2026-08-30T18:04:31+00:00"
       }
     },
     {
@@ -1404,7 +1453,7 @@
       "currency": "DOGE",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1429,7 +1478,7 @@
       "currency": "XLM",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "10,000 XLM",
       "cooldown": null,
       "friction": [],
@@ -1445,10 +1494,10 @@
       "notes": "This is an API, not a web page — opening the bare URL shows a 'Bad Request' JSON response, which is normal. To fund an account, append ?addr=<your-address> to the URL. Alternatives: Freighter wallet built-in faucet, Stellar Lab account funder, Demo Wallet (10,000 XLM).",
       "evidence": {
         "http_status": 400,
-        "wallet_balance": "15751974086.104502",
+        "wallet_balance": "15734904086.104502",
         "wallet_balance_unit": "XLM",
         "payouts_sent": null,
-        "last_dispensed_at": "2026-08-30T10:57:24+00:00"
+        "last_dispensed_at": "2026-08-30T18:04:31+00:00"
       }
     },
     {
@@ -1459,7 +1508,7 @@
       "currency": "USDC/EURC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "10 USDC/EURC",
       "cooldown": "24h",
       "friction": [
@@ -1484,7 +1533,7 @@
       "currency": "AVAX-C",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "2 AVAX",
       "cooldown": "24h",
       "friction": [
@@ -1495,9 +1544,9 @@
       "notes": "Up to 2 AVAX per claim, 24h cooldown. Replaces the dead Covalent faucet. Gated: the address must hold >0 AVAX on Avalanche mainnet. Empty wallet? Get a coupon from https://guild.xyz/avalanche or the Avalanche Discord and enter it on the faucet. faucet.avax.network redirects here.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "4114.891356",
+        "wallet_balance": "4108.890726",
         "wallet_balance_unit": "AVAX",
-        "payouts_sent": 2693067,
+        "payouts_sent": 2693070,
         "last_dispensed_at": null
       }
     },
@@ -1509,7 +1558,7 @@
       "currency": "FLOW",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "1000 FLOW",
       "cooldown": null,
       "friction": [
@@ -1534,7 +1583,7 @@
       "currency": "FLARE",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1545,10 +1594,10 @@
       "notes": null,
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "28307584.839702",
+        "wallet_balance": "28306583.467029",
         "wallet_balance_unit": "C2FLR",
-        "payouts_sent": 163829,
-        "last_dispensed_at": "2026-08-30T08:33:24+00:00"
+        "payouts_sent": 163859,
+        "last_dispensed_at": "2026-08-30T18:04:31+00:00"
       }
     },
     {
@@ -1559,7 +1608,7 @@
       "currency": "MATIC",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1585,7 +1634,7 @@
       "currency": "FTM",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1610,7 +1659,7 @@
       "currency": "SONIC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "~5 S",
       "cooldown": "1h",
       "friction": [
@@ -1636,7 +1685,7 @@
       "currency": "XRP/SOLO",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1661,7 +1710,7 @@
       "currency": "CORE",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": "24h",
       "friction": [
@@ -1686,7 +1735,7 @@
       "currency": "SUI",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -1709,7 +1758,7 @@
       "currency": "HBAR",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1734,7 +1783,7 @@
       "currency": "DASH",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1759,7 +1808,7 @@
       "currency": "STX",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "500 STX",
       "cooldown": null,
       "friction": [
@@ -1782,9 +1831,9 @@
       "name": "Faucy",
       "url": "https://faucy.app/",
       "currency": "VFY",
-      "status": "working",
+      "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "0.5 tVFY",
       "cooldown": null,
       "friction": [
@@ -1795,7 +1844,7 @@
       "claim_api": null,
       "notes": "Connect supported wallet (e.g. Subwallet). 0.5 tVFY per claim.",
       "evidence": {
-        "http_status": 200,
+        "http_status": null,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
@@ -1810,7 +1859,7 @@
       "currency": "POL",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "0.01 POL",
       "cooldown": null,
       "friction": [
@@ -1835,7 +1884,7 @@
       "currency": "APT",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1861,7 +1910,7 @@
       "currency": "EGLD",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1886,7 +1935,7 @@
       "currency": "FIL",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1896,11 +1945,11 @@
       "claim_api": null,
       "notes": null,
       "evidence": {
-        "http_status": 429,
-        "wallet_balance": "106435.904073",
+        "http_status": null,
+        "wallet_balance": "106430.904072",
         "wallet_balance_unit": "tFIL",
-        "payouts_sent": 45904,
-        "last_dispensed_at": "2026-08-28T22:57:24+00:00"
+        "payouts_sent": 45905,
+        "last_dispensed_at": "2026-08-30T13:16:31+00:00"
       }
     },
     {
@@ -1911,7 +1960,7 @@
       "currency": "NEAR",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "2 NEAR",
       "cooldown": null,
       "friction": [],
@@ -1920,10 +1969,10 @@
       "notes": "Paste your testnet account/address and request — 2 NEAR per claim, no login or captcha. Community faucet (near-faucet.io).",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "36938.166006",
+        "wallet_balance": "36938.166598",
         "wallet_balance_unit": "NEAR",
         "payouts_sent": null,
-        "last_dispensed_at": "2026-08-30T03:45:24+00:00"
+        "last_dispensed_at": "2026-08-30T15:40:31+00:00"
       }
     },
     {
@@ -1934,7 +1983,7 @@
       "currency": "ZIL",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1959,7 +2008,7 @@
       "currency": "SEI",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -1970,9 +2019,9 @@
       "notes": null,
       "evidence": {
         "http_status": 404,
-        "wallet_balance": "31379.670381",
+        "wallet_balance": "31354.0106",
         "wallet_balance_unit": "SEI",
-        "payouts_sent": 1644619,
+        "payouts_sent": 1645225,
         "last_dispensed_at": null
       }
     },
@@ -1984,7 +2033,7 @@
       "currency": "HASH",
       "status": "manual",
       "verification": "manual",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -2007,7 +2056,7 @@
       "currency": "USDT",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "50 KAIA / 10 USDT",
       "cooldown": "24h",
       "friction": [],
@@ -2028,9 +2077,9 @@
       "name": "CypherFaucet Litecoin Testnet",
       "url": "https://cypherfaucet.com/ltc-testnet",
       "currency": "LTC",
-      "status": "working",
+      "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "0.01 tLTC",
       "cooldown": "1h",
       "friction": [
@@ -2048,7 +2097,7 @@
       },
       "notes": "0.01 tLTC per claim, once per hour (per address and per IP). Also has a keyless API (POST /api/v1/claim). Established 2025, live balance shown on-page. Replaces the bot-blocked bitaps faucet.",
       "evidence": {
-        "http_status": 200,
+        "http_status": 522,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
@@ -2063,7 +2112,7 @@
       "currency": "BASE",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "0.1 ETH",
       "cooldown": "24h",
       "friction": [
@@ -2086,9 +2135,9 @@
       "name": "L2Faucet Arbitrum Sepolia",
       "url": "https://www.l2faucet.com/arbitrum",
       "currency": "ARB",
-      "status": "degraded",
+      "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "ETH (rate-limited)",
       "cooldown": "24h",
       "friction": [],
@@ -2096,7 +2145,7 @@
       "claim_api": null,
       "notes": "Ungated: device attestation via a browser passkey (WebAuthn) or the Automata app — no login, wallet, or mainnet balance. Dispenses ETH on Arbitrum Sepolia. Backup: Alchemy (needs 0.001 mainnet ETH) or bridge Sepolia ETH via the Arbitrum bridge.",
       "evidence": {
-        "http_status": 200,
+        "http_status": null,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
@@ -2111,7 +2160,7 @@
       "currency": "OP",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "0.05–1 ETH",
       "cooldown": "24h",
       "friction": [
@@ -2134,9 +2183,9 @@
       "name": "L2Faucet Scroll Sepolia",
       "url": "https://www.l2faucet.com/scroll",
       "currency": "SCROLL",
-      "status": "degraded",
+      "status": "down",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "ETH (rate-limited)",
       "cooldown": "24h",
       "friction": [],
@@ -2144,7 +2193,7 @@
       "claim_api": null,
       "notes": "Ungated device attestation (passkey) — no login/wallet/mainnet. Dispenses ETH on Scroll Sepolia. Official alternative: the Scroll Telegram faucet bot ('/drop <address>', see docs.scroll.io), or bridge Sepolia ETH via the Scroll bridge.",
       "evidence": {
-        "http_status": 200,
+        "http_status": null,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
@@ -2159,7 +2208,7 @@
       "currency": "LINEA",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "ETH (varies)",
       "cooldown": "24h",
       "friction": [
@@ -2184,7 +2233,7 @@
       "currency": "CELO",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T10:57:24+00:00",
+      "checked_at": "2026-08-30T18:04:31+00:00",
       "amount": "1 CELO + stables",
       "cooldown": "24h",
       "friction": [
@@ -2193,6 +2242,82 @@
       "automatable": false,
       "claim_api": null,
       "notes": "Captcha only — no login or mainnet balance, the least-gated of these six. Optional GitHub login gives ~10x more (up to ~5 CELO). Also drips cUSD/cEUR/cREAL.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    },
+    {
+      "id": "hyperliquid-drip",
+      "network_id": "hyperliquid-testnet",
+      "name": "Hyperliquid Testnet Drip",
+      "url": "https://app.hyperliquid-testnet.xyz/drip",
+      "currency": "HYPE",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-08-30T18:04:31+00:00",
+      "amount": "1,000 mock USDC",
+      "cooldown": null,
+      "friction": [
+        "mainnet-balance",
+        "wallet"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "The official faucet, for trading on Hyperliquid testnet rather than for HyperEVM gas. Gated: the same address must already have deposited on Hyperliquid MAINNET, so a fresh wallet cannot claim — a small USDC deposit over the Arbitrum bridge satisfies it. If you sign in by email, Privy issues a different wallet on testnet, so export the mainnet key into MetaMask or Rabby first. For HyperEVM gas (chain 998) use the Chainstack or thirdweb faucets instead.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    },
+    {
+      "id": "chainstack-hyperevm",
+      "network_id": "hyperevm-testnet",
+      "name": "Chainstack HyperEVM Faucet",
+      "url": "https://faucet.chainstack.com/hyperliquid-testnet-faucet",
+      "currency": "HYPE",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-08-30T18:04:31+00:00",
+      "amount": "1 HYPE",
+      "cooldown": "24h",
+      "friction": [
+        "login:Chainstack"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "The largest HyperEVM drip of the three and the only one with no mainnet gate. Needs a free Chainstack account: sign in to the console, copy an API key from Settings, then paste your address on the faucet page. No wallet connection and no Twitter task.",
+      "evidence": {
+        "http_status": 200,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
+        "last_dispensed_at": null
+      }
+    },
+    {
+      "id": "thirdweb-hyperevm",
+      "network_id": "hyperevm-testnet",
+      "name": "thirdweb HyperEVM Faucet",
+      "url": "https://thirdweb.com/HyperEVM-testnet",
+      "currency": "HYPE",
+      "status": "working",
+      "verification": "http",
+      "checked_at": "2026-08-30T18:04:31+00:00",
+      "amount": "0.01 HYPE",
+      "cooldown": "24h",
+      "friction": [
+        "wallet"
+      ],
+      "automatable": false,
+      "claim_api": null,
+      "notes": "Smallest drip, but the lowest friction if you already use thirdweb — connect a wallet (EOA or social login), one claim per chain per 24h. The faucet widget lives on the chain page; /faucet redirects here. Enough for gas, not for anything else.",
       "evidence": {
         "http_status": 200,
         "wallet_balance": null,

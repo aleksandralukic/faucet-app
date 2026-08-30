@@ -482,5 +482,27 @@
       "announcement_url": null,
       "last_reviewed": "2026-07-29"
     }
+  },
+  "hyperevm-testnet": {
+    "name": "HyperEVM Testnet",
+    "family": "evm",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-08-30"
+    }
+  },
+  "hyperliquid-testnet": {
+    "name": "Hyperliquid Testnet",
+    "family": "other",
+    "lifecycle": {
+      "status": "active",
+      "sunset_date": null,
+      "successor_network_id": null,
+      "announcement_url": null,
+      "last_reviewed": "2026-08-30"
+    }
   }
 }

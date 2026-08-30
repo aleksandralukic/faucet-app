@@ -243,6 +243,7 @@ NETWORKS = {
     "Scroll Sepolia": {"chainId": 534351, "rpc": "https://sepolia-rpc.scroll.io", "symbol": "ETH", "explorer": "https://sepolia.scrollscan.com", "name": "Scroll Sepolia"},
     "Linea Sepolia": {"chainId": 59141, "rpc": "https://rpc.sepolia.linea.build", "symbol": "ETH", "explorer": "https://sepolia.lineascan.build", "name": "Linea Sepolia"},
     "Celo Alfajores": {"chainId": 44787, "rpc": "https://alfajores-forno.celo-testnet.org", "symbol": "CELO", "explorer": "https://alfajores.celoscan.io", "name": "Celo Alfajores"},
+    "HyperEVM Testnet": {"chainId": 998, "rpc": "https://rpc.hyperliquid-testnet.xyz/evm", "symbol": "HYPE", "explorer": "https://testnet.purrsec.com", "name": "HyperEVM Testnet"},
     "Sonic Testnet": {"chainId": 14601, "rpc": "https://rpc.testnet.soniclabs.com", "symbol": "S", "explorer": "https://testnet.sonicscan.org", "name": "Sonic Testnet"},
 }
 
@@ -701,7 +702,9 @@ def build_currency_pages(faucets, status_by_id, generated_at):
             up = bst.get("uptimePct")
             best_sentence = (
                 f"The most reliable right now is <strong>{e(bf['name'])}</strong>"
-                + (f" ({up}% uptime over the last {len(bst.get('history', []))} daily checks)." if up is not None else ".")
+                + (f" ({up}% uptime over the last {len(bst.get('history', []))} "
+                   f"daily check{'s' if len(bst.get('history', [])) != 1 else ''})."
+                   if up is not None else ".")
             )
         else:
             best_sentence = (

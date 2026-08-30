@@ -645,5 +645,48 @@
       "cEUR",
       "cREAL"
     ]
+  },
+  {
+    "id": "hyperliquid-drip",
+    "currency": "HYPE",
+    "name": "Hyperliquid Testnet Drip",
+    "url": "https://app.hyperliquid-testnet.xyz/drip",
+    "network": "Hyperliquid Testnet",
+    "lead": "Hyperliquid",
+    "requiresWallet": true,
+    "requiresCaptcha": false,
+    "requiresMainnetBalance": true,
+    "amount": "1,000 mock USDC",
+    "notes": "The official faucet, for trading on Hyperliquid testnet rather than for HyperEVM gas. Gated: the same address must already have deposited on Hyperliquid MAINNET, so a fresh wallet cannot claim — a small USDC deposit over the Arbitrum bridge satisfies it. If you sign in by email, Privy issues a different wallet on testnet, so export the mainnet key into MetaMask or Rabby first. For HyperEVM gas (chain 998) use the Chainstack or thirdweb faucets instead.",
+    "dripsAlso": [
+      "USDC"
+    ]
+  },
+  {
+    "id": "chainstack-hyperevm",
+    "currency": "HYPE",
+    "name": "Chainstack HyperEVM Faucet",
+    "url": "https://faucet.chainstack.com/hyperliquid-testnet-faucet",
+    "network": "HyperEVM Testnet",
+    "lead": "Hyperliquid",
+    "requiresWallet": false,
+    "requiresCaptcha": false,
+    "requiresLogin": "Chainstack",
+    "amount": "1 HYPE",
+    "cooldown": "24h",
+    "notes": "The largest HyperEVM drip of the three and the only one with no mainnet gate. Needs a free Chainstack account: sign in to the console, copy an API key from Settings, then paste your address on the faucet page. No wallet connection and no Twitter task."
+  },
+  {
+    "id": "thirdweb-hyperevm",
+    "currency": "HYPE",
+    "name": "thirdweb HyperEVM Faucet",
+    "url": "https://thirdweb.com/HyperEVM-testnet",
+    "network": "HyperEVM Testnet",
+    "lead": "Hyperliquid",
+    "requiresWallet": true,
+    "requiresCaptcha": false,
+    "amount": "0.01 HYPE",
+    "cooldown": "24h",
+    "notes": "Smallest drip, but the lowest friction if you already use thirdweb — connect a wallet (EOA or social login), one claim per chain per 24h. The faucet widget lives on the chain page; /faucet redirects here. Enough for gas, not for anything else."
   }
 ]
