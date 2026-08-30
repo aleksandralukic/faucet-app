@@ -345,7 +345,7 @@
         "degraded",
         "up"
       ],
-      "uptimePct": 47,
+      "uptimePct": 43,
       "httpStatus": 200,
       "responseMs": 293,
       "error": null,
