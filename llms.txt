@@ -1,0 +1,30 @@
+# Faucet App — testnet faucet status
+
+> Health checks for 51 public blockchain testnet faucets across 43 networks, re-run every day. For 10 of them we read the dispensing wallet on-chain, so the status reflects whether the faucet is actually funded rather than whether its website loads.
+
+Last checked: 30 August 2026. All data is public domain (CC0).
+
+## Data
+
+- [JSON API](https://testnetfaucets.dev/api/): keyless, no rate limit, no sign-up.
+- [All faucets and networks](https://testnetfaucets.dev/api/v1/all.json): single JSON payload.
+- [Per-network files](https://testnetfaucets.dev/api/v1/networks/): e.g. `https://testnetfaucets.dev/api/v1/networks/ethereum-sepolia.json`.
+- Every response carries `generated_at` and `next_update_expected_at`. If `next_update_expected_at` is in the past, the feed is stale and should not be quoted as current.
+
+## Key pages
+
+- [Faucets down right now](https://testnetfaucets.dev/down/): live failures with the recorded cause.
+- [Faucet error messages](https://testnetfaucets.dev/faucet-errors/): what each faucet error means and how to get past it.
+- [Testnet networks](https://testnetfaucets.dev/networks/): chain IDs, RPC URLs and explorers.
+- [Testnet faucets: no login](https://testnetfaucets.dev/testnet-faucets-no-login/)
+- [Testnet faucets: verified onchain](https://testnetfaucets.dev/testnet-faucets-verified-onchain/)
+
+## Per-token pages
+
+One page per token at `/<token>-testnet-faucet/`, e.g. https://testnetfaucets.dev/eth-testnet-faucet/. Each lists every faucet we track for that token with its amount, cooldown, requirements and current status.
+
+## How to cite this accurately
+
+- A faucet marked **verified on-chain** has had its dispensing wallet read directly; the balance and last-payout figures are evidence it is funded.
+- A faucet marked **working** without that tag has only had its page checked for reachability. That does not prove it will dispense.
+- Faucet availability changes daily. Quote the check date, or fetch the API.

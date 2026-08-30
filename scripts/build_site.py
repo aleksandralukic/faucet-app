@@ -193,6 +193,53 @@ def related_links(currency, items, net_index, fam_index, all_currencies):
     )
 
 
+def gate_labels(f):
+    """Friction a user hits on this faucet, shortest-first."""
+    g = []
+    if f.get("requiresMainnetBalance"):
+        g.append("mainnet balance")
+    if f.get("requiresLogin"):
+        g.append(f"{f['requiresLogin']} login")
+    if f.get("requiresCaptcha"):
+        g.append("captcha")
+    if f.get("requiresWallet"):
+        g.append("wallet connect")
+    return g
+
+
+def friction_summary(items):
+    """One clause describing what it takes to claim, for the meta description.
+
+    This is the differentiator at SERP time. For '<token> testnet faucet' the
+    official faucet outranks us and promises the same thing, so matching its
+    pitch loses. What it cannot tell you from the snippet is whether you will
+    actually get through — a gate you can't clear is a wasted click. Answering
+    that before the click is the aggregator's only real edge.
+    """
+    ungated = [f for f in items if not gate_labels(f)]
+    if ungated:
+        return "No login, captcha or mainnet balance needed."
+    gates = {g for f in items for g in gate_labels(f)}
+    if len(items) > 1:
+        return "Needs " + ", ".join(sorted(gates)) + " depending on which you pick."
+    return "Needs " + " and ".join(sorted(gates)) + "."
+
+
+def title_qualifier(items):
+    """Trailing title clause. Positive or neutral only.
+
+    Deliberately NOT status-led: the 'Is It Down?' framing was tried here
+    before, ranked page 1, and drew ~0% CTR because it read as a monitoring
+    tool rather than somewhere to get tokens. Negative gates ('login
+    required') live in the description instead, so the title never talks
+    anyone out of the click.
+    """
+    if len(items) > 1:
+        return f"{len(items)} Faucets Compared"
+    if any(not gate_labels(f) for f in items):
+        return "No Login Needed"
+    return "Checked Daily"
+
 def _dispensed_str(days):
     if days is None:
         return None
@@ -550,11 +597,18 @@ def build_currency_pages(faucets, status_by_id, generated_at):
         faucet_phrase = f"{n} {currency} faucets" if n > 1 else f"the {currency} faucet"
         # No "| Faucet App" suffix: the brand has no search equity, and it spent
         # ~13 of the ~60 characters Google renders before truncating.
-        title = f"{lead}{also} Testnet Faucet — Get Test {currency}, Checked Daily"
+        title = f"{lead}{also} Testnet Faucet — Get Test {currency}, {title_qualifier(items)}"
+        # Lead with the friction, not the monitoring. The official faucet ranks
+        # above us for these queries and makes the same "get test X" promise;
+        # what it can't say in a snippet is whether you'll clear its gate.
         desc = (
-            f"Where to get free test {currency} on {', '.join(networks)} — {faucet_phrase}, "
-            f"health-checked daily with amounts, cooldowns, and requirements so you know "
-            f"which one works right now. Last checked {freshness_date(generated_at)}."
+            f"Get free test {currency} on {', '.join(networks)}. "
+            f"{friction_summary(items)} "
+            f"{working} of {len(items)} working, checked {freshness_date(generated_at)}."
+            if len(items) > 1 else
+            f"Get free test {currency} on {', '.join(networks)}. "
+            f"{friction_summary(items)} "
+            f"Amount, cooldown and live status, checked {freshness_date(generated_at)}."
         )
 
         sections = []
@@ -954,6 +1008,133 @@ def stablecoin_table(faucets, status_by_id):
 </section>"""
 
 
+# ------------------------------------------------- filter/collection pages
+
+def build_collection_pages(faucets, status_by_id, generated_at):
+    """Cross-cutting pages built from the gating fields.
+
+    faucets.json stores requiresMainnetBalance / requiresLogin /
+    requiresCaptcha / requiresWallet as structured fields, and the checker
+    records a verification tier. No chain's own docs and no faucet operator can
+    answer "which testnet faucets work without a mainnet balance" — it needs
+    the whole cross-chain set. That makes these the few pages here with no
+    natural competitor.
+    """
+    def ungated(f):
+        return not gate_labels(f)
+
+    def onchain(f):
+        return (status_by_id.get(f["id"], {}) or {}).get("verificationTier") == "onchain"
+
+    specs = [
+        {
+            "slug": "testnet-faucets-no-login",
+            "pred": ungated,
+            "h1": "Testnet Faucets With No Login, Captcha or Wallet Connect",
+            "title": "Testnet Faucets — No Login, No Captcha, No Wallet",
+            "desc": ("Testnet faucets that ask for nothing: no account, no captcha, no wallet "
+                     "connection and no mainnet balance. {n} faucets, checked daily."),
+            "intro": ("The lowest-friction faucets we track. Paste an address, get tokens — no "
+                      "account to create, no captcha to solve, no wallet to connect, and no "
+                      "mainnet balance to prove. These are the ones worth scripting against."),
+            "seealso": ("faucet-errors/captcha-blocked/", "When a faucet captcha won't pass"),
+        },
+        {
+            "slug": "testnet-faucets-verified-onchain",
+            "pred": onchain,
+            "h1": "Testnet Faucets Verified On-Chain",
+            "title": "Testnet Faucets Verified On-Chain — Proven Funded",
+            "desc": ("Testnet faucets whose dispensing wallet we read on-chain — live balance "
+                     "and last payout, so you know it is funded, not just online. {n} faucets."),
+            "intro": ("A faucet's page returning HTTP 200 proves only that its website is up. "
+                      "For these we read the dispensing wallet directly on-chain, so the balance "
+                      "and last payout below are evidence the tap actually has something in it. "
+                      "Everything else on this site carries a weaker signal, and we say so."),
+            "seealso": ("faucet-errors/faucet-dry/", "How to spot a faucet that has run dry"),
+        },
+    ]
+
+    written = []
+    for spec in specs:
+        picked = [f for f in faucets if spec["pred"](f)]
+        if not picked:
+            continue
+        outdir = os.path.join(ROOT, spec["slug"])
+        os.makedirs(outdir, exist_ok=True)
+        nets = len({f["network"] for f in picked})
+
+        rows = ""
+        for f in sorted(picked, key=lambda x: x["currency"]):
+            st = status_by_id.get(f["id"], {}) or {}
+            s = st.get("status", "unknown")
+            cur = ALIASES.get(f["currency"], f["currency"])
+            oc = st.get("onchain") or {}
+            evidence = (
+                f'<span class="tier onchain">⛓ {e(oc["balanceStr"])}</span>'
+                if oc.get("balanceStr")
+                else f'<span class="muted">{e(str(st.get("uptimePct", "—")))}% HTTP</span>'
+            )
+            rows += (
+                f'<tr><td><a href="../{slug(cur)}-testnet-faucet/"><strong>{e(cur)}</strong></a></td>'
+                f'<td><a href="{e(f["url"])}" target="_blank" rel="noopener">{e(f["name"])}</a></td>'
+                f'<td>{e(f["network"])}</td>'
+                f'<td>{e(f.get("amount") or "—")}</td>'
+                f'<td>{e(", ".join(gate_labels(f)) or "nothing")}</td>'
+                f'<td><span class="dot {e(s)}"></span> {e(STATUS_LABEL.get(s, s))} {evidence}</td></tr>'
+            )
+
+        body = f"""<header class="masthead"><div class="wrap">
+  <p class="crumb"><a href="../">← All testnet faucets</a></p>
+  <h1>{e(spec["h1"])}</h1>
+  <p class="tagline">{len(picked)} faucets across {nets} networks, health-checked every day.</p>
+  <p class="generated">Last checked {e(freshness_date(generated_at))}.</p>
+</div></header>
+<main class="wrap">
+  <p class="intro">{spec["intro"]}</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Token</th><th>Faucet</th><th>Network</th><th>Dispenses</th>
+    <th>Requires</th><th>Status</th></tr></thead>
+    <tbody>{rows}</tbody>
+  </table></div>
+  <section class="related">
+    <h2>Related</h2>
+    <ul>
+      <li><a href="../{spec["seealso"][0]}">{e(spec["seealso"][1])}</a></li>
+      <li><a href="../faucet-errors/">All faucet errors</a></li>
+      <li><a href="../networks/">Chain IDs and RPC URLs</a></li>
+      <li><a href="../down/">Faucets currently down</a></li>
+    </ul>
+  </section>
+</main>
+<footer class="wrap footer"><p><a href="../">{e(SITE_NAME)}</a> — testnet faucet status, checked daily.
+<a href="../api/">Developer API</a> · <a href="https://github.com/aleksandralukic/faucet-app">Source on GitHub</a>.</p></footer>"""
+
+        crumbs = breadcrumb_ld([
+            ("Testnet faucets", f"{SITE_URL}/"),
+            (spec["h1"], f"{SITE_URL}/{spec['slug']}/"),
+        ])
+        itemlist = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": spec["h1"],
+            "numberOfItems": len(picked),
+            "itemListElement": [
+                {"@type": "ListItem", "position": i + 1, "name": f["name"], "url": f["url"]}
+                for i, f in enumerate(sorted(picked, key=lambda x: x["currency"]))
+            ],
+        })
+        with open(os.path.join(outdir, "index.html"), "w", encoding="utf-8") as fh:
+            fh.write(page(
+                spec["title"],
+                spec["desc"].format(n=len(picked)) + f" Checked {freshness_date(generated_at)}.",
+                f"{SITE_URL}/{spec['slug']}/", body, depth=1,
+                extra_head=ld(itemlist, crumbs),
+            ))
+        written.append(spec["slug"])
+
+    return written
+
+
 # ------------------------------------------------- /faucet-errors/ pages
 
 def build_error_pages(faucets, status_by_id, generated_at):
@@ -1006,6 +1187,29 @@ def build_error_pages(faucets, status_by_id, generated_at):
         if see_also:
             rel += f'<p><strong>Related tokens:</strong> {see_also}.</p>'
 
+        # The mainnet-balance page is the one error where we can name the exact
+        # faucets and thresholds, so it carries a live table instead of prose.
+        gated_table = ""
+        if eslug == "mainnet-balance-required":
+            g = [f for f in faucets if f.get("requiresMainnetBalance")]
+            if g:
+                grows = "".join(
+                    f'<tr><td><a href="../../{slug(ALIASES.get(f["currency"], f["currency"]))}'
+                    f'-testnet-faucet/"><strong>{e(f["currency"])}</strong></a></td>'
+                    f'<td><a href="{e(f["url"])}" target="_blank" rel="noopener">{e(f["name"])}</a></td>'
+                    f'<td>{e(f["network"])}</td></tr>'
+                    for f in sorted(g, key=lambda x: x["currency"])
+                )
+                gated_table = (
+                    '<section><h2>Faucets we track that are gated this way</h2>'
+                    f'<p>{len(g)} of the {len(faucets)} faucets on this site check mainnet '
+                    'before dispensing. Each token page states the exact threshold and any '
+                    'documented way around it.</p>'
+                    '<div class="table-scroll"><table><thead><tr><th>Token</th>'
+                    f'<th>Faucet</th><th>Network</th></tr></thead><tbody>{grows}</tbody>'
+                    '</table></div></section>'
+                )
+
         others = "".join(
             f'<li><a href="../{s2}/">{e(sp2["shortName"])}</a></li>'
             for s2, sp2 in errors.items() if s2 != eslug
@@ -1034,6 +1238,7 @@ def build_error_pages(faucets, status_by_id, generated_at):
     <ol>{fixes}</ol>
     {rel}
   </section>
+  {gated_table}
   <section class="related">
     <h2>Other faucet errors</h2>
     <ul>{others}</ul>
@@ -1405,9 +1610,73 @@ def build_api_page(faucets, generated_at):
         ))
 
 
+def build_llms_txt(faucets, status_by_id, generated_at, collection_dirs):
+    """/llms.txt — a plain-text map of the site for AI assistants.
+
+    ChatGPT, Perplexity and friends cite sources, and this site has something
+    unusually citable: a keyless JSON API whose faucet status is backed by
+    on-chain wallet balances rather than a page-load check. That traffic never
+    shows up in Search Console, so it is easy to ignore — but it is answering
+    the same question ('which testnet faucet actually works') that the search
+    queries ask, and the API makes us cheap to quote correctly.
+    """
+    oc = [f for f in faucets
+          if (status_by_id.get(f["id"], {}) or {}).get("verificationTier") == "onchain"]
+    nets = sorted({f["network"] for f in faucets})
+    lines = [
+        f"# {SITE_NAME} — testnet faucet status",
+        "",
+        f"> Health checks for {len(faucets)} public blockchain testnet faucets across "
+        f"{len(nets)} networks, re-run every day. For {len(oc)} of them we read the "
+        "dispensing wallet on-chain, so the status reflects whether the faucet is "
+        "actually funded rather than whether its website loads.",
+        "",
+        f"Last checked: {freshness_date(generated_at)}. All data is public domain (CC0).",
+        "",
+        "## Data",
+        "",
+        f"- [JSON API]({SITE_URL}/api/): keyless, no rate limit, no sign-up.",
+        f"- [All faucets and networks]({SITE_URL}/api/v1/all.json): single JSON payload.",
+        f"- [Per-network files]({SITE_URL}/api/v1/networks/): e.g. "
+        f"`{SITE_URL}/api/v1/networks/ethereum-sepolia.json`.",
+        "- Every response carries `generated_at` and `next_update_expected_at`. If "
+        "`next_update_expected_at` is in the past, the feed is stale and should not "
+        "be quoted as current.",
+        "",
+        "## Key pages",
+        "",
+        f"- [Faucets down right now]({SITE_URL}/down/): live failures with the recorded cause.",
+        f"- [Faucet error messages]({SITE_URL}/faucet-errors/): what each faucet error "
+        "means and how to get past it.",
+        f"- [Testnet networks]({SITE_URL}/networks/): chain IDs, RPC URLs and explorers.",
+    ]
+    for d in collection_dirs:
+        title = d.replace("testnet-faucets-", "").replace("-", " ")
+        lines.append(f"- [Testnet faucets: {title}]({SITE_URL}/{d}/)")
+    lines += [
+        "",
+        "## Per-token pages",
+        "",
+        "One page per token at `/<token>-testnet-faucet/`, e.g. "
+        f"{SITE_URL}/eth-testnet-faucet/. Each lists every faucet we track for that "
+        "token with its amount, cooldown, requirements and current status.",
+        "",
+        "## How to cite this accurately",
+        "",
+        "- A faucet marked **verified on-chain** has had its dispensing wallet read "
+        "directly; the balance and last-payout figures are evidence it is funded.",
+        "- A faucet marked **working** without that tag has only had its page checked "
+        "for reachability. That does not prove it will dispense.",
+        "- Faucet availability changes daily. Quote the check date, or fetch the API.",
+        "",
+    ]
+    with open(os.path.join(ROOT, "llms.txt"), "w", encoding="utf-8") as fh:
+        fh.write("\n".join(lines))
+
+
 # --------------------------------------------------------- sitemap + robots
 
-def build_sitemap(dirs, error_dirs, network_dirs, generated_at):
+def build_sitemap(dirs, error_dirs, network_dirs, collection_dirs, generated_at):
     today = (generated_at or datetime.now(timezone.utc).isoformat())[:10]
     # Alias stubs are deliberately absent: they canonicalise elsewhere.
     urls = (
@@ -1416,6 +1685,7 @@ def build_sitemap(dirs, error_dirs, network_dirs, generated_at):
         + [f"{SITE_URL}/{d}/" for d in dirs]
         + [f"{SITE_URL}/faucet-errors/{d}/" for d in error_dirs]
         + [f"{SITE_URL}/networks/{d}/" for d in network_dirs]
+        + [f"{SITE_URL}/{d}/" for d in collection_dirs]
     )
     entries = "".join(
         f"<url><loc>{e(u)}</loc><lastmod>{e(today)}</lastmod>"
@@ -1484,13 +1754,16 @@ def main():
     error_dirs = build_error_pages(faucets, status_by_id, generated_at)
     network_dirs = build_network_pages(faucets, status_by_id, generated_at)
     build_api_page(faucets, generated_at)
+    collection_dirs = build_collection_pages(faucets, status_by_id, generated_at)
     removed = clean_stale(dirs + alias_dirs, error_dirs, network_dirs)
-    n = build_sitemap(dirs, error_dirs, network_dirs, generated_at)
+    build_llms_txt(faucets, status_by_id, generated_at, collection_dirs)
+    n = build_sitemap(dirs, error_dirs, network_dirs, collection_dirs, generated_at)
 
     print(f"Homepage rendered with {len(faucets)} faucets")
     print(f"Currency pages: {len(dirs)}  (+{len(alias_dirs)} canonical stubs)")
     print(f"Error pages:    {len(error_dirs)}")
     print(f"Network pages:  {len(network_dirs)}")
+    print(f"Collections:    {len(collection_dirs)}")
     print(f"Sitemap URLs:   {n}")
     if removed:
         print(f"Removed stale:  {', '.join(removed)}")

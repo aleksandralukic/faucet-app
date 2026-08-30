@@ -96,4 +96,6 @@
 <url><loc>https://testnetfaucets.dev/networks/vfy-testnet/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq></url>
 <url><loc>https://testnetfaucets.dev/networks/xrp-testnet/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq></url>
 <url><loc>https://testnetfaucets.dev/networks/zilliqa-testnet/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq></url>
+<url><loc>https://testnetfaucets.dev/testnet-faucets-no-login/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq></url>
+<url><loc>https://testnetfaucets.dev/testnet-faucets-verified-onchain/</loc><lastmod>2026-08-30</lastmod><changefreq>daily</changefreq></url>
 </urlset>
