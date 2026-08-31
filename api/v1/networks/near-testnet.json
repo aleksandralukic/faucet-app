@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-30T18:56:01+00:00",
-  "next_update_expected_at": "2026-08-31T18:56:01+00:00",
+  "generated_at": "2026-08-31T13:44:41+00:00",
+  "next_update_expected_at": "2026-09-01T13:44:41+00:00",
   "network": {
     "id": "near-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-30T18:56:01+00:00",
+      "checked_at": "2026-08-31T13:44:41+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,7 +35,7 @@
       "currency": "NEAR",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-30T18:56:01+00:00",
+      "checked_at": "2026-08-31T13:44:41+00:00",
       "amount": "2 NEAR",
       "cooldown": null,
       "friction": [],
@@ -44,10 +44,10 @@
       "notes": "Paste your testnet account/address and request — 2 NEAR per claim, no login or captcha. Community faucet (near-faucet.io).",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "36938.166598",
+        "wallet_balance": "36920.168449",
         "wallet_balance_unit": "NEAR",
         "payouts_sent": null,
-        "last_dispensed_at": "2026-08-30T16:32:01+00:00"
+        "last_dispensed_at": "2026-08-31T11:20:41+00:00"
       }
     }
   ]

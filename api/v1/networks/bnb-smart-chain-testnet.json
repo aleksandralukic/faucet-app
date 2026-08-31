@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-30T18:56:01+00:00",
-  "next_update_expected_at": "2026-08-31T18:56:01+00:00",
+  "generated_at": "2026-08-31T13:44:41+00:00",
+  "next_update_expected_at": "2026-09-01T13:44:41+00:00",
   "network": {
     "id": "bnb-smart-chain-testnet",
     "chain_id": 97,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-30T18:56:01+00:00",
+      "checked_at": "2026-08-31T13:44:41+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 128154823,
+      "latest_block": 128305317,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -35,7 +35,7 @@
       "currency": "BNB",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-08-30T18:56:01+00:00",
+      "checked_at": "2026-08-31T13:44:41+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
