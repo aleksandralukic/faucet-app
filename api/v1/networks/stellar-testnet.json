@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-31T13:44:41+00:00",
-  "next_update_expected_at": "2026-09-01T13:44:41+00:00",
+  "generated_at": "2026-09-01T11:36:40+00:00",
+  "next_update_expected_at": "2026-09-02T11:36:40+00:00",
   "network": {
     "id": "stellar-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-08-31T13:44:41+00:00",
+      "checked_at": "2026-09-01T11:36:40+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,7 +35,7 @@
       "currency": "XLM",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-08-31T13:44:41+00:00",
+      "checked_at": "2026-09-01T11:36:40+00:00",
       "amount": "10,000 XLM",
       "cooldown": null,
       "friction": [],
@@ -51,10 +51,10 @@
       "notes": "This is an API, not a web page — opening the bare URL shows a 'Bad Request' JSON response, which is normal. To fund an account, append ?addr=<your-address> to the URL. Alternatives: Freighter wallet built-in faucet, Stellar Lab account funder, Demo Wallet (10,000 XLM).",
       "evidence": {
         "http_status": 400,
-        "wallet_balance": "15653154086.104502",
+        "wallet_balance": "15532484086.104502",
         "wallet_balance_unit": "XLM",
         "payouts_sent": null,
-        "last_dispensed_at": "2026-08-31T13:44:41+00:00"
+        "last_dispensed_at": "2026-09-01T11:36:40+00:00"
       }
     }
   ]
