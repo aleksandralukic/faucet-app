@@ -2,7 +2,7 @@
 
 > Health checks for 51 public blockchain testnet faucets across 43 networks, re-run every day. For 10 of them we read the dispensing wallet on-chain, so the status reflects whether the faucet is actually funded rather than whether its website loads.
 
-Last checked: 01 September 2026. All data is public domain (CC0).
+Last checked: 02 September 2026. All data is public domain (CC0).
 
 ## Data
 
