@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-03T11:11:06+00:00",
-  "next_update_expected_at": "2026-09-04T11:11:06+00:00",
+  "generated_at": "2026-09-04T11:15:28+00:00",
+  "next_update_expected_at": "2026-09-05T11:15:28+00:00",
   "network": {
     "id": "flow-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-09-03T11:11:06+00:00",
+      "checked_at": "2026-09-04T11:15:28+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,7 +35,7 @@
       "currency": "FLOW",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-09-03T11:11:06+00:00",
+      "checked_at": "2026-09-04T11:15:28+00:00",
       "amount": "1000 FLOW",
       "cooldown": null,
       "friction": [
