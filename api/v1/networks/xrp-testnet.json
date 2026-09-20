@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-19T10:55:31+00:00",
-  "next_update_expected_at": "2026-09-20T10:55:31+00:00",
+  "generated_at": "2026-09-20T11:19:52+00:00",
+  "next_update_expected_at": "2026-09-21T11:19:52+00:00",
   "network": {
     "id": "xrp-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-09-19T10:55:31+00:00",
+      "checked_at": "2026-09-20T11:19:52+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -36,7 +36,7 @@
       "currency": "XRP",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-09-19T10:55:31+00:00",
+      "checked_at": "2026-09-20T11:19:52+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [],
@@ -57,9 +57,9 @@
       "name": "Bithomp Faucet",
       "url": "https://test.bithomp.com/faucet",
       "currency": "XRP/SOLO",
-      "status": "working",
+      "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-09-19T10:55:31+00:00",
+      "checked_at": "2026-09-20T11:19:52+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -69,7 +69,7 @@
       "claim_api": null,
       "notes": null,
       "evidence": {
-        "http_status": 200,
+        "http_status": 403,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
