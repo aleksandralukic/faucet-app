@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-07T13:18:40+00:00",
+  "generatedAt": "2026-10-08T13:25:07+00:00",
   "totalFaucets": 51,
   "summary": {
-    "up": 39,
+    "up": 38,
     "down": 5,
-    "degraded": 6,
+    "degraded": 7,
     "manual": 1
   },
   "tiers": {
@@ -15,7 +15,7 @@
   "results": [
     {
       "id": "aave-staging",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-29T13:03:38+00:00",
       "url": "https://app.aave.com/faucet/",
       "history": [
@@ -52,7 +52,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 403,
-      "responseMs": 157,
+      "responseMs": 268,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -63,7 +63,7 @@
     },
     {
       "id": "polypore-atom",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://faucet-2.polypore.xyz/",
       "history": [
@@ -100,7 +100,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 100,
+      "responseMs": 219,
       "error": "Domain does not resolve (DNS failure)",
       "signals": [],
       "redirectedTo": null,
@@ -114,7 +114,7 @@
     },
     {
       "id": "cardano-preprod",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://docs.cardano.org/cardano-testnet/tools/faucet/",
       "history": [
@@ -151,7 +151,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 253,
+      "responseMs": 669,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -164,7 +164,7 @@
     },
     {
       "id": "bnb-smart-chain",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://www.bnbchain.org/en/testnet-faucet",
       "history": [
@@ -201,7 +201,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 951,
+      "responseMs": 1272,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -212,11 +212,10 @@
     },
     {
       "id": "googol-bch",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-09-24T11:42:08+00:00",
       "url": "https://tbch.googol.cash/",
       "history": [
-        "up",
         "up",
         "up",
         "up",
@@ -245,11 +244,12 @@
         "up",
         "up",
         "up",
+        "up",
         "up"
       ],
       "uptimePct": 97,
       "httpStatus": 200,
-      "responseMs": 538,
+      "responseMs": 863,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -260,7 +260,7 @@
     },
     {
       "id": "mainnetcash-bch",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-28T13:01:24+00:00",
       "url": "https://rest-unstable.mainnet.cash/faucet.html",
       "history": [
@@ -297,7 +297,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 1536,
+      "responseMs": 851,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -310,11 +310,10 @@
     },
     {
       "id": "bitcoinfaucet-uo1",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-10-07T13:18:40+00:00",
       "url": "https://bitcoinfaucet.uo1.net/",
       "history": [
-        "up",
         "degraded",
         "up",
         "up",
@@ -343,11 +342,12 @@
         "degraded",
         "degraded",
         "degraded",
+        "up",
         "up"
       ],
       "uptimePct": 30,
       "httpStatus": 200,
-      "responseMs": 551,
+      "responseMs": 559,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -358,13 +358,12 @@
     },
     {
       "id": "coinfaucet-btc",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-10-07T13:18:40+00:00",
       "url": "https://coinfaucet.eu/en/btc-testnet/",
       "history": [
         "up",
         "up",
-        "up",
         "degraded",
         "degraded",
         "degraded",
@@ -391,16 +390,17 @@
         "degraded",
         "degraded",
         "up",
+        "degraded",
         "degraded"
       ],
-      "uptimePct": 37,
+      "uptimePct": 33,
       "httpStatus": 200,
-      "responseMs": 1069,
+      "responseMs": 739,
       "error": null,
       "signals": [],
       "redirectedTo": null,
       "status": "degraded",
-      "reason": "On-chain looks dry: holds 0 tBTC \u00b7 9,711 transactions \u00b7 last dispensed -0d ago",
+      "reason": "On-chain looks dry: holds 0 tBTC \u00b7 9,711 transactions \u00b7 last dispensed 1d ago",
       "failureKind": null,
       "onchain": {
         "ok": false,
@@ -410,14 +410,14 @@
         "balanceStr": "0 tBTC",
         "payoutsSent": 9711,
         "countLabel": "transactions",
-        "lastDispenseDays": -0.0,
-        "evidence": "holds 0 tBTC \u00b7 9,711 transactions \u00b7 last dispensed -0d ago"
+        "lastDispenseDays": 1.0,
+        "evidence": "holds 0 tBTC \u00b7 9,711 transactions \u00b7 last dispensed 1d ago"
       },
       "verificationTier": "onchain"
     },
     {
       "id": "devwork-btc",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-08-19T07:04:13+00:00",
       "url": "https://testnet-faucet.devwork.tech/",
       "history": [
@@ -454,7 +454,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 769,
+      "responseMs": 743,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -465,7 +465,7 @@
     },
     {
       "id": "agoric-devnet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://devnet.faucet.agoric.net/",
       "history": [
@@ -502,7 +502,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 1551,
+      "responseMs": 1028,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -513,7 +513,7 @@
     },
     {
       "id": "westend-matrix",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-08-30T18:09:25+00:00",
       "url": "https://faucet.polkadot.io/westend",
       "history": [
@@ -550,7 +550,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 248,
+      "responseMs": 199,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -563,7 +563,7 @@
     },
     {
       "id": "sepolia-faucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://cloud.google.com/application/web3/faucet/ethereum/sepolia",
       "history": [
@@ -600,7 +600,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 120,
+      "responseMs": 325,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -611,7 +611,7 @@
     },
     {
       "id": "pk910-sepolia",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-28T11:56:11+00:00",
       "url": "https://sepolia-faucet.pk910.de/",
       "history": [
@@ -648,23 +648,23 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 1031,
+      "responseMs": 930,
       "error": null,
       "signals": [],
       "redirectedTo": null,
       "status": "up",
-      "reason": "On-chain: holds 12,102 ETH \u00b7 5,603,743 payouts sent \u00b7 last dispensed 0d ago",
+      "reason": "On-chain: holds 10,530 ETH \u00b7 5,605,171 payouts sent \u00b7 last dispensed 0d ago",
       "failureKind": null,
       "onchain": {
         "ok": true,
         "chain": "sepolia",
         "symbol": "ETH",
-        "balance": 12102.347833,
-        "balanceStr": "12,102 ETH",
-        "payoutsSent": 5603743,
+        "balance": 10530.104623,
+        "balanceStr": "10,530 ETH",
+        "payoutsSent": 5605171,
         "countLabel": "payouts sent",
         "lastDispenseDays": 0.0,
-        "evidence": "holds 12,102 ETH \u00b7 5,603,743 payouts sent \u00b7 last dispensed 0d ago"
+        "evidence": "holds 10,530 ETH \u00b7 5,605,171 payouts sent \u00b7 last dispensed 0d ago"
       },
       "failureLabel": null,
       "failureAdvice": null,
@@ -673,7 +673,7 @@
     },
     {
       "id": "solfaucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://solfaucet.com/",
       "history": [
@@ -710,7 +710,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 617,
+      "responseMs": 755,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -721,7 +721,7 @@
     },
     {
       "id": "xrpl-tx-sender",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://xrpl.org/resources/dev-tools/tx-sender",
       "history": [
@@ -758,7 +758,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 355,
+      "responseMs": 352,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -769,7 +769,7 @@
     },
     {
       "id": "algoexplorer-dispenser",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-29T13:20:22+00:00",
       "url": "https://lora.algokit.io/testnet/fund",
       "history": [
@@ -806,25 +806,25 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 448,
+      "responseMs": 202,
       "error": null,
       "signals": [
         "js-rendered-shell"
       ],
       "redirectedTo": null,
       "status": "up",
-      "reason": "On-chain: holds 8,292 ALGO \u00b7 last dispensed 0d ago",
+      "reason": "On-chain: holds 8,070 ALGO \u00b7 last dispensed 0d ago",
       "failureKind": null,
       "onchain": {
         "ok": true,
         "chain": "algorand-testnet",
         "symbol": "ALGO",
-        "balance": 8292.038826,
-        "balanceStr": "8,292 ALGO",
+        "balance": 8070.288826,
+        "balanceStr": "8,070 ALGO",
         "payoutsSent": null,
         "countLabel": "transactions",
         "lastDispenseDays": 0.0,
-        "evidence": "holds 8,292 ALGO \u00b7 last dispensed 0d ago"
+        "evidence": "holds 8,070 ALGO \u00b7 last dispensed 0d ago"
       },
       "failureLabel": null,
       "failureAdvice": null,
@@ -833,7 +833,7 @@
     },
     {
       "id": "shibe-technology",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://shibe.technology/",
       "history": [
@@ -870,7 +870,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 240,
+      "responseMs": 187,
       "error": "Domain does not resolve (DNS failure)",
       "signals": [],
       "redirectedTo": null,
@@ -884,7 +884,7 @@
     },
     {
       "id": "stellar-friendbot",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://friendbot.stellar.org/",
       "history": [
@@ -921,23 +921,23 @@
       ],
       "uptimePct": 100,
       "httpStatus": 400,
-      "responseMs": 276,
+      "responseMs": 487,
       "error": null,
       "signals": [],
       "redirectedTo": null,
       "status": "up",
-      "reason": "On-chain: holds 9.6B XLM \u00b7 last dispensed 0d ago",
+      "reason": "On-chain: holds 9.3B XLM \u00b7 last dispensed 0d ago",
       "failureKind": null,
       "onchain": {
         "ok": true,
         "chain": "stellar-testnet",
         "symbol": "XLM",
-        "balance": 9644992170.823744,
-        "balanceStr": "9.6B XLM",
+        "balance": 9293352171.823744,
+        "balanceStr": "9.3B XLM",
         "payoutsSent": null,
         "countLabel": "transactions",
         "lastDispenseDays": 0.0,
-        "evidence": "holds 9.6B XLM \u00b7 last dispensed 0d ago"
+        "evidence": "holds 9.3B XLM \u00b7 last dispensed 0d ago"
       },
       "failureLabel": null,
       "failureAdvice": null,
@@ -946,7 +946,7 @@
     },
     {
       "id": "circle-faucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://faucet.circle.com/",
       "history": [
@@ -983,7 +983,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 370,
+      "responseMs": 252,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -994,7 +994,7 @@
     },
     {
       "id": "covalent-avax",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://core.app/tools/testnet-faucet?subnet=c&token=c",
       "history": [
@@ -1031,23 +1031,23 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 626,
+      "responseMs": 755,
       "error": null,
       "signals": [],
       "redirectedTo": null,
       "status": "up",
-      "reason": "On-chain: holds 633.48 AVAX \u00b7 2,694,922 payouts sent",
+      "reason": "On-chain: holds 599.48 AVAX \u00b7 2,694,940 payouts sent",
       "failureKind": null,
       "onchain": {
         "ok": true,
         "chain": "fuji",
         "symbol": "AVAX",
-        "balance": 633.479801,
-        "balanceStr": "633.48 AVAX",
-        "payoutsSent": 2694922,
+        "balance": 599.475731,
+        "balanceStr": "599.48 AVAX",
+        "payoutsSent": 2694940,
         "countLabel": "payouts sent",
         "lastDispenseDays": null,
-        "evidence": "holds 633.48 AVAX \u00b7 2,694,922 payouts sent"
+        "evidence": "holds 599.48 AVAX \u00b7 2,694,940 payouts sent"
       },
       "failureLabel": null,
       "failureAdvice": null,
@@ -1056,7 +1056,7 @@
     },
     {
       "id": "flow-testnet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://faucet.flow.com/fund-account",
       "history": [
@@ -1093,7 +1093,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 103,
+      "responseMs": 177,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1104,7 +1104,7 @@
     },
     {
       "id": "flare-faucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://faucet.flare.network/",
       "history": [
@@ -1141,23 +1141,23 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 267,
+      "responseMs": 371,
       "error": null,
       "signals": [],
       "redirectedTo": null,
       "status": "up",
-      "reason": "On-chain: holds 28,135,588 C2FLR \u00b7 166,791 payouts sent \u00b7 last dispensed 0.1d ago",
+      "reason": "On-chain: holds 28,133,987 C2FLR \u00b7 166,831 payouts sent \u00b7 last dispensed 0d ago",
       "failureKind": null,
       "onchain": {
         "ok": true,
         "chain": "flare-coston2",
         "symbol": "C2FLR",
-        "balance": 28135588.475133,
-        "balanceStr": "28,135,588 C2FLR",
-        "payoutsSent": 166791,
+        "balance": 28133986.861544,
+        "balanceStr": "28,133,987 C2FLR",
+        "payoutsSent": 166831,
         "countLabel": "payouts sent",
-        "lastDispenseDays": 0.1,
-        "evidence": "holds 28,135,588 C2FLR \u00b7 166,791 payouts sent \u00b7 last dispensed 0.1d ago"
+        "lastDispenseDays": 0.0,
+        "evidence": "holds 28,133,987 C2FLR \u00b7 166,831 payouts sent \u00b7 last dispensed 0d ago"
       },
       "failureLabel": null,
       "failureAdvice": null,
@@ -1166,7 +1166,7 @@
     },
     {
       "id": "polygon-faucet-matic",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://faucet.polygon.technology/",
       "history": [
@@ -1203,7 +1203,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": 403,
-      "responseMs": 42,
+      "responseMs": 141,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1217,7 +1217,7 @@
     },
     {
       "id": "fantom-faucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://faucet.fantom.network/",
       "history": [
@@ -1254,7 +1254,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 43,
+      "responseMs": 51,
       "error": "Domain does not resolve (DNS failure)",
       "signals": [],
       "redirectedTo": null,
@@ -1268,7 +1268,7 @@
     },
     {
       "id": "sonic-testnet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-29T14:07:59+00:00",
       "url": "https://testnet.soniclabs.com/account",
       "history": [
@@ -1305,7 +1305,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 338,
+      "responseMs": 211,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -1318,7 +1318,7 @@
     },
     {
       "id": "bithomp-faucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-09-20T11:19:52+00:00",
       "url": "https://test.bithomp.com/faucet",
       "history": [
@@ -1333,7 +1333,7 @@
         "up",
         "up",
         "up",
-        "up",
+        "degraded",
         "degraded",
         "degraded",
         "degraded",
@@ -1353,9 +1353,9 @@
         "degraded",
         "degraded"
       ],
-      "uptimePct": 40,
+      "uptimePct": 37,
       "httpStatus": 403,
-      "responseMs": 142,
+      "responseMs": 148,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1369,7 +1369,7 @@
     },
     {
       "id": "core-testnet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://scan.test2.btcs.network/faucet",
       "history": [
@@ -1406,7 +1406,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 277,
+      "responseMs": 282,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -1433,7 +1433,7 @@
     },
     {
       "id": "sui-faucet-docs",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-29T13:20:22+00:00",
       "url": "https://faucet.sui.io/",
       "history": [
@@ -1470,7 +1470,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 317,
+      "responseMs": 276,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1481,8 +1481,8 @@
     },
     {
       "id": "hedera-portal",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
-      "statusSince": "2026-07-20T16:36:23+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
+      "statusSince": "2026-10-08T13:25:07+00:00",
       "url": "https://portal.hedera.com/",
       "history": [
         "up",
@@ -1514,24 +1514,25 @@
         "up",
         "up",
         "up",
-        "up"
+        "degraded"
       ],
-      "uptimePct": 100,
-      "httpStatus": 200,
-      "responseMs": 195,
+      "uptimePct": 97,
+      "httpStatus": 403,
+      "responseMs": 157,
       "error": null,
-      "signals": [
-        "js-rendered-shell"
-      ],
+      "signals": [],
       "redirectedTo": null,
-      "status": "up",
-      "reason": "HTTP 200 (JS-rendered shell, content not verifiable)",
-      "failureKind": null,
+      "status": "degraded",
+      "reason": "HTTP 403 \u2014 likely bot protection, verify by hand",
+      "failureKind": "http_403",
+      "failureLabel": "Blocked (403)",
+      "failureAdvice": "The server refused an automated request. This usually means bot protection, and the faucet often works fine in a real browser.",
+      "failurePermanent": false,
       "verificationTier": "http"
     },
     {
       "id": "dash-crowdnode",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "http://faucet.test.dash.crowdnode.io/",
       "history": [
@@ -1568,7 +1569,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 52185,
+      "responseMs": 52102,
       "error": "Timed out after 25s",
       "signals": [],
       "redirectedTo": null,
@@ -1582,7 +1583,7 @@
     },
     {
       "id": "hiro-stacks-api",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://explorer.hiro.so/sandbox/faucet?chain=testnet",
       "history": [
@@ -1619,7 +1620,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 465,
+      "responseMs": 590,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1630,7 +1631,7 @@
     },
     {
       "id": "faucy-vfy",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-08-30T18:09:25+00:00",
       "url": "https://faucy.app/",
       "history": [
@@ -1667,7 +1668,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 1323,
+      "responseMs": 1020,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1678,7 +1679,7 @@
     },
     {
       "id": "polygon-faucet-pol",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://faucet.polygon.technology/",
       "history": [
@@ -1715,7 +1716,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": 403,
-      "responseMs": 42,
+      "responseMs": 141,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1729,7 +1730,7 @@
     },
     {
       "id": "aptos-testnet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://aptos.dev/network/faucet",
       "history": [
@@ -1766,7 +1767,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 315,
+      "responseMs": 331,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -1777,7 +1778,7 @@
     },
     {
       "id": "multiversx-devnet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://devnet-wallet.multiversx.com/",
       "history": [
@@ -1814,7 +1815,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 713,
+      "responseMs": 608,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -1827,7 +1828,7 @@
     },
     {
       "id": "beryx-filecoin",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-08-22T06:58:09+00:00",
       "url": "https://beryx.zondax.ch/faucet",
       "history": [
@@ -1864,12 +1865,12 @@
       ],
       "uptimePct": 100,
       "httpStatus": 429,
-      "responseMs": 328,
+      "responseMs": 375,
       "error": null,
       "signals": [],
       "redirectedTo": null,
       "status": "up",
-      "reason": "On-chain: holds 106,226 tFIL \u00b7 45,946 on-chain messages \u00b7 last dispensed 1d ago",
+      "reason": "On-chain: holds 106,226 tFIL \u00b7 45,946 on-chain messages \u00b7 last dispensed 2d ago",
       "failureKind": null,
       "failureLabel": null,
       "failureAdvice": null,
@@ -1882,14 +1883,14 @@
         "balanceStr": "106,226 tFIL",
         "payoutsSent": 45946,
         "countLabel": "on-chain messages",
-        "lastDispenseDays": 1.0,
-        "evidence": "holds 106,226 tFIL \u00b7 45,946 on-chain messages \u00b7 last dispensed 1d ago"
+        "lastDispenseDays": 2.0,
+        "evidence": "holds 106,226 tFIL \u00b7 45,946 on-chain messages \u00b7 last dispensed 2d ago"
       },
       "verificationTier": "onchain"
     },
     {
       "id": "near-faucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-29T13:20:22+00:00",
       "url": "https://near-faucet.io/",
       "history": [
@@ -1926,25 +1927,25 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 624,
+      "responseMs": 7155,
       "error": null,
       "signals": [
         "js-rendered-shell"
       ],
       "redirectedTo": null,
       "status": "up",
-      "reason": "On-chain: holds 32,535 NEAR \u00b7 last dispensed 10.4d ago",
+      "reason": "On-chain: holds 32,461 NEAR \u00b7 last dispensed 11.4d ago",
       "failureKind": null,
       "onchain": {
         "ok": true,
         "chain": "near-testnet",
         "symbol": "NEAR",
-        "balance": 32535.339412,
-        "balanceStr": "32,535 NEAR",
+        "balance": 32461.339412,
+        "balanceStr": "32,461 NEAR",
         "payoutsSent": null,
         "countLabel": "transactions",
-        "lastDispenseDays": 10.4,
-        "evidence": "holds 32,535 NEAR \u00b7 last dispensed 10.4d ago"
+        "lastDispenseDays": 11.4,
+        "evidence": "holds 32,461 NEAR \u00b7 last dispensed 11.4d ago"
       },
       "failureLabel": null,
       "failureAdvice": null,
@@ -1953,7 +1954,7 @@
     },
     {
       "id": "zilliqa-faucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-20T16:36:23+00:00",
       "url": "https://dev-wallet.zilliqa.com/faucet",
       "history": [
@@ -1990,7 +1991,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": null,
-      "responseMs": 46,
+      "responseMs": 64,
       "error": "Domain does not resolve (DNS failure)",
       "signals": [],
       "redirectedTo": null,
@@ -2004,7 +2005,7 @@
     },
     {
       "id": "sei-atlantic",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-21T11:59:25+00:00",
       "url": "https://atlantic-2.app.sei.io/faucet/",
       "history": [
@@ -2041,12 +2042,12 @@
       ],
       "uptimePct": 100,
       "httpStatus": null,
-      "responseMs": 195,
+      "responseMs": 56,
       "error": "Domain does not resolve (DNS failure)",
       "signals": [],
       "redirectedTo": null,
       "status": "up",
-      "reason": "On-chain: holds 874,083 SEI \u00b7 1,720,755 payouts sent",
+      "reason": "On-chain: holds 872,218 SEI \u00b7 1,723,486 payouts sent",
       "failureKind": null,
       "failureLabel": null,
       "failureAdvice": null,
@@ -2055,18 +2056,18 @@
         "ok": true,
         "chain": "sei-atlantic",
         "symbol": "SEI",
-        "balance": 874082.585157,
-        "balanceStr": "874,083 SEI",
-        "payoutsSent": 1720755,
+        "balance": 872217.874872,
+        "balanceStr": "872,218 SEI",
+        "payoutsSent": 1723486,
         "countLabel": "payouts sent",
         "lastDispenseDays": null,
-        "evidence": "holds 874,083 SEI \u00b7 1,720,755 payouts sent"
+        "evidence": "holds 872,218 SEI \u00b7 1,723,486 payouts sent"
       },
       "verificationTier": "onchain"
     },
     {
       "id": "provenance-explorer",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-21T11:59:25+00:00",
       "url": "https://developer.provenance.io/",
       "history": [
@@ -2114,7 +2115,7 @@
     },
     {
       "id": "kaia-kairos",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-27T14:07:08+00:00",
       "url": "https://www.kaia.io/faucet",
       "history": [
@@ -2151,7 +2152,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 284,
+      "responseMs": 609,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -2162,7 +2163,7 @@
     },
     {
       "id": "cypherfaucet-ltc",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-10-03T11:37:06+00:00",
       "url": "https://cypherfaucet.com/ltc-testnet",
       "history": [
@@ -2170,7 +2171,6 @@
         "up",
         "up",
         "up",
-        "up",
         "down",
         "down",
         "down",
@@ -2191,6 +2191,7 @@
         "up",
         "up",
         "down",
+        "up",
         "up",
         "up",
         "up",
@@ -2199,7 +2200,7 @@
       ],
       "uptimePct": 60,
       "httpStatus": 200,
-      "responseMs": 1408,
+      "responseMs": 851,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -2210,7 +2211,7 @@
     },
     {
       "id": "base-sepolia-cdp",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-29T12:37:19+00:00",
       "url": "https://portal.cdp.coinbase.com/products/faucet",
       "history": [
@@ -2247,7 +2248,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 334,
+      "responseMs": 336,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -2260,7 +2261,7 @@
     },
     {
       "id": "arbitrum-sepolia-l2faucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-08-30T18:09:25+00:00",
       "url": "https://www.l2faucet.com/arbitrum",
       "history": [
@@ -2297,7 +2298,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": 200,
-      "responseMs": 161,
+      "responseMs": 327,
       "error": null,
       "signals": [
         "under maintenance"
@@ -2313,7 +2314,7 @@
     },
     {
       "id": "optimism-sepolia-superchain",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-29T12:37:19+00:00",
       "url": "https://console.optimism.io/faucet",
       "history": [
@@ -2350,7 +2351,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 194,
+      "responseMs": 339,
       "error": null,
       "signals": [
         "js-rendered-shell"
@@ -2363,7 +2364,7 @@
     },
     {
       "id": "scroll-sepolia-l2faucet",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-08-30T18:09:25+00:00",
       "url": "https://www.l2faucet.com/scroll",
       "history": [
@@ -2400,7 +2401,7 @@
       ],
       "uptimePct": 0,
       "httpStatus": 200,
-      "responseMs": 138,
+      "responseMs": 240,
       "error": null,
       "signals": [
         "under maintenance"
@@ -2416,7 +2417,7 @@
     },
     {
       "id": "linea-sepolia",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-29T12:40:01+00:00",
       "url": "https://thirdweb.com/linea-sepolia",
       "history": [
@@ -2453,7 +2454,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 219,
+      "responseMs": 381,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -2464,7 +2465,7 @@
     },
     {
       "id": "celo-alfajores",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-07-29T12:37:19+00:00",
       "url": "https://faucet.celo.org/",
       "history": [
@@ -2501,7 +2502,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 782,
+      "responseMs": 854,
       "error": null,
       "signals": [],
       "redirectedTo": "https://faucet.celo.org/celo-sepolia",
@@ -2512,7 +2513,7 @@
     },
     {
       "id": "hyperliquid-drip",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-08-30T18:04:31+00:00",
       "url": "https://app.hyperliquid-testnet.xyz/drip",
       "history": [
@@ -2549,7 +2550,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 264,
+      "responseMs": 200,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -2560,7 +2561,7 @@
     },
     {
       "id": "chainstack-hyperevm",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-08-30T18:04:31+00:00",
       "url": "https://faucet.chainstack.com/hyperliquid-testnet-faucet",
       "history": [
@@ -2597,7 +2598,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 979,
+      "responseMs": 1242,
       "error": null,
       "signals": [],
       "redirectedTo": null,
@@ -2608,7 +2609,7 @@
     },
     {
       "id": "thirdweb-hyperevm",
-      "checkedAt": "2026-10-07T13:18:40+00:00",
+      "checkedAt": "2026-10-08T13:25:07+00:00",
       "statusSince": "2026-08-30T18:04:31+00:00",
       "url": "https://thirdweb.com/HyperEVM-testnet",
       "history": [
@@ -2645,7 +2646,7 @@
       ],
       "uptimePct": 100,
       "httpStatus": 200,
-      "responseMs": 269,
+      "responseMs": 295,
       "error": null,
       "signals": [],
       "redirectedTo": null,

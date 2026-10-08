@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-07T13:18:40+00:00",
-  "next_update_expected_at": "2026-10-08T13:18:40+00:00",
+  "generated_at": "2026-10-08T13:25:07+00:00",
+  "next_update_expected_at": "2026-10-09T13:25:07+00:00",
   "network": {
     "id": "hedera-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-10-07T13:18:40+00:00",
+      "checked_at": "2026-10-08T13:25:07+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -33,9 +33,9 @@
       "name": "Hedera Portal",
       "url": "https://portal.hedera.com/",
       "currency": "HBAR",
-      "status": "working",
+      "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-10-07T13:18:40+00:00",
+      "checked_at": "2026-10-08T13:25:07+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -45,7 +45,7 @@
       "claim_api": null,
       "notes": "Requires Hedera Portal account.",
       "evidence": {
-        "http_status": 200,
+        "http_status": 403,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
