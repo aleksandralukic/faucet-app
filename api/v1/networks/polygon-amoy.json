@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-16T11:19:02+00:00",
-  "next_update_expected_at": "2026-10-17T11:19:02+00:00",
+  "generated_at": "2026-10-17T10:39:28+00:00",
+  "next_update_expected_at": "2026-10-18T10:39:28+00:00",
   "network": {
     "id": "polygon-amoy",
     "chain_id": 80002,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-10-16T11:19:02+00:00",
+      "checked_at": "2026-10-17T10:39:28+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 50327003,
+      "latest_block": 50411023,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -36,7 +36,7 @@
       "currency": "MATIC",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-10-16T11:19:02+00:00",
+      "checked_at": "2026-10-17T10:39:28+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -62,7 +62,7 @@
       "currency": "POL",
       "status": "degraded",
       "verification": "http",
-      "checked_at": "2026-10-16T11:19:02+00:00",
+      "checked_at": "2026-10-17T10:39:28+00:00",
       "amount": "0.01 POL",
       "cooldown": null,
       "friction": [
