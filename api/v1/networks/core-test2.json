@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-23T11:34:33+00:00",
-  "next_update_expected_at": "2026-10-24T11:34:33+00:00",
+  "generated_at": "2026-10-24T10:55:04+00:00",
+  "next_update_expected_at": "2026-10-25T10:55:04+00:00",
   "network": {
     "id": "core-test2",
     "chain_id": 1114,
@@ -16,10 +16,10 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-10-23T11:34:33+00:00",
+      "checked_at": "2026-10-24T10:55:04+00:00",
       "rpc_responding": true,
       "chain_advancing": true,
-      "latest_block": 19838866,
+      "latest_block": 19866877,
       "block_age_seconds": 0
     },
     "faucet_ids": [
@@ -35,7 +35,7 @@
       "currency": "CORE",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-10-23T11:34:33+00:00",
+      "checked_at": "2026-10-24T10:55:04+00:00",
       "amount": null,
       "cooldown": "24h",
       "friction": [
