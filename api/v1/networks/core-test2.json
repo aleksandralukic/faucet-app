@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-05T14:35:13+00:00",
-  "next_update_expected_at": "2026-11-06T14:35:13+00:00",
+  "generated_at": "2026-11-06T14:13:18+00:00",
+  "next_update_expected_at": "2026-11-07T14:13:18+00:00",
   "network": {
     "id": "core-test2",
     "chain_id": 1114,
@@ -16,11 +16,11 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-11-05T14:35:13+00:00",
-      "rpc_responding": true,
-      "chain_advancing": true,
-      "latest_block": 20216614,
-      "block_age_seconds": 0
+      "checked_at": "2026-11-06T14:13:18+00:00",
+      "rpc_responding": null,
+      "chain_advancing": null,
+      "latest_block": null,
+      "block_age_seconds": null
     },
     "faucet_ids": [
       "core-testnet"
@@ -33,9 +33,9 @@
       "name": "Core Testnet Faucet",
       "url": "https://scan.test2.btcs.network/faucet",
       "currency": "CORE",
-      "status": "working",
-      "verification": "onchain",
-      "checked_at": "2026-11-05T14:35:13+00:00",
+      "status": "down",
+      "verification": "http",
+      "checked_at": "2026-11-06T14:13:18+00:00",
       "amount": null,
       "cooldown": "24h",
       "friction": [
@@ -45,10 +45,10 @@
       "claim_api": null,
       "notes": "Mainnet swap CORE<->USDT-CORE at https://app.corex.network/",
       "evidence": {
-        "http_status": 200,
-        "wallet_balance": "991646.737602",
-        "wallet_balance_unit": "tCORE2",
-        "payouts_sent": 8353,
+        "http_status": 521,
+        "wallet_balance": null,
+        "wallet_balance_unit": null,
+        "payouts_sent": null,
         "last_dispensed_at": null
       }
     }
