@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-06T14:13:18+00:00",
-  "next_update_expected_at": "2026-11-07T14:13:18+00:00",
+  "generated_at": "2026-11-07T12:56:20+00:00",
+  "next_update_expected_at": "2026-11-08T12:56:20+00:00",
   "network": {
     "id": "core-test2",
     "chain_id": 1114,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-11-06T14:13:18+00:00",
+      "checked_at": "2026-11-07T12:56:20+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -35,7 +35,7 @@
       "currency": "CORE",
       "status": "down",
       "verification": "http",
-      "checked_at": "2026-11-06T14:13:18+00:00",
+      "checked_at": "2026-11-07T12:56:20+00:00",
       "amount": null,
       "cooldown": "24h",
       "friction": [
@@ -45,7 +45,7 @@
       "claim_api": null,
       "notes": "Mainnet swap CORE<->USDT-CORE at https://app.corex.network/",
       "evidence": {
-        "http_status": 521,
+        "http_status": 522,
         "wallet_balance": null,
         "wallet_balance_unit": null,
         "payouts_sent": null,
