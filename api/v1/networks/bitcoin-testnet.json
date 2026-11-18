@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-17T15:56:41+00:00",
-  "next_update_expected_at": "2026-11-18T15:56:41+00:00",
+  "generated_at": "2026-11-18T15:35:58+00:00",
+  "next_update_expected_at": "2026-11-19T15:35:58+00:00",
   "network": {
     "id": "bitcoin-testnet",
     "chain_id": null,
@@ -16,7 +16,7 @@
       "last_reviewed": "2026-07-29"
     },
     "liveness": {
-      "checked_at": "2026-11-17T15:56:41+00:00",
+      "checked_at": "2026-11-18T15:35:58+00:00",
       "rpc_responding": null,
       "chain_advancing": null,
       "latest_block": null,
@@ -37,7 +37,7 @@
       "currency": "BTC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-11-17T15:56:41+00:00",
+      "checked_at": "2026-11-18T15:35:58+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -62,7 +62,7 @@
       "currency": "BTC",
       "status": "working",
       "verification": "onchain",
-      "checked_at": "2026-11-17T15:56:41+00:00",
+      "checked_at": "2026-11-18T15:35:58+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
@@ -73,10 +73,10 @@
       "notes": "Alternative when bitcoinfaucet.uo1.net fails. Does not work with SegWit.",
       "evidence": {
         "http_status": 200,
-        "wallet_balance": "0.000235",
+        "wallet_balance": "0.001156",
         "wallet_balance_unit": "tBTC",
-        "payouts_sent": 10219,
-        "last_dispensed_at": "2026-11-17T18:20:41+00:00"
+        "payouts_sent": 10231,
+        "last_dispensed_at": "2026-11-18T15:35:58+00:00"
       }
     },
     {
@@ -87,7 +87,7 @@
       "currency": "BTC",
       "status": "working",
       "verification": "http",
-      "checked_at": "2026-11-17T15:56:41+00:00",
+      "checked_at": "2026-11-18T15:35:58+00:00",
       "amount": null,
       "cooldown": null,
       "friction": [
